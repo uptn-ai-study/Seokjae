@@ -1,0 +1,16 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'SUIT Variable', 'SUIT', sans-serif;
+  background-color: #F5F5F5;
+  color: #444444;
+  min-height: 100vh;
+}
+
+#app {
+  min-height: 100vh;
+}
