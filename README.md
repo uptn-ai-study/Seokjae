@@ -1,1 +1,4 @@
 # Seokjae
+| 폴더명 | 서비스 이름 | Vercel URL | 상태 |
+|---|---|---|---|
+| proto-01-lotto | 로또번호생성기 | https://betatesteruptnproto01.vercel.app/ | 진행중 |
