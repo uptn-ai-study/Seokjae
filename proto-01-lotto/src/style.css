@@ -5,9 +5,9 @@
 }
 
 body {
-  font-family: 'SUIT Variable', 'SUIT', sans-serif;
-  background-color: #F5F5F5;
-  color: #444444;
+  font-family: 'SUIT Variable', 'SUIT', -apple-system, sans-serif;
+  background-color: #F5F5F8;
+  color: #111827;
   min-height: 100vh;
 }
 

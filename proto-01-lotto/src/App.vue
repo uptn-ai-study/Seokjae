@@ -1,35 +1,37 @@
 <template>
   <div class="app">
     <header class="header">
-      <h1 class="title-1">🎱 로또 번호 생성기</h1>
-      <p class="sub-1">행운의 번호를 뽑아보세요</p>
+      <h1 class="display">🎱 로또 번호 생성기</h1>
+      <p class="caption-1">행운의 번호를 뽑아보세요</p>
     </header>
 
     <main class="main">
-      <div class="controls">
-        <div class="round-control">
-          <label class="sub-1">생성 게임 수</label>
-          <div class="round-buttons">
-            <button
-              v-for="n in [1, 3, 5]"
-              :key="n"
-              :class="['round-btn', { active: gameCount === n }]"
-              @click="gameCount = n"
-            >
-              {{ n }}게임
-            </button>
-          </div>
+      <!-- 게임 수 선택 -->
+      <div class="card section-card">
+        <p class="body-2 label">생성 게임 수</p>
+        <div class="chip-row">
+          <button
+            v-for="n in [1, 3, 5]"
+            :key="n"
+            :class="['chip', { active: gameCount === n }]"
+            @click="gameCount = n"
+          >
+            {{ n }}게임
+          </button>
         </div>
-        <button class="generate-btn" @click="generate" :disabled="isAnimating">
-          {{ isAnimating ? '추첨 중...' : '번호 생성' }}
-        </button>
       </div>
 
+      <!-- 생성 버튼 -->
+      <button class="btn-primary" @click="generate" :disabled="isAnimating">
+        {{ isAnimating ? '추첨 중...' : '번호 생성하기' }}
+      </button>
+
+      <!-- 결과 -->
       <transition-group name="slide-up" tag="div" class="results">
-        <div v-for="(game, idx) in games" :key="game.id" class="game-card">
+        <div v-for="(game, idx) in games" :key="game.id" class="card game-card">
           <div class="game-header">
-            <span class="game-label sub-1">{{ idx + 1 }}게임</span>
-            <span class="game-sum sub-2">합계: {{ sum(game.numbers) }}</span>
+            <span class="badge-primary">{{ idx + 1 }}게임</span>
+            <span class="caption-1">합계 {{ sum(game.numbers) }}</span>
           </div>
           <div class="balls">
             <div
@@ -43,40 +45,36 @@
         </div>
       </transition-group>
 
-      <div v-if="games.length === 0" class="empty">
-        <p class="sub-1">버튼을 눌러 로또 번호를 생성하세요</p>
+      <!-- 빈 상태 -->
+      <div v-if="games.length === 0" class="empty-state">
+        <div class="empty-icon">🎯</div>
+        <p class="empty-text">번호 생성을 눌러보세요</p>
       </div>
     </main>
 
+    <!-- 기록 섹션 -->
     <section v-if="history.length > 0" class="history-section">
       <div class="history-header">
-        <h2 class="title-3">생성 기록</h2>
-        <button class="clear-btn sub-2" @click="history = []">전체 삭제</button>
+        <h2 class="title-4">생성 기록</h2>
+        <button class="btn-text" @click="history = []">전체 삭제</button>
       </div>
-      <table class="history-table">
-        <thead>
-          <tr>
-            <th class="sub-1">회차</th>
-            <th class="sub-1">번호</th>
-            <th class="sub-1">합계</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(entry, ei) in [...history].reverse()" :key="ei">
-            <td class="sub-2">{{ history.length - ei }}</td>
-            <td>
-              <div class="ball-mini-row">
-                <span
-                  v-for="(n, ni) in entry"
-                  :key="ni"
-                  :class="['ball-mini', ballColor(n)]"
-                >{{ n }}</span>
-              </div>
-            </td>
-            <td class="sub-2">{{ sum(entry) }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="history-list">
+        <div
+          v-for="(entry, ei) in [...history].reverse()"
+          :key="ei"
+          class="info-row-card"
+        >
+          <span class="info-row-label">{{ history.length - ei }}회</span>
+          <div class="ball-mini-row">
+            <span
+              v-for="(n, ni) in entry"
+              :key="ni"
+              :class="['ball-mini', ballColor(n)]"
+            >{{ n }}</span>
+          </div>
+          <span class="info-row-value">{{ sum(entry) }}</span>
+        </div>
+      </div>
     </section>
   </div>
 </template>
@@ -144,151 +142,176 @@ function delay(ms: number) {
 </script>
 
 <style scoped>
+/* ── CSS Variables ── */
 .app {
-  max-width: 600px;
+  --primary:       #5F46FF;
+  --primary-dark:  #4A35E0;
+  --primary-light: #EEEAFF;
+  --primary-200:   #F2F0FF;
+  --card-bg:       #FFFFFF;
+  --muted-bg:      #F5F5F8;
+  --border:        #E5E7EB;
+  --text-1:        #111827;
+  --text-2:        #6B7280;
+  --text-3:        #9CA3AF;
+  --success:       #10B981;
+  --error:         #EF4444;
+
+  max-width: 480px;
   margin: 0 auto;
-  padding: 32px 20px 60px;
-}
-
-.header {
-  text-align: center;
-  margin-bottom: 32px;
-}
-
-.title-1 {
-  font-size: 22px;
-  font-weight: 700;
-  line-height: 32px;
-  letter-spacing: 0;
-  color: #444444;
-  margin-bottom: 6px;
-}
-
-.title-3 {
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 24px;
-  letter-spacing: -0.3px;
-  color: #333333;
-}
-
-.sub-1 {
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 20px;
-  letter-spacing: -0.3px;
-  color: #666666;
-}
-
-.sub-2 {
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 18px;
-  letter-spacing: -0.3px;
-  color: #666666;
-}
-
-.controls {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 24px;
-  background: #fff;
-  border: 1px solid #DDDDDD;
-  border-radius: 12px;
-  padding: 16px 20px;
-}
-
-.round-control {
+  padding: 32px 20px 80px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
 }
 
-.round-buttons {
+/* ── Typography ── */
+.display {
+  font-size: 36px; font-weight: 700;
+  letter-spacing: -0.5px; color: var(--text-1);
+}
+.title-4 {
+  font-size: 16px; font-weight: 700;
+  letter-spacing: -0.3px; color: var(--text-1);
+}
+.body-2 {
+  font-size: 14px; font-weight: 400;
+  color: var(--text-2);
+}
+.caption-1 {
+  font-size: 13px; font-weight: 400;
+  letter-spacing: -0.2px; color: var(--text-2);
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+/* ── Card ── */
+.card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.section-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.label {
+  margin: 0;
+}
+
+/* ── Chip ── */
+.chip-row {
   display: flex;
   gap: 8px;
 }
 
-.round-btn {
-  padding: 6px 14px;
-  border-radius: 20px;
-  border: 1px solid #DDDDDD;
-  background: #F8F8F8;
-  font-family: inherit;
+.chip {
+  border: 1.5px solid var(--border);
+  color: var(--text-2);
   font-size: 13px;
   font-weight: 500;
-  color: #666666;
-  cursor: pointer;
-  transition: all 0.15s;
-}
-
-.round-btn.active {
-  background: #5F61FF;
-  border-color: #5F61FF;
-  color: #fff;
-}
-
-.generate-btn {
-  padding: 12px 24px;
-  background: #5F61FF;
-  color: #fff;
-  border: none;
-  border-radius: 10px;
   font-family: inherit;
-  font-size: 14px;
-  font-weight: 700;
+  border-radius: 9999px;
+  padding: 6px 20px;
+  background: transparent;
   cursor: pointer;
-  transition: opacity 0.15s, transform 0.1s;
-  white-space: nowrap;
+  transition: none;
 }
 
-.generate-btn:hover:not(:disabled) {
-  opacity: 0.88;
-  transform: translateY(-1px);
+.chip.active {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #FFFFFF;
 }
 
-.generate-btn:disabled {
-  opacity: 0.5;
+.chip:active:not(.active) {
+  background: var(--muted-bg);
+}
+
+/* ── Button ── */
+.btn-primary {
+  width: 100%;
+  height: 56px;
+  background: var(--primary);
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  font-family: inherit;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:active:not(:disabled) {
+  background: var(--primary-dark);
+}
+
+.btn-primary:disabled {
+  opacity: 0.45;
   cursor: not-allowed;
 }
 
+.btn-text {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+/* ── Results ── */
 .results {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-bottom: 32px;
 }
 
 .game-card {
-  background: #fff;
-  border: 1px solid #DDDDDD;
-  border-radius: 12px;
-  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .game-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
 }
 
-.game-label {
-  color: #5F61FF;
-  font-weight: 700;
+/* ── Badge ── */
+.badge-primary {
+  background: var(--primary);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 6px;
 }
 
+/* ── Balls ── */
 .balls {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
 .ball {
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -296,9 +319,9 @@ function delay(ms: number) {
   font-size: 14px;
   font-weight: 700;
   color: #fff;
-  transition: transform 0.2s, opacity 0.2s;
   opacity: 0;
-  transform: scale(0.6);
+  transform: scale(0.5);
+  transition: transform 0.2s cubic-bezier(.34, 1.56, .64, 1), opacity 0.18s ease;
 }
 
 .ball.ball-appear {
@@ -306,68 +329,73 @@ function delay(ms: number) {
   transform: scale(1);
 }
 
-.ball.yellow  { background: #F7C948; }
-.ball.blue    { background: #4A90D9; }
-.ball.red     { background: #E8464B; }
-.ball.gray    { background: #888888; }
-.ball.green   { background: #4CAF50; }
+.ball.yellow { background: #F7C948; }
+.ball.blue   { background: #4A90D9; }
+.ball.red    { background: #E8464B; }
+.ball.gray   { background: #888888; }
+.ball.green  { background: #4CAF50; }
 
-.empty {
-  text-align: center;
-  padding: 48px 0;
-  color: #AAAAAA;
+/* ── Empty State ── */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  gap: 10px;
 }
 
+.empty-icon {
+  font-size: 48px;
+  opacity: 0.35;
+}
+
+.empty-text {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-2);
+}
+
+/* ── History ── */
 .history-section {
-  background: #fff;
-  border: 1px solid #DDDDDD;
-  border-radius: 12px;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .history-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 14px;
 }
 
-.clear-btn {
-  background: none;
-  border: 1px solid #DDDDDD;
-  border-radius: 6px;
-  padding: 4px 10px;
-  cursor: pointer;
-  font-family: inherit;
-  color: #666666;
-  font-size: 12px;
-  transition: background 0.15s;
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.clear-btn:hover {
-  background: #F8F8F8;
+.info-row-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
 }
 
-.history-table {
-  width: 100%;
-  border: 1px solid #DDDDDD;
-  border-collapse: collapse;
+.info-row-label {
+  font-size: 13px;
+  color: var(--text-2);
+  min-width: 28px;
 }
 
-.history-table th,
-.history-table td {
-  border: 1px solid #EBEBEB;
-  padding: 8px 12px;
-  text-align: left;
-}
-
-.history-table th {
-  background: #F8F8F8;
-  color: #333333;
-}
-
-.history-table td {
-  color: #666666;
+.info-row-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-1);
+  min-width: 36px;
+  text-align: right;
 }
 
 .ball-mini-row {
@@ -377,8 +405,8 @@ function delay(ms: number) {
 }
 
 .ball-mini {
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
@@ -388,12 +416,13 @@ function delay(ms: number) {
   color: #fff;
 }
 
-.ball-mini.yellow  { background: #F7C948; }
-.ball-mini.blue    { background: #4A90D9; }
-.ball-mini.red     { background: #E8464B; }
-.ball-mini.gray    { background: #888888; }
-.ball-mini.green   { background: #4CAF50; }
+.ball-mini.yellow { background: #F7C948; }
+.ball-mini.blue   { background: #4A90D9; }
+.ball-mini.red    { background: #E8464B; }
+.ball-mini.gray   { background: #888888; }
+.ball-mini.green  { background: #4CAF50; }
 
+/* ── Animation ── */
 .slide-up-enter-active {
   transition: all 0.25s ease;
 }
