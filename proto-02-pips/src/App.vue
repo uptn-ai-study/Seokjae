@@ -10,9 +10,11 @@ type Screen = 'start' | 'game' | 'result'
 const screen = ref<Screen>('start')
 const difficulty = ref<Difficulty>('beginner')
 const finalScore = ref(0)
+const gameKey = ref(0)   // 재시작마다 증가 → GameScreen 완전 재마운트
 
 function startGame(d: Difficulty) {
   difficulty.value = d
+  gameKey.value++
   screen.value = 'game'
 }
 
@@ -22,6 +24,7 @@ function onGameOver(score: number) {
 }
 
 function restart() {
+  gameKey.value++
   screen.value = 'game'
 }
 
@@ -36,7 +39,7 @@ function goHome() {
       <StartScreen v-if="screen === 'start'" @start="startGame" />
       <GameScreen
         v-else-if="screen === 'game'"
-        :key="difficulty + Date.now()"
+        :key="gameKey"
         :difficulty="difficulty"
         @game-over="onGameOver"
       />

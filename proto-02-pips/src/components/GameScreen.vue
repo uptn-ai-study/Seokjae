@@ -22,8 +22,8 @@ watch(isGameOver, (over) => {
 const timerPct = computed(() => (timeLeft.value / TIME_LIMIT) * 100)
 const timerDanger = computed(() => timeLeft.value <= 15)
 
-const cols = computed(() => props.difficulty === 'beginner' ? 3 : 3)
-const colsStyle = computed(() => `repeat(${cols.value}, 1fr)`)
+// 항상 3열 고정, 행 수는 난이도에 따라 결정 (beginner: 2행, expert: 3행)
+const rows = computed(() => props.difficulty === 'beginner' ? 2 : 3)
 </script>
 
 <template>
@@ -77,7 +77,7 @@ const colsStyle = computed(() => `repeat(${cols.value}, 1fr)`)
     </div>
 
     <!-- 주사위 그리드 -->
-    <div class="dice-grid" :style="{ gridTemplateColumns: colsStyle }">
+    <div class="dice-grid" :style="{ gridTemplateRows: `repeat(${rows}, 1fr)` }">
       <DiceFace
         v-for="(val, i) in dice"
         :key="i"
@@ -102,12 +102,18 @@ const colsStyle = computed(() => `repeat(${cols.value}, 1fr)`)
 </template>
 
 <style scoped>
+/* ─────────────────────────────────────────
+   게임 전체 컨테이너
+   flex: 1 + min-height: 0 → 부모 높이를 초과하지 않음
+   dvh: 모바일 브라우저 주소창 높이 변동 대응
+───────────────────────────────────────── */
 .game {
   flex: 1;
+  min-height: 0;               /* flex 자식이 줄어들 수 있게 필수 */
   display: flex;
   flex-direction: column;
-  padding: 16px 20px 24px;
-  gap: 16px;
+  padding: clamp(10px, 2dvh, 16px) 20px clamp(12px, 3dvh, 24px);
+  gap: clamp(8px, 2dvh, 16px);
   position: relative;
   overflow: hidden;
   max-width: 480px;
@@ -115,8 +121,9 @@ const colsStyle = computed(() => `repeat(${cols.value}, 1fr)`)
   width: 100%;
 }
 
-/* 헤더 */
+/* 헤더 — flex-shrink: 0 으로 고정 */
 .header {
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -136,7 +143,7 @@ const colsStyle = computed(() => `repeat(${cols.value}, 1fr)`)
 }
 
 .score-val {
-  font-size: 28px;
+  font-size: clamp(22px, 5dvh, 28px);
   font-weight: 700;
   color: var(--text-1);
   letter-spacing: -0.5px;
@@ -144,6 +151,7 @@ const colsStyle = computed(() => `repeat(${cols.value}, 1fr)`)
 }
 
 .timer-block {
+  flex-shrink: 0;
   position: relative;
   width: 48px;
   height: 48px;
@@ -168,16 +176,17 @@ const colsStyle = computed(() => `repeat(${cols.value}, 1fr)`)
 }
 .timer-num.danger { color: var(--error); }
 
-/* 목표 영역 */
+/* 목표 영역 — 화면이 작을 때 padding과 폰트 축소 */
 .target-area {
+  flex-shrink: 1;              /* 공간 부족 시 먼저 줄어듦 */
   background: var(--card-bg);
   border-radius: 20px;
-  padding: 18px 24px;
+  padding: clamp(10px, 2dvh, 18px) 24px;
   box-shadow: 0 1px 4px rgba(0,0,0,0.06);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
 }
 
 .target-label {
@@ -188,7 +197,7 @@ const colsStyle = computed(() => `repeat(${cols.value}, 1fr)`)
 }
 
 .target-num {
-  font-size: 56px;
+  font-size: clamp(36px, 8dvh, 56px);  /* 화면 높이에 따라 유연하게 */
   font-weight: 700;
   letter-spacing: -1px;
   color: var(--text-1);
@@ -199,7 +208,6 @@ const colsStyle = computed(() => `repeat(${cols.value}, 1fr)`)
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-top: 2px;
 }
 
 .sum-label {
@@ -209,7 +217,7 @@ const colsStyle = computed(() => `repeat(${cols.value}, 1fr)`)
 }
 
 .sum-val {
-  font-size: 20px;
+  font-size: clamp(16px, 3.5dvh, 20px);
   font-weight: 700;
   color: var(--text-2);
   letter-spacing: -0.3px;
@@ -220,9 +228,10 @@ const colsStyle = computed(() => `repeat(${cols.value}, 1fr)`)
 .sum-val.sum-match { color: var(--success); }
 .sum-val.sum-over  { color: var(--error); }
 
-/* 콤보 */
+/* 콤보 — 최소 높이로 고정, 내용만 표시 */
 .combo-row {
-  height: 28px;
+  flex-shrink: 0;
+  height: clamp(22px, 3.5dvh, 28px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -233,7 +242,7 @@ const colsStyle = computed(() => `repeat(${cols.value}, 1fr)`)
   color: #fff;
   font-size: 13px;
   font-weight: 700;
-  padding: 4px 14px;
+  padding: 3px 14px;
   border-radius: 9999px;
   letter-spacing: -0.2px;
   animation: pop 0.2s ease;
@@ -251,13 +260,21 @@ const colsStyle = computed(() => `repeat(${cols.value}, 1fr)`)
   100% { transform: scale(1); }
 }
 
-/* 주사위 그리드 */
+/* ─────────────────────────────────────────
+   주사위 그리드 핵심 수정
+   - flex: 1 + min-height: 0 → 남은 공간만 차지
+   - grid-template-columns: 3열 고정
+   - grid-template-rows: :style 바인딩으로 1fr×N → 행 높이 균등 분배
+   - 각 DiceFace는 aspect-ratio: 1로 정사각형 유지
+───────────────────────────────────────── */
 .dice-grid {
-  display: grid;
-  gap: 12px;
-  width: 100%;
   flex: 1;
-  align-content: center;
+  min-height: 0;               /* 필수: 부모 flex 공간을 초과하지 않게 */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(8px, 2dvh, 12px);
+  align-items: center;
+  justify-items: center;
 }
 
 /* 게임 오버 오버레이 */
