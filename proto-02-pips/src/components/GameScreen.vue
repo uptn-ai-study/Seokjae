@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, watch, computed } from 'vue'
+import { onMounted, onUnmounted, watch, computed, ref, nextTick } from 'vue'
 import DiceFace from './DiceFace.vue'
 import { useGame, type Difficulty } from '../composables/useGame'
 
@@ -12,29 +12,68 @@ const {
   TIME_LIMIT, init, toggleDie, destroy,
 } = useGame(props.difficulty)
 
-onMounted(init)
-onUnmounted(destroy)
+// ── 주사위 크기 계산 (ResizeObserver 기반) ──────────────────────
+// CSS의 grid-auto-rows:1fr 이 Safari/iOS flex 컨테이너에서 불안정하므로
+// 실제 DOM 크기를 측정해 주사위 한 변 px을 직접 계산한다.
+const COLS = 3
+const GAP  = 10   // px, grid gap 고정값
+
+const rows       = computed(() => props.difficulty === 'beginner' ? 2 : 3)
+const diceAreaRef = ref<HTMLElement | null>(null)
+const dieSize     = ref(80)   // 초기값(렌더 전 폴백)
+let ro: ResizeObserver | null = null
+
+function computeDieSize() {
+  const el = diceAreaRef.value
+  if (!el) return
+  const w = el.clientWidth
+  const h = el.clientHeight
+  const byWidth  = Math.floor((w - (COLS - 1) * GAP) / COLS)
+  const byHeight = Math.floor((h - (rows.value - 1) * GAP) / rows.value)
+  dieSize.value = Math.max(36, Math.min(byWidth, byHeight))
+}
+
+// 주사위 그리드에 적용할 인라인 스타일
+const gridStyle = computed(() => ({
+  gridTemplateColumns: `repeat(${COLS}, ${dieSize.value}px)`,
+  gridTemplateRows:    `repeat(${rows.value}, ${dieSize.value}px)`,
+  gap:                 `${GAP}px`,
+}))
+
+// ── 게임 로직 ────────────────────────────────────────────────────
+onMounted(() => {
+  init()
+  nextTick(() => {
+    computeDieSize()
+    ro = new ResizeObserver(computeDieSize)
+    if (diceAreaRef.value) ro.observe(diceAreaRef.value)
+  })
+})
+
+onUnmounted(() => {
+  destroy()
+  ro?.disconnect()
+})
 
 watch(isGameOver, (over) => {
   if (over) setTimeout(() => emit('gameOver', score.value), 900)
 })
 
-const timerPct = computed(() => (timeLeft.value / TIME_LIMIT) * 100)
+const timerPct    = computed(() => (timeLeft.value / TIME_LIMIT) * 100)
 const timerDanger = computed(() => timeLeft.value <= 15)
-
-// 열/행 수는 CSS grid-auto-rows: 1fr 로 자동 처리
 </script>
 
 <template>
   <div class="game">
-    <!-- 헤더 -->
+
+    <!-- ① 헤더 -->
     <div class="header">
       <div class="score-block">
         <span class="label">점수</span>
         <span class="score-val">{{ score }}</span>
       </div>
 
-      <div class="timer-block" :class="{ danger: timerDanger }">
+      <div class="timer-block">
         <svg class="timer-ring" viewBox="0 0 40 40">
           <circle cx="20" cy="20" r="16" fill="none" stroke="#E5E7EB" stroke-width="3" />
           <circle
@@ -51,7 +90,7 @@ const timerDanger = computed(() => timeLeft.value <= 15)
       </div>
     </div>
 
-    <!-- 목표 영역 -->
+    <!-- ② 목표 숫자 -->
     <div class="target-area">
       <p class="target-label">목표</p>
       <div class="target-num">{{ target }}</div>
@@ -61,34 +100,38 @@ const timerDanger = computed(() => timeLeft.value <= 15)
           class="sum-val"
           :class="{
             'sum-match': selectedSum === target && selectedSum > 0,
-            'sum-over': selectedSum > target,
+            'sum-over':  selectedSum > target,
           }"
         >{{ selectedSum }}</span>
       </div>
     </div>
 
-    <!-- 콤보 (숙련자) -->
+    <!-- ③ 콤보 (숙련자만) -->
     <div v-if="difficulty === 'expert'" class="combo-row">
-      <span v-if="combo >= 2" class="combo-chip">
-        🔥 {{ combo }}연속  ×{{ Math.min(combo, 5) }}
-      </span>
-      <span v-else class="combo-empty">연속 성공으로 배율 상승!</span>
+      <Transition name="chip">
+        <span v-if="combo >= 2" class="combo-chip" :key="combo">
+          🔥 {{ combo }}연속 &nbsp;×{{ Math.min(combo, 5) }}
+        </span>
+      </Transition>
+      <span v-if="combo < 2" class="combo-empty">연속 성공으로 배율 상승!</span>
     </div>
 
-    <!-- 주사위 그리드 -->
-    <div class="dice-grid">
-      <DiceFace
-        v-for="(val, i) in dice"
-        :key="i"
-        :value="val"
-        :selected="selected.has(i)"
-        :shaking="isShaking && selected.has(i)"
-        :correct="isCorrect && selected.has(i)"
-        @click="toggleDie(i)"
-      />
+    <!-- ④ 주사위 영역 : ResizeObserver 측정 대상 -->
+    <div class="dice-area" ref="diceAreaRef">
+      <div class="dice-grid" :style="gridStyle">
+        <DiceFace
+          v-for="(val, i) in dice"
+          :key="i"
+          :value="val"
+          :selected="selected.has(i)"
+          :shaking="isShaking && selected.has(i)"
+          :correct="isCorrect && selected.has(i)"
+          @click="toggleDie(i)"
+        />
+      </div>
     </div>
 
-    <!-- 게임 오버 오버레이 -->
+    <!-- ⑤ 게임 오버 오버레이 -->
     <Transition name="fade">
       <div v-if="isGameOver" class="gameover-overlay">
         <div class="gameover-box">
@@ -97,22 +140,22 @@ const timerDanger = computed(() => timeLeft.value <= 15)
         </div>
       </div>
     </Transition>
+
   </div>
 </template>
 
 <style scoped>
-/* ─────────────────────────────────────────
-   게임 전체 컨테이너
-   flex: 1 + min-height: 0 → 부모 높이를 초과하지 않음
-   dvh: 모바일 브라우저 주소창 높이 변동 대응
-───────────────────────────────────────── */
+/* ────────────────────────────────────────────────────────────
+   게임 컨테이너
+   - flex: 1 + min-height: 0 → 부모 높이 초과 금지
+────────────────────────────────────────────────────────────── */
 .game {
   flex: 1;
-  min-height: 0;               /* flex 자식이 줄어들 수 있게 필수 */
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  padding: clamp(10px, 2dvh, 16px) 20px clamp(12px, 3dvh, 24px);
-  gap: clamp(8px, 2dvh, 16px);
+  padding: 12px 20px 16px;
+  gap: 12px;
   position: relative;
   overflow: hidden;
   max-width: 480px;
@@ -120,12 +163,13 @@ const timerDanger = computed(() => timeLeft.value <= 15)
   width: 100%;
 }
 
-/* 헤더 — flex-shrink: 0 으로 고정 */
+/* ① 헤더 */
 .header {
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 48px;
 }
 
 .score-block {
@@ -137,12 +181,11 @@ const timerDanger = computed(() => timeLeft.value <= 15)
 .label {
   font-size: 12px;
   color: var(--text-3);
-  font-weight: 400;
   letter-spacing: -0.2px;
 }
 
 .score-val {
-  font-size: clamp(22px, 5dvh, 28px);
+  font-size: 26px;
   font-weight: 700;
   color: var(--text-1);
   letter-spacing: -0.5px;
@@ -150,37 +193,34 @@ const timerDanger = computed(() => timeLeft.value <= 15)
 }
 
 .timer-block {
-  flex-shrink: 0;
   position: relative;
   width: 48px;
   height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .timer-ring {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .timer-num {
   font-size: 14px;
   font-weight: 700;
   color: var(--text-1);
-  letter-spacing: -0.3px;
   z-index: 1;
 }
 .timer-num.danger { color: var(--error); }
 
-/* 목표 영역 — 화면이 작을 때 padding과 폰트 축소 */
+/* ② 목표 숫자 카드 */
 .target-area {
-  flex-shrink: 1;              /* 공간 부족 시 먼저 줄어듦 */
+  flex-shrink: 0;
   background: var(--card-bg);
-  border-radius: 20px;
-  padding: clamp(10px, 2dvh, 18px) 24px;
+  border-radius: 18px;
+  padding: 12px 24px;
   box-shadow: 0 1px 4px rgba(0,0,0,0.06);
   display: flex;
   flex-direction: column;
@@ -189,18 +229,17 @@ const timerDanger = computed(() => timeLeft.value <= 15)
 }
 
 .target-label {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--text-3);
-  font-weight: 400;
   letter-spacing: -0.2px;
 }
 
 .target-num {
-  font-size: clamp(36px, 8dvh, 56px);  /* 화면 높이에 따라 유연하게 */
+  font-size: 48px;
   font-weight: 700;
   letter-spacing: -1px;
   color: var(--text-1);
-  line-height: 1;
+  line-height: 1.05;
 }
 
 .sum-row {
@@ -212,31 +251,32 @@ const timerDanger = computed(() => timeLeft.value <= 15)
 .sum-label {
   font-size: 13px;
   color: var(--text-3);
-  font-weight: 400;
 }
 
 .sum-val {
-  font-size: clamp(16px, 3.5dvh, 20px);
+  font-size: 18px;
   font-weight: 700;
   color: var(--text-2);
   letter-spacing: -0.3px;
   transition: color 0.15s ease;
-  min-width: 28px;
+  min-width: 24px;
   text-align: center;
 }
 .sum-val.sum-match { color: var(--success); }
 .sum-val.sum-over  { color: var(--error); }
 
-/* 콤보 — 최소 높이로 고정, 내용만 표시 */
+/* ③ 콤보 */
 .combo-row {
   flex-shrink: 0;
-  height: clamp(22px, 3.5dvh, 28px);
+  height: 26px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .combo-chip {
+  position: absolute;
   background: var(--primary);
   color: #fff;
   font-size: 13px;
@@ -244,40 +284,41 @@ const timerDanger = computed(() => timeLeft.value <= 15)
   padding: 3px 14px;
   border-radius: 9999px;
   letter-spacing: -0.2px;
-  animation: pop 0.2s ease;
 }
 
 .combo-empty {
   font-size: 12px;
   color: var(--text-3);
-  letter-spacing: -0.2px;
 }
 
-@keyframes pop {
-  0%   { transform: scale(0.8); }
+.chip-enter-active { animation: popIn .25s ease; }
+.chip-leave-active { animation: popIn .15s ease reverse; }
+
+@keyframes popIn {
+  from { transform: scale(0.7); opacity: 0; }
   60%  { transform: scale(1.1); }
-  100% { transform: scale(1); }
+  to   { transform: scale(1);   opacity: 1; }
 }
 
-/* ─────────────────────────────────────────
-   주사위 그리드
-   - flex: 1 + min-height: 0 → 남은 공간만 차지 (필수)
-   - grid-template-columns: 3열 고정
-   - grid-auto-rows: 1fr → 행 높이 균등 자동 분배
-     (beginner 6개→2행, expert 9개→3행)
-   - justify/align-items: stretch → 셀 전체 채움
-     (center로 하면 width:100%와 충돌해 일부 셀이 0높이 버그 발생)
-───────────────────────────────────────── */
-.dice-grid {
+/* ────────────────────────────────────────────────────────────
+   ④ 주사위 영역
+   dice-area  : flex: 1 → 남은 공간 전부 차지, 측정 대상
+   dice-grid  : JS로 px 단위 명시 → Safari 포함 모든 브라우저에서 안정
+────────────────────────────────────────────────────────────── */
+.dice-area {
   flex: 1;
   min-height: 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 1fr;
-  gap: clamp(8px, 2dvh, 12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* 게임 오버 오버레이 */
+.dice-grid {
+  display: grid;
+  /* gridTemplateColumns / gridTemplateRows / gap 은 :style 로 주입 */
+}
+
+/* ⑤ 게임 오버 */
 .gameover-overlay {
   position: absolute;
   inset: 0;
@@ -286,13 +327,12 @@ const timerDanger = computed(() => timeLeft.value <= 15)
   align-items: center;
   justify-content: center;
   z-index: 10;
-  border-radius: 24px;
 }
 
 .gameover-box {
   background: var(--card-bg);
   border-radius: 20px;
-  padding: 32px 48px;
+  padding: 28px 48px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -300,16 +340,16 @@ const timerDanger = computed(() => timeLeft.value <= 15)
   box-shadow: 0 8px 32px rgba(0,0,0,0.2);
 }
 
-.gameover-emoji { font-size: 48px; }
-.gameover-text {
-  font-size: 22px;
+.gameover-emoji { font-size: 44px; }
+.gameover-text  {
+  font-size: 20px;
   font-weight: 700;
   color: var(--text-1);
   letter-spacing: -0.3px;
 }
 
 .fade-enter-active,
-.fade-leave-active { transition: opacity 0.3s ease; }
+.fade-leave-active { transition: opacity .3s ease; }
 .fade-enter-from,
-.fade-leave-to   { opacity: 0; }
+.fade-leave-to     { opacity: 0; }
 </style>

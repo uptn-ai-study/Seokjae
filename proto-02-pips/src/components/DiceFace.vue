@@ -34,17 +34,12 @@ const PIP_POSITIONS: Record<number, number[]> = {
 
 <style scoped>
 .die {
-  /* grid-auto-rows: 1fr 셀 안에서 정사각형 유지
-     - width: 100% → 열 너비 가득
-     - aspect-ratio: 1 → 높이 = 너비
-     - max-height: 100% → 행 높이를 초과하지 않음
-     - align-self: center → 행 내부 세로 중앙 */
+  /* 부모 grid 셀이 JS로 정확한 px 정사각형으로 계산되므로
+     여기선 셀을 꽉 채우기만 하면 된다 */
   width: 100%;
-  aspect-ratio: 1;
-  max-height: 100%;
-  align-self: center;
+  height: 100%;
   background: #fff;
-  border-radius: 16px;
+  border-radius: 15%;   /* die 크기에 비례 (80px→12px, 110px→16px) */
   box-shadow: 0 2px 8px rgba(0,0,0,0.08), 0 0 0 2px transparent;
   display: flex;
   align-items: center;
