@@ -4,6 +4,7 @@ defineProps<{
   selected?: boolean
   shaking?: boolean
   correct?: boolean
+  shuffling?: boolean
 }>()
 
 defineEmits<{ click: [] }>()
@@ -21,7 +22,7 @@ const PIP_POSITIONS: Record<number, number[]> = {
 <template>
   <div
     class="die"
-    :class="{ selected, shaking, correct }"
+    :class="{ selected, shaking, correct, shuffling }"
     @click="$emit('click')"
   >
     <div class="pip-grid">
@@ -39,7 +40,10 @@ const PIP_POSITIONS: Record<number, number[]> = {
   width: 100%;
   height: 100%;
   background: #fff;
-  border-radius: 15%;   /* die 크기에 비례 (80px→12px, 110px→16px) */
+  border-radius: 15%;
+  /* 게임 시작 시 순서대로 슬라이드 인 (--enter-delay 는 GameScreen에서 주입) */
+  animation: dieEnter 0.32s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation-delay: var(--enter-delay, 0ms);
   box-shadow: 0 2px 8px rgba(0,0,0,0.08), 0 0 0 2px transparent;
   display: flex;
   align-items: center;
@@ -79,6 +83,30 @@ const PIP_POSITIONS: Record<number, number[]> = {
   60%       { transform: translateX(5px) scale(1); }
   75%       { transform: translateX(-3px) scale(1); }
   90%       { transform: translateX(3px) scale(1); }
+}
+
+/* ── 게임 시작: 아래서 튀어오르며 등장 ── */
+@keyframes dieEnter {
+  from { opacity: 0; transform: translateY(18px) scale(0.75); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+/* ── 셔플: 좌우 흔들림 + 미세 스케일 ── */
+.die.shuffling {
+  animation: dieShuffle 0.11s ease-in-out infinite alternate;
+  cursor: default;
+  pointer-events: none;
+}
+
+@keyframes dieShuffle {
+  from { transform: rotate(-4deg) scale(0.94); }
+  to   { transform: rotate( 4deg) scale(1.03); }
+}
+
+/* shuffling 중엔 pip 색도 회색으로 흐리게 */
+.die.shuffling .pip {
+  background: var(--text-3);
+  transition: none;
 }
 
 .pip-grid {

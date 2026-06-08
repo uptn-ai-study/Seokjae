@@ -7,7 +7,8 @@ const props = defineProps<{ difficulty: Difficulty }>()
 const emit = defineEmits<{ gameOver: [score: number] }>()
 
 const {
-  dice, selected, target, score, combo, timeLeft,
+  displayDice, isShuffling, shufflingIndices,
+  selected, target, score, combo, timeLeft,
   isShaking, isCorrect, isGameOver, selectedSum,
   TIME_LIMIT, init, toggleDie, destroy,
 } = useGame(props.difficulty)
@@ -120,12 +121,14 @@ const timerDanger = computed(() => timeLeft.value <= 15)
     <div class="dice-area" ref="diceAreaRef">
       <div class="dice-grid" :style="gridStyle">
         <DiceFace
-          v-for="(val, i) in dice"
+          v-for="(val, i) in displayDice"
           :key="i"
           :value="val"
           :selected="selected.has(i)"
           :shaking="isShaking && selected.has(i)"
           :correct="isCorrect && selected.has(i)"
+          :shuffling="isShuffling && shufflingIndices.has(i)"
+          :style="{ '--enter-delay': `${i * 35}ms` }"
           @click="toggleDie(i)"
         />
       </div>
