@@ -22,8 +22,7 @@ watch(isGameOver, (over) => {
 const timerPct = computed(() => (timeLeft.value / TIME_LIMIT) * 100)
 const timerDanger = computed(() => timeLeft.value <= 15)
 
-// 항상 3열 고정, 행 수는 난이도에 따라 결정 (beginner: 2행, expert: 3행)
-const rows = computed(() => props.difficulty === 'beginner' ? 2 : 3)
+// 열/행 수는 CSS grid-auto-rows: 1fr 로 자동 처리
 </script>
 
 <template>
@@ -77,7 +76,7 @@ const rows = computed(() => props.difficulty === 'beginner' ? 2 : 3)
     </div>
 
     <!-- 주사위 그리드 -->
-    <div class="dice-grid" :style="{ gridTemplateRows: `repeat(${rows}, 1fr)` }">
+    <div class="dice-grid">
       <DiceFace
         v-for="(val, i) in dice"
         :key="i"
@@ -261,20 +260,21 @@ const rows = computed(() => props.difficulty === 'beginner' ? 2 : 3)
 }
 
 /* ─────────────────────────────────────────
-   주사위 그리드 핵심 수정
-   - flex: 1 + min-height: 0 → 남은 공간만 차지
+   주사위 그리드
+   - flex: 1 + min-height: 0 → 남은 공간만 차지 (필수)
    - grid-template-columns: 3열 고정
-   - grid-template-rows: :style 바인딩으로 1fr×N → 행 높이 균등 분배
-   - 각 DiceFace는 aspect-ratio: 1로 정사각형 유지
+   - grid-auto-rows: 1fr → 행 높이 균등 자동 분배
+     (beginner 6개→2행, expert 9개→3행)
+   - justify/align-items: stretch → 셀 전체 채움
+     (center로 하면 width:100%와 충돌해 일부 셀이 0높이 버그 발생)
 ───────────────────────────────────────── */
 .dice-grid {
   flex: 1;
-  min-height: 0;               /* 필수: 부모 flex 공간을 초과하지 않게 */
+  min-height: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
   gap: clamp(8px, 2dvh, 12px);
-  align-items: center;
-  justify-items: center;
 }
 
 /* 게임 오버 오버레이 */

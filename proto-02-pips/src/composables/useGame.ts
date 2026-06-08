@@ -28,10 +28,20 @@ export function useGame(difficulty: Difficulty) {
   }
 
   function generateTarget() {
-    const count = Math.floor(Math.random() * 2) + 2
-    const shuffled = [...Array(dice.value.length).keys()].sort(() => Math.random() - 0.5)
+    // 현재 주사위 중 2~3개를 무작위로 골라 합산 → 항상 달성 가능한 목표
+    // 주의: 반드시 dice.value가 최신 상태인 시점에 호출해야 함
+    const count = Math.floor(Math.random() * 2) + 2            // 2 또는 3
+    const shuffled = [...Array(dice.value.length).keys()]
+      .sort(() => Math.random() - 0.5)
     const picked = shuffled.slice(0, count)
-    target.value = picked.reduce((sum, i) => sum + dice.value[i], 0)
+    const newTarget = picked.reduce((sum, i) => sum + dice.value[i], 0)
+
+    // 방어 코드: 이전 목표와 같으면 다시 생성 (연속 동일 목표 방지)
+    if (newTarget === target.value && dice.value.length >= 3) {
+      generateTarget()
+      return
+    }
+    target.value = newTarget
   }
 
   function init() {

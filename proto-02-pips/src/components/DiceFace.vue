@@ -34,11 +34,15 @@ const PIP_POSITIONS: Record<number, number[]> = {
 
 <style scoped>
 .die {
-  /* 그리드 셀 내에서: 너비는 셀 전체, 높이는 aspect-ratio로 결정
-     max-height: 100%로 셀 높이를 초과하지 않음 (행이 좁을 때 대응) */
+  /* grid-auto-rows: 1fr 셀 안에서 정사각형 유지
+     - width: 100% → 열 너비 가득
+     - aspect-ratio: 1 → 높이 = 너비
+     - max-height: 100% → 행 높이를 초과하지 않음
+     - align-self: center → 행 내부 세로 중앙 */
   width: 100%;
   aspect-ratio: 1;
   max-height: 100%;
+  align-self: center;
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08), 0 0 0 2px transparent;
