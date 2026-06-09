@@ -1,14 +1,38 @@
-*, *::before, *::after {
+:root {
+  --paper: #ece1cb;
+  --paper-card: #f6efe0;
+  --ink: #241d15;
+  --ink-2: #5a4f3e;
+  --ink-3: #8d8169;
+  --vermillion: #c1202c;
+  --gold: #c9a84c;
+  --gold-dark: #9c7c34;
+  --line: #ddcfb2;
+  --lacquer: #1a1620;
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html,
+body {
+  min-height: 100%;
+}
+
 body {
   font-family: 'SUIT Variable', 'SUIT', -apple-system, sans-serif;
-  background-color: #F5F5F8;
-  color: #111827;
-  min-height: 100vh;
+  color: var(--ink);
+  background-color: var(--paper);
+  /* 은은한 종이 결 텍스처 */
+  background-image:
+    repeating-linear-gradient(0deg, rgba(90, 70, 40, 0.022) 0 2px, transparent 2px 4px),
+    repeating-linear-gradient(90deg, rgba(90, 70, 40, 0.018) 0 2px, transparent 2px 4px),
+    radial-gradient(120% 60% at 50% 0%, rgba(201, 168, 76, 0.08), transparent 60%);
 }
 
 #app {

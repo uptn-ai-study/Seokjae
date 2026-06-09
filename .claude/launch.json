@@ -6,6 +6,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev", "--prefix", "proto-02-pips"],
       "port": 5173
+    },
+    {
+      "name": "proto-03-flowers",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "proto-03-flowers"],
+      "port": 5173
     }
   ]
 }
