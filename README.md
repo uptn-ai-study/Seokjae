@@ -6,4 +6,4 @@
 | proto-03-flowers | 화투 운세 | https://uptnflowers.vercel.app/ | 🔄 진행중 |
 | proto-04-ants | 개미 관찰소 | https://antsecos.vercel.app/ | 🔄 진행중 |
 | proto-05-cars | 7번국도 로맨스 | https://with7thavenue.vercel.app/ | 🔄 진행중 |
-| proto-06-balls | 네온 3쿠션 | - | 🔄 진행중 |
+| proto-06-balls | 네온 3쿠션 | https://threeballs.vercel.app/ | 🔄 진행중 |
