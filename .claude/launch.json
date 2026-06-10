@@ -12,6 +12,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev", "--prefix", "proto-03-flowers"],
       "port": 5173
+    },
+    {
+      "name": "proto-04-ants",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "proto-04-ants"],
+      "port": 5173
     }
   ]
 }
