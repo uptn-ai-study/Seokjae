@@ -11,7 +11,7 @@
     <canvas ref="canvasRef" class="board"></canvas>
 
     <!-- 좌/우 조작 화살표 -->
-    <div class="touch-zones">
+    <div class="touch-zones" ref="zonesRef">
       <div class="touch-zone" :class="{ lit: steer === -1 }"><span class="zone-arrow">◀</span></div>
       <div class="touch-zone" :class="{ lit: steer === 1 }"><span class="zone-arrow">▶</span></div>
     </div>
@@ -77,6 +77,7 @@ const BEST_KEY = 'route7_best_ms'
 
 const rootRef = ref<HTMLElement | null>(null)
 const canvasRef = ref<HTMLCanvasElement | null>(null)
+const zonesRef = ref<HTMLElement | null>(null)
 
 const state = ref<'ready' | 'run' | 'ended'>('ready')
 const elapsedMs = ref(0)
@@ -180,6 +181,12 @@ function onKey(e: KeyboardEvent, down: boolean) {
 const keyDown = (e: KeyboardEvent) => onKey(e, true)
 const keyUp = (e: KeyboardEvent) => onKey(e, false)
 
+// ── 모바일 더블탭 확대 / 핀치 차단 (조작 영역 한정) ──
+// 같은 자리를 연속으로 두드려 핸들을 꺾을 때 브라우저가 화면을 확대하지 않도록
+// 조작 영역의 touchstart 기본동작과 더블탭/핀치 제스처를 막는다.
+// 포인터 이벤트(조향)는 그대로 발생하며, 버튼 클릭에는 영향이 없다.
+const blockGesture = (e: Event) => e.preventDefault()
+
 onMounted(() => {
   const cv = canvasRef.value
   if (!cv) return
@@ -190,6 +197,14 @@ onMounted(() => {
   window.addEventListener('resize', resize)
   window.addEventListener('keydown', keyDown)
   window.addEventListener('keyup', keyUp)
+
+  // 조작 영역: 더블탭 확대를 유발하는 touchstart 기본동작 차단
+  zonesRef.value?.addEventListener('touchstart', blockGesture, { passive: false })
+  zonesRef.value?.addEventListener('touchend', blockGesture, { passive: false })
+  // iOS Safari 핀치/더블탭 제스처 + 더블클릭 확대 차단
+  rootRef.value?.addEventListener('dblclick', blockGesture, { passive: false })
+  rootRef.value?.addEventListener('gesturestart', blockGesture, { passive: false })
+
   raf = requestAnimationFrame(loop)
 })
 
@@ -198,5 +213,9 @@ onBeforeUnmount(() => {
   window.removeEventListener('resize', resize)
   window.removeEventListener('keydown', keyDown)
   window.removeEventListener('keyup', keyUp)
+  zonesRef.value?.removeEventListener('touchstart', blockGesture)
+  zonesRef.value?.removeEventListener('touchend', blockGesture)
+  rootRef.value?.removeEventListener('dblclick', blockGesture)
+  rootRef.value?.removeEventListener('gesturestart', blockGesture)
 })
 </script>
