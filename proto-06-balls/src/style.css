@@ -167,6 +167,25 @@ button {
   box-shadow: 0 0 12px rgba(0, 229, 255, 0.55);
 }
 
+.track-chip.red.lit {
+  background: var(--neon-magenta);
+  border-color: var(--neon-magenta);
+  color: #2a0418;
+  box-shadow: 0 0 12px rgba(255, 61, 190, 0.6);
+}
+
+.track-chip.warn {
+  border-color: rgba(255, 196, 0, 0.5);
+  color: #ffd93d;
+}
+
+.track-chip.warn.danger {
+  background: var(--error);
+  border-color: var(--error);
+  color: #fff;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.6);
+}
+
 .track-cushions {
   display: flex;
   align-items: center;
@@ -302,6 +321,99 @@ canvas.board {
     opacity: 0;
     transform: translate(-50%, 0);
   }
+}
+
+/* ── 회전(당점) 패드 ── */
+.tools {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+}
+
+.spin-pad {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 34%, #ffffff 0%, #d7dbf2 48%, #8b90b8 100%);
+  border: 2px solid rgba(0, 229, 255, 0.55);
+  box-shadow:
+    0 0 14px rgba(0, 229, 255, 0.3),
+    inset 0 0 10px rgba(0, 0, 0, 0.25);
+  touch-action: none;
+  cursor: pointer;
+}
+
+.pad-line {
+  position: absolute;
+  background: rgba(20, 24, 60, 0.35);
+  pointer-events: none;
+}
+
+.pad-line.h {
+  left: 8%;
+  right: 8%;
+  top: 50%;
+  height: 1px;
+}
+
+.pad-line.v {
+  top: 8%;
+  bottom: 8%;
+  left: 50%;
+  width: 1px;
+}
+
+.pad-dot {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ff3dbe;
+  border: 2px solid #fff;
+  box-shadow: 0 0 10px rgba(255, 61, 190, 0.8);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.spin-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.spin-title {
+  font-size: 12px;
+  color: var(--text-3);
+  letter-spacing: -0.2px;
+}
+
+.spin-desc {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+}
+
+.spin-reset {
+  align-self: flex-start;
+  height: 30px;
+  padding: 0 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #aeb4e8;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 9999px;
+  cursor: pointer;
 }
 
 /* ── 컨트롤 ── */
@@ -461,4 +573,142 @@ canvas.board {
 
 .info-row-value.accent {
   color: var(--primary);
+}
+
+/* ── 모드 선택 화면 ── */
+.menu {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 24px 20px calc(24px + env(safe-area-inset-bottom));
+  background: radial-gradient(120% 80% at 50% 0%, #101539 0%, var(--bg-deep) 60%);
+}
+
+.menu-top {
+  text-align: center;
+}
+
+.brand-title.big {
+  font-size: 30px;
+  letter-spacing: 2px;
+}
+
+.menu-sub {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--text-3);
+  letter-spacing: -0.2px;
+}
+
+.mode-cards {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mode-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    'emoji name go'
+    'emoji balls go'
+    'desc desc desc';
+  align-items: center;
+  gap: 4px 14px;
+  text-align: left;
+  padding: 18px 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1.5px solid var(--panel-border);
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.15s;
+}
+
+.mode-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.mode-card.three::before {
+  background: linear-gradient(120deg, rgba(0, 229, 255, 0.12), transparent 60%);
+}
+
+.mode-card.four::before {
+  background: linear-gradient(120deg, rgba(255, 61, 190, 0.12), transparent 60%);
+}
+
+.mode-card:active {
+  transform: scale(0.985);
+}
+
+.mode-emoji {
+  grid-area: emoji;
+  font-size: 34px;
+}
+
+.mode-name {
+  grid-area: name;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.mode-balls {
+  grid-area: balls;
+  display: flex;
+  gap: 5px;
+  margin-top: 2px;
+}
+
+.mb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  box-shadow: inset -2px -2px 3px rgba(0, 0, 0, 0.3);
+}
+
+.mb.white {
+  background: #f2f4ff;
+}
+
+.mb.yellow {
+  background: #ffd93d;
+}
+
+.mb.red {
+  background: #ff4d6d;
+}
+
+.mode-desc {
+  grid-area: desc;
+  margin-top: 10px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #aeb4e8;
+  letter-spacing: -0.2px;
+}
+
+.mode-go {
+  grid-area: go;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--neon-cyan);
+}
+
+.menu-foot {
+  font-size: 12px;
+  color: var(--text-3);
 }
