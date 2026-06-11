@@ -30,6 +30,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev", "--prefix", "proto-06-balls"],
       "port": 5173
+    },
+    {
+      "name": "proto-07-history",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "proto-07-history"],
+      "port": 5173
     }
   ]
 }

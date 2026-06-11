@@ -1,0 +1,53 @@
+:root {
+  --primary:       #5F46FF;
+  --primary-dark:  #4A35E0;
+  --primary-light: #EEEAFF;
+  --primary-200:   #F2F0FF;
+  --primary-dim:   rgba(95,70,255,0.10);
+  --card-bg:       #FFFFFF;
+  --muted-bg:      #F5F5F8;
+  --border:        #E5E7EB;
+  --text-1:        #111827;
+  --text-2:        #6B7280;
+  --text-3:        #9CA3AF;
+  --success:       #10B981;
+  --error:         #EF4444;
+
+  /* 아틀라스(지도) 캔버스 톤 */
+  --canvas:        #F4F1EA;
+  --canvas-line:   #E4DECF;
+  --canvas-line-strong: #D6CDB6;
+  --ruler-bg:      #FBFAF6;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #app {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'SUIT Variable', 'SUIT', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-1);
+  background: var(--muted-bg);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* 스크롤바 (캔버스) */
+.scroll-thin::-webkit-scrollbar { width: 10px; height: 10px; }
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.18);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.scroll-thin::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.30); background-clip: padding-box; }
+.scroll-thin::-webkit-scrollbar-track { background: transparent; }
