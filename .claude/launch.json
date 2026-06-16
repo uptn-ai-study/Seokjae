@@ -36,6 +36,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev", "--prefix", "proto-07-history"],
       "port": 5173
+    },
+    {
+      "name": "proto-08-stocks",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "proto-08-stocks"],
+      "port": 5173
     }
   ]
 }
