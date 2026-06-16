@@ -17,13 +17,15 @@ KOSPI 100 종목을 **실시간 시세** 기반으로 사고팔며 수익률을 
 ## 실시간 시세 구조
 브라우저에서 네이버 금융을 직접 호출하면 CORS로 차단되므로 **서버를 경유**합니다.
 
-- 프로덕션: `api/quotes.ts` (Vercel Serverless Function)이 네이버 금융 시세를 프록시
+- 프로덕션: **`api/quotes.js`** (Vercel Serverless Function)이 네이버 금융 시세를 프록시
 - 로컬 dev: `vite.config.ts`의 dev 미들웨어가 동일 로직(`shared/naver.ts`)으로 처리
 - 두 경로 모두 `/api/quotes?codes=005930,000660,...` 형태로 호출
 
-> ⚠️ 공유 로직(`shared/naver.ts`)은 반드시 `api/` 폴더 **밖**에 둔다. Vercel은 `api/`
-> 내부의 언더스코어(`_`) 시작 파일을 배포에서 제외하므로, 함수가 그런 파일을 import하면
-> 런타임에 `FUNCTION_INVOCATION_FAILED`가 발생한다.
+> ⚠️ **함수는 반드시 `.js`(순수 CommonJS)로 작성한다.** `api/quotes.ts`로 두면 Vercel
+> 함수 빌더가 프로젝트 `tsconfig.json`(Vite 번들러 모드용 `noEmit`/`allowImportingTsExtensions`)을
+> 참조해 함수가 깨지고, 핸들러가 로드 단계에서 죽어 `FUNCTION_INVOCATION_FAILED`가 발생한다.
+> `.js`는 TS 컴파일을 거치지 않아 이 영향이 전혀 없다. (동일 로직의 TS 버전 `shared/naver.ts`는
+> vite dev 미들웨어 전용이며, 함수는 외부 import 없이 자체 완결로 둔다.)
 
 ## 로컬 실행
 ```bash
@@ -35,7 +37,7 @@ npm run build    # 타입체크 + 프로덕션 빌드
 ## Vercel 배포 메모
 - **Root Directory**를 `proto-08-stocks`로 지정하면 내부 `api/` 폴더가 자동으로 Serverless Function으로 인식됩니다.
 - 별도 환경변수/API 키 불필요 (공개 시세 엔드포인트 사용).
-- 네이버 비공식 엔드포인트라 응답 형식이 바뀌면 `api/_naver.ts`만 수정하면 됩니다.
+- 네이버 비공식 엔드포인트라 응답 형식이 바뀌면 `api/quotes.js`(및 dev용 `shared/naver.ts`)를 수정하면 됩니다.
 
 ## 기술 스택
 Vue 3 · TypeScript · Vite · Vercel Functions · 팀 UI 공통 규약(UI-COMMON.md)
