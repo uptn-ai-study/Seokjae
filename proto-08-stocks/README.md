@@ -18,8 +18,12 @@ KOSPI 100 종목을 **실시간 시세** 기반으로 사고팔며 수익률을 
 브라우저에서 네이버 금융을 직접 호출하면 CORS로 차단되므로 **서버를 경유**합니다.
 
 - 프로덕션: `api/quotes.ts` (Vercel Serverless Function)이 네이버 금융 시세를 프록시
-- 로컬 dev: `vite.config.ts`의 dev 미들웨어가 동일 로직(`api/_naver.ts`)으로 처리
+- 로컬 dev: `vite.config.ts`의 dev 미들웨어가 동일 로직(`shared/naver.ts`)으로 처리
 - 두 경로 모두 `/api/quotes?codes=005930,000660,...` 형태로 호출
+
+> ⚠️ 공유 로직(`shared/naver.ts`)은 반드시 `api/` 폴더 **밖**에 둔다. Vercel은 `api/`
+> 내부의 언더스코어(`_`) 시작 파일을 배포에서 제외하므로, 함수가 그런 파일을 import하면
+> 런타임에 `FUNCTION_INVOCATION_FAILED`가 발생한다.
 
 ## 로컬 실행
 ```bash

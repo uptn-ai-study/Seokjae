@@ -1,6 +1,6 @@
 import { defineConfig, type Plugin } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import { fetchQuotes } from './api/_naver'
+import { fetchQuotes } from './shared/naver'
 
 // 로컬 dev에서는 Vercel serverless가 안 도므로, /api/quotes 를
 // 동일 로직(fetchQuotes)으로 처리하는 미들웨어를 끼워 프로덕션과 동작을 맞춘다.

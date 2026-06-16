@@ -1,6 +1,10 @@
 // 네이버 금융 실시간 시세 프록시 공유 로직.
 // Vercel serverless 함수(api/quotes.ts)와 vite dev 미들웨어가 함께 사용한다.
 // 브라우저에서 네이버 금융을 직접 호출하면 CORS로 차단되므로 서버를 경유한다.
+//
+// ⚠️ 이 파일은 반드시 api/ 폴더 "밖"에 둔다.
+//    Vercel은 api/ 내부의 언더스코어(_) 시작 파일을 배포에서 제외하므로,
+//    함수가 import하면 런타임에 모듈을 찾지 못해 FUNCTION_INVOCATION_FAILED가 난다.
 
 export interface Quote {
   code: string        // 종목코드 6자리

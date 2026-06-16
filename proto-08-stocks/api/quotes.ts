@@ -1,11 +1,16 @@
 // Vercel Serverless Function: /api/quotes?codes=005930,000660,...
 // 프로덕션(Vercel)에서 네이버 금융 시세를 프록시한다.
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { fetchQuotes } from './_naver'
+import { fetchQuotes } from '../shared/naver'
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  const raw = (req.query.codes ?? '') as string | string[]
-  const codesParam = Array.isArray(raw) ? raw.join(',') : raw
+  // req.query.codes 가 기본이나, 혹시 비어있으면 raw URL에서 직접 파싱(방어적)
+  let codesParam = ''
+  const q = (req.query?.codes ?? '') as string | string[]
+  codesParam = Array.isArray(q) ? q.join(',') : q
+  if (!codesParam && req.url) {
+    codesParam = new URL(req.url, 'http://localhost').searchParams.get('codes') ?? ''
+  }
   const codes = codesParam.split(',').map((c) => c.trim()).filter(Boolean)
 
   // 클라이언트 캐시는 짧게(시세는 자주 변함)
