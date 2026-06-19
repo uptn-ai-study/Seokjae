@@ -9,3 +9,4 @@
 | proto-06-balls | 네온 3쿠션 | https://threeballs.vercel.app/ | 🔄 진행중 |
 | proto-07-history | 타임아틀라스(세계사 줌 연표) | - | 🔄 진행중 |
 | proto-08-stocks | 모의투자 플레이(KOSPI 100 가상투자) | https://kospi100stocks.vercel.app/ | 🔄 진행중 |
+| proto-09-halfcourt | HALF COURT(반코트 2v2 축구) | - | 🔄 진행중 |

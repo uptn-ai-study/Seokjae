@@ -42,6 +42,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev", "--prefix", "proto-08-stocks"],
       "port": 5173
+    },
+    {
+      "name": "proto-09-halfcourt",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["-y", "serve", "proto-09-halfcourt", "-l", "5180"],
+      "port": 5180
     }
   ]
 }
