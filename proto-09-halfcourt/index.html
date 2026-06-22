@@ -135,8 +135,8 @@
 
       <button class="btn-primary" id="btn-start">킥오프</button>
       <div class="howto">
-        ↑ 위로 스와이프하면 슛 (길이=파워) · 골대 정면일수록 성공률↑<br>
-        동료를 탭하면 패스 · 빈 곳을 탭하면 드리블 이동
+        공 뺏기면 하단 <b style="color:#FFD23F">클리어 라인</b> 아래로 빼야 공격 가능 · 스틸→역습→득점<br>
+        ↑스와이프=슛 · 동료 탭=패스 · 수비 땐 근접 후 탭=태클 · 동료 탭=수비 전환
       </div>
     </div>
 
@@ -197,6 +197,10 @@ GOAL.left = GOAL.cx - GOAL.w/2; GOAL.right = GOAL.cx + GOAL.w/2;
 const PEN_AREA = { left:W/2-95, right:W/2+95, top:COURT.top, bottom:COURT.top+118 };
 const PEN_BOX  = { left:W/2-62, right:W/2+62, top:COURT.top, bottom:COURT.top+74 };
 
+// streetball "clear" line near the bottom — a team that wins the ball must carry/pass
+// it below this line before they are allowed to attack the goal (creates counterattacks)
+const CLEAR_LINE_Y = COURT.bottom - 150;
+
 // ---------- Palette ----------
 const C = {
   grass:'#2E7D5B', grassDk:'#256B4D', line:'rgba(245,239,224,.55)',
@@ -205,66 +209,102 @@ const C = {
 };
 
 // ---------- Game state ----------
-const GS = { TITLE:0, PLAY:1, HALFTIME:2, RESULT:3, GOAL_CELEB:4 };
+const GS = { TITLE:0, PLAY:1, RESULT:3, GOAL_CELEB:4 };
 let game = null;
 
-// loose-ball countdown length by half-duration option (GDD 1.3)
-function looseLenFor(sec){ return sec <= 20 ? 2.0 : 3.0; }
+// loose-ball countdown length by match-duration option
+function looseLenFor(sec){ return sec <= 20 ? 2.0 : 2.6; }
 
 // ---------- Entities ----------
-function mkPlayer(team, isHuman, x, y){
-  return { team, isHuman, x, y, vx:0, vy:0, r:13,
+function mkPlayer(team, x, y){
+  return { team, isHuman:false, x, y, vx:0, vy:0, r:13,
            tx:x, ty:y,                 // movement target
-           aiState:'SUPPORT', aiTimer:0, shotsThisHalf:0,
-           stealCd:0, role:'def' };
+           aiState:'SUPPORT', stealCd:0, passCd:0, role:'def' };
 }
 
-function newMatch(halfSec){
+function newMatch(matchSec){
   return {
     state: GS.TITLE,
-    halfSec,
-    looseLen: looseLenFor(halfSec),
-    half: 1,                  // 1 or 2
-    time: halfSec,            // counts down
+    halfSec: matchSec,        // total match length (single continuous period)
+    looseLen: looseLenFor(matchSec),
+    time: matchSec,           // counts down
     score: { A:0, B:0 },
-    attacking: 'A',           // which team is on offense this half
+    attacking: 'A',           // team currently in possession / on offense (dynamic)
+    cleared: true,            // has the attacking team cleared the ball below the line?
+    controlled: null,         // which team-A player the human is steering
+    manualPick: null, manualT: 0,   // manual defender switch (sticky for a moment)
+    clearFx: 0,               // "CLEAR!" flash timer
     players: [],
-    ball: { x:W/2, y:0, vx:0, vy:0, r:7, owner:null, loose:false,
-            looseT:0, flying:false, spin:0 },
+    ball: { x:W/2, y:0, vx:0, vy:0, r:9, owner:null, loose:false,
+            looseT:0, flying:false, spin:0, trail:[] },
     particles: [],
-    shotCd:0,
-    shake:0,
-    flash:0,
-    goalLock:0,               // celebration timer
-    msgTimer:0,
-    endFlash:0,
+    shotCd:0, shake:0, flash:0,
+    goalLock:0,
   };
 }
 
-// place players for a kickoff. attacking team near center pushing up.
-function setupPlayers(g){
-  g.players = [];
-  const cx = W/2, cyAtk = COURT.bottom-70, cyDef = COURT.top+95;
-  const atk = g.attacking, def = atk==='A'?'B':'A';
-  // attacking team (human is A0 when A attacks human-controlled? human always team A)
-  g.players.push(mkPlayer(atk, atk==='A', cx-34, cyAtk));   // attacker 1
-  g.players.push(mkPlayer(atk, false,       cx+46, cyAtk-34));// attacker 2 (AI mate)
-  g.players.push(mkPlayer(def, def==='A',   cx-30, cyDef));  // defender 1
-  g.players.push(mkPlayer(def, false,       cx+30, cyDef+20));// defender 2
-  // human always controls the FIRST team-A player
-  const aPlayers = g.players.filter(p=>p.team==='A');
-  g.players.forEach(p=> p.isHuman=false);
-  if(aPlayers[0]) aPlayers[0].isHuman = true;
-  // roles
-  g.players.forEach(p=> p.role = (p.team===atk)?'atk':'def');
-  // give ball to attacking human's team — to the human if attacking, else to AI attacker
-  const owner = g.players.find(p=> p.team===atk && (atk==='A'? p.isHuman : true));
-  g.ball.owner = owner; g.ball.loose=false; g.ball.flying=false;
-  g.ball.vx=0; g.ball.vy=0;
-  positionBallToOwner(g);
+// roles follow possession every frame
+function assignRoles(g){
+  for(const p of g.players) p.role = (p.team===g.attacking) ? 'atk' : 'def';
 }
 
-function human(g){ return g.players.find(p=>p.team==='A' && p.isHuman) || g.players.find(p=>p.team==='A'); }
+// place players for the opening tip-off. A starts with the ball, already cleared.
+function setupPlayers(g){
+  g.players = [];
+  const cx = W/2;
+  g.players.push(mkPlayer('A', cx-34, COURT.bottom-70));      // A1
+  g.players.push(mkPlayer('A', cx+46, COURT.bottom-104));     // A2
+  g.players.push(mkPlayer('B', cx-30, COURT.top+110));        // B1
+  g.players.push(mkPlayer('B', cx+34, COURT.top+128));        // B2
+  g.attacking='A'; g.cleared=true; g.manualPick=null; g.manualT=0;
+  assignRoles(g);
+  const owner = g.players.find(p=>p.team==='A');
+  g.ball.owner=owner; g.ball.loose=false; g.ball.flying=false;
+  g.ball.vx=0; g.ball.vy=0; g.ball.trail=[];
+  positionBallToOwner(g);
+  updateControl(g);
+}
+
+// the human always steers team A's ball-carrier; when defending, the A player
+// nearest the ball (or a manually-picked one) — classic auto-switch.
+function updateControl(g){
+  const aP=g.players.filter(p=>p.team==='A'); if(!aP.length) return;
+  let target;
+  if(g.ball.owner && g.ball.owner.team==='A'){
+    target=g.ball.owner;
+  } else if(g.manualPick && g.manualT>0 && aP.includes(g.manualPick)){
+    target=g.manualPick;
+  } else {
+    const b=g.ball;
+    target=aP.slice().sort((a,c)=>dist(a.x,a.y,b.x,b.y)-dist(c.x,c.y,b.x,b.y))[0];
+  }
+  if(target && target!==g.controlled){ target.tx=target.x; target.ty=target.y; } // stop drift on switch
+  for(const p of aP) p.isHuman=(p===target);
+  g.controlled=target;
+}
+
+function human(g){ return g.controlled || g.players.find(p=>p.team==='A' && p.isHuman) || g.players.find(p=>p.team==='A'); }
+
+// ---------- Possession / clear flow ----------
+function gainPossession(g, p, opts){
+  const b=g.ball;
+  b.owner=p; b.loose=false; b.flying=false; b.vx=b.vy=0; b._pending=null; b._passTarget=null;
+  hideLooseBar();
+  const teamChanged = (p.team!==g.attacking);
+  g.attacking=p.team;
+  if(teamChanged || (opts&&opts.forceClear)) g.cleared=false;
+  assignRoles(g);
+  positionBallToOwner(g);
+}
+function updateClear(g){
+  if(g.cleared) return;
+  const o=g.ball.owner;
+  if(o && o.team===g.attacking && o.y > CLEAR_LINE_Y){
+    g.cleared=true; g.clearFx=0.9; g.flash=0.12;
+    flashToast('CLEAR!', o.team==='A'?C.coral:C.blue);
+    Audio.whistleShort(); if(o.isHuman) haptic([20]);
+  }
+}
 
 // ---------- Helpers ----------
 const clamp=(v,a,b)=>v<a?a:v>b?b:v;
@@ -398,33 +438,63 @@ function handleGesture(pos, dx, dy, d, dur){
   const g=game, me=human(g);
   if(!me) return;
   const haveBall = g.ball.owner===me;
+  const mate = g.players.find(p=>p.team===me.team && p!==me);
+  const carrier = g.ball.owner;
+  const defending = !(carrier && carrier.team==='A');
 
-  // TAP (<12px)
-  if(d < 12){
-    if(haveBall){
-      // tap teammate -> pass
-      const mate = g.players.find(p=>p.team===me.team && p!==me);
-      if(mate && dist(pos.x,pos.y,mate.x,mate.y) < 34){ passTo(g,me,mate); return; }
-      // dribble move toward tap
-      me.tx=pos.x; me.ty=pos.y;
-    } else {
-      // positioning
-      me.tx=pos.x; me.ty=pos.y;
+  // ===== OFFENSE (we have the ball) =====
+  if(haveBall){
+    const ang=Math.atan2(dy,dx);
+    const up = ang < -50*Math.PI/180 && ang > -130*Math.PI/180;
+    // swipe up = SHOOT (only once cleared, in the attacking zone, off cooldown)
+    if(d>=14 && up){
+      if(g.cleared && inAttackZone(g,me) && me.stealCd<=0 && g.shotCd<=0){
+        attemptShot(g, me, ang, d); g.shotCd=0.55;
+      } else {
+        // can't shoot yet — dribble that way instead, nudge feedback
+        dribbleDir(me, ang, d);
+        if(!g.cleared) flashToast('먼저 클리어!', '#FFD23F');
+      }
+      return;
     }
+    // tap teammate = pass (control will follow the ball)
+    if(d<14 && mate && dist(pos.x,pos.y,mate.x,mate.y) < 40){ passTo(g,me,mate); return; }
+    // otherwise move/dribble toward the gesture
+    if(d<14){ me.tx=pos.x; me.ty=pos.y; }
+    else dribbleDir(me, ang, d);
     return;
   }
 
-  // SWIPE
-  const ang=Math.atan2(dy,dx);   // up = negative
-  const up = ang < -55*Math.PI/180 && ang > -125*Math.PI/180;
-  if(haveBall && up && inAttackZone(g,me) && me.stealCd<=0 && g.shotCd<=0){
-    attemptShot(g, me, ang, d);
-    g.shotCd=0.6;                 // GDD shot cooldown
+  // ===== DEFENSE (opponent or loose ball) =====
+  // tap your other teammate to switch control to them
+  if(d<14 && mate && dist(pos.x,pos.y,mate.x,mate.y) < 40){
+    g.manualPick=mate; g.manualT=2.5; updateControl(g); haptic([10]); return;
+  }
+  // near the carrier? any gesture = TACKLE attempt
+  if(carrier && dist(me.x,me.y,carrier.x,carrier.y) < me.r+carrier.r+20 && me.stealCd<=0){
+    attemptTackle(g, me, carrier); return;
+  }
+  // else chase / reposition toward the gesture point
+  me.tx=pos.x; me.ty=pos.y;
+}
+
+function dribbleDir(me, ang, d){
+  const len=clamp(d, 20, 140);
+  me.tx=clamp(me.x+Math.cos(ang)*len, COURT.left, COURT.right);
+  me.ty=clamp(me.y+Math.sin(ang)*len, COURT.top, COURT.bottom);
+}
+
+// player-initiated tackle: success pops the ball loose for a scramble (you're adjacent → likely win it)
+function attemptTackle(g, defender, carrier){
+  defender.stealCd=0.6;
+  const press = 0.5 + 0.012*(1-(game.time/game.halfSec))*30;   // small ramp over the match
+  if(Math.random() < clamp(press,0.45,0.72)){
+    doSteal(g, defender);
+    spark(g, carrier.x, carrier.y, C.yellow);
+    haptic([30]);
   } else {
-    // dribble / position in swipe direction
-    const len=clamp(d, 20, 130);
-    me.tx=clamp(me.x+Math.cos(ang)*len, COURT.left, COURT.right);
-    me.ty=clamp(me.y+Math.sin(ang)*len, COURT.top, COURT.bottom);
+    Audio.miss(); spark(g, defender.x, defender.y, '#9CA3AF');   // whiffed — brief cooldown
+    haptic([8]);
   }
 }
 
@@ -438,9 +508,11 @@ function moveToward(p, speed){
 // ---------- AI: teammate / defense (GDD §5) ----------
 function difficulty(g){
   const prog = 1 - g.time/g.halfSec;          // 0..1
-  if(prog<0.30) return {react:0.55, pos:0.6, speed:1.7,  steal:0.016};
-  if(prog<0.70) return {react:0.80, pos:0.8, speed:1.95, steal:0.024};
-  return            {react:1.00, pos:1.0, speed:2.2,  steal:0.036};
+  // steal is intentionally low — defense should CONTAIN; the ball is won mainly via
+  // active tackles, forced contested shots (rebounds) and loose-ball scrambles
+  if(prog<0.30) return {react:0.55, pos:0.6, speed:1.7,  steal:0.005};
+  if(prog<0.70) return {react:0.80, pos:0.8, speed:1.95, steal:0.009};
+  return            {react:1.00, pos:1.0, speed:2.2,  steal:0.014};
 }
 
 // --- spatial helpers ---
@@ -450,16 +522,16 @@ function distToSeg(px,py,ax,ay,bx,by){
   let t=((px-ax)*dx+(py-ay)*dy)/l2; t=clamp(t,0,1);
   return Math.hypot(px-(ax+dx*t), py-(ay+dy*t));
 }
-// is a defender standing in the shooting cone ahead of p toward goal?
+// is a defender genuinely in the shooting lane (close + tight to the line to goal)?
 function laneBlocked(g,p){
   const toGoal=Math.atan2(GOAL.y-p.y, GOAL.cx-p.x);
   for(const d of g.players){
     if(d.role!=='def') continue;
-    if(dist(p.x,p.y,d.x,d.y)>105) continue;
-    if(d.y > p.y+8) continue;                 // defender must be goal-side (ahead)
+    if(dist(p.x,p.y,d.x,d.y)>78) continue;    // only a nearby defender truly blocks
+    if(d.y > p.y+8) continue;                  // must be goal-side (ahead)
     let diff=Math.abs(Math.atan2(d.y-p.y,d.x-p.x)-toGoal);
     while(diff>Math.PI) diff=Math.abs(diff-2*Math.PI);
-    if(diff < 40*Math.PI/180) return d;
+    if(diff < 28*Math.PI/180) return d;
   }
   return null;
 }
@@ -495,76 +567,114 @@ function attackProfile(g,p){
 }
 
 function updateAI(g, dt){
+  assignRoles(g);
+  const b=g.ball;
   for(const p of g.players){
     if(p.isHuman) { continue; }      // human handled by input
     p.stealCd=Math.max(0,p.stealCd-dt);
-    p.passCd =Math.max(0,(p.passCd||0)-dt);
-    if(p.role==='atk') aiAttack(g,p,dt);
-    else               aiDefense(g,p,dt,difficulty(g));
+    p.passCd =Math.max(0,p.passCd-dt);
+
+    if(b.flying===true){ aiDuringShot(g,p); continue; }      // shot in the air → crash for rebound
+    if(b.flying==='pass'){                                    // ball travelling to a teammate
+      if(b._passTarget && b._passTarget.team===p.team){
+        if(b._passTarget===p){ p.tx=b.x+b.vx*2; p.ty=b.y+b.vy*2; moveToward(p,2.0); }
+        else offBallMove(g,p,b._passTarget,attackProfile(g,p));
+      } else aiDefense(g,p,dt,difficulty(g));
+      continue;
+    }
+    if(b.loose || !b.owner){ aiLoose(g,p); continue; }       // scramble for the loose ball
+
+    if(b.owner.team===p.team){                                // we have it → attack / support
+      if(b.owner===p) carrierAct(g,p,attackProfile(g,p));
+      else            offBallMove(g,p,b.owner,attackProfile(g,p));
+    } else {
+      aiDefense(g,p,dt,difficulty(g));                        // they have it → defend
+    }
   }
 }
 
-function aiAttack(g,p,dt){
-  const ball=g.ball, mate=teammate(g,p), prof=attackProfile(g,p);
-
-  // loose ball recovery (RECOVER)
-  if(ball.loose){
-    const myD=dist(p.x,p.y,ball.x,ball.y);
-    const mateD=mate?dist(mate.x,mate.y,ball.x,ball.y):999;
-    if(myD<=mateD){ p.tx=ball.x; p.ty=ball.y; moveToward(p,prof.speed+0.3);
-      if(myD<p.r+ball.r+3) recoverLoose(g,p);
-    } else { offBallMove(g,p,mate,prof); }
-    return;
+// scramble: nearest player of EITHER team chases the loose ball; others anticipate
+function aiLoose(g,p){
+  const b=g.ball;
+  const closest=g.players.slice().sort((a,c)=>dist(a.x,a.y,b.x,b.y)-dist(c.x,c.y,b.x,b.y))[0];
+  if(closest===p){
+    p.tx=clamp(b.x+b.vx*4, COURT.left+10, COURT.right-10);
+    p.ty=clamp(b.y+b.vy*4, COURT.top+10,  COURT.bottom-10);
+    const sp = (p.team!==g.attacking)? difficulty(g).speed+0.3 : 2.0;   // the team that lost it hustles to win it back
+    moveToward(p, sp);
+    if(dist(p.x,p.y,b.x,b.y) < p.r+b.r+4) recoverLoose(g,p);
+  } else if(p.team===g.attacking){
+    offBallMove(g,p,b,attackProfile(g,p));
+  } else {
+    p.tx=clamp(b.x, GOAL.left-10, GOAL.right+10);
+    p.ty=clamp((b.y+GOAL.y)/2, COURT.top+24, COURT.bottom-40);
+    moveToward(p, difficulty(g).speed*0.9);
   }
-  if(ball.owner===p){ carrierAct(g,p,prof); return; }
-  offBallMove(g, p, ball.owner||mate, prof);   // off the ball
 }
 
-// ball carrier: shoot when there's a real chance, otherwise RECYCLE (pass/dribble to space)
+// shot in flight: everyone converges on the goal mouth for a possible rebound
+function aiDuringShot(g,p){
+  p.tx=clamp(GOAL.cx + (p.x<GOAL.cx?-30:30), GOAL.left-12, GOAL.right+12);
+  p.ty=(p.team===g.attacking)? COURT.top+52 : COURT.top+32;
+  moveToward(p, difficulty(g).speed*0.85);
+}
+
+// ball carrier: clear first if needed, then shoot on a real chance, else recycle / dribble to space
 function carrierAct(g,p,prof){
+  if(!g.cleared){ clearOut(g,p,prof); return; }
   const mate=teammate(g,p);
-  const hum =g.players.find(q=>q.team==='A'&&q.isHuman);
   const blocker=laneBlocked(g,p);
   const press=pressureCoef(g,p.x,p.y);
   const d2goal=dist(p.x,p.y,GOAL.cx,GOAL.y);
-  const oppScore=g.score[p.team==='A'?'B':'A'];
-  const lateUrgent = g.time<12 && g.score[p.team] <= oppScore;
-  p.shotsThisHalf=p.shotsThisHalf||0;
 
-  // --- SHOOT (only with a genuine lane) ---
-  const shotsOk = prof.unlimited || p.shotsThisHalf<prof.maxShots || lateUrgent;
-  if(inAttackZone(g,p) && d2goal<prof.shootRange && !blocker && press>prof.shootOpen
-     && shotsOk && g.shotCd<=0){
+  // SHOOT — fire on an opening; from close range force a contested attempt (creates rebounds/action)
+  const cleanLook  = !blocker && (press>prof.shootOpen || (d2goal<120 && press>0.3));
+  const forceClose = d2goal<92 && press>0.18;     // contested layup even with a defender in front
+  if(inAttackZone(g,p) && d2goal<prof.shootRange && (cleanLook||forceClose) && g.shotCd<=0){
     attemptShot(g,p, Math.atan2(GOAL.y-p.y,GOAL.cx-p.x), clamp(d2goal*0.7,60,120));
-    g.shotCd=0.6; p.shotsThisHalf++; return;
+    g.shotCd=0.55; return;
   }
-
-  // --- RECYCLE: ally feeds the human; anyone swings to a more open mate (incl. backward) ---
-  if(prof.ally && hum && hum!==p && passLaneOpen(g,p,hum) && p.passCd<=0){
-    const humOpen = openScore(g,hum.x,hum.y) > openScore(g,p.x,p.y)-0.05;
-    if(blocker || humOpen || p.shotsThisHalf>=prof.maxShots){ passTo(g,p,hum); p.passCd=0.7; return; }
-  }
+  // RECYCLE: swing to a more open mate (including backward) when blocked
   if(mate && passLaneOpen(g,p,mate) && p.passCd<=0){
     const better = openScore(g,mate.x,mate.y) > openScore(g,p.x,p.y)+0.06;
-    if((blocker && better) || (better && Math.random()<0.05)){ passTo(g,p,mate); p.passCd=0.7; return; }
+    if((blocker && better) || (better && Math.random()<0.06)){ passTo(g,p,mate); p.passCd=0.7; return; }
   }
-
-  // --- DRIBBLE into space instead of charging the wall ---
+  // DRIBBLE into space instead of charging the wall
   driveToSpace(g,p,prof,blocker);
   moveToward(p,prof.speed);
 }
 
-// steer the carrier: toward goal, repelled from the nearest defender, veering wide when blocked
+// carry/pass the ball below the clear line before attacking
+function clearOut(g,p,prof){
+  const leftRoom = pressureCoef(g, COURT.left+80, p.y), rightRoom = pressureCoef(g, COURT.right-80, p.y);
+  const side = rightRoom>=leftRoom ? 1 : -1;
+  p.tx=clamp(p.x + side*26, COURT.left+24, COURT.right-24);
+  p.ty=CLEAR_LINE_Y + 18;
+  moveToward(p, prof.speed);
+  // offload to a deeper mate if pressed
+  const mate=teammate(g,p);
+  if(mate && mate.y>p.y+8 && passLaneOpen(g,p,mate) && p.passCd<=0 && pressureCoef(g,p.x,p.y)<0.45){
+    passTo(g,p,mate); p.passCd=0.6;
+  }
+}
+
+// steer the carrier: drive AROUND a blocker toward the open post, else straight at goal
 function driveToSpace(g,p,prof,blocker){
-  let ax=GOAL.cx-p.x, ay=GOAL.y-p.y; const na=Math.hypot(ax,ay)||1; ax/=na; ay/=na;
-  const nd=nearestDefenders(g,p.x,p.y)[0];
-  let rx=0,ry=0;
-  if(nd && nd.d<95){ rx=p.x-nd.p.x; ry=p.y-nd.p.y; const m=Math.hypot(rx,ry)||1; rx/=m; ry/=m; }
-  let lx=0,ly=0;
-  if(blocker){ lx=(blocker.x>=p.x)?-1:1; ly=0.15; }   // veer to the open side, ease off the goal
-  const wGoal=blocker?0.35:1.0, wRep=blocker?1.2:0.9, wLat=blocker?1.1:0;
-  p.tx=clamp(p.x+(ax*wGoal+rx*wRep+lx*wLat)*prof.dribbleStep, COURT.left+12, COURT.right-12);
-  p.ty=clamp(p.y+(ay*wGoal+ry*wRep+ly*wLat)*prof.dribbleStep, COURT.top+24,  COURT.bottom-24);
+  let tx,ty;
+  if(blocker){
+    const side=(blocker.x>=p.x)?-1:1;                 // attack the post the defender is NOT on
+    tx=GOAL.cx + side*54;
+    ty=GOAL.y + 22;
+  } else {
+    let ax=GOAL.cx-p.x, ay=GOAL.y-p.y; const na=Math.hypot(ax,ay)||1; ax/=na; ay/=na;
+    const nd=nearestDefenders(g,p.x,p.y)[0];
+    let rx=0,ry=0; if(nd && nd.d<70){ rx=p.x-nd.p.x; ry=p.y-nd.p.y; const m=Math.hypot(rx,ry)||1; rx/=m; ry/=m; }
+    tx=p.x+(ax+rx*0.5)*prof.dribbleStep;
+    ty=p.y+(ay+ry*0.5)*prof.dribbleStep;
+  }
+  p.tx=clamp(tx, COURT.left+12, COURT.right-12);
+  p.ty=clamp(ty, COURT.top+22,  COURT.bottom-24);
+  moveToward(p, prof.speed);
 }
 
 // dynamic off-ball: spread wide, oscillate to stay live, shed the marker, make runs
@@ -583,6 +693,10 @@ function offBallMove(g,p,holder,prof){
     const run = Math.sin(t*0.7 + p.x*0.02) > 0.3;
     depth = run ? COURT.top+44 : clamp(holderY-18, COURT.top+70, COURT.bottom-40);
   }
+  // while our team is still clearing, drop deep to offer a safe outlet below the line
+  if(p.team===g.attacking && !g.cleared){
+    depth = clamp((holder?holder.y:CLEAR_LINE_Y)+24, CLEAR_LINE_Y-6, COURT.bottom-30);
+  }
   const nd=nearestDefenders(g,p.x,p.y)[0];   // lose the marker
   let rx=0,ry=0; if(nd&&nd.d<66){ rx=p.x-nd.p.x; ry=p.y-nd.p.y; const m=Math.hypot(rx,ry)||1; rx/=m; ry/=m; }
   p.tx=clamp(baseX + rx*42, COURT.left+12, COURT.right-12);
@@ -591,98 +705,85 @@ function offBallMove(g,p,holder,prof){
 }
 
 function recoverLoose(g,p){
-  g.ball.loose=false; g.ball.flying=false; g.ball.owner=p;
-  g.ball.vx=g.ball.vy=0;
-  hideLooseBar();
-  // AI immediately passes to human if human is teammate
-  const mate=g.players.find(q=>q.team===p.team && q!==p && q.isHuman);
-  if(mate) setTimeout(()=>{ if(game&&game.ball.owner===p) passTo(g,p,mate); }, 120);
+  const flip = (p.team!==g.attacking);
+  gainPossession(g,p);
+  spark(g, p.x, p.y, flip ? (p.team==='A'?C.coral:C.blue) : '#fff');
+  if(p.isHuman) haptic([15]);
 }
 
 function aiDefense(g,p,dt,diff){
-  const ball=g.ball;
-  const holder=ball.owner;
-  const mate=g.players.find(q=>q.team===p.team && q!==p);
+  const holder=g.ball.owner, mate=teammate(g,p);
 
-  if(ball.loose){
-    // block / get in front, but cannot own
-    p.tx=ball.x; p.ty=ball.y+18; moveToward(p, diff.speed*0.9); return;
+  // opponent has not cleared yet → retreat and set the defensive shape (give them room)
+  if(!g.cleared){
+    const isFirst = (p===g.players.find(q=>q.role==='def'));
+    p.tx=clamp(holder?holder.x:GOAL.cx, COURT.left+34, COURT.right-34);
+    p.ty=COURT.top + 74 + (isFirst?0:30);
+    moveToward(p, diff.speed*0.9); return;
   }
-  if(ball.flying){
-    // try to cover goal
-    p.tx=clamp(ball.x, GOAL.left, GOAL.right); p.ty=COURT.top+24;
-    moveToward(p,diff.speed); return;
-  }
+  if(!holder) return;
 
-  if(holder){
-    // nearest defender intercepts holder, other marks the mate / lane
-    const otherDef=g.players.find(q=>q.role==='def'&&q!==p);
-    const iAmNearest = !otherDef || dist(p.x,p.y,holder.x,holder.y) <= dist(otherDef.x,otherDef.y,holder.x,holder.y);
-    if(iAmNearest){
-      // Intercept: approach ball, slightly goal-side
-      p.tx=holder.x; p.ty=holder.y - 4;
-      moveToward(p, diff.speed);
-      const dd=dist(p.x,p.y,holder.x,holder.y);
-      if(dd < p.r+holder.r+6 && p.stealCd<=0){
-        // chance to steal scaled by difficulty & reaction
-        if(Math.random() < diff.steal + (diff.react*0.01)) doSteal(g,p);
-      }
-    } else {
-      // Mark: stand goal-side of the other attacker (block lane)
-      const target = (holder===mate)?mate:g.players.find(q=>q.role==='atk'&&q!==holder)||holder;
-      const t = target||holder;
-      p.tx=clamp((t.x+GOAL.cx)/2, COURT.left, COURT.right);
-      p.ty=clamp(t.y-22, COURT.top+20, COURT.bottom);
-      moveToward(p, diff.speed*0.95);
+  const otherDef=g.players.find(q=>q.role==='def'&&q!==p);
+  const iAmNearest=!otherDef || dist(p.x,p.y,holder.x,holder.y)<=dist(otherDef.x,otherDef.y,holder.x,holder.y);
+  if(iAmNearest){
+    // contain: stand off goal-side (not glued), poke the ball only when it's right there
+    const a=Math.atan2(GOAL.y-holder.y, GOAL.cx-holder.x);
+    p.tx=clamp(holder.x+Math.cos(a)*24, COURT.left, COURT.right);
+    p.ty=clamp(holder.y+Math.sin(a)*24, COURT.top+18, COURT.bottom);
+    moveToward(p, diff.speed);
+    if(dist(p.x,p.y,holder.x,holder.y) < p.r+holder.r+2 && p.stealCd<=0){
+      p.stealCd=0.55;                                   // cap to ~2 pokes/sec
+      if(Math.random() < diff.steal*4 + diff.react*0.01) doSteal(g,p);
     }
+  } else {
+    // mark the other attacker on the goal side, cutting the passing lane
+    const tgt=g.players.find(q=>q.team===holder.team && q!==holder) || holder;
+    p.tx=clamp(tgt.x*0.5+GOAL.cx*0.5, COURT.left, COURT.right);
+    p.ty=clamp(tgt.y-20, COURT.top+20, COURT.bottom);
+    moveToward(p, diff.speed*0.95);
   }
 }
 
 // ---------- Ball physics / resolution ----------
+function pushTrail(b){ b.trail.push({x:b.x,y:b.y}); if(b.trail.length>9) b.trail.shift(); }
+
 function updateBall(g, dt){
   const b=g.ball;
-  if(b.owner){ positionBallToOwner(g); b.spin+=0.25; return; }
+  if(b.owner){ positionBallToOwner(g); b.spin+=0.25; if(b.trail.length) b.trail.length=0; return; }
 
   if(b.flying==='pass'){
-    b.x+=b.vx; b.y+=b.vy; b.spin+=0.4;
+    b.x+=b.vx; b.y+=b.vy; b.spin+=0.4; pushTrail(b);
     const tgt=b._passTarget;
     if(tgt && dist(b.x,b.y,tgt.x,tgt.y) < tgt.r+b.r+2){
-      b.owner=tgt; b.flying=false; b.vx=b.vy=0; b._passTarget=null;
-      tgt.aiState='RECEIVE'; tgt.tx=tgt.x; tgt.ty=tgt.y;
+      b.owner=tgt; b.flying=false; b.vx=b.vy=0; b._passTarget=null; b.trail.length=0;
+      return;
     }
-    // intercept by defender mid-pass
-    for(const d of g.players){ if(d.role==='def' && dist(b.x,b.y,d.x,d.y)<d.r+b.r){
-      b.owner=null; b.loose=true; b.flying=false; b._resetPen=false;
-      b._stealX=b.x; b._stealY=b.y; b.looseT=g.looseLen;
-      b.vx*=0.4; b.vy*=0.4; break; } }
+    // intercept by an opponent mid-pass → loose ball (scramble decides possession)
+    for(const d of g.players){
+      if(d.team!==g.attacking && dist(b.x,b.y,d.x,d.y)<d.r+b.r){
+        b.loose=true; b.flying=false; b._passTarget=null;
+        b.looseT=g.looseLen; b.vx*=0.4; b.vy*=0.4; break;
+      }
+    }
     keepBallIn(g);
     return;
   }
 
   if(b.flying===true){
-    b.x+=b.vx; b.y+=b.vy; b.spin+=0.6;
-    // reached goal line?
-    if(b.y <= GOAL.y+2){
-      resolveShot(g);
-      return;
-    }
-    // off sides while flying = miss out
-    if(b.x<COURT.left||b.x>COURT.right){ resolveShotMiss(g); }
+    b.x+=b.vx; b.y+=b.vy; b.spin+=0.6; pushTrail(b);
+    if(b.y <= GOAL.y+2){ resolveShot(g); return; }                 // reached goal line
+    if(b.x<COURT.left||b.x>COURT.right){ resolveShotMiss(g); }       // wide
     return;
   }
 
   if(b.loose){
-    b.x+=b.vx; b.y+=b.vy; b.vx*=0.91; b.vy*=0.91; b.spin+=0.3;
-    keepBallIn(g);
-    b.looseT-=dt;
-    showLooseBar(b.looseT/g.looseLen);
-    // attacker recovery handled in aiAttack & human proximity
-    const h=human(g);
-    if(h && h.role==='atk' && dist(h.x,h.y,b.x,b.y)<h.r+b.r+3){
-      b.loose=false; b.owner=h; b.vx=b.vy=0; hideLooseBar();
-      return;
-    }
-    if(b.looseT<=0){ resetLoose(g); }
+    b.x+=b.vx; b.y+=b.vy; b.vx*=0.9; b.vy*=0.9; b.spin+=0.3;
+    keepBallIn(g); pushTrail(b);
+    b.looseT-=dt; showLooseBar(b.looseT/g.looseLen);
+    // ANY player can win a loose ball — nearest within reach collects it
+    let best=null,bd=1e9;
+    for(const p of g.players){ const dd=dist(p.x,p.y,b.x,b.y); if(dd<bd){bd=dd;best=p;} }
+    if(best && (bd < best.r+b.r+4 || b.looseT<=0)){ recoverLoose(g,best); return; }
     return;
   }
 }
@@ -698,65 +799,46 @@ function keepBallIn(g){
 function resolveShot(g){
   const b=g.ball, pend=b._pending||{outcome:'miss',team:g.attacking};
   const inGoal = b.x>GOAL.left && b.x<GOAL.right;
-  if(pend.outcome==='goal' && inGoal){ scoreGoal(g, pend.team); }
-  else if(pend.outcome==='save'){ Audio.save(); flashToast('SAVE!', '#fff'); restartFromKeeper(g); }
-  else { resolveShotMiss(g); }
-  b._pending=null; b.flying=false;
+  b._pending=null; b.flying=false; b.trail.length=0;
+  if(pend.outcome==='goal' && inGoal){ scoreGoal(g, pend.team); return; }
+  if(pend.outcome==='save'){ Audio.save(); flashToast('SAVE!', '#fff'); }
+  else { Audio.miss(); flashToast('빗나감', '#9CA3AF'); }
+  awardRebound(g);
 }
 function resolveShotMiss(g){
+  g.ball.flying=false; g.ball._pending=null; g.ball.trail.length=0;
   Audio.miss(); flashToast('빗나감', '#9CA3AF');
-  g.ball.flying=false; g.ball._pending=null;
-  restartFromKeeper(g);
+  awardRebound(g);
+}
+
+// after a save/miss the DEFENDING team collects the rebound and must clear it out
+function awardRebound(g){
+  const def = g.attacking==='A'?'B':'A';
+  const taker = g.players.filter(p=>p.team===def)
+    .sort((a,c)=>dist(a.x,a.y,GOAL.cx,GOAL.y)-dist(c.x,c.y,GOAL.cx,GOAL.y))[0];
+  g.ball.x=GOAL.cx; g.ball.y=COURT.top+46;
+  if(taker) gainPossession(g, taker, {forceClear:true});
 }
 
 function scoreGoal(g, team){
   g.score[team]++;
   updateScoreUI(g);
-  g.state=GS.GOAL_CELEB; g.goalLock=2.0;
-  g.shake=14; g.flash=0.25;
+  g.state=GS.GOAL_CELEB; g.goalLock=1.7;
+  g.shake=15; g.flash=0.25;
   const col = team==='A'?C.coral:C.blue;
   burst(g, GOAL.cx, GOAL.y+10, col);
   flashToast('GOAL!', col);
   Audio.goal();
   haptic([60,40,80]);
+  g._concede = team==='A'?'B':'A';     // conceding team restarts (comeback chance)
 }
 
-function restartFromKeeper(g){
-  // ball goes to defending keeper-ish then to attacking restart at center
-  setTimeout(()=>{ if(game) kickoff(g, false); }, 700);
-}
-
-function resetLoose(g){
-  const b=g.ball;
-  Audio.whistleShort();
-  g.flash=0.18;
-  let rx, ry;
-  if(b._resetPen){ rx=W/2; ry=(COURT.top+COURT.bottom)/2; }      // halfline center
-  else { rx=clamp(b._stealX+(Math.random()*60-30), COURT.left+20, COURT.right-20);
-         ry=clamp(b._stealY, COURT.top+40, COURT.bottom-20); }
-  b.loose=false; b.flying=false; b.vx=b.vy=0; b.x=rx; b.y=ry;
-  // give to attacking team (nearest attacker)
-  const atkers=g.players.filter(p=>p.role==='atk').sort((a,c)=>dist(a.x,a.y,rx,ry)-dist(c.x,c.y,rx,ry));
-  b.owner=atkers[0]||null;
-  hideLooseBar();
-}
-
-// kickoff: ball to attacking team at their center
-function kickoff(g, full){
-  hideLooseBar();
-  const atk=g.attacking;
-  if(full){ setupPlayers(g); }
-  else {
-    // reposition lightly, give ball to attacking human-side
-    const owner = g.players.find(p=> p.team===atk && (atk==='A'? p.isHuman:true));
-    g.ball.owner=owner; g.ball.loose=false; g.ball.flying=false;
-    g.ball.vx=g.ball.vy=0;
-    // nudge players back to formation-ish
-    for(const p of g.players){
-      if(p.role==='atk'){ p.ty=clamp(p.y, COURT.top+140, COURT.bottom-30); }
-    }
-    positionBallToOwner(g);
-  }
+// restart after a goal: reset formation, give ball to the conceding team, force a clear
+function restartAfterGoal(g){
+  setupPlayers(g);
+  const concede = g._concede || 'B';
+  const taker = g.players.find(p=>p.team===concede);
+  if(taker) gainPossession(g, taker, {forceClear:true});
   g.state=GS.PLAY;
 }
 
@@ -771,9 +853,20 @@ function burst(g,x,y,color){
       col:cols[(Math.random()*cols.length)|0]});
   }
 }
+// small quick spark (tackle / loose-ball win) — fewer, faster, no gravity
+function spark(g,x,y,color){
+  const cols=[color,'#fff'];
+  for(let i=0;i<14;i++){
+    const a=Math.random()*Math.PI*2, sp=2.5+Math.random()*4;
+    g.particles.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,
+      life:0.7, rot:Math.random()*6, vr:(Math.random()-.5)*.6,
+      w:3+Math.random()*3, h:3+Math.random()*3, grav:0.02,
+      col:cols[(Math.random()*cols.length)|0]});
+  }
+}
 function updateParticles(g,dt){
   for(const p of g.particles){
-    p.x+=p.vx; p.y+=p.vy; p.vy+=0.14; p.vx*=0.99; p.rot+=p.vr; p.life-=dt*0.7;
+    p.x+=p.vx; p.y+=p.vy; p.vy+=(p.grav!=null?p.grav:0.14); p.vx*=0.99; p.rot+=p.vr; p.life-=dt*(p.grav!=null?1.3:0.7);
   }
   g.particles=g.particles.filter(p=>p.life>0);
 }
@@ -787,6 +880,7 @@ function render(g){
   if(g.shake>0){ ctx.translate((Math.random()-.5)*g.shake,(Math.random()-.5)*g.shake); }
 
   drawCourt(g);
+  drawClearLine(g);
   drawGoal(g);
   // players sorted by y for layered paper feel
   const ps=[...g.players].sort((a,b)=>a.y-b.y);
@@ -806,84 +900,123 @@ function render(g){
 }
 
 function drawCourt(g){
-  // grass with subtle stripes
-  ctx.fillStyle=C.grass; ctx.fillRect(0,0,W,H);
-  ctx.fillStyle=C.grassDk;
-  const sH=(COURT.bottom-COURT.top)/6;
-  for(let i=0;i<6;i+=2){ ctx.fillRect(COURT.left,COURT.top+i*sH,COURT.right-COURT.left,sH); }
-  // outline
-  ctx.strokeStyle=C.line; ctx.lineWidth=2;
-  rr(COURT.left,COURT.top,COURT.right-COURT.left,COURT.bottom-COURT.top,4); ctx.stroke();
-  // halfway / center arc at bottom (half court)
+  // grass: vertical gradient (brighter near goal) + mow stripes
+  ctx.fillStyle='#256B4D'; ctx.fillRect(0,0,W,H);
+  const gg=ctx.createLinearGradient(0,COURT.top,0,COURT.bottom);
+  gg.addColorStop(0,'#338A63'); gg.addColorStop(1,'#236247');
+  ctx.fillStyle=gg; ctx.fillRect(0,0,W,H);
+  const sH=(COURT.bottom-COURT.top)/7;
+  for(let i=0;i<7;i++){ ctx.fillStyle=i%2?'rgba(255,255,255,.04)':'rgba(0,0,0,.05)';
+    ctx.fillRect(COURT.left,COURT.top+i*sH,COURT.right-COURT.left,sH+0.5); }
+  // vignette for depth
+  const vg=ctx.createRadialGradient(W/2,H*0.44,H*0.18, W/2,H*0.5,H*0.74);
+  vg.addColorStop(0,'rgba(0,0,0,0)'); vg.addColorStop(1,'rgba(0,0,0,.30)');
+  ctx.fillStyle=vg; ctx.fillRect(0,0,W,H);
+  // lines
+  ctx.strokeStyle=C.line; ctx.lineWidth=2; ctx.lineJoin='round';
+  rr(COURT.left,COURT.top,COURT.right-COURT.left,COURT.bottom-COURT.top,6); ctx.stroke();
   ctx.beginPath(); ctx.moveTo(COURT.left,COURT.bottom); ctx.lineTo(COURT.right,COURT.bottom); ctx.stroke();
   ctx.beginPath(); ctx.arc(W/2,COURT.bottom,46,Math.PI,2*Math.PI); ctx.stroke();
   ctx.beginPath(); ctx.arc(W/2,COURT.bottom,3,0,7); ctx.fillStyle=C.line; ctx.fill();
-  // penalty area + box
   ctx.strokeStyle=C.line;
   ctx.strokeRect(PEN_AREA.left,PEN_AREA.top,PEN_AREA.right-PEN_AREA.left,PEN_AREA.bottom-PEN_AREA.top);
   ctx.strokeRect(PEN_BOX.left,PEN_BOX.top,PEN_BOX.right-PEN_BOX.left,PEN_BOX.bottom-PEN_BOX.top);
-  // penalty arc
   ctx.beginPath(); ctx.arc(GOAL.cx,PEN_AREA.bottom-8,40,0.18*Math.PI,0.82*Math.PI); ctx.stroke();
+  // penalty spot
+  ctx.beginPath(); ctx.arc(GOAL.cx, PEN_BOX.bottom-2, 2.5, 0, 7); ctx.fillStyle=C.line; ctx.fill();
 
-  // shoot-zone shading when human can't shoot
+  // shoot-zone shading when human has the ball but can't shoot yet
   const h=human(g);
-  if(g.state===GS.PLAY && h && g.ball.owner===h && (!inAttackZone(g,h)||g.shotCd>0)){
-    ctx.fillStyle='rgba(0,0,0,0.10)';
+  if(g.state===GS.PLAY && h && g.ball.owner===h && g.cleared && (!inAttackZone(g,h)||g.shotCd>0)){
+    ctx.fillStyle='rgba(0,0,0,0.08)';
     ctx.fillRect(COURT.left,COURT.top,COURT.right-COURT.left,(COURT.bottom-COURT.top)*0.62);
   }
 }
 
-function drawGoal(g){
-  // paper-cut goal: white frame + net hatch
-  const gl=GOAL.left, gr=GOAL.right, gy=GOAL.y;
+function hexA(h,a){ const n=parseInt(h.slice(1),16); return `rgba(${(n>>16)&255},${(n>>8)&255},${n&255},${a})`; }
+
+function drawClearLine(g){
+  const y=CLEAR_LINE_Y;
   ctx.save();
-  ctx.fillStyle='rgba(245,239,224,.16)';
-  ctx.fillRect(gl,gy-14,gr-gl,16);
-  ctx.strokeStyle=C.net; ctx.lineWidth=3;
-  ctx.beginPath();
-  ctx.moveTo(gl,gy); ctx.lineTo(gl,gy-14); ctx.lineTo(gr,gy-14); ctx.lineTo(gr,gy);
-  ctx.stroke();
-  // net
-  ctx.strokeStyle='rgba(245,239,224,.30)'; ctx.lineWidth=1;
-  for(let x=gl;x<=gr;x+=8){ ctx.beginPath(); ctx.moveTo(x,gy-14); ctx.lineTo(x,gy); ctx.stroke(); }
+  ctx.strokeStyle='rgba(245,239,224,.45)'; ctx.lineWidth=2; ctx.setLineDash([8,7]);
+  ctx.beginPath(); ctx.moveTo(COURT.left,y); ctx.lineTo(COURT.right,y); ctx.stroke();
+  ctx.setLineDash([]);
+  if(g.state===GS.PLAY && !g.cleared){
+    const col = g.attacking==='A'?C.coral:C.blue;
+    const grd=ctx.createLinearGradient(0,y,0,COURT.bottom);
+    grd.addColorStop(0, hexA(col,0)); grd.addColorStop(1, hexA(col,0.24));
+    ctx.fillStyle=grd; ctx.fillRect(COURT.left,y,COURT.right-COURT.left,COURT.bottom-y);
+    if(g.attacking==='A'){
+      ctx.fillStyle='rgba(255,255,255,.9)'; ctx.font='700 11px "SUIT Variable",sans-serif'; ctx.textAlign='center';
+      ctx.fillText('↓ 공을 여기로 빼서 클리어 ↓', W/2, y+(COURT.bottom-y)/2+4);
+    }
+  }
   ctx.restore();
 }
 
-function paperShadow(){ ctx.shadowColor='rgba(0,0,0,.28)'; ctx.shadowBlur=0; ctx.shadowOffsetX=3; ctx.shadowOffsetY=4; }
-function clearShadow(){ ctx.shadowColor='transparent'; ctx.shadowOffsetX=0; ctx.shadowOffsetY=0; }
+function drawGoal(g){
+  const gl=GOAL.left, gr=GOAL.right, gy=GOAL.y, depth=16;
+  ctx.save();
+  // net panel
+  ctx.fillStyle='rgba(245,239,224,.10)'; ctx.fillRect(gl,gy-depth,gr-gl,depth);
+  // diagonal mesh
+  ctx.strokeStyle='rgba(245,239,224,.22)'; ctx.lineWidth=1;
+  for(let x=gl;x<=gr+depth;x+=7){ ctx.beginPath(); ctx.moveTo(x,gy); ctx.lineTo(x-depth,gy-depth); ctx.stroke(); }
+  for(let x=gl-depth;x<=gr;x+=7){ ctx.beginPath(); ctx.moveTo(x,gy); ctx.lineTo(x+depth,gy-depth); ctx.stroke(); }
+  // posts + crossbar
+  ctx.strokeStyle='#F7F2E6'; ctx.lineWidth=4; ctx.lineCap='round'; ctx.lineJoin='round';
+  ctx.beginPath(); ctx.moveTo(gl,gy); ctx.lineTo(gl,gy-depth); ctx.lineTo(gr,gy-depth); ctx.lineTo(gr,gy); ctx.stroke();
+  ctx.restore();
+}
+
+function groundShadow(x,y,rx,ry){
+  ctx.save(); ctx.fillStyle='rgba(0,0,0,.22)';
+  ctx.beginPath(); ctx.ellipse(x,y,rx,ry,0,0,7); ctx.fill(); ctx.restore();
+}
 
 function drawPlayer(g,p){
-  const base = p.team==='A'?C.coral:C.blue;
-  const dk   = p.team==='A'?C.coralDk:C.blueDk;
-  paperShadow();
-  // body: rounded rect (paper-cut)
-  ctx.fillStyle=base;
-  rr(p.x-p.r, p.y-p.r+3, p.r*2, p.r*2+2, 7); ctx.fill();
-  clearShadow();
-  // head: skin circle
-  ctx.fillStyle=C.skin;
-  ctx.beginPath(); ctx.arc(p.x, p.y-p.r-3, 7, 0, 7); ctx.fill();
-  // human marker ring
+  const base=p.team==='A'?C.coral:C.blue, dk=p.team==='A'?C.coralDk:C.blueDk;
+  const lean=clamp((p.tx-p.x)*0.05,-3.2,3.2);
+  // ground shadow
+  groundShadow(p.x, p.y+p.r+4, p.r+2, (p.r+2)*0.4);
+  // ball-owner soft glow
+  if(g.ball.owner===p){ ctx.save(); ctx.fillStyle=hexA(base,0.22);
+    ctx.beginPath(); ctx.arc(p.x,p.y,p.r+9,0,7); ctx.fill(); ctx.restore(); }
+  // body (vertical gradient)
+  const bg=ctx.createLinearGradient(0,p.y-p.r,0,p.y+p.r);
+  bg.addColorStop(0,base); bg.addColorStop(1,dk);
+  ctx.fillStyle=bg; rr(p.x-p.r+lean, p.y-p.r+3, p.r*2, p.r*2+2, 7); ctx.fill();
+  // top highlight
+  ctx.fillStyle='rgba(255,255,255,.14)'; rr(p.x-p.r+lean, p.y-p.r+3, p.r*2, 6, 6); ctx.fill();
+  // head
+  ctx.fillStyle=C.skin; ctx.beginPath(); ctx.arc(p.x+lean, p.y-p.r-3, 7,0,7); ctx.fill();
+  ctx.fillStyle='rgba(0,0,0,.10)'; ctx.beginPath(); ctx.arc(p.x+lean, p.y-p.r-5, 7, Math.PI, 2*Math.PI); ctx.fill();
+  // human marker: yellow ring + chevron above
   if(p.isHuman){
-    ctx.strokeStyle=C.yellow; ctx.lineWidth=2.5;
-    ctx.beginPath(); ctx.arc(p.x, p.y+2, p.r+7, 0, 7); ctx.stroke();
-    // little crown dot
-    ctx.fillStyle=C.yellow; ctx.beginPath(); ctx.arc(p.x, p.y-p.r-13, 2.5, 0, 7); ctx.fill();
+    ctx.strokeStyle=C.yellow; ctx.lineWidth=2.5; ctx.beginPath(); ctx.arc(p.x,p.y+2,p.r+7,0,7); ctx.stroke();
+    ctx.fillStyle=C.yellow; ctx.beginPath();
+    ctx.moveTo(p.x,p.y-p.r-15); ctx.lineTo(p.x-4,p.y-p.r-21); ctx.lineTo(p.x+4,p.y-p.r-21);
+    ctx.closePath(); ctx.fill();
   }
-  // ball-owner foot accent
-  if(g.ball.owner===p){ ctx.fillStyle=dk; ctx.beginPath(); ctx.arc(p.x,p.y+p.r+1,3,0,7); ctx.fill(); }
 }
 
 function drawBall(g){
   const b=g.ball;
-  paperShadow();
-  ctx.fillStyle='#fff'; ctx.beginPath(); ctx.arc(b.x,b.y,b.r,0,7); ctx.fill();
-  clearShadow();
-  // pentagon shading mask, rotating
-  ctx.save(); ctx.translate(b.x,b.y); ctx.rotate(b.spin);
-  ctx.fillStyle='rgba(31,41,55,.85)';
+  if(b.trail.length>1){
+    for(let i=0;i<b.trail.length;i++){ const t=b.trail[i], f=(i+1)/b.trail.length;
+      ctx.globalAlpha=f*0.28; ctx.fillStyle='#fff';
+      ctx.beginPath(); ctx.arc(t.x,t.y,b.r*f*0.8,0,7); ctx.fill(); }
+    ctx.globalAlpha=1;
+  }
+  groundShadow(b.x, b.y+b.r+2, b.r*1.05, b.r*0.5);
+  const bg=ctx.createRadialGradient(b.x-3,b.y-3,1,b.x,b.y,b.r);
+  bg.addColorStop(0,'#ffffff'); bg.addColorStop(1,'#D7DCE4');
+  ctx.fillStyle=bg; ctx.beginPath(); ctx.arc(b.x,b.y,b.r,0,7); ctx.fill();
+  ctx.strokeStyle='rgba(31,41,55,.25)'; ctx.lineWidth=1; ctx.beginPath(); ctx.arc(b.x,b.y,b.r,0,7); ctx.stroke();
+  // rotating pentagon
+  ctx.save(); ctx.translate(b.x,b.y); ctx.rotate(b.spin); ctx.fillStyle='rgba(31,41,55,.85)';
   ctx.beginPath();
-  for(let i=0;i<5;i++){ const a=-Math.PI/2+i*2*Math.PI/5; const rr2=b.r*0.5;
+  for(let i=0;i<5;i++){ const a=-Math.PI/2+i*2*Math.PI/5, rr2=b.r*0.46;
     const x=Math.cos(a)*rr2, y=Math.sin(a)*rr2; i?ctx.lineTo(x,y):ctx.moveTo(x,y); }
   ctx.closePath(); ctx.fill();
   ctx.restore();
@@ -971,8 +1104,12 @@ function updateHUD(g){
   $('timer').textContent=fmtTime(g.time);
   const tEl=$('timer');
   tEl.style.color = g.time<=10?'#EF4444': g.time<=30?'#FF9D3F':'#fff';
-  const role = (g.attacking==='A')?'공격':'수비';
-  $('phase').textContent=(g.half===1?'전반':'후반')+' · '+role;
+  const ph=$('phase'), b=g.ball;
+  let txt, col;
+  if(b.loose){ txt='⚡ 루스볼'; col='rgba(239,68,68,.6)'; }
+  else if(g.attacking==='A'){ txt=g.cleared?'● 공격':'↓ 클리어'; col='rgba(255,107,94,.55)'; }
+  else { txt=g.cleared?'● 수비':'수비 준비'; col='rgba(74,125,255,.55)'; }
+  ph.textContent=txt; ph.style.background=col;
 }
 function showLooseBar(frac){ const b=$('loose-bar'); b.style.display='block';
   $('loose-fill').style.transform='scaleX('+clamp(frac,0,1)+')'; }
@@ -1010,7 +1147,6 @@ $('seg-time').addEventListener('click',e=>{
   b.classList.add('on'); selSec=+b.dataset.sec; Audio.resume();
 });
 $('btn-start').onclick=()=>startMatch();
-$('btn-half').onclick=()=>startSecondHalf();
 $('btn-replay').onclick=()=>startMatch();
 $('btn-menu').onclick=()=>{ $('ov-result').classList.add('hidden'); $('ov-title').classList.remove('hidden'); };
 
@@ -1019,36 +1155,15 @@ function hideOverlays(){ $('ov-title').classList.add('hidden'); $('ov-half').cla
 function startMatch(){
   Audio.resume();
   game=newMatch(selSec);
-  game.attacking='A'; game.half=1; game.time=selSec; game.shotCd=0;
-  setupPlayers(game);
+  game.time=selSec; game.shotCd=0;
+  setupPlayers(game);           // sets attacking=A, cleared=true, ball to A
   game.state=GS.PLAY;
   updateScoreUI(game); updateHUD(game);
   hideOverlays();
+  $('hint').textContent='탭=이동 · 스와이프↑=슛 · 동료 탭=패스 · 수비 땐 근접해서 탭=태클';
   $('hint').style.opacity='1';
   Audio.setBpm(100); Audio.startDrum(); Audio.whistle();
-  // fade hint after a few seconds
-  setTimeout(()=>{ if(game) $('hint').style.opacity='0'; }, 4500);
-}
-
-function goHalftime(){
-  game.state=GS.HALFTIME;
-  Audio.stopDrum(); Audio.whistle();
-  $('halfA').textContent=game.score.A; $('halfB').textContent=game.score.B;
-  $('half-next').textContent='후반 — 당신은 [수비], AI가 공격합니다';
-  $('ov-half').classList.remove('hidden');
-}
-function startSecondHalf(){
-  Audio.resume();
-  game.half=2; game.attacking='B'; game.time=game.halfSec; game.shotCd=0;
-  game.players.forEach(p=>p.shotsThisHalf=0);
-  setupPlayers(game);
-  game.state=GS.PLAY;
-  updateHUD(game);
-  $('ov-half').classList.add('hidden');
-  $('hint').style.opacity='1';
-  $('hint').textContent='수비! 탭으로 이동해 공을 가로채세요';
-  Audio.setBpm(100); Audio.startDrum(); Audio.whistle();
-  setTimeout(()=>{ if(game) $('hint').style.opacity='0'; }, 4500);
+  setTimeout(()=>{ if(game) $('hint').style.opacity='0'; }, 5200);
 }
 
 function goResult(){
@@ -1063,11 +1178,6 @@ function goResult(){
   $('ov-result').classList.remove('hidden');
 }
 
-// half end handling
-function endHalf(){
-  if(game.half===1) goHalftime(); else goResult();
-}
-
 // =========================================================================
 // MAIN LOOP
 // =========================================================================
@@ -1078,6 +1188,8 @@ function loop(now){
     // decay timers
     game.shake*=0.86; if(game.shake<0.3)game.shake=0;
     game.flash*=0.88; if(game.flash<0.01)game.flash=0;
+    if(game.clearFx>0) game.clearFx-=dt;
+    if(game.manualT>0) game.manualT-=dt;
     if(game.shotCd>0) game.shotCd-=dt;
 
     if(game.state===GS.PLAY){
@@ -1085,16 +1197,17 @@ function loop(now){
       // urgency bpm
       const prog=1-game.time/game.halfSec;
       Audio.setBpm(100 + prog*40);
+      updateControl(game);            // who the human is steering (carrier / nearest defender)
       updateAI(game,dt);
       // human movement
-      const me=human(game); if(me) moveToward(me, 2.2);
+      const me=human(game); if(me) moveToward(me, 2.25);
       updateBall(game,dt);
+      updateClear(game);              // did the attacking team clear the ball?
       updateParticles(game,dt);
-      if(game.time<=0){ game.time=0; endHalf(); }
+      if(game.time<=0){ game.time=0; goResult(); }
     } else if(game.state===GS.GOAL_CELEB){
       game.goalLock-=dt; updateParticles(game,dt);
-      // keep timer flowing? GDD: 2s 연출 then restart. Pause clock during celeb.
-      if(game.goalLock<=0){ kickoff(game,true); }
+      if(game.goalLock<=0){ restartAfterGoal(game); }
     } else {
       updateParticles(game,dt);
     }
