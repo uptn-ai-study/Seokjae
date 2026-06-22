@@ -48,6 +48,12 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["-y", "serve", "proto-09-halfcourt", "-l", "5180"],
       "port": 5180
+    },
+    {
+      "name": "toss-miniapp-ants",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev:web", "--prefix", "toss-miniapp-ants"],
+      "port": 5173
     }
   ]
 }

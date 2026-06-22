@@ -1,0 +1,8 @@
+{
+  "buildCommand": "npm run build:web",
+  "outputDirectory": "dist",
+  "devCommand": "npm run dev:web",
+  "env": {
+    "VITE_APP_TITLE": "개미 관찰소"
+  }
+}
