@@ -22,7 +22,6 @@ export default defineConfig({
     primaryColor: '#e0584f',
     // TODO(console): 콘솔에 업로드한 아이콘 이미지 URL로 교체 (600x600 정사각형, 배경 필수)
     icon: 'https://static.toss.im/appsintoss/ant-watch/icon.png',
-    bridgeColorMode: 'basic',
   },
   web: {
     // 샌드박스(ait dev)가 띄우는 로컬 웹 서버 설정.
