@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>OK캐쉬백 맵 — 운영 관리</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/SUIT-Variable.min.css">
+  <style>
+    :root {
+      --primary:       #5F46FF;
+      --primary-dark:  #4A35E0;
+      --primary-light: #EEEAFF;
+      --primary-200:   #F2F0FF;
+      --primary-dim:   rgba(95,70,255,0.10);
+      --card-bg:       #FFFFFF;
+      --muted-bg:      #F5F5F8;
+      --border:        #E5E7EB;
+      --text-1:        #111827;
+      --text-2:        #6B7280;
+      --text-3:        #9CA3AF;
+      --success:       #10B981;
+      --error:         #EF4444;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'SUIT Variable', 'SUIT', -apple-system, sans-serif;
+      background: var(--muted-bg);
+      max-width: 430px;
+      margin: 0 auto;
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* 헤더 */
+    .admin-header {
+      background: #fff;
+      padding: 14px 16px 0;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      flex-shrink: 0;
+    }
+
+    .admin-header-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .admin-logo {
+      font-size: 20px;
+    }
+
+    .admin-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-1);
+      letter-spacing: -0.3px;
+    }
+
+    .admin-badge {
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--primary-dim);
+      color: var(--primary);
+      padding: 3px 8px;
+      border-radius: 9999px;
+      margin-left: auto;
+    }
+
+    /* Top Tab Bar */
+    .top-tabs {
+      height: 46px;
+      display: flex;
+    }
+
+    .top-tab {
+      flex: 1;
+      border: none;
+      background: none;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-3);
+      cursor: pointer;
+      position: relative;
+      font-family: inherit;
+    }
+
+    .top-tab.active {
+      font-weight: 700;
+      color: var(--text-1);
+    }
+
+    .top-tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 10%; right: 10%;
+      height: 2px;
+      background: var(--text-1);
+      border-radius: 2px 2px 0 0;
+    }
+
+    /* 탭 콘텐츠 */
+    .tab-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      display: none;
+    }
+
+    .tab-content.active { display: block; }
+
+    /* 섹션 헤더 */
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-2);
+      letter-spacing: -0.2px;
+    }
+
+    .section-count {
+      font-size: 13px;
+      color: var(--text-3);
+    }
+
+    /* 다운로드/업로드 버튼 */
+    .data-actions {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .btn-gray {
+      flex: 1;
+      height: 44px;
+      background: #fff;
+      color: var(--text-2);
+      border: 1px solid var(--border);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-family: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .btn-gray:active { background: var(--muted-bg); }
+
+    /* List Item */
+    .list-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 14px 14px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      margin-bottom: 8px;
+      transition: opacity 0.2s;
+    }
+
+    .list-item.inactive { opacity: 0.4; }
+
+    .list-thumb {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .list-info { flex: 1; min-width: 0; }
+    .list-title { font-size: 15px; font-weight: 600; color: var(--text-1); letter-spacing: -0.2px; }
+    .list-sub   { font-size: 12px; color: var(--text-2); margin-top: 2px; }
+
+    .list-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .btn-edit {
+      height: 32px;
+      padding: 0 10px;
+      background: var(--muted-bg);
+      border: 1px solid var(--border);
+      color: var(--text-2);
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn-edit:active { background: var(--border); }
+
+    /* 토글 스위치 */
+    .toggle-wrap { display: flex; align-items: center; }
+
+    .toggle {
+      width: 40px;
+      height: 22px;
+      background: var(--border);
+      border-radius: 9999px;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.2s;
+      border: none;
+      flex-shrink: 0;
+    }
+
+    .toggle.on { background: var(--primary); }
+
+    .toggle::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 16px;
+      height: 16px;
+      background: #fff;
+      border-radius: 50%;
+      transition: transform 0.2s;
+    }
+
+    .toggle.on::after { transform: translateX(18px); }
+
+    /* 이벤트 카드 */
+    .event-group-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-3);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 16px 0 8px;
+    }
+
+    .event-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 14px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      margin-bottom: 8px;
+    }
+
+    .event-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .partner-chip {
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      padding: 3px 8px;
+      border-radius: 9999px;
+    }
+
+    .status-badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 9999px;
+    }
+
+    .status-active   { background: var(--success); color: #fff; }
+    .status-upcoming { background: var(--primary); color: #fff; }
+    .status-expired  { background: var(--border); color: var(--text-2); }
+
+    .event-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-1);
+      letter-spacing: -0.2px;
+      margin-bottom: 4px;
+    }
+
+    .event-meta {
+      font-size: 12px;
+      color: var(--text-2);
+      margin-bottom: 10px;
+    }
+
+    .card-btn-row {
+      display: flex;
+      gap: 6px;
+    }
+
+    .btn-primary-md {
+      flex: 1;
+      height: 36px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn-secondary {
+      flex: 1;
+      height: 36px;
+      background: var(--primary-200);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn-danger {
+      flex: 1;
+      height: 36px;
+      background: #FEF2F2;
+      color: var(--error);
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    /* FAB */
+    .fab {
+      position: fixed;
+      bottom: 24px;
+      right: calc(50% - 215px + 16px);
+      width: 52px;
+      height: 52px;
+      background: var(--text-1);
+      border-radius: 9999px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      z-index: 50;
+    }
+
+    /* 바텀시트 */
+    .bs-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.50);
+      display: flex;
+      align-items: flex-end;
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      max-width: 430px;
+      margin: 0 auto;
+    }
+
+    .bs-overlay.open { opacity: 1; pointer-events: all; }
+
+    .bs-sheet {
+      width: 100%;
+      background: #fff;
+      border-radius: 24px 24px 0 0;
+      padding: 12px 20px 32px;
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.10);
+      transform: translateY(100%);
+      transition: transform .3s cubic-bezier(.32,1,.55,1);
+      max-height: 90dvh;
+      overflow-y: auto;
+    }
+
+    .bs-sheet.open { transform: translateY(0); }
+
+    .bs-handle-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .bs-handle {
+      width: 36px; height: 4px;
+      background: var(--border); border-radius: 2px;
+    }
+
+    .bs-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .bs-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: var(--text-1);
+    }
+
+    .bs-close {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      background: var(--muted-bg);
+      border: 1px solid var(--border);
+      font-size: 13px; color: var(--text-2);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .bs-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 16px 0;
+    }
+
+    /* 폼 */
+    .form-group { margin-bottom: 16px; }
+
+    .form-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-2);
+      margin-bottom: 6px;
+      display: block;
+      letter-spacing: -0.2px;
+    }
+
+    .form-label .req { color: var(--error); margin-left: 2px; }
+
+    .input-field {
+      width: 100%;
+      height: 52px;
+      padding: 0 16px;
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      font-size: 15px;
+      color: var(--text-1);
+      outline: none;
+      font-family: inherit;
+    }
+
+    .input-field:focus { border: 2px solid var(--primary); }
+    .input-field::placeholder { color: var(--text-3); }
+    .input-field.error { border-color: var(--error); }
+
+    .input-field-sm {
+      height: 44px;
+      font-size: 14px;
+    }
+
+    textarea.input-field {
+      height: auto;
+      padding: 12px 16px;
+      resize: none;
+      line-height: 1.6;
+    }
+
+    select.input-field {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239CA3AF' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      cursor: pointer;
+    }
+
+    .error-text {
+      font-size: 12px;
+      color: var(--error);
+      margin-top: 4px;
+      display: none;
+    }
+
+    .error-text.show { display: block; }
+
+    /* 체크박스 그룹 */
+    .checkbox-group {
+      display: flex;
+      gap: 12px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      color: var(--text-1);
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      width: 18px; height: 18px;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+
+    /* 라디오 그룹 */
+    .radio-group {
+      display: flex;
+      gap: 16px;
+    }
+
+    .radio-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      color: var(--text-1);
+    }
+
+    .radio-item input[type="radio"] {
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+
+    /* 컬러 피커 */
+    .color-picker-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .color-preview {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+    }
+
+    .color-input-text {
+      flex: 1;
+    }
+
+    input[type="color"] {
+      width: 0; height: 0;
+      opacity: 0;
+      position: absolute;
+    }
+
+    /* 기간 필드 */
+    .date-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .date-row span {
+      color: var(--text-3);
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .btn-primary {
+      width: 100%;
+      height: 56px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn-primary:active { background: var(--primary-dark); }
+
+    /* 토스트 */
+    .toast {
+      position: fixed;
+      bottom: 90px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: rgba(17,24,39,0.9);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 500;
+      z-index: 300;
+      opacity: 0;
+      transition: all 0.3s;
+      white-space: nowrap;
+    }
+
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* 삭제 확인 모달 */
+    .confirm-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 400;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+      padding: 20px;
+      max-width: 430px;
+      margin: 0 auto;
+    }
+
+    .confirm-modal.open { opacity: 1; pointer-events: all; }
+
+    .confirm-box {
+      background: #fff;
+      border-radius: 20px;
+      padding: 24px 20px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .confirm-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-1);
+      margin-bottom: 8px;
+    }
+
+    .confirm-desc {
+      font-size: 14px;
+      color: var(--text-2);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .confirm-btns {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-cancel {
+      flex: 1;
+      height: 48px;
+      background: var(--muted-bg);
+      border: 1px solid var(--border);
+      color: var(--text-2);
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 12px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn-delete {
+      flex: 1;
+      height: 48px;
+      background: var(--error);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <div class="admin-header">
+    <div class="admin-header-top">
+      <span class="admin-logo">🗺️</span>
+      <span class="admin-title">OK캐쉬백 맵 관리자</span>
+      <span class="admin-badge">ADMIN</span>
+    </div>
+    <div class="top-tabs">
+      <button class="top-tab active" onclick="switchTab('partners', this)">제휴사 관리</button>
+      <button class="top-tab" onclick="switchTab('events', this)">이벤트 관리</button>
+    </div>
+  </div>
+
+  <!-- 제휴사 관리 탭 -->
+  <div class="tab-content active" id="tab-partners">
+    <div class="data-actions">
+      <button class="btn-gray" onclick="uploadJSON('partners')">📂 JSON 불러오기</button>
+      <button class="btn-gray" onclick="downloadJSON('partners')">💾 JSON 저장</button>
+    </div>
+    <div class="section-header">
+      <span class="section-title">등록된 제휴사</span>
+      <span class="section-count" id="partnerCount"></span>
+    </div>
+    <div id="partnerList"></div>
+    <div style="height:80px"></div>
+  </div>
+
+  <!-- 이벤트 관리 탭 -->
+  <div class="tab-content" id="tab-events">
+    <div class="data-actions">
+      <button class="btn-gray" onclick="uploadJSON('events')">📂 JSON 불러오기</button>
+      <button class="btn-gray" onclick="downloadJSON('events')">💾 JSON 저장</button>
+    </div>
+    <div id="eventList"></div>
+    <div style="height:80px"></div>
+  </div>
+
+  <!-- FAB -->
+  <button class="fab" id="fab" onclick="openAddForm()">＋</button>
+
+  <!-- 제휴사 폼 바텀시트 -->
+  <div class="bs-overlay" id="partnerFormBS" onclick="closeBSOnOverlay(event,'partnerFormBS')">
+    <div class="bs-sheet" id="partnerFormBSSheet">
+      <div class="bs-handle-wrap"><div class="bs-handle"></div></div>
+      <div class="bs-header">
+        <span class="bs-title" id="partnerFormTitle">제휴사 추가</span>
+        <button class="bs-close" onclick="closeBS('partnerFormBS')">✕</button>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">제휴사명 <span class="req">*</span></label>
+        <input class="input-field" id="f-name" type="text" placeholder="예: 이마트24">
+        <div class="error-text" id="e-name">제휴사명을 입력해주세요</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">카테고리 <span class="req">*</span></label>
+        <input class="input-field" id="f-category" type="text" placeholder="예: 편의점">
+        <div class="error-text" id="e-category">카테고리를 입력해주세요</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">아이콘 (이모지)</label>
+        <input class="input-field" id="f-icon" type="text" placeholder="🏪">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">POI 검색 키워드 (쉼표로 구분)</label>
+        <input class="input-field" id="f-keywords" type="text" placeholder="이마트24, 이마트 24">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">포인트 종류</label>
+        <div class="checkbox-group">
+          <label class="checkbox-item"><input type="checkbox" id="f-earn" checked> 적립</label>
+          <label class="checkbox-item"><input type="checkbox" id="f-use"> 사용</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">적립률</label>
+        <input class="input-field" id="f-earnrate" type="text" placeholder="최대 1%">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">최소 사용금액 (원)</label>
+        <input class="input-field" id="f-minspend" type="number" placeholder="1000">
+      </div>
+
+      <div class="bs-divider"></div>
+      <button class="btn-primary" onclick="savePartner()">저장하기</button>
+    </div>
+  </div>
+
+  <!-- 이벤트 폼 바텀시트 -->
+  <div class="bs-overlay" id="eventFormBS" onclick="closeBSOnOverlay(event,'eventFormBS')">
+    <div class="bs-sheet" id="eventFormBSSheet">
+      <div class="bs-handle-wrap"><div class="bs-handle"></div></div>
+      <div class="bs-header">
+        <span class="bs-title" id="eventFormTitle">이벤트 추가</span>
+        <button class="bs-close" onclick="closeBS('eventFormBS')">✕</button>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">연결 제휴사 <span class="req">*</span></label>
+        <select class="input-field" id="ef-partner">
+          <option value="">제휴사 선택</option>
+        </select>
+        <div class="error-text" id="ee-partner">제휴사를 선택해주세요</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">이벤트 제목 <span class="req">*</span></label>
+        <input class="input-field" id="ef-title" type="text" placeholder="아이스크림 구매 시 100P 쿠폰">
+        <div class="error-text" id="ee-title">이벤트 제목을 입력해주세요</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">혜택 요약 <span class="req">*</span></label>
+        <input class="input-field" id="ef-benefit" type="text" placeholder="100P 쿠폰">
+        <div class="error-text" id="ee-benefit">혜택 요약을 입력해주세요</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">혜택 종류</label>
+        <div class="radio-group">
+          <label class="radio-item"><input type="radio" name="benefitType" value="coupon" checked> 쿠폰</label>
+          <label class="radio-item"><input type="radio" name="benefitType" value="bonus"> 보너스</label>
+          <label class="radio-item"><input type="radio" name="benefitType" value="discount"> 할인</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">상세 설명</label>
+        <textarea class="input-field" id="ef-desc" rows="3" placeholder="이벤트 상세 내용을 입력하세요..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">풍선 이모지</label>
+        <input class="input-field input-field-sm" id="ef-emoji" type="text" placeholder="🍦">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">풍선 색상</label>
+        <div class="color-picker-wrap">
+          <div class="color-preview" id="colorPreview" style="background:#FF6B35" onclick="document.getElementById('colorPicker').click()"></div>
+          <input type="color" id="colorPicker" value="#FF6B35" oninput="updateColor(this.value)">
+          <input class="input-field input-field-sm color-input-text" id="ef-color" type="text" value="#FF6B35" oninput="updateColorFromText(this.value)" placeholder="#FF6B35">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">이벤트 기간 <span class="req">*</span></label>
+        <div class="date-row">
+          <input class="input-field input-field-sm" id="ef-start" type="date" style="flex:1">
+          <span>~</span>
+          <input class="input-field input-field-sm" id="ef-end" type="date" style="flex:1">
+        </div>
+        <div class="error-text" id="ee-date">이벤트 기간을 입력해주세요</div>
+      </div>
+
+      <div class="bs-divider"></div>
+      <button class="btn-primary" onclick="saveEvent()">저장하기</button>
+    </div>
+  </div>
+
+  <!-- 삭제 확인 모달 -->
+  <div class="confirm-modal" id="confirmModal">
+    <div class="confirm-box">
+      <div class="confirm-title" id="confirmTitle">정말 삭제할까요?</div>
+      <div class="confirm-desc" id="confirmDesc">이 이벤트를 삭제하면 복구할 수 없어요.</div>
+      <div class="confirm-btns">
+        <button class="btn-cancel" onclick="closeConfirm()">취소</button>
+        <button class="btn-delete" id="confirmBtn" onclick="">삭제</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 숨긴 파일 업로드 -->
+  <input type="file" id="fileUpload" accept=".json" style="display:none" onchange="handleFileUpload(event)">
+
+  <!-- 토스트 -->
+  <div class="toast" id="toast"></div>
+
+<script>
+  let partners = [];
+  let events = [];
+  let editingPartnerId = null;
+  let editingEventId = null;
+  let uploadTarget = null;
+  let currentTab = 'partners';
+
+  async function init() {
+    try {
+      const [pRes, eRes] = await Promise.all([
+        fetch('data/partners.json'),
+        fetch('data/events.json')
+      ]);
+      partners = await pRes.json();
+      events = await eRes.json();
+    } catch(e) {
+      partners = getDefaultPartners();
+      events = getDefaultEvents();
+      showToast('ℹ️ 로컬 JSON 로드 실패 — 기본 데이터 사용 중');
+    }
+    renderPartners();
+    renderEvents();
+  }
+
+  /* 탭 */
+  function switchTab(tab, el) {
+    currentTab = tab;
+    document.querySelectorAll('.top-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById('tab-' + tab).classList.add('active');
+  }
+
+  /* FAB */
+  function openAddForm() {
+    if (currentTab === 'partners') {
+      editingPartnerId = null;
+      document.getElementById('partnerFormTitle').textContent = '제휴사 추가';
+      clearPartnerForm();
+      openBS('partnerFormBS');
+    } else {
+      editingEventId = null;
+      document.getElementById('eventFormTitle').textContent = '이벤트 추가';
+      clearEventForm();
+      populatePartnerSelect();
+      openBS('eventFormBS');
+    }
+  }
+
+  /* 제휴사 렌더 */
+  function renderPartners() {
+    const list = document.getElementById('partnerList');
+    document.getElementById('partnerCount').textContent = `총 ${partners.length}개`;
+
+    list.innerHTML = partners.map(p => `
+      <div class="list-item ${p.active ? '' : 'inactive'}" id="pi-${p.id}">
+        <div class="list-thumb">${p.icon || '🏢'}</div>
+        <div class="list-info">
+          <div class="list-title">${p.name}</div>
+          <div class="list-sub">${p.category} · ${p.earnRate || '-'}</div>
+        </div>
+        <div class="list-actions">
+          <button class="btn-edit" onclick="editPartner('${p.id}')">편집</button>
+          <button class="toggle ${p.active ? 'on' : ''}" onclick="togglePartner('${p.id}')"></button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function togglePartner(id) {
+    const p = partners.find(p => p.id === id);
+    if (!p) return;
+    p.active = !p.active;
+    renderPartners();
+    showToast(`${p.name} ${p.active ? '활성화' : '비활성화'} 완료`);
+  }
+
+  function editPartner(id) {
+    const p = partners.find(p => p.id === id);
+    if (!p) return;
+    editingPartnerId = id;
+    document.getElementById('partnerFormTitle').textContent = '제휴사 편집';
+    document.getElementById('f-name').value = p.name;
+    document.getElementById('f-category').value = p.category;
+    document.getElementById('f-icon').value = p.icon || '';
+    document.getElementById('f-keywords').value = (p.poiKeywords || []).join(', ');
+    document.getElementById('f-earn').checked = p.pointType?.includes('earn') ?? true;
+    document.getElementById('f-use').checked = p.pointType?.includes('use') ?? false;
+    document.getElementById('f-earnrate').value = p.earnRate || '';
+    document.getElementById('f-minspend').value = p.minSpend || '';
+    clearPartnerErrors();
+    openBS('partnerFormBS');
+  }
+
+  function clearPartnerForm() {
+    ['f-name','f-category','f-icon','f-keywords','f-earnrate','f-minspend'].forEach(id => {
+      document.getElementById(id).value = '';
+    });
+    document.getElementById('f-earn').checked = true;
+    document.getElementById('f-use').checked = false;
+    clearPartnerErrors();
+  }
+
+  function clearPartnerErrors() {
+    ['e-name','e-category'].forEach(id => document.getElementById(id).classList.remove('show'));
+    ['f-name','f-category'].forEach(id => document.getElementById(id).classList.remove('error'));
+  }
+
+  function savePartner() {
+    const name = document.getElementById('f-name').value.trim();
+    const category = document.getElementById('f-category').value.trim();
+    let valid = true;
+
+    if (!name) {
+      document.getElementById('f-name').classList.add('error');
+      document.getElementById('e-name').classList.add('show');
+      valid = false;
+    } else {
+      document.getElementById('f-name').classList.remove('error');
+      document.getElementById('e-name').classList.remove('show');
+    }
+
+    if (!category) {
+      document.getElementById('f-category').classList.add('error');
+      document.getElementById('e-category').classList.add('show');
+      valid = false;
+    } else {
+      document.getElementById('f-category').classList.remove('error');
+      document.getElementById('e-category').classList.remove('show');
+    }
+
+    if (!valid) return;
+
+    const pointType = [];
+    if (document.getElementById('f-earn').checked) pointType.push('earn');
+    if (document.getElementById('f-use').checked) pointType.push('use');
+
+    const keywords = document.getElementById('f-keywords').value
+      .split(',').map(k => k.trim()).filter(Boolean);
+
+    const data = {
+      id: editingPartnerId || 'partner_' + Date.now(),
+      name,
+      category,
+      icon: document.getElementById('f-icon').value.trim() || '🏢',
+      poiKeywords: keywords.length ? keywords : [name],
+      pointType,
+      earnRate: document.getElementById('f-earnrate').value.trim(),
+      minSpend: parseInt(document.getElementById('f-minspend').value) || 0,
+      active: true
+    };
+
+    if (editingPartnerId) {
+      const idx = partners.findIndex(p => p.id === editingPartnerId);
+      if (idx !== -1) { data.active = partners[idx].active; partners[idx] = data; }
+    } else {
+      partners.push(data);
+    }
+
+    renderPartners();
+    closeBS('partnerFormBS');
+    showToast(`${name} ${editingPartnerId ? '수정' : '추가'} 완료`);
+  }
+
+  /* 이벤트 렌더 */
+  function renderEvents() {
+    const list = document.getElementById('eventList');
+    const today = new Date().toISOString().slice(0, 10);
+
+    const grouped = { active: [], upcoming: [], expired: [] };
+    events.forEach(e => {
+      if (today >= e.startDate && today <= e.endDate && e.active) grouped.active.push(e);
+      else if (today < e.startDate) grouped.upcoming.push(e);
+      else grouped.expired.push(e);
+    });
+
+    const groupLabels = { active: '✅ 진행 중', upcoming: '⏳ 예정', expired: '⏸ 종료' };
+    let html = '';
+
+    Object.entries(grouped).forEach(([key, arr]) => {
+      if (!arr.length) return;
+      html += `<div class="event-group-label">${groupLabels[key]} (${arr.length})</div>`;
+      arr.forEach(e => {
+        const partner = partners.find(p => p.id === e.partnerId);
+        const statusClass = { active: 'status-active', upcoming: 'status-upcoming', expired: 'status-expired' }[key];
+        const statusLabel = { active: '진행 중', upcoming: '예정', expired: '종료' }[key];
+        html += `
+          <div class="event-card">
+            <div class="event-card-top">
+              <span class="partner-chip" style="background:${e.badgeColor}">${partner?.name || e.partnerId}</span>
+              <span class="status-badge ${statusClass}">${statusLabel}</span>
+            </div>
+            <div class="event-name">${e.balloonEmoji} ${e.title}</div>
+            <div class="event-meta">📅 ${e.startDate} ~ ${e.endDate} · 🎁 ${e.benefit}</div>
+            <div class="card-btn-row">
+              <button class="btn-primary-md" onclick="editEvent('${e.id}')">편집</button>
+              <button class="btn-danger" onclick="confirmDelete('${e.id}')">삭제</button>
+            </div>
+          </div>
+        `;
+      });
+    });
+
+    if (!html) html = '<div style="text-align:center;padding:40px;color:var(--text-2)">등록된 이벤트가 없어요</div>';
+    list.innerHTML = html;
+  }
+
+  function populatePartnerSelect() {
+    const sel = document.getElementById('ef-partner');
+    sel.innerHTML = '<option value="">제휴사 선택</option>' +
+      partners.filter(p => p.active).map(p =>
+        `<option value="${p.id}">${p.icon} ${p.name}</option>`
+      ).join('');
+  }
+
+  function editEvent(id) {
+    const e = events.find(e => e.id === id);
+    if (!e) return;
+    editingEventId = id;
+    document.getElementById('eventFormTitle').textContent = '이벤트 편집';
+    populatePartnerSelect();
+    document.getElementById('ef-partner').value = e.partnerId;
+    document.getElementById('ef-title').value = e.title;
+    document.getElementById('ef-benefit').value = e.benefit;
+    document.querySelector(`input[name="benefitType"][value="${e.benefitType}"]`).checked = true;
+    document.getElementById('ef-desc').value = e.description || '';
+    document.getElementById('ef-emoji').value = e.balloonEmoji || '';
+    document.getElementById('ef-color').value = e.badgeColor || '#FF6B35';
+    document.getElementById('colorPicker').value = e.badgeColor || '#FF6B35';
+    document.getElementById('colorPreview').style.background = e.badgeColor || '#FF6B35';
+    document.getElementById('ef-start').value = e.startDate;
+    document.getElementById('ef-end').value = e.endDate;
+    clearEventErrors();
+    openBS('eventFormBS');
+  }
+
+  function clearEventForm() {
+    document.getElementById('ef-partner').value = '';
+    document.getElementById('ef-title').value = '';
+    document.getElementById('ef-benefit').value = '';
+    document.querySelector('input[name="benefitType"][value="coupon"]').checked = true;
+    document.getElementById('ef-desc').value = '';
+    document.getElementById('ef-emoji').value = '';
+    updateColor('#FF6B35');
+    document.getElementById('ef-start').value = '';
+    document.getElementById('ef-end').value = '';
+    clearEventErrors();
+  }
+
+  function clearEventErrors() {
+    ['ee-partner','ee-title','ee-benefit','ee-date'].forEach(id =>
+      document.getElementById(id).classList.remove('show')
+    );
+  }
+
+  function saveEvent() {
+    const partnerId = document.getElementById('ef-partner').value;
+    const title = document.getElementById('ef-title').value.trim();
+    const benefit = document.getElementById('ef-benefit').value.trim();
+    const startDate = document.getElementById('ef-start').value;
+    const endDate = document.getElementById('ef-end').value;
+    let valid = true;
+
+    const checks = [
+      ['ef-partner', 'ee-partner', !partnerId],
+      ['ef-title', 'ee-title', !title],
+      ['ef-benefit', 'ee-benefit', !benefit],
+    ];
+
+    checks.forEach(([fieldId, errId, invalid]) => {
+      if (invalid) {
+        document.getElementById(fieldId)?.classList.add('error');
+        document.getElementById(errId).classList.add('show');
+        valid = false;
+      } else {
+        document.getElementById(fieldId)?.classList.remove('error');
+        document.getElementById(errId).classList.remove('show');
+      }
+    });
+
+    if (!startDate || !endDate) {
+      document.getElementById('ee-date').classList.add('show');
+      valid = false;
+    } else {
+      document.getElementById('ee-date').classList.remove('show');
+    }
+
+    if (!valid) return;
+
+    const benefitType = document.querySelector('input[name="benefitType"]:checked').value;
+
+    const data = {
+      id: editingEventId || 'event_' + Date.now(),
+      partnerId,
+      title,
+      description: document.getElementById('ef-desc').value.trim(),
+      benefit,
+      benefitType,
+      startDate,
+      endDate,
+      badgeColor: document.getElementById('ef-color').value || '#FF6B35',
+      balloonEmoji: document.getElementById('ef-emoji').value.trim() || '🎁',
+      active: true
+    };
+
+    if (editingEventId) {
+      const idx = events.findIndex(e => e.id === editingEventId);
+      if (idx !== -1) events[idx] = data;
+    } else {
+      events.push(data);
+    }
+
+    renderEvents();
+    closeBS('eventFormBS');
+    showToast(`이벤트 ${editingEventId ? '수정' : '추가'} 완료`);
+  }
+
+  /* 삭제 */
+  let deleteTargetId = null;
+
+  function confirmDelete(eventId) {
+    deleteTargetId = eventId;
+    const e = events.find(e => e.id === eventId);
+    document.getElementById('confirmDesc').textContent = `"${e?.title}" 이벤트를 삭제하면 복구할 수 없어요.`;
+    document.getElementById('confirmBtn').onclick = executeDelete;
+    document.getElementById('confirmModal').classList.add('open');
+  }
+
+  function executeDelete() {
+    events = events.filter(e => e.id !== deleteTargetId);
+    renderEvents();
+    closeConfirm();
+    showToast('이벤트가 삭제됐어요');
+  }
+
+  function closeConfirm() {
+    document.getElementById('confirmModal').classList.remove('open');
+    deleteTargetId = null;
+  }
+
+  /* JSON 다운로드/업로드 */
+  function downloadJSON(type) {
+    const data = type === 'partners' ? partners : events;
+    const filename = type === 'partners' ? 'partners.json' : 'events.json';
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = filename; a.click();
+    URL.revokeObjectURL(url);
+    showToast(`${filename} 다운로드 완료`);
+  }
+
+  function uploadJSON(type) {
+    uploadTarget = type;
+    document.getElementById('fileUpload').click();
+  }
+
+  function handleFileUpload(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      try {
+        const data = JSON.parse(ev.target.result);
+        if (uploadTarget === 'partners') {
+          partners = data;
+          renderPartners();
+          showToast('제휴사 데이터를 불러왔어요');
+        } else {
+          events = data;
+          renderEvents();
+          showToast('이벤트 데이터를 불러왔어요');
+        }
+      } catch(err) {
+        showToast('❌ JSON 파싱 오류. 파일을 확인해주세요');
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = '';
+  }
+
+  /* 컬러 피커 */
+  function updateColor(val) {
+    document.getElementById('colorPreview').style.background = val;
+    document.getElementById('colorPicker').value = val;
+    document.getElementById('ef-color').value = val;
+  }
+
+  function updateColorFromText(val) {
+    if (/^#[0-9A-Fa-f]{6}$/.test(val)) {
+      document.getElementById('colorPreview').style.background = val;
+      document.getElementById('colorPicker').value = val;
+    }
+  }
+
+  /* 바텀시트 */
+  function openBS(id) {
+    const overlay = document.getElementById(id);
+    const sheet = overlay.querySelector('.bs-sheet');
+    overlay.classList.add('open');
+    requestAnimationFrame(() => sheet.classList.add('open'));
+  }
+
+  function closeBS(id) {
+    const overlay = document.getElementById(id);
+    const sheet = overlay.querySelector('.bs-sheet');
+    sheet.classList.remove('open');
+    setTimeout(() => overlay.classList.remove('open'), 300);
+  }
+
+  function closeBSOnOverlay(e, id) {
+    if (e.target === document.getElementById(id)) closeBS(id);
+  }
+
+  /* 토스트 */
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
+
+  /* 기본 데이터 */
+  function getDefaultPartners() {
+    return [
+      { id:'partner_001', name:'이마트24', category:'편의점', icon:'🏪', poiKeywords:['이마트24'], pointType:['earn','use'], earnRate:'최대 1%', minSpend:1000, active:true },
+      { id:'partner_002', name:'GS25', category:'편의점', icon:'🏪', poiKeywords:['GS25'], pointType:['earn','use'], earnRate:'최대 0.5%', minSpend:1000, active:true },
+      { id:'partner_003', name:'스타벅스', category:'카페', icon:'☕', poiKeywords:['스타벅스'], pointType:['earn'], earnRate:'최대 1%', minSpend:2000, active:true },
+    ];
+  }
+
+  function getDefaultEvents() {
+    return [
+      { id:'event_001', partnerId:'partner_001', title:'아이스크림 구매 시 100P 쿠폰', description:'6월 한 달간 이마트24에서 아이스크림 구매 시 100포인트 쿠폰을 드려요!', benefit:'100P 쿠폰', benefitType:'coupon', startDate:'2026-06-01', endDate:'2026-06-30', badgeColor:'#FF6B35', balloonEmoji:'🍦', active:true },
+    ];
+  }
+
+  window.addEventListener('load', init);
+</script>
+</body>
+</html>

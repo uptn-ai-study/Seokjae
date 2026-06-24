@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>지도와 함께하는 OK캐쉬백</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/SUIT-Variable.min.css">
+  <!-- ⚠️ 카카오맵 JavaScript App Key를 아래에 입력하세요 -->
+  <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_KAKAO_APP_KEY&libraries=services"></script>
+  <style>
+    :root {
+      --primary:       #5F46FF;
+      --primary-dark:  #4A35E0;
+      --primary-light: #EEEAFF;
+      --primary-200:   #F2F0FF;
+      --primary-dim:   rgba(95,70,255,0.10);
+      --card-bg:       #FFFFFF;
+      --muted-bg:      #F5F5F8;
+      --border:        #E5E7EB;
+      --text-1:        #111827;
+      --text-2:        #6B7280;
+      --text-3:        #9CA3AF;
+      --success:       #10B981;
+      --error:         #EF4444;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'SUIT Variable', 'SUIT', -apple-system, sans-serif;
+      background: var(--muted-bg);
+      max-width: 430px;
+      margin: 0 auto;
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* 상단 검색바 */
+    .search-bar {
+      height: 56px;
+      background: #fff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 16px;
+      flex-shrink: 0;
+      z-index: 10;
+    }
+
+    .location-btn {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--primary-dim);
+      color: var(--primary);
+      border: none;
+      border-radius: 9999px;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      font-family: inherit;
+    }
+
+    .search-input-wrap {
+      flex: 1;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 36px;
+      padding: 0 12px;
+      background: var(--muted-bg);
+      border: none;
+      border-radius: 9999px;
+      font-size: 14px;
+      color: var(--text-1);
+      outline: none;
+      font-family: inherit;
+    }
+
+    .search-input::placeholder { color: var(--text-3); }
+
+    /* 카테고리 필터 */
+    .filter-bar {
+      height: 44px;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 16px;
+      overflow-x: auto;
+      flex-shrink: 0;
+      z-index: 10;
+    }
+
+    .filter-bar::-webkit-scrollbar { display: none; }
+
+    .chip {
+      border: 1.5px solid var(--border);
+      color: var(--text-2);
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 9999px;
+      padding: 4px 14px;
+      background: #fff;
+      cursor: pointer;
+      white-space: nowrap;
+      font-family: inherit;
+      transition: all 0.15s;
+    }
+
+    .chip.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    /* 지도 영역 */
+    #map {
+      flex: 1;
+      width: 100%;
+      position: relative;
+    }
+
+    /* 목 지도 배경 */
+    .mock-map {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #e8f4e8 0%, #d4e8d4 50%, #c8dfc8 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mock-map-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .mock-road {
+      position: absolute;
+      background: rgba(255,255,255,0.7);
+    }
+
+    .mock-road.h { height: 8px; left: 0; right: 0; }
+    .mock-road.v { width: 8px; top: 0; bottom: 0; }
+
+    .mock-map-label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255,255,255,0.9);
+      border-radius: 12px;
+      padding: 12px 20px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-2);
+      line-height: 1.6;
+      pointer-events: none;
+    }
+
+    /* 카카오맵 커스텀 오버레이 스타일 */
+    .partner-marker {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: #fff;
+      border: 2px solid var(--primary);
+      border-radius: 9999px;
+      padding: 5px 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      cursor: pointer;
+      white-space: nowrap;
+      font-family: 'SUIT Variable', sans-serif;
+      position: relative;
+    }
+
+    .partner-marker::after {
+      content: '';
+      position: absolute;
+      bottom: -7px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0; height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 7px solid var(--primary);
+    }
+
+    .marker-icon { font-size: 14px; }
+    .marker-name { font-size: 12px; font-weight: 600; color: var(--text-1); }
+
+    .balloon-marker {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 9999px;
+      padding: 5px 11px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      cursor: pointer;
+      white-space: nowrap;
+      font-family: 'SUIT Variable', sans-serif;
+      position: relative;
+      animation: floatBalloon 2s ease-in-out infinite;
+    }
+
+    .balloon-marker::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0; height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid currentColor;
+    }
+
+    @keyframes floatBalloon {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-4px); }
+    }
+
+    /* 목 마커들 (mock 모드) */
+    .mock-markers {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .mock-marker-wrap {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      pointer-events: all;
+      cursor: pointer;
+    }
+
+    /* 내 위치 마커 */
+    .my-location-dot {
+      width: 16px;
+      height: 16px;
+      background: var(--primary);
+      border: 3px solid #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px var(--primary-dim);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 4px var(--primary-dim); }
+      50%       { box-shadow: 0 0 0 8px var(--primary-dim); }
+    }
+
+    /* 하단 peek 시트 */
+    .peek-sheet {
+      height: 64px;
+      background: #fff;
+      border-radius: 20px 20px 0 0;
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.10);
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      gap: 10px;
+      flex-shrink: 0;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .peek-handle {
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 36px;
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+    }
+
+    .peek-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--primary-dim);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .peek-text { flex: 1; }
+    .peek-title { font-size: 15px; font-weight: 700; color: var(--text-1); }
+    .peek-sub   { font-size: 12px; color: var(--text-2); margin-top: 2px; }
+
+    /* 바텀시트 */
+    .bs-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.50);
+      display: flex;
+      align-items: flex-end;
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      max-width: 430px;
+      margin: 0 auto;
+    }
+
+    .bs-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .bs-sheet {
+      width: 100%;
+      background: #fff;
+      border-radius: 24px 24px 0 0;
+      padding: 12px 20px 32px;
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.10);
+      transform: translateY(100%);
+      transition: transform .3s cubic-bezier(.32,1,.55,1);
+      max-height: 80dvh;
+      overflow-y: auto;
+    }
+
+    .bs-sheet.open { transform: translateY(0); }
+
+    .bs-handle-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .bs-handle {
+      width: 36px;
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+    }
+
+    .bs-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .bs-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: var(--text-1);
+    }
+
+    .bs-close {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--muted-bg);
+      border: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-2);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bs-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 14px 0;
+    }
+
+    .bs-section-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-1);
+      margin-bottom: 10px;
+      letter-spacing: -0.3px;
+    }
+
+    .info-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: var(--text-2);
+      margin-bottom: 6px;
+    }
+
+    .info-row strong {
+      color: var(--text-1);
+      font-weight: 600;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 6px;
+      margin: 10px 0;
+    }
+
+    .badge {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .badge-success { background: var(--success); color: #fff; }
+    .badge-primary { background: var(--primary); color: #fff; }
+    .badge-error   { background: var(--error); color: #fff; }
+
+    .event-card {
+      background: var(--muted-bg);
+      border-radius: 12px;
+      padding: 12px 14px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .event-card:active { background: var(--primary-light); }
+
+    .event-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+
+    .event-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-1);
+    }
+
+    .event-benefit {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .event-desc {
+      font-size: 13px;
+      color: var(--text-2);
+      line-height: 1.5;
+    }
+
+    .partner-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .event-period {
+      font-size: 13px;
+      color: var(--text-2);
+      margin-top: 6px;
+      letter-spacing: -0.2px;
+    }
+
+    .event-benefit-row {
+      font-size: 13px;
+      color: var(--text-2);
+      margin-top: 4px;
+    }
+
+    .bs-title-lg {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: var(--text-1);
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+
+    .bs-body {
+      font-size: 15px;
+      color: var(--text-1);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .btn-primary {
+      width: 100%;
+      height: 56px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      margin-top: 8px;
+    }
+
+    .btn-primary:active { background: var(--primary-dark); }
+
+    /* 반경 표시 버튼 */
+    .map-controls {
+      position: absolute;
+      right: 12px;
+      bottom: 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 5;
+    }
+
+    .map-ctrl-btn {
+      width: 40px;
+      height: 40px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      font-family: inherit;
+    }
+
+    /* 토스트 */
+    .toast {
+      position: fixed;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: rgba(17,24,39,0.9);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 500;
+      z-index: 300;
+      opacity: 0;
+      transition: all 0.3s;
+      white-space: nowrap;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 상단 검색바 -->
+  <div class="search-bar">
+    <button class="location-btn" onclick="recenterMap()">📍 내 위치</button>
+    <div class="search-input-wrap">
+      <input class="search-input" type="text" placeholder="제휴사 검색..." oninput="filterBySearch(this.value)">
+    </div>
+  </div>
+
+  <!-- 카테고리 필터 칩 -->
+  <div class="filter-bar" id="filterBar">
+    <button class="chip active" data-category="전체" onclick="selectCategory(this)">전체</button>
+  </div>
+
+  <!-- 지도 영역 -->
+  <div id="map">
+    <!-- 카카오맵 실패 시 mock 모드 표시 -->
+    <div class="mock-map" id="mockMap" style="display:none;">
+      <div class="mock-map-grid"></div>
+      <div class="mock-road h" style="top:30%"></div>
+      <div class="mock-road h" style="top:60%"></div>
+      <div class="mock-road v" style="left:25%"></div>
+      <div class="mock-road v" style="left:65%"></div>
+      <div class="mock-markers" id="mockMarkers"></div>
+      <div class="map-controls">
+        <button class="map-ctrl-btn" onclick="showToast('현재 위치로 이동했어요')">🎯</button>
+        <button class="map-ctrl-btn" onclick="showToast('반경 500m 표시 중')">📏</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 하단 peek 시트 -->
+  <div class="peek-sheet" onclick="showNearbyList()" style="position:relative;">
+    <div class="peek-handle"></div>
+    <div class="peek-icon">📍</div>
+    <div class="peek-text">
+      <div class="peek-title" id="peekTitle">주변 제휴사 검색 중...</div>
+      <div class="peek-sub">탭해서 목록 보기</div>
+    </div>
+    <span style="font-size:18px; color:var(--text-3)">›</span>
+  </div>
+
+  <!-- 제휴사 상세 바텀시트 -->
+  <div class="bs-overlay" id="partnerBS" onclick="closeBSOnOverlay(event,'partnerBS')">
+    <div class="bs-sheet" id="partnerBSSheet">
+      <div class="bs-handle-wrap"><div class="bs-handle"></div></div>
+      <div class="bs-header">
+        <span class="bs-title" id="partnerBSTitle">제휴사명</span>
+        <button class="bs-close" onclick="closeBS('partnerBS')">✕</button>
+      </div>
+      <div id="partnerBSContent"></div>
+    </div>
+  </div>
+
+  <!-- 이벤트 상세 바텀시트 -->
+  <div class="bs-overlay" id="eventBS" onclick="closeBSOnOverlay(event,'eventBS')">
+    <div class="bs-sheet" id="eventBSSheet">
+      <div class="bs-handle-wrap"><div class="bs-handle"></div></div>
+      <div class="bs-header">
+        <span class="bs-title" id="eventBSTitle">이벤트</span>
+        <button class="bs-close" onclick="closeBS('eventBS')">✕</button>
+      </div>
+      <div id="eventBSContent"></div>
+    </div>
+  </div>
+
+  <!-- 주변 목록 바텀시트 -->
+  <div class="bs-overlay" id="nearbyBS" onclick="closeBSOnOverlay(event,'nearbyBS')">
+    <div class="bs-sheet" id="nearbyBSSheet">
+      <div class="bs-handle-wrap"><div class="bs-handle"></div></div>
+      <div class="bs-header">
+        <span class="bs-title">주변 제휴사</span>
+        <button class="bs-close" onclick="closeBS('nearbyBS')">✕</button>
+      </div>
+      <div id="nearbyBSContent"></div>
+    </div>
+  </div>
+
+  <!-- 토스트 -->
+  <div class="toast" id="toast"></div>
+
+<script>
+  let partners = [];
+  let events = [];
+  let activeCategory = '전체';
+  let kakaoMap = null;
+  let isMockMode = false;
+  let mockPOIs = [];
+
+  // 더미 POI 좌표 (서울 기준 mock)
+  const DUMMY_POIS = [
+    { partnerId: 'partner_001', name: '이마트24 강남점', address: '강남구 테헤란로 152', lat: 37.5001, lng: 127.0370 },
+    { partnerId: 'partner_001', name: '이마트24 역삼점', address: '강남구 역삼로 160', lat: 37.4987, lng: 127.0310 },
+    { partnerId: 'partner_002', name: 'GS25 선릉점', address: '강남구 선릉로 433', lat: 37.5044, lng: 127.0491 },
+    { partnerId: 'partner_003', name: '스타벅스 강남점', address: '강남구 강남대로 396', lat: 37.4955, lng: 127.0277 },
+    { partnerId: 'partner_003', name: '스타벅스 역삼R점', address: '강남구 테헤란로 152', lat: 37.5005, lng: 127.0415 },
+    { partnerId: 'partner_004', name: '롯데마트 강남점', address: '강남구 강남대로 200', lat: 37.4945, lng: 127.0148 },
+    { partnerId: 'partner_005', name: 'CGV 강남', address: '강남구 강남대로 438', lat: 37.4975, lng: 127.0292 },
+  ];
+
+  async function init() {
+    try {
+      const [pRes, eRes] = await Promise.all([
+        fetch('data/partners.json'),
+        fetch('data/events.json')
+      ]);
+      partners = await pRes.json();
+      events = await eRes.json();
+    } catch(e) {
+      console.warn('데이터 로드 실패, 더미 사용');
+      partners = getDummyPartners();
+      events = getDummyEvents();
+    }
+
+    buildFilterChips();
+    initMap();
+  }
+
+  function buildFilterChips() {
+    const bar = document.getElementById('filterBar');
+    const categories = [...new Set(partners.filter(p => p.active).map(p => p.category))];
+    categories.forEach(cat => {
+      const btn = document.createElement('button');
+      btn.className = 'chip';
+      btn.dataset.category = cat;
+      btn.textContent = cat;
+      btn.onclick = function() { selectCategory(this); };
+      bar.appendChild(btn);
+    });
+  }
+
+  function selectCategory(el) {
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+    activeCategory = el.dataset.category;
+    renderMarkers();
+  }
+
+  function filterBySearch(val) {
+    renderMarkers(val.trim());
+  }
+
+  function initMap() {
+    if (typeof kakao === 'undefined' || !kakao.maps) {
+      activateMockMode();
+      return;
+    }
+
+    if (!navigator.geolocation) {
+      activateMockMode();
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      pos => {
+        const center = new kakao.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+        kakaoMap = new kakao.maps.Map(document.getElementById('map'), {
+          center,
+          level: 4
+        });
+        renderMarkers();
+      },
+      () => activateMockMode()
+    );
+  }
+
+  function activateMockMode() {
+    isMockMode = true;
+    document.getElementById('mockMap').style.display = 'block';
+    mockPOIs = DUMMY_POIS;
+    renderMockMarkers();
+    updatePeekCount();
+    showToast('🗺️ 미리보기 모드 (카카오맵 API 키 필요)');
+  }
+
+  function renderMarkers(searchVal = '') {
+    if (isMockMode) {
+      renderMockMarkers(searchVal);
+      return;
+    }
+    if (!kakaoMap) return;
+
+    // 기존 오버레이 제거는 실제 구현 시 오버레이 배열 관리 필요
+    const activePartners = getFilteredPartners(searchVal);
+    const today = new Date().toISOString().slice(0, 10);
+    const activeEvents = events.filter(e =>
+      e.active && today >= e.startDate && today <= e.endDate
+    );
+
+    activePartners.forEach(partner => {
+      const ps = new kakao.maps.services.Places();
+      partner.poiKeywords.forEach(keyword => {
+        ps.keywordSearch(keyword, (result, status) => {
+          if (status !== kakao.maps.services.Status.OK) return;
+          result.slice(0, 3).forEach(place => {
+            const latlng = new kakao.maps.LatLng(place.y, place.x);
+            const markerContent = `
+              <div class="partner-marker" onclick="showPartnerBS('${partner.id}','${place.place_name}','${place.address_name}')">
+                <span class="marker-icon">${partner.icon}</span>
+                <span class="marker-name">${partner.name}</span>
+              </div>`;
+            new kakao.maps.CustomOverlay({ position: latlng, content: markerContent, yAnchor: 1.5 }).setMap(kakaoMap);
+
+            const partnerEvent = activeEvents.find(e => e.partnerId === partner.id);
+            if (partnerEvent) {
+              const balloonContent = `
+                <div class="balloon-marker" style="background:${partnerEvent.badgeColor}" onclick="showEventBS('${partnerEvent.id}')">
+                  ${partnerEvent.balloonEmoji} ${partnerEvent.benefit} ▸
+                </div>`;
+              new kakao.maps.CustomOverlay({ position: latlng, content: balloonContent, yAnchor: 3.5 }).setMap(kakaoMap);
+            }
+          });
+        }, { location: kakaoMap.getCenter(), radius: 500 });
+      });
+    });
+
+    updatePeekCount();
+  }
+
+  function getFilteredPartners(searchVal = '') {
+    return partners.filter(p => {
+      if (!p.active) return false;
+      if (activeCategory !== '전체' && p.category !== activeCategory) return false;
+      if (searchVal && !p.name.includes(searchVal) && !p.category.includes(searchVal)) return false;
+      return true;
+    });
+  }
+
+  function renderMockMarkers(searchVal = '') {
+    const container = document.getElementById('mockMarkers');
+    container.innerHTML = '';
+
+    const activePartners = getFilteredPartners(searchVal);
+    const today = new Date().toISOString().slice(0, 10);
+    const activeEvents = events.filter(e =>
+      e.active && today >= e.startDate && today <= e.endDate
+    );
+
+    const mapEl = document.getElementById('mockMap');
+    const w = mapEl.offsetWidth || 390;
+    const h = mapEl.offsetHeight || 400;
+
+    // 내 위치 dot
+    const myDot = document.createElement('div');
+    myDot.className = 'mock-marker-wrap';
+    myDot.style.left = (w * 0.5 - 8) + 'px';
+    myDot.style.top = (h * 0.5 - 8) + 'px';
+    myDot.innerHTML = '<div class="my-location-dot"></div>';
+    container.appendChild(myDot);
+
+    const positions = [
+      { x: 0.22, y: 0.28 }, { x: 0.62, y: 0.22 }, { x: 0.75, y: 0.45 },
+      { x: 0.35, y: 0.65 }, { x: 0.58, y: 0.70 }, { x: 0.15, y: 0.55 },
+      { x: 0.82, y: 0.68 },
+    ];
+
+    const visiblePOIs = mockPOIs.filter(poi =>
+      activePartners.find(p => p.id === poi.partnerId)
+    );
+
+    visiblePOIs.forEach((poi, i) => {
+      const partner = partners.find(p => p.id === poi.partnerId);
+      if (!partner) return;
+      const pos = positions[i % positions.length];
+      const partnerEvent = activeEvents.find(e => e.partnerId === partner.id);
+
+      const wrap = document.createElement('div');
+      wrap.className = 'mock-marker-wrap';
+      wrap.style.left = Math.round(pos.x * w) + 'px';
+      wrap.style.top = Math.round(pos.y * h) + 'px';
+
+      let html = '';
+      if (partnerEvent) {
+        html += `<div class="balloon-marker" style="background:${partnerEvent.badgeColor}" onclick="showEventBS('${partnerEvent.id}')">${partnerEvent.balloonEmoji} ${partnerEvent.benefit} ▸</div>`;
+      }
+      html += `<div class="partner-marker" onclick="showPartnerBS('${partner.id}','${poi.name}','${poi.address}')">${partner.icon} <span class="marker-name">${partner.name}</span></div>`;
+
+      wrap.innerHTML = html;
+      container.appendChild(wrap);
+    });
+
+    updatePeekCount(visiblePOIs.length);
+  }
+
+  function updatePeekCount(n) {
+    const count = n !== undefined ? n : mockPOIs.filter(p =>
+      getFilteredPartners().find(pa => pa.id === p.partnerId)
+    ).length;
+    document.getElementById('peekTitle').textContent = `주변에 제휴사 ${count}곳`;
+  }
+
+  function recenterMap() {
+    if (kakaoMap) {
+      navigator.geolocation.getCurrentPosition(pos => {
+        kakaoMap.setCenter(new kakao.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+      });
+    }
+    showToast('현재 위치로 이동했어요');
+  }
+
+  /* 바텀시트 */
+  function openBS(id) {
+    const overlay = document.getElementById(id);
+    const sheet = overlay.querySelector('.bs-sheet');
+    overlay.classList.add('open');
+    requestAnimationFrame(() => sheet.classList.add('open'));
+  }
+
+  function closeBS(id) {
+    const overlay = document.getElementById(id);
+    const sheet = overlay.querySelector('.bs-sheet');
+    sheet.classList.remove('open');
+    setTimeout(() => overlay.classList.remove('open'), 300);
+  }
+
+  function closeBSOnOverlay(e, id) {
+    if (e.target === document.getElementById(id)) closeBS(id);
+  }
+
+  function showPartnerBS(partnerId, placeName, address) {
+    const partner = partners.find(p => p.id === partnerId);
+    if (!partner) return;
+
+    document.getElementById('partnerBSTitle').textContent = `${partner.icon} ${partner.name}`;
+
+    const today = new Date().toISOString().slice(0, 10);
+    const partnerEvents = events.filter(e =>
+      e.partnerId === partnerId && e.active && today >= e.startDate && today <= e.endDate
+    );
+
+    const pointBadges = partner.pointType.map(t =>
+      t === 'earn'
+        ? '<span class="badge badge-success">✅ 적립</span>'
+        : '<span class="badge badge-primary">💳 사용</span>'
+    ).join('');
+
+    const eventsHtml = partnerEvents.length ? `
+      <div class="bs-section-title">🎁 진행 중인 이벤트</div>
+      ${partnerEvents.map(e => `
+        <div class="event-card" onclick="showEventBS('${e.id}')">
+          <div class="event-card-header">
+            <span class="event-title">${e.balloonEmoji} ${e.title}</span>
+            <span class="event-benefit">${e.benefit}</span>
+          </div>
+          <div class="event-desc">${e.description.slice(0, 40)}...</div>
+        </div>
+      `).join('')}
+      <div class="bs-divider"></div>
+    ` : '';
+
+    document.getElementById('partnerBSContent').innerHTML = `
+      <div class="info-row">📍 ${placeName} · ${address}</div>
+      <div class="badge-row">${pointBadges}</div>
+      <div class="info-row">적립률: <strong>${partner.earnRate}</strong></div>
+      <div class="info-row">최소 사용금액: <strong>${partner.minSpend.toLocaleString()}원</strong></div>
+      <div class="bs-divider"></div>
+      ${eventsHtml}
+      <button class="btn-primary" onclick="showToast('포인트 적립 기능은 앱에서 이용하세요!')">포인트 적립하기 →</button>
+    `;
+
+    openBS('partnerBS');
+  }
+
+  function showEventBS(eventId) {
+    const event = events.find(e => e.id === eventId);
+    if (!event) return;
+
+    const partner = partners.find(p => p.id === event.partnerId);
+    const partnerName = partner ? partner.name : '';
+
+    closeBS('partnerBS');
+
+    document.getElementById('eventBSTitle').textContent = `${event.balloonEmoji} 이벤트 상세`;
+
+    const benefitTypeLabel = { coupon: '쿠폰', bonus: '보너스 적립', discount: '할인' };
+
+    document.getElementById('eventBSContent').innerHTML = `
+      <div class="partner-chip" style="background:${event.badgeColor}">${partnerName}</div>
+      <div class="bs-title-lg">${event.title}</div>
+      <div class="bs-body">${event.description}</div>
+      <div class="event-period">📅 기간: ${event.startDate.replace(/-/g,'.')} ~ ${event.endDate.replace(/-/g,'.')}</div>
+      <div class="event-benefit-row">🎁 혜택: ${event.benefit} (${benefitTypeLabel[event.benefitType] || event.benefitType})</div>
+      <div class="bs-divider"></div>
+      <button class="btn-primary" onclick="showToast('쿠폰 받기 기능은 앱에서 이용하세요!')">쿠폰 받기</button>
+    `;
+
+    openBS('eventBS');
+  }
+
+  function showNearbyList() {
+    const filtered = getFilteredPartners();
+    const html = filtered.length === 0
+      ? '<div style="text-align:center;padding:40px;color:var(--text-2)">주변 제휴사가 없어요</div>'
+      : filtered.map(p => `
+        <div class="list-item" style="margin-bottom:10px; cursor:pointer" onclick="showPartnerBS('${p.id}','${p.name}','근처')">
+          <div class="list-thumb">${p.icon}</div>
+          <div class="list-info">
+            <div class="list-title">${p.name}</div>
+            <div class="list-sub">${p.category} · ${p.earnRate} 적립</div>
+          </div>
+          <span class="list-arrow">›</span>
+        </div>
+      `).join('');
+
+    document.getElementById('nearbyBSContent').innerHTML = html;
+    openBS('nearbyBS');
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
+
+  /* 더미 데이터 (fetch 실패 시 fallback) */
+  function getDummyPartners() {
+    return [
+      { id:'partner_001', name:'이마트24', category:'편의점', icon:'🏪', poiKeywords:['이마트24'], pointType:['earn','use'], earnRate:'최대 1%', minSpend:1000, active:true },
+      { id:'partner_002', name:'GS25', category:'편의점', icon:'🏪', poiKeywords:['GS25'], pointType:['earn','use'], earnRate:'최대 0.5%', minSpend:1000, active:true },
+      { id:'partner_003', name:'스타벅스', category:'카페', icon:'☕', poiKeywords:['스타벅스'], pointType:['earn'], earnRate:'최대 1%', minSpend:2000, active:true },
+      { id:'partner_004', name:'롯데마트', category:'마트', icon:'🛒', poiKeywords:['롯데마트'], pointType:['earn','use'], earnRate:'최대 2%', minSpend:5000, active:true },
+      { id:'partner_005', name:'CGV', category:'영화', icon:'🎬', poiKeywords:['CGV'], pointType:['earn','use'], earnRate:'최대 3%', minSpend:8000, active:true },
+    ];
+  }
+
+  function getDummyEvents() {
+    return [
+      { id:'event_001', partnerId:'partner_001', title:'아이스크림 구매 시 100P 쿠폰', description:'6월 한 달간 이마트24에서 아이스크림 구매 시 100포인트 쿠폰을 드려요!', benefit:'100P 쿠폰', benefitType:'coupon', startDate:'2026-06-01', endDate:'2026-06-30', badgeColor:'#FF6B35', balloonEmoji:'🍦', active:true },
+      { id:'event_002', partnerId:'partner_003', title:'아메리카노 구매 시 2배 적립', description:'6월 한 달간 스타벅스에서 아메리카노 구매 시 포인트 2배 적립 혜택을 드려요!', benefit:'2배 적립', benefitType:'bonus', startDate:'2026-06-01', endDate:'2026-06-30', badgeColor:'#00704A', balloonEmoji:'☕', active:true },
+      { id:'event_003', partnerId:'partner_004', title:'주말 장보기 500P 보너스', description:'이번 주말 롯데마트에서 3만원 이상 구매 시 500포인트를 추가로 드립니다.', benefit:'500P 보너스', benefitType:'bonus', startDate:'2026-06-21', endDate:'2026-06-29', badgeColor:'#E63946', balloonEmoji:'🛒', active:true },
+      { id:'event_004', partnerId:'partner_005', title:'영화 티켓 10% 할인', description:'CGV에서 OK캐쉬백으로 결제 시 영화 티켓 10% 할인 혜택을 제공합니다.', benefit:'10% 할인', benefitType:'discount', startDate:'2026-07-01', endDate:'2026-07-31', badgeColor:'#5F46FF', balloonEmoji:'🎬', active:true },
+    ];
+  }
+
+  window.addEventListener('load', init);
+</script>
+</body>
+</html>
