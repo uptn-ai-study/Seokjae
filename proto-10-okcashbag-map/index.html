@@ -760,6 +760,13 @@
     showToast('🗺️ 미리보기 모드 (카카오맵 API 키 필요)');
   }
 
+  let activeOverlays = [];
+
+  function clearOverlays() {
+    activeOverlays.forEach(o => o.setMap(null));
+    activeOverlays = [];
+  }
+
   function renderMarkers(searchVal = '') {
     if (isMockMode) {
       renderMockMarkers(searchVal);
@@ -767,41 +774,64 @@
     }
     if (!kakaoMap) return;
 
-    // 기존 오버레이 제거는 실제 구현 시 오버레이 배열 관리 필요
+    clearOverlays();
+
     const activePartners = getFilteredPartners(searchVal);
     const today = new Date().toISOString().slice(0, 10);
     const activeEvents = events.filter(e =>
       e.active && today >= e.startDate && today <= e.endDate
     );
 
+    let poiCount = 0;
+    const ps = new kakao.maps.services.Places();
+
     activePartners.forEach(partner => {
-      const ps = new kakao.maps.services.Places();
       partner.poiKeywords.forEach(keyword => {
         ps.keywordSearch(keyword, (result, status) => {
           if (status !== kakao.maps.services.Status.OK) return;
-          result.slice(0, 3).forEach(place => {
+
+          result.slice(0, 5).forEach(place => {
             const latlng = new kakao.maps.LatLng(place.y, place.x);
-            const markerContent = `
-              <div class="partner-marker" onclick="showPartnerBS('${partner.id}','${place.place_name}','${place.address_name}')">
-                <span class="marker-icon">${partner.icon}</span>
-                <span class="marker-name">${partner.name}</span>
-              </div>`;
-            new kakao.maps.CustomOverlay({ position: latlng, content: markerContent, yAnchor: 1.5 }).setMap(kakaoMap);
+
+            // 마커 DOM 직접 생성 (따옴표 이슈 방지)
+            const markerEl = document.createElement('div');
+            markerEl.className = 'partner-marker';
+            markerEl.innerHTML = `<span class="marker-icon">${partner.icon}</span><span class="marker-name">${partner.name}</span>`;
+            markerEl.addEventListener('click', () =>
+              showPartnerBS(partner.id, place.place_name, place.road_address_name || place.address_name)
+            );
+
+            const markerOverlay = new kakao.maps.CustomOverlay({
+              position: latlng, content: markerEl, yAnchor: 1.5
+            });
+            markerOverlay.setMap(kakaoMap);
+            activeOverlays.push(markerOverlay);
 
             const partnerEvent = activeEvents.find(e => e.partnerId === partner.id);
             if (partnerEvent) {
-              const balloonContent = `
-                <div class="balloon-marker" style="background:${partnerEvent.badgeColor}" onclick="showEventBS('${partnerEvent.id}')">
-                  ${partnerEvent.balloonEmoji} ${partnerEvent.benefit} ▸
-                </div>`;
-              new kakao.maps.CustomOverlay({ position: latlng, content: balloonContent, yAnchor: 3.5 }).setMap(kakaoMap);
+              const balloonEl = document.createElement('div');
+              balloonEl.className = 'balloon-marker';
+              balloonEl.style.background = partnerEvent.badgeColor;
+              balloonEl.textContent = `${partnerEvent.balloonEmoji} ${partnerEvent.benefit} ▸`;
+              balloonEl.addEventListener('click', () => showEventBS(partnerEvent.id));
+
+              const balloonOverlay = new kakao.maps.CustomOverlay({
+                position: latlng, content: balloonEl, yAnchor: 3.5
+              });
+              balloonOverlay.setMap(kakaoMap);
+              activeOverlays.push(balloonOverlay);
             }
+
+            poiCount++;
+            document.getElementById('peekTitle').textContent = `주변에 제휴사 ${poiCount}곳`;
           });
-        }, { location: kakaoMap.getCenter(), radius: 500 });
+        }, {
+          location: kakaoMap.getCenter(),
+          radius: 2000,
+          sort: kakao.maps.services.SortBy.DISTANCE
+        });
       });
     });
-
-    updatePeekCount();
   }
 
   function getFilteredPartners(searchVal = '') {
