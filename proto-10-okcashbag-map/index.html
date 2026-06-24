@@ -127,8 +127,8 @@
 
     /* 지도 영역 */
     #map {
-      flex: 1;
       width: 100%;
+      height: 100%;
       position: relative;
     }
 
@@ -615,10 +615,13 @@
     <button class="chip active" data-category="전체" onclick="selectCategory(this)">전체</button>
   </div>
 
-  <!-- 지도 영역 -->
-  <div id="map">
-    <!-- 이 지역 재검색 버튼 -->
+  <!-- 지도 영역 래퍼 -->
+  <div style="flex:1; position:relative; overflow:hidden;">
+    <!-- 이 지역 재검색 버튼 (지도 위에 float) -->
     <button id="researchBtn" onclick="researchArea()">🔍 이 지역 재검색</button>
+
+  <!-- 지도 영역 -->
+  <div id="map" style="width:100%;height:100%;">
     <!-- 카카오맵 실패 시 mock 모드 표시 -->
     <div class="mock-map" id="mockMap" style="display:none;">
       <div class="mock-map-grid"></div>
@@ -633,6 +636,7 @@
       </div>
     </div>
   </div>
+  </div><!-- /지도 래퍼 -->
 
   <!-- 하단 peek 시트 -->
   <div class="peek-sheet" onclick="showNearbyList()" style="position:relative;">
