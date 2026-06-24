@@ -526,6 +526,31 @@
     .btn-primary:active { background: var(--primary-dark); }
 
     /* 반경 표시 버튼 */
+    /* 이 지역 재검색 버튼 */
+    #researchBtn {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: none;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      color: var(--text-1);
+      border: 1.5px solid var(--border);
+      border-radius: 9999px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      cursor: pointer;
+      z-index: 10;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+
+    #researchBtn:active { background: var(--muted-bg); }
+
     .map-controls {
       position: absolute;
       right: 12px;
@@ -592,6 +617,8 @@
 
   <!-- 지도 영역 -->
   <div id="map">
+    <!-- 이 지역 재검색 버튼 -->
+    <button id="researchBtn" onclick="researchArea()">🔍 이 지역 재검색</button>
     <!-- 카카오맵 실패 시 mock 모드 표시 -->
     <div class="mock-map" id="mockMap" style="display:none;">
       <div class="mock-map-grid"></div>
@@ -726,6 +753,20 @@
     const center = new kakao.maps.LatLng(lat, lng);
     kakaoMap = new kakao.maps.Map(document.getElementById('map'), { center, level: 4 });
     renderMarkers();
+
+    // 지도 이동/줌 후 재검색 버튼 표시
+    kakao.maps.event.addListener(kakaoMap, 'dragend', showResearchBtn);
+    kakao.maps.event.addListener(kakaoMap, 'zoom_changed', showResearchBtn);
+  }
+
+  function showResearchBtn() {
+    document.getElementById('researchBtn').style.display = 'flex';
+  }
+
+  function researchArea() {
+    document.getElementById('researchBtn').style.display = 'none';
+    renderMarkers();
+    showToast('📍 이 지역 제휴사를 검색했어요');
   }
 
   function initMap() {
