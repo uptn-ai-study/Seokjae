@@ -716,6 +716,16 @@
     renderMarkers(val.trim());
   }
 
+  // 서울 강남 기본 좌표 (위치 권한 없을 때 fallback)
+  const DEFAULT_LAT = 37.4979;
+  const DEFAULT_LNG = 127.0276;
+
+  function initKakaoMap(lat, lng) {
+    const center = new kakao.maps.LatLng(lat, lng);
+    kakaoMap = new kakao.maps.Map(document.getElementById('map'), { center, level: 4 });
+    renderMarkers();
+  }
+
   function initMap() {
     if (typeof kakao === 'undefined' || !kakao.maps) {
       activateMockMode();
@@ -723,20 +733,18 @@
     }
 
     if (!navigator.geolocation) {
-      activateMockMode();
+      initKakaoMap(DEFAULT_LAT, DEFAULT_LNG);
       return;
     }
 
     navigator.geolocation.getCurrentPosition(
-      pos => {
-        const center = new kakao.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-        kakaoMap = new kakao.maps.Map(document.getElementById('map'), {
-          center,
-          level: 4
-        });
-        renderMarkers();
+      pos => initKakaoMap(pos.coords.latitude, pos.coords.longitude),
+      ()  => {
+        // 위치 권한 거부 시 기본 좌표로 지도 표시 (mock 전환 안 함)
+        showToast('📍 위치 권한이 없어 강남구 기준으로 표시해요');
+        initKakaoMap(DEFAULT_LAT, DEFAULT_LNG);
       },
-      () => activateMockMode()
+      { timeout: 5000 }
     );
   }
 
@@ -866,12 +874,15 @@
   }
 
   function recenterMap() {
-    if (kakaoMap) {
-      navigator.geolocation.getCurrentPosition(pos => {
+    if (!kakaoMap) { showToast('지도가 아직 로드되지 않았어요'); return; }
+    if (!navigator.geolocation) { showToast('위치 기능을 지원하지 않는 브라우저예요'); return; }
+    navigator.geolocation.getCurrentPosition(
+      pos => {
         kakaoMap.setCenter(new kakao.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-      });
-    }
-    showToast('현재 위치로 이동했어요');
+        showToast('현재 위치로 이동했어요');
+      },
+      () => showToast('위치 권한을 허용해주세요')
+    );
   }
 
   /* 바텀시트 */
