@@ -51,4 +51,4 @@ proto-10-okcashbag-map/
 
 | 폴더명 | 서비스 이름 | Vercel URL | 상태 |
 |---|---|---|---|
-| proto-10-okcashbag-map | 지도와 함께하는 OK캐쉬백 | [Vercel URL 추가 예정] | 🔄 진행중 |
+| proto-10-okcashbag-map | 지도와 함께하는 OK캐쉬백 | https://ocbmaptest.vercel.app | ✅ 완성 |
