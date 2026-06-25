@@ -13,19 +13,6 @@
     "active": true
   },
   {
-    "id": "event_002",
-    "partnerId": "partner_003",
-    "title": "아메리카노 구매 시 2배 적립",
-    "description": "6월 한 달간 스타벅스에서 아메리카노 구매 시 포인트 2배 적립 혜택을 드려요!",
-    "benefit": "2배 적립",
-    "benefitType": "bonus",
-    "startDate": "2026-06-01",
-    "endDate": "2026-06-30",
-    "badgeColor": "#00704A",
-    "balloonEmoji": "☕",
-    "active": true
-  },
-  {
     "id": "event_003",
     "partnerId": "partner_004",
     "title": "주말 장보기 500P 보너스",
@@ -49,6 +36,19 @@
     "endDate": "2026-07-31",
     "badgeColor": "#5F46FF",
     "balloonEmoji": "🎬",
+    "active": true
+  },
+  {
+    "id": "event_1782347423004",
+    "partnerId": "partner_1782347212616",
+    "title": "첫 주유 혜택",
+    "description": "우리 주유소에서 처음 주유하시면 1,000원 즉시 적립",
+    "benefit": "1,000원 추가 적립",
+    "benefitType": "bonus",
+    "startDate": "2026-06-01",
+    "endDate": "2026-07-31",
+    "badgeColor": "#f50000",
+    "balloonEmoji": "🎇",
     "active": true
   }
 ]

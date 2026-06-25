@@ -4,8 +4,13 @@
     "name": "이마트24",
     "category": "편의점",
     "icon": "🏪",
-    "poiKeywords": ["이마트24"],
-    "pointType": ["earn", "use"],
+    "poiKeywords": [
+      "이마트24"
+    ],
+    "pointType": [
+      "earn",
+      "use"
+    ],
     "earnRate": "최대 1%",
     "minSpend": 1000,
     "active": true
@@ -15,8 +20,13 @@
     "name": "GS25",
     "category": "편의점",
     "icon": "🏪",
-    "poiKeywords": ["GS25"],
-    "pointType": ["earn", "use"],
+    "poiKeywords": [
+      "GS25"
+    ],
+    "pointType": [
+      "earn",
+      "use"
+    ],
     "earnRate": "최대 0.5%",
     "minSpend": 1000,
     "active": true
@@ -26,19 +36,28 @@
     "name": "스타벅스",
     "category": "카페",
     "icon": "☕",
-    "poiKeywords": ["스타벅스"],
-    "pointType": ["earn"],
+    "poiKeywords": [
+      "스타벅스"
+    ],
+    "pointType": [
+      "earn"
+    ],
     "earnRate": "최대 1%",
     "minSpend": 2000,
-    "active": true
+    "active": false
   },
   {
     "id": "partner_004",
     "name": "롯데마트",
     "category": "마트",
     "icon": "🛒",
-    "poiKeywords": ["롯데마트"],
-    "pointType": ["earn", "use"],
+    "poiKeywords": [
+      "롯데마트"
+    ],
+    "pointType": [
+      "earn",
+      "use"
+    ],
     "earnRate": "최대 2%",
     "minSpend": 5000,
     "active": true
@@ -48,8 +67,13 @@
     "name": "CGV",
     "category": "영화",
     "icon": "🎬",
-    "poiKeywords": ["CGV"],
-    "pointType": ["earn", "use"],
+    "poiKeywords": [
+      "CGV"
+    ],
+    "pointType": [
+      "earn",
+      "use"
+    ],
     "earnRate": "최대 3%",
     "minSpend": 8000,
     "active": true
@@ -59,10 +83,46 @@
     "name": "올리브영",
     "category": "뷰티",
     "icon": "💄",
-    "poiKeywords": ["올리브영"],
-    "pointType": ["earn"],
-    "earnRate": "최대 1%",
-    "minSpend": 3000,
-    "active": false
+    "poiKeywords": [
+      "올리브영"
+    ],
+    "pointType": [
+      "use"
+    ],
+    "earnRate": "",
+    "minSpend": 1,
+    "active": true
+  },
+  {
+    "id": "partner_1782347212616",
+    "name": "SK주유소",
+    "category": "주유충전",
+    "icon": "⛽",
+    "poiKeywords": [
+      "SK주유소"
+    ],
+    "pointType": [
+      "earn",
+      "use"
+    ],
+    "earnRate": "0.1%",
+    "minSpend": 10,
+    "active": true
+  },
+  {
+    "id": "partner_1782347256247",
+    "name": "SK충전소",
+    "category": "주유충전",
+    "icon": "⛽",
+    "poiKeywords": [
+      "SK충전소"
+    ],
+    "pointType": [
+      "earn",
+      "use"
+    ],
+    "earnRate": "0.1%",
+    "minSpend": 10,
+    "active": true
   }
 ]
