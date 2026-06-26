@@ -503,175 +503,255 @@ window.addEventListener('resize', () => {
   if (document.getElementById('s2').classList.contains('active')) { resizeCanvas(); drawField(); }
 });
 
+/* 타자 신체 치수 (drawBatter / drawStrikeZone 공유) */
+function batterLayout() {
+  const isRight = cfg.batterSide !== 'left';
+  const batH    = H * 0.52;
+  const footY   = H * 0.84;
+  const headR   = batH * 0.115;
+  return {
+    isRight,
+    batH, footY, headR,
+    headCY   : footY - batH + headR,
+    shoulderY: footY - batH * 0.78,
+    chestY   : footY - batH * 0.62,   // 스트라이크존 상단 (가슴 레터스 라인)
+    waistY   : footY - batH * 0.42,
+    kneeY    : footY - batH * 0.22,   // 스트라이크존 하단 (무릎 상단)
+    bodyW    : batH * 0.145,
+    bx       : isRight ? HP.cx - HP.w * 1.35 : HP.cx + HP.w * 1.35,
+  };
+}
+
 function drawField(highlightCol = -1, highlightRow = -1) {
   ctx.clearRect(0, 0, W, H);
 
-  /* grass */
+  /* ── 하늘 그라디언트 ─────────────────────── */
+  const sky = ctx.createLinearGradient(0, 0, 0, H * 0.40);
+  sky.addColorStop(0, '#4A90D9');
+  sky.addColorStop(1, '#87CEEB');
+  ctx.fillStyle = sky; ctx.fillRect(0, 0, W, H * 0.40);
+
+  /* ── 외야 잔디 ───────────────────────────── */
   ctx.fillStyle = '#3DA550';
-  ctx.fillRect(0, 0, W, H * 0.58);
+  ctx.fillRect(0, H * 0.36, W, H * 0.22);
 
-  /* dirt + perspective trapezoid */
-  ctx.fillStyle = '#C8A96E';
-  ctx.fillRect(0, H * 0.55, W, H);
-
-  /* grass/dirt blend line */
+  /* ── 내야 흙 (원근 사다리꼴) ─────────────── */
   ctx.beginPath();
-  ctx.moveTo(0, H * 0.57);
-  ctx.lineTo(W * 0.12, H * 0.53);
-  ctx.lineTo(W * 0.88, H * 0.53);
-  ctx.lineTo(W, H * 0.57);
-  ctx.lineTo(W, H * 0.59);
-  ctx.lineTo(0, H * 0.59);
+  ctx.moveTo(W * 0.30, H * 0.42);
+  ctx.lineTo(W * 0.70, H * 0.42);
+  ctx.lineTo(W * 0.90, H * 0.64);
+  ctx.lineTo(W * 0.10, H * 0.64);
   ctx.closePath();
-  ctx.fillStyle = '#B09060';
-  ctx.fill();
+  ctx.fillStyle = '#C8A96E'; ctx.fill();
 
-  /* foul lines */
-  ctx.strokeStyle = 'rgba(255,255,255,0.28)';
-  ctx.lineWidth = 1.5;
-  ctx.beginPath(); ctx.moveTo(W/2 - W*0.07, H*0.53); ctx.lineTo(W/2 - W*0.28, H); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(W/2 + W*0.07, H*0.53); ctx.lineTo(W/2 + W*0.28, H); ctx.stroke();
+  /* ── 타석 근경 (카메라 근처 넓은 흙) ─────── */
+  ctx.fillStyle = '#C8A96E';
+  ctx.fillRect(0, H * 0.62, W, H * 0.38);
 
-  /* mound */
-  ctx.save();
-  ctx.beginPath(); ctx.ellipse(W/2, H*0.35, 22, 10, 0, 0, Math.PI*2);
+  /* 잔디·흙 경계 삼각 보정 */
+  ctx.fillStyle = '#3DA550';
+  ctx.beginPath(); ctx.moveTo(0, H*0.62); ctx.lineTo(W*0.10, H*0.64); ctx.lineTo(W*0.10, H*0.62); ctx.closePath(); ctx.fill();
+  ctx.beginPath(); ctx.moveTo(W, H*0.62); ctx.lineTo(W*0.90, H*0.64); ctx.lineTo(W*0.90, H*0.62); ctx.closePath(); ctx.fill();
+
+  /* ── 파울 라인 (원근 소실점 방향) ───────── */
+  ctx.strokeStyle = 'rgba(255,255,255,0.35)'; ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.moveTo(W*0.10, H*0.64); ctx.lineTo(0,   H); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(W*0.90, H*0.64); ctx.lineTo(W,   H); ctx.stroke();
+
+  /* ── 투수 마운드 ─────────────────────────── */
+  ctx.beginPath(); ctx.ellipse(W/2, H*0.47, 17, 7, 0, 0, Math.PI*2);
   ctx.fillStyle = '#D4A96A'; ctx.fill();
-  ctx.strokeStyle = '#2D2D2D'; ctx.lineWidth = 2; ctx.stroke();
-  ctx.restore();
+  ctx.strokeStyle = '#2D2D2D'; ctx.lineWidth = 1.5; ctx.stroke();
 
-  drawPitcher(W/2, H*0.35 - 36);
+  /* ── 투수 (배경, 타자보다 먼저 그림) ────── */
+  drawPitcher(W / 2, H * 0.41);
+
+  /* ── 홈플레이트 → 스트라이크존 → 타자 ────── */
   drawHomePlate();
   drawStrikeZone(highlightCol, highlightRow);
   drawBatter(swingAnim.progress);
 }
 
 function drawPitcher(x, y) {
-  const s = 1.8; // 1.8배 크기
-  /* arm / glove hint */
-  ctx.strokeStyle = '#3B5BDB'; ctx.lineWidth = 5;
-  ctx.beginPath(); ctx.moveTo(x+10*s, y+4*s); ctx.lineTo(x+18*s, y-2*s); ctx.stroke();
-  /* body */
-  ctx.beginPath(); ctx.ellipse(x, y+9*s, 9*s, 14*s, 0, 0, Math.PI*2);
+  /* 원거리 소형 — 타자 대비 약 17% 크기 */
+  const s = 2.5;
+  /* 몸통 */
+  ctx.beginPath(); ctx.ellipse(x, y+8*s, 7*s, 11*s, 0, 0, Math.PI*2);
   ctx.fillStyle = '#3B5BDB'; ctx.fill();
-  ctx.strokeStyle = '#2D2D2D'; ctx.lineWidth = 2; ctx.stroke();
-  /* head */
-  ctx.beginPath(); ctx.arc(x, y-4*s, 10*s, 0, Math.PI*2);
-  ctx.fillStyle = '#FFD6A5'; ctx.fill(); ctx.stroke();
-  /* cap */
-  ctx.beginPath(); ctx.arc(x, y-8*s, 10*s, Math.PI, 0); ctx.closePath();
-  ctx.fillStyle = '#C92A2A'; ctx.fill(); ctx.stroke();
-  /* cap brim */
-  ctx.beginPath(); ctx.moveTo(x-10*s, y-8*s); ctx.lineTo(x+16*s, y-8*s);
-  ctx.strokeStyle = '#A01010'; ctx.lineWidth = 3; ctx.stroke();
-  /* eyes */
-  ctx.fillStyle = '#2D2D2D';
-  ctx.beginPath(); ctx.arc(x-3*s, y-4*s, 1.6*s, 0, Math.PI*2); ctx.fill();
-  ctx.beginPath(); ctx.arc(x+3*s, y-4*s, 1.6*s, 0, Math.PI*2); ctx.fill();
-  /* ball in hand */
-  ctx.beginPath(); ctx.arc(x+18*s, y-2*s, 4*s, 0, Math.PI*2);
-  ctx.fillStyle = '#FAFAF0'; ctx.fill();
   ctx.strokeStyle = '#2D2D2D'; ctx.lineWidth = 1.5; ctx.stroke();
+  /* 머리 */
+  ctx.beginPath(); ctx.arc(x, y-3*s, 8*s, 0, Math.PI*2);
+  ctx.fillStyle = '#FFD6A5'; ctx.fill(); ctx.stroke();
+  /* 모자 */
+  ctx.beginPath(); ctx.arc(x, y-6*s, 8*s, Math.PI, 0); ctx.closePath();
+  ctx.fillStyle = '#C92A2A'; ctx.fill(); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(x-8*s, y-6*s); ctx.lineTo(x+13*s, y-6*s);
+  ctx.strokeStyle = '#A01010'; ctx.lineWidth = 2; ctx.stroke();
+  /* 눈 */
+  ctx.fillStyle = '#2D2D2D';
+  ctx.beginPath(); ctx.arc(x-2.5*s, y-3*s, 1.2*s, 0, Math.PI*2); ctx.fill();
+  ctx.beginPath(); ctx.arc(x+2.5*s, y-3*s, 1.2*s, 0, Math.PI*2); ctx.fill();
+  /* 투구 팔 + 공 */
+  ctx.save(); ctx.strokeStyle = '#3B5BDB'; ctx.lineWidth = 3*s; ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.moveTo(x+7*s, y+2*s); ctx.lineTo(x+14*s, y-4*s); ctx.stroke();
+  ctx.lineCap = 'butt'; ctx.restore();
+  ctx.beginPath(); ctx.arc(x+14*s, y-4*s, 3*s, 0, Math.PI*2);
+  ctx.fillStyle = '#FAFAF0'; ctx.fill();
+  ctx.strokeStyle = '#2D2D2D'; ctx.lineWidth = 1; ctx.stroke();
 }
 
 function drawBatter(swingProg) {
-  const side = cfg.batterSide || 'right';
-  // 포수 시점: 우타자=홈플레이트 좌측, 좌타자=우측
-  const bx = side === 'right'
-    ? HP.cx - HP.w - 26
-    : HP.cx + HP.w + 26;
-  const by = HP.top - 8;
-  const s  = 1.3;
+  const L = batterLayout();
+  const { isRight, batH, footY, headR, headCY, shoulderY, chestY, waistY, kneeY, bodyW, bx } = L;
+  const t = swingProg != null ? swingProg : 0;
 
-  /* 다리 */
-  ctx.save();
-  ctx.strokeStyle = '#1a1a2e'; ctx.lineWidth = 5*s; ctx.lineCap = 'round';
-  ctx.beginPath(); ctx.moveTo(bx-5*s, by+30*s); ctx.lineTo(bx-3*s, by+16*s); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(bx+5*s, by+30*s); ctx.lineTo(bx+3*s, by+16*s); ctx.stroke();
-  ctx.lineCap = 'butt'; ctx.restore();
+  /* ── 방망이 ───────────────────────────────────────────────
+     포수 시점에서 우타자 오른쪽 옆면이 보임:
+       대기  → 배럴이 뒤 어깨 위쪽 (10~11시 방향) = -110°
+       스윙  → 시계 방향 → 배럴이 투수 쪽(우하)으로 관통 = +40°
+     좌타자: 대기 -70°(1~2시), 반시계 방향 → -220°(=+140°)  */
+  const batLen  = batH * 0.64;
+  const batW    = Math.max(5, batH * 0.022);
+  const handOX  = isRight ? bx + bodyW * 0.55 : bx - bodyW * 0.55;
+  const handOY  = chestY + (waistY - chestY) * 0.25;
+  const batAngle = isRight
+    ? (-Math.PI * 0.611) + t * (Math.PI * 0.833)   // -110° → +40°
+    : (-Math.PI * 0.389) - t * (Math.PI * 0.833);  // -70°  → -220°
+  const batTipX = handOX + Math.cos(batAngle) * batLen;
+  const batTipY = handOY + Math.sin(batAngle) * batLen;
 
-  /* 몸통 */
-  ctx.beginPath(); ctx.ellipse(bx, by+15*s, 8*s, 13*s, 0, 0, Math.PI*2);
-  ctx.fillStyle = '#C92A2A'; ctx.fill();
-  ctx.strokeStyle = '#2D2D2D'; ctx.lineWidth = 2; ctx.stroke();
-
-  /* 방망이 스윙 애니메이션
-     우타자: 대기=-130도, 스윙 완료=+20도 (좌상 → 우측 관통)
-     좌타자: 대기=-50도,  스윙 완료=200도 (우상 → 좌측 관통)          */
-  const batLen = 34*s;
-  let batAngle;
-  if (side === 'right') {
-    const t = swingProg != null ? swingProg : 0;
-    batAngle = (-Math.PI*0.72) + t * (Math.PI*0.83);
-  } else {
-    const t = swingProg != null ? swingProg : 0;
-    batAngle = (-Math.PI*0.28) - t * (Math.PI*0.83);
-  }
-  const batOX = bx, batOY = by + 4*s;
-  ctx.save();
-  ctx.strokeStyle = '#8B4513'; ctx.lineWidth = 4*s; ctx.lineCap = 'round';
+  /* ── 다리 ────────────────────────────────── */
+  ctx.save(); ctx.lineCap = 'round';
+  /* 앞다리 (근경) */
+  ctx.strokeStyle = '#1a1a2e'; ctx.lineWidth = bodyW * 0.65;
   ctx.beginPath();
-  ctx.moveTo(batOX, batOY);
-  ctx.lineTo(batOX + Math.cos(batAngle)*batLen, batOY + Math.sin(batAngle)*batLen);
+  ctx.moveTo(bx + (isRight ? bodyW*0.42 : -bodyW*0.42), footY);
+  ctx.lineTo(bx + (isRight ? bodyW*0.18 : -bodyW*0.18), kneeY);
+  ctx.lineTo(bx + (isRight ? bodyW*0.10 : -bodyW*0.10), waistY);
+  ctx.stroke();
+  /* 뒷다리 (원경, 조금 가늘게) */
+  ctx.lineWidth = bodyW * 0.50;
+  ctx.beginPath();
+  ctx.moveTo(bx - (isRight ? bodyW*0.32 : -bodyW*0.32), footY - 2);
+  ctx.lineTo(bx - (isRight ? bodyW*0.12 : -bodyW*0.12), kneeY + 2);
+  ctx.lineTo(bx - (isRight ? bodyW*0.06 : -bodyW*0.06), waistY + 2);
   ctx.stroke();
   ctx.lineCap = 'butt'; ctx.restore();
 
-  /* 머리 */
-  ctx.beginPath(); ctx.arc(bx, by, 10*s, 0, Math.PI*2);
+  /* ── 몸통 (사다리꼴) ──────────────────────── */
+  ctx.beginPath();
+  ctx.moveTo(bx - bodyW,         shoulderY);
+  ctx.lineTo(bx + bodyW,         shoulderY);
+  ctx.lineTo(bx + bodyW * 0.72,  waistY);
+  ctx.lineTo(bx - bodyW * 0.72,  waistY);
+  ctx.closePath();
+  ctx.fillStyle = '#C92A2A'; ctx.fill();
+  ctx.strokeStyle = '#2D2D2D'; ctx.lineWidth = 2; ctx.stroke();
+  /* 유니폼 가슴 선 */
+  ctx.strokeStyle = 'rgba(255,255,255,0.35)'; ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.moveTo(bx - bodyW*0.45, chestY + 4);
+  ctx.lineTo(bx + bodyW*0.45, chestY + 4);
+  ctx.stroke();
+
+  /* ── 방망이 (팔보다 먼저 그려서 손이 위에 옴) ── */
+  ctx.save(); ctx.lineCap = 'round';
+  ctx.strokeStyle = '#6B3410'; ctx.lineWidth = batW;
+  ctx.beginPath(); ctx.moveTo(handOX, handOY); ctx.lineTo(batTipX, batTipY); ctx.stroke();
+  /* 배럴 끝 강조 */
+  ctx.beginPath(); ctx.arc(batTipX, batTipY, batW * 0.75, 0, Math.PI*2);
+  ctx.fillStyle = '#A0522D'; ctx.fill();
+  /* 손잡이 너브 */
+  ctx.beginPath(); ctx.arc(handOX, handOY, batW * 0.95, 0, Math.PI*2);
+  ctx.fillStyle = '#4A2010'; ctx.fill();
+  ctx.lineCap = 'butt'; ctx.restore();
+
+  /* ── 팔 ──────────────────────────────────── */
+  ctx.save(); ctx.lineCap = 'round';
+  /* 근경 팔 */
+  ctx.strokeStyle = '#C92A2A'; ctx.lineWidth = bodyW * 0.52;
+  ctx.beginPath();
+  ctx.moveTo(bx + (isRight ?  bodyW*0.88 : -bodyW*0.88), shoulderY + 4);
+  ctx.lineTo(handOX, handOY);
+  ctx.stroke();
+  /* 원경 팔 */
+  ctx.lineWidth = bodyW * 0.38;
+  ctx.beginPath();
+  ctx.moveTo(bx - (isRight ?  bodyW*0.78 : -bodyW*0.78), shoulderY + 6);
+  ctx.lineTo(handOX + (isRight ? -5 : 5), handOY + 3);
+  ctx.stroke();
+  ctx.lineCap = 'butt'; ctx.restore();
+
+  /* 손(글러브 위치) */
+  ctx.beginPath(); ctx.arc(handOX, handOY, bodyW * 0.27, 0, Math.PI*2);
+  ctx.fillStyle = '#D4A96A'; ctx.fill();
+  ctx.strokeStyle = '#2D2D2D'; ctx.lineWidth = 1.5; ctx.stroke();
+
+  /* ── 머리 ────────────────────────────────── */
+  ctx.beginPath(); ctx.arc(bx, headCY, headR, 0, Math.PI*2);
   ctx.fillStyle = '#FFD6A5'; ctx.fill();
   ctx.strokeStyle = '#2D2D2D'; ctx.lineWidth = 2; ctx.stroke();
 
-  /* 헬멧 */
-  ctx.beginPath(); ctx.arc(bx, by-3*s, 10*s, Math.PI, 0); ctx.closePath();
+  /* ── 헬멧 ────────────────────────────────── */
+  ctx.beginPath();
+  ctx.arc(bx, headCY - headR*0.18, headR*1.06, Math.PI*1.08, Math.PI*1.92);
+  ctx.closePath();
   ctx.fillStyle = '#1a1a1a'; ctx.fill();
-  ctx.strokeStyle = '#2D2D2D'; ctx.stroke();
+  ctx.strokeStyle = '#2D2D2D'; ctx.lineWidth = 2; ctx.stroke();
+  /* 챙 */
+  const bd = isRight ? 1 : -1;
+  ctx.beginPath();
+  ctx.moveTo(bx,                  headCY - headR*0.18);
+  ctx.lineTo(bx + bd*headR*1.55,  headCY - headR*0.18);
+  ctx.lineTo(bx + bd*headR*1.55,  headCY - headR*0.18 + headR*0.22);
+  ctx.lineTo(bx,                  headCY - headR*0.18 + headR*0.22);
+  ctx.closePath();
+  ctx.fillStyle = '#1a1a1a'; ctx.fill(); ctx.stroke();
   /* 귀마개 */
-  const earDir = side === 'right' ? 1 : -1;
-  ctx.beginPath(); ctx.arc(bx+earDir*9*s, by, 4*s, 0, Math.PI*2);
+  ctx.beginPath();
+  ctx.arc(bx + bd*headR*0.88, headCY + headR*0.12, headR*0.42, 0, Math.PI*2);
   ctx.fillStyle = '#1a1a1a'; ctx.fill(); ctx.stroke();
 }
 
 function drawHomePlate() {
-  HP.cx = W/2;
-  HP.cy = H - 28;
-  HP.w  = Math.min(W * 0.17, 58);
-  const h = HP.w * 0.65;
+  HP.cx  = W / 2;
+  HP.cy  = H - 22;
+  HP.w   = Math.min(W * 0.15, 52);
+  const h = HP.w * 0.62;
   HP.top = HP.cy - h;
   ctx.beginPath();
-  ctx.moveTo(HP.cx, HP.cy + 3);
-  ctx.lineTo(HP.cx - HP.w, HP.top + h * 0.4);
+  ctx.moveTo(HP.cx,       HP.cy + 3);
+  ctx.lineTo(HP.cx - HP.w, HP.top + h*0.4);
   ctx.lineTo(HP.cx - HP.w, HP.top);
   ctx.lineTo(HP.cx + HP.w, HP.top);
-  ctx.lineTo(HP.cx + HP.w, HP.top + h * 0.4);
+  ctx.lineTo(HP.cx + HP.w, HP.top + h*0.4);
   ctx.closePath();
   ctx.fillStyle = '#FAFAF0'; ctx.fill();
   ctx.strokeStyle = '#2D2D2D'; ctx.lineWidth = 3; ctx.stroke();
 }
 
 function drawStrikeZone(hCol = -1, hRow = -1) {
-  SZ.w = HP.w * 2.2;
-  SZ.h = H * 0.31;
-  SZ.x = W/2 - SZ.w/2;
-  SZ.y = HP.top - SZ.h;
+  /* 스트라이크존: 타자 가슴(레터스)~무릎 상단 — 야구 규칙 준수 */
+  const { chestY, kneeY } = batterLayout();
+  SZ.w = HP.w * 2.4;
+  SZ.x = HP.cx - SZ.w / 2;
+  SZ.y = chestY;
+  SZ.h = kneeY - chestY;
 
-  /* fill */
-  ctx.fillStyle = 'rgba(0,229,255,0.10)';
+  ctx.fillStyle = 'rgba(0,229,255,0.08)';
   ctx.fillRect(SZ.x, SZ.y, SZ.w, SZ.h);
 
-  /* highlighted cell */
   if (hCol >= 0 && hRow >= 0) {
     const cw = SZ.w/3, ch = SZ.h/3;
     ctx.fillStyle = 'rgba(255,107,157,0.42)';
     ctx.fillRect(SZ.x + hCol*cw + 1, SZ.y + hRow*ch + 1, cw-2, ch-2);
   }
 
-  /* border */
   ctx.strokeStyle = 'rgba(0,229,255,0.65)';
-  ctx.lineWidth = 2;
-  ctx.setLineDash([6,4]);
+  ctx.lineWidth = 2; ctx.setLineDash([6,4]);
   ctx.strokeRect(SZ.x, SZ.y, SZ.w, SZ.h);
   ctx.setLineDash([]);
 
-  /* grid */
   ctx.strokeStyle = 'rgba(255,255,255,0.22)'; ctx.lineWidth = 1;
   for (let i=1;i<3;i++){
     const x = SZ.x+(SZ.w/3)*i;
@@ -779,7 +859,7 @@ function animFrame(ts) {
   const elapsed  = ts - pitch.startTime;
   const progress = Math.min(elapsed / pitch.travelMs, 1);
 
-  const startX = W/2, startY = H*0.26;
+  const startX = W/2 + 14*2.5, startY = H*0.41 - 4*2.5; /* 투수 손 위치 */
   const off    = pitchOffset(pitch.type, progress);
   const ballX  = startX + (pitch.destX - startX)*progress + off.dx*progress;
   const ballY  = startY + (pitch.destY - startY)*progress + off.dy;
