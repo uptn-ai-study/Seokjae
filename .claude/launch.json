@@ -55,5 +55,11 @@
       "runtimeArgs": ["run", "dev:web", "--prefix", "toss-miniapp-ants"],
       "port": 5173
     }
+    ,{
+      "name": "proto-11-batting-practice",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["-y", "serve", "proto-11-batting-practice", "-l", "5181"],
+      "port": 5181
+    }
   ]
 }
