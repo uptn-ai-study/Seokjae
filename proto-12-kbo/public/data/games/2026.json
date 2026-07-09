@@ -1,7 +1,7 @@
 {
  "season": 2026,
  "source": "kbo_official",
- "generatedAt": "2026-07-09T06:48:46.495Z",
+ "generatedAt": "2026-07-09T19:56:12.720Z",
  "games": [
   {
    "gameId": "20260312KTLT0",
@@ -12511,22 +12511,22 @@
    "seriesId": 0,
    "seriesName": "정규경기",
    "stadium": "사직",
-   "status": "scheduled",
+   "status": "finished",
    "cancelReason": "",
    "away": {
     "teamId": "HT",
     "teamName": "KIA",
-    "score": 0
+    "score": 5
    },
    "home": {
     "teamId": "LT",
     "teamName": "롯데",
-    "score": 0
+    "score": 2
    },
-   "winPitcher": null,
-   "losePitcher": null,
+   "winPitcher": "양현종",
+   "losePitcher": "김진욱",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260709LGSS0",
@@ -12536,22 +12536,22 @@
    "seriesId": 0,
    "seriesName": "정규경기",
    "stadium": "대구",
-   "status": "scheduled",
+   "status": "finished",
    "cancelReason": "",
    "away": {
     "teamId": "LG",
     "teamName": "LG",
-    "score": 0
+    "score": 5
    },
    "home": {
     "teamId": "SS",
     "teamName": "삼성",
-    "score": 0
+    "score": 6
    },
-   "winPitcher": null,
-   "losePitcher": null,
-   "savePitcher": null,
-   "hasBoxscore": false
+   "winPitcher": "이승민",
+   "losePitcher": "리오스",
+   "savePitcher": "김재윤",
+   "hasBoxscore": true
   },
   {
    "gameId": "20260709NCHH0",
@@ -12561,22 +12561,22 @@
    "seriesId": 0,
    "seriesName": "정규경기",
    "stadium": "대전",
-   "status": "scheduled",
+   "status": "finished",
    "cancelReason": "",
    "away": {
     "teamId": "NC",
     "teamName": "NC",
-    "score": 0
+    "score": 4
    },
    "home": {
     "teamId": "HH",
     "teamName": "한화",
-    "score": 0
+    "score": 6
    },
-   "winPitcher": null,
-   "losePitcher": null,
-   "savePitcher": null,
-   "hasBoxscore": false
+   "winPitcher": "이상규",
+   "losePitcher": "토다",
+   "savePitcher": "이민우",
+   "hasBoxscore": true
   },
   {
    "gameId": "20260709SKOB0",
@@ -12586,7 +12586,7 @@
    "seriesId": 0,
    "seriesName": "정규경기",
    "stadium": "잠실",
-   "status": "scheduled",
+   "status": "finished",
    "cancelReason": "",
    "away": {
     "teamId": "SK",
@@ -12596,12 +12596,12 @@
    "home": {
     "teamId": "OB",
     "teamName": "두산",
-    "score": 0
+    "score": 7
    },
-   "winPitcher": null,
-   "losePitcher": null,
+   "winPitcher": "잭로그",
+   "losePitcher": "해치",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260709WOKT0",
@@ -12611,8 +12611,8 @@
    "seriesId": 0,
    "seriesName": "정규경기",
    "stadium": "수원",
-   "status": "scheduled",
-   "cancelReason": "",
+   "status": "canceled",
+   "cancelReason": "우천취소",
    "away": {
     "teamId": "WO",
     "teamName": "키움",
@@ -12621,7 +12621,7 @@
    "home": {
     "teamId": "KT",
     "teamName": "KT",
-    "score": 0
+    "score": 3
    },
    "winPitcher": null,
    "losePitcher": null,
