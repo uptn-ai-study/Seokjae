@@ -60,6 +60,12 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["-y", "serve", "proto-11-batting-practice", "-l", "5181"],
       "port": 5181
+    },
+    {
+      "name": "proto-12-kbo",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "proto-12-kbo"],
+      "port": 5183
     }
   ]
 }

@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "KBO normalized hitters",
+  "type": "object",
+  "required": ["season", "generatedAt", "hitters"],
+  "properties": {
+    "season": { "type": "integer" },
+    "source": { "type": "string" },
+    "generatedAt": { "type": "string" },
+    "qualifiedOnly": { "type": "boolean" },
+    "hitters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "teamName"],
+        "properties": {
+          "playerId": { "type": ["string", "null"] },
+          "name": { "type": "string" },
+          "teamId": { "type": ["string", "null"] },
+          "teamName": { "type": "string" },
+          "avg": { "type": ["number", "null"] },
+          "g": { "type": ["integer", "null"] },
+          "pa": { "type": ["integer", "null"] },
+          "ab": { "type": ["integer", "null"] },
+          "r": { "type": ["integer", "null"] },
+          "h": { "type": ["integer", "null"] },
+          "h2": { "type": ["integer", "null"] },
+          "h3": { "type": ["integer", "null"] },
+          "hr": { "type": ["integer", "null"] },
+          "tb": { "type": ["integer", "null"] },
+          "rbi": { "type": ["integer", "null"] },
+          "sh": { "type": ["integer", "null"] },
+          "sf": { "type": ["integer", "null"] },
+          "bb": { "type": ["integer", "null"] },
+          "ibb": { "type": ["integer", "null"] },
+          "hbp": { "type": ["integer", "null"] },
+          "so": { "type": ["integer", "null"] },
+          "gdp": { "type": ["integer", "null"] },
+          "slg": { "type": ["number", "null"] },
+          "obp": { "type": ["number", "null"] },
+          "ops": { "type": ["number", "null"] },
+          "multiHit": { "type": ["integer", "null"] },
+          "rispAvg": { "type": ["number", "null"] },
+          "phAvg": { "type": ["number", "null"] }
+        }
+      }
+    }
+  }
+}

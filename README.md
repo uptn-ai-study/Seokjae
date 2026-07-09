@@ -10,3 +10,6 @@
 | proto-07-history | 타임아틀라스(세계사 줌 연표) | - | 🔄 진행중 |
 | proto-08-stocks | 모의투자 플레이(KOSPI 100 가상투자) | https://kospi100stocks.vercel.app/ | 🔄 진행중 |
 | proto-09-halfcourt | HALF COURT(반코트 2v2 축구) | - | 🔄 진행중 |
+| proto-10-okcashbag-map | 지도와 함께하는 OK캐쉬백 | - | 🔄 진행중 |
+| proto-11-batting-practice | Batting Practice(MLB 배팅 연습) | - | 🔄 진행중 |
+| proto-12-kbo | KBO 데이터 뷰어(경기·순위·선수 기록) | - | 🔄 진행중 |

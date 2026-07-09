@@ -1,0 +1,43 @@
+/* 디자인 토큰: 색·간격·타이포의 단일 원천 */
+:root {
+  /* 색 */
+  --color-bg: #f6f7f9;
+  --color-surface: #ffffff;
+  --color-border: #e3e6ea;
+  --color-text: #1c1f24;
+  --color-text-sub: #5c6470;
+  --color-text-faint: #8a93a0;
+  --color-primary: #0f4c81;
+  --color-primary-soft: #e7f0f9;
+  --color-accent: #d3453c;
+  --color-accent-soft: #fdeceb;
+  --color-win: #d3453c;
+  --color-lose: #3468c4;
+  --color-tie: #8a93a0;
+  --color-good: #c9372c;
+  --color-good-bg: #fff1ef;
+  --color-focus: #2f7dd1;
+
+  /* 간격 */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  /* 타이포 (최소 14px) */
+  --font-body: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
+  --text-sm: 14px;
+  --text-base: 15px;
+  --text-lg: 17px;
+  --text-xl: 20px;
+  --text-2xl: 26px;
+  --text-num: 'Segoe UI', Roboto, sans-serif;
+
+  /* 기타 */
+  --radius: 10px;
+  --radius-sm: 6px;
+  --shadow: 0 1px 3px rgba(20, 30, 50, 0.08);
+  --touch-target: 44px;
+}

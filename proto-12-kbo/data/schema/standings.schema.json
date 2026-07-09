@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "KBO normalized standings",
+  "type": "object",
+  "required": ["season", "generatedAt", "standings"],
+  "properties": {
+    "season": { "type": "integer" },
+    "generatedAt": { "type": "string" },
+    "basedOnGames": { "type": "integer" },
+    "standings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["rank", "teamId", "teamName", "games", "wins", "losses", "ties", "winPct"],
+        "properties": {
+          "rank": { "type": "integer", "minimum": 1 },
+          "teamId": { "type": "string" },
+          "teamName": { "type": "string" },
+          "games": { "type": "integer" },
+          "wins": { "type": "integer" },
+          "losses": { "type": "integer" },
+          "ties": { "type": "integer" },
+          "winPct": { "type": "number", "minimum": 0, "maximum": 1 },
+          "gamesBehind": { "type": "number" },
+          "last10": {
+            "type": "object",
+            "properties": {
+              "wins": { "type": "integer" },
+              "losses": { "type": "integer" },
+              "ties": { "type": "integer" }
+            }
+          },
+          "streak": { "type": "string" },
+          "runsScored": { "type": "integer" },
+          "runsAllowed": { "type": "integer" }
+        }
+      }
+    }
+  }
+}

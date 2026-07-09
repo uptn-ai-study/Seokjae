@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "KBO normalized games",
+  "type": "object",
+  "required": ["season", "generatedAt", "games"],
+  "properties": {
+    "season": { "type": "integer" },
+    "source": { "type": "string" },
+    "generatedAt": { "type": "string" },
+    "games": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["gameId", "date", "season", "seriesId", "status", "away", "home"],
+        "properties": {
+          "gameId": { "type": "string", "minLength": 8 },
+          "date": { "type": "string", "pattern": "^[0-9]{8}$" },
+          "time": { "type": "string" },
+          "season": { "type": "integer" },
+          "seriesId": {
+            "type": "integer",
+            "description": "0 정규 / 1 시범 / 3 준PO / 4 PO / 5 KS / 7 WC / 9 기타"
+          },
+          "seriesName": { "type": "string" },
+          "stadium": { "type": "string" },
+          "status": { "enum": ["scheduled", "live", "finished", "canceled", "suspended"] },
+          "cancelReason": { "type": "string" },
+          "away": { "$ref": "#/definitions/teamSide" },
+          "home": { "$ref": "#/definitions/teamSide" },
+          "winPitcher": { "type": ["string", "null"] },
+          "losePitcher": { "type": ["string", "null"] },
+          "savePitcher": { "type": ["string", "null"] },
+          "hasBoxscore": { "type": "boolean" }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "teamSide": {
+      "type": "object",
+      "required": ["teamId", "teamName"],
+      "properties": {
+        "teamId": { "type": "string", "description": "KBO 팀 코드 (LG/OB/SK/WO/SS/HT/LT/NC/KT/HH)" },
+        "teamName": { "type": "string" },
+        "score": { "type": ["integer", "null"] }
+      }
+    }
+  }
+}

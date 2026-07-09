@@ -1,0 +1,104 @@
+.scroller {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.scroller:focus-visible {
+  outline: 2px solid var(--color-focus);
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: var(--text-sm);
+  white-space: nowrap;
+}
+
+.table th,
+.table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.table thead th {
+  position: sticky;
+  top: 0;
+  background: var(--color-surface);
+  font-weight: 700;
+  color: var(--color-text-sub);
+  z-index: 2;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.stickyFirst th:first-child,
+.stickyFirst td:first-child {
+  position: sticky;
+  left: 0;
+  background: var(--color-surface);
+  z-index: 1;
+}
+
+.stickyFirst thead th:first-child {
+  z-index: 3;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:hover td {
+  background: var(--color-primary-soft);
+}
+
+.headerGroup {
+  display: inline-flex;
+  align-items: center;
+}
+
+.sortBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  min-height: 28px;
+  border: none;
+  background: none;
+  padding: 4px;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+.sortBtn:focus-visible {
+  outline: 2px solid var(--color-focus);
+  border-radius: 4px;
+}
+
+.sortActive {
+  color: var(--color-primary);
+}
+
+.sortMark {
+  font-size: 10px;
+  width: 12px;
+}
+
+.topValue {
+  color: var(--color-good);
+  font-weight: 700;
+  background: var(--color-good-bg);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}

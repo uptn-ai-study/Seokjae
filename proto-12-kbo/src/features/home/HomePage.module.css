@@ -1,0 +1,73 @@
+.date {
+  font-size: var(--text-sm);
+  font-weight: 400;
+  color: var(--color-text-faint);
+}
+
+.games {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+.rankList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.rankList li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--touch-target);
+  padding: var(--space-2) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.rankList li:last-child {
+  border-bottom: none;
+}
+
+.rankNo {
+  width: 20px;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-align: center;
+}
+
+.rankStat {
+  margin-left: auto;
+  color: var(--color-text-sub);
+  font-size: var(--text-sm);
+}
+
+.rankPct {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  width: 48px;
+  text-align: right;
+}
+
+.rankGb {
+  width: 36px;
+  text-align: right;
+  color: var(--color-text-faint);
+  font-size: var(--text-sm);
+}
+
+@media (min-width: 768px) {
+  .games {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .games {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

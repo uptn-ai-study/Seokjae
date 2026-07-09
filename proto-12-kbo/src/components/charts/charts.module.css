@@ -1,0 +1,93 @@
+.barChart {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+}
+
+.barRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+}
+
+.barLabel {
+  width: 44px;
+  font-weight: 600;
+  flex: none;
+}
+
+.barTrack {
+  flex: 1;
+  height: 14px;
+  background: var(--color-bg);
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.bar {
+  display: block;
+  height: 100%;
+  border-radius: 7px;
+  background: var(--color-primary);
+  min-width: 2px;
+}
+
+.barNeg {
+  background: var(--color-lose);
+}
+
+.barValue {
+  width: 48px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-sub);
+  flex: none;
+}
+
+.lineWrap {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+}
+
+.lineSvg {
+  width: 100%;
+  height: auto;
+}
+
+.grid {
+  stroke: var(--color-border);
+  stroke-width: 1;
+}
+
+.tick {
+  font-size: 11px;
+  fill: var(--color-text-faint);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-2) 0;
+  font-size: var(--text-sm);
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-text-sub);
+}
+
+.legendSwatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}

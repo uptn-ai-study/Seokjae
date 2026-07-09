@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "KBO normalized pitchers",
+  "type": "object",
+  "required": ["season", "generatedAt", "pitchers"],
+  "properties": {
+    "season": { "type": "integer" },
+    "source": { "type": "string" },
+    "generatedAt": { "type": "string" },
+    "qualifiedOnly": { "type": "boolean" },
+    "pitchers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "teamName"],
+        "properties": {
+          "playerId": { "type": ["string", "null"] },
+          "name": { "type": "string" },
+          "teamId": { "type": ["string", "null"] },
+          "teamName": { "type": "string" },
+          "era": { "type": ["number", "null"] },
+          "g": { "type": ["integer", "null"] },
+          "w": { "type": ["integer", "null"] },
+          "l": { "type": ["integer", "null"] },
+          "sv": { "type": ["integer", "null"] },
+          "hld": { "type": ["integer", "null"] },
+          "winPct": { "type": ["number", "null"] },
+          "ip": { "type": ["number", "null"] },
+          "h": { "type": ["integer", "null"] },
+          "hr": { "type": ["integer", "null"] },
+          "bb": { "type": ["integer", "null"] },
+          "hbp": { "type": ["integer", "null"] },
+          "so": { "type": ["integer", "null"] },
+          "r": { "type": ["integer", "null"] },
+          "er": { "type": ["integer", "null"] },
+          "whip": { "type": ["number", "null"] },
+          "cg": { "type": ["integer", "null"] },
+          "sho": { "type": ["integer", "null"] },
+          "qs": { "type": ["integer", "null"] },
+          "bs": { "type": ["integer", "null"] },
+          "bf": { "type": ["integer", "null"] },
+          "pitches": { "type": ["integer", "null"] },
+          "oavg": { "type": ["number", "null"] },
+          "h2": { "type": ["integer", "null"] },
+          "h3": { "type": ["integer", "null"] },
+          "sh": { "type": ["integer", "null"] },
+          "sf": { "type": ["integer", "null"] },
+          "ibb": { "type": ["integer", "null"] },
+          "wp": { "type": ["integer", "null"] },
+          "bk": { "type": ["integer", "null"] }
+        }
+      }
+    }
+  }
+}

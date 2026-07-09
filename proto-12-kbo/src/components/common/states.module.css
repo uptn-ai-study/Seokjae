@@ -1,0 +1,55 @@
+.box {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-5);
+  margin: var(--space-3) 0;
+}
+
+.skeleton {
+  height: 16px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #eef0f3 25%, #f7f8fa 50%, #eef0f3 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  margin-bottom: var(--space-3);
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.error {
+  border-color: #f3c1bd;
+  background: var(--color-accent-soft);
+}
+
+.detail {
+  font-size: var(--text-sm);
+  color: var(--color-text-sub);
+  word-break: break-all;
+}
+
+.retry {
+  min-height: var(--touch-target);
+  padding: 0 var(--space-4);
+  border: 1px solid var(--color-accent);
+  background: #fff;
+  color: var(--color-accent);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+}
+
+.empty {
+  color: var(--color-text-sub);
+  text-align: center;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}

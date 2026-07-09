@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "KBO Project Task Checklist",
+  "type": "object",
+  "required": ["project", "tasks"],
+  "properties": {
+    "project": { "type": "string" },
+    "version": { "type": "string" },
+    "updatedAt": { "type": "string" },
+    "legend": { "type": "object" },
+    "milestones": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "taskRange": { "type": "string" }
+        }
+      }
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "status", "acceptance"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^T-[0-9]{2}$" },
+          "milestone": { "type": "string" },
+          "title": { "type": "string" },
+          "priority": { "type": "string", "enum": ["P0", "P1", "P2"] },
+          "status": { "type": "string", "enum": ["todo", "in_progress", "blocked", "done"] },
+          "depends_on": { "type": "array", "items": { "type": "string" } },
+          "detail": { "type": "string" },
+          "acceptance": { "type": "string" },
+          "verified": { "type": "boolean" },
+          "notes": { "type": "string" },
+          "updatedAt": { "type": "string" }
+        }
+      }
+    }
+  }
+}

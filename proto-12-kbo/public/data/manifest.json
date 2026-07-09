@@ -1,0 +1,11 @@
+{
+ "season": 2026,
+ "source": "kbo_official",
+ "generatedAt": "2026-07-09T02:12:28.181Z",
+ "datasets": [
+  "games",
+  "standings",
+  "hitters",
+  "pitchers"
+ ]
+}
