@@ -50,30 +50,40 @@ export async function runPipeline({
   const sourceGames = await source.fetchGames({ season, from, forceDays });
   console.log(`  총 ${sourceGames.length} 경기`);
 
-  console.log(`[2/4] 박스스코어 수집 (최근 ${boxscoreDays}일 + 캐시분)`);
+  // 박스스코어: 완료 경기는 시즌 전체를 대상으로 백필한다.
+  //  - 아직 캐시에 없는 완료 경기 → 최초 1회 수집(백필). 한 번 받으면 재요청 안 함.
+  //  - 최근 boxscoreDays 일 경기 → 강제 새로고침(스코어 정정·기록 갱신 반영).
+  // 따라서 boxscoreDays 는 "요청량 제한"이 아니라 "재확인 창"의 의미.
+  console.log(`[2/4] 박스스코어 수집 (완료 경기 전체 백필 + 최근 ${boxscoreDays}일 재확인)`);
   const boxscoreIds = new Set(existingBoxscoreIds());
   if (source.fetchGameDetail) {
-    const cutoff = ymdDaysAgo(boxscoreDays);
-    const targets = sourceGames.filter(
-      (g) => g.status === 'finished' && (g.date >= cutoff || !boxscoreIds.has(g.gameId)),
-    );
-    // 최근 경기 우선. 컷오프 이전의 미수집 경기는 건드리지 않음(요청량 제한).
-    const recent = targets.filter((g) => g.date >= cutoff);
-    for (const g of recent) {
+    const refreshCutoff = ymdDaysAgo(boxscoreDays);
+    const finished = sourceGames.filter((g) => g.status === 'finished');
+    let fetched = 0;
+    let skipped = 0;
+    for (const g of finished) {
+      const cached = boxscoreIds.has(g.gameId);
+      const shouldRefresh = g.date >= refreshCutoff;
+      if (cached && !shouldRefresh) {
+        skipped++;
+        continue; // 이미 있고 재확인 창 밖 → 네트워크 요청 없이 캐시 사용
+      }
       try {
-        const detail = await source.fetchGameDetail(g, { forceRefresh: g.date >= ymdDaysAgo(1) });
+        const detail = await source.fetchGameDetail(g, { forceRefresh: shouldRefresh });
         publish(`boxscores/${g.gameId}.json`, detail);
         boxscoreIds.add(g.gameId);
-        console.log(`  boxscore ${g.gameId} ok`);
+        fetched++;
+        if (fetched % 20 === 0) console.log(`  ...박스스코어 ${fetched}건 수집`);
       } catch (err) {
         console.warn(`  boxscore ${g.gameId} FAILED - ${err.message}`);
       }
     }
-    // 캐시에 이미 있는 박스스코어도 public 에 반영
+    // 캐시에 이미 있는 박스스코어도 public 에 반영(캐시분 재게시)
     for (const id of boxscoreIds) {
       const cached = readRawBoxscore(id);
       if (cached) publish(`boxscores/${id}.json`, cached);
     }
+    console.log(`  박스스코어: 신규/갱신 ${fetched}건, 캐시 재사용 ${skipped}건, 총 ${boxscoreIds.size}건`);
   }
 
   console.log('[3/4] 정규화 및 순위 산출');

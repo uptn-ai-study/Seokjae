@@ -101,12 +101,15 @@ kbo-viewer/
 (빌드 `npm run build`, 출력 `dist`)에 따라 빌드된다. hash 라우터를 쓰므로 별도 rewrite
 설정이 필요 없고, `public/data/*.json` 이 함께 정적 서빙된다.
 
-## 갱신 자동화
+## 갱신 자동화 (활성)
 
-`.github/workflows/update-data.yml` 이 매일 KST 새벽(00:30)에 `npm run data:update` 를
-실행해 최신 JSON 을 커밋하도록 작성되어 있다.
+저장소 루트의 `.github/workflows/update-kbo-data.yml` 이 **매일 새벽 3시(KST)** 에
+`npm run data:update` 를 실행해 최신 JSON 을 커밋·푸시한다. push 되면 Vercel 이 자동
+재배포하므로 별도 조치 없이 사이트가 갱신된다.
 
-> 모노레포에서 GitHub Actions 는 **저장소 루트의** `.github/workflows/` 만 인식한다.
-> 따라서 위 파일은 현재 `proto-12-kbo/.github/` 안에 있어 **자동 실행되지 않는 dormant
-> 상태**다. 활성화하려면 파일을 저장소 루트의 `.github/workflows/` 로 옮기면 된다
-> (`working-directory: proto-12-kbo` 가 이미 설정되어 있다).
+- 스케줄: `cron: '0 18 * * *'` (18:00 UTC = 03:00 KST 익일). KBO 야간경기가 끝난 뒤 실행.
+- 모노레포이므로 워크플로는 **저장소 루트** `.github/workflows/` 에 두고
+  `working-directory: proto-12-kbo` 로 이 폴더를 대상으로 한다.
+- 변경분이 없으면 커밋을 생략한다. 수동 실행(`workflow_dispatch`)도 가능.
+- 증분 동작: 최근 3일 경기·박스스코어만 재요청하고, 미수집 완료 경기는 백필하며,
+  나머지는 로컬 raw 캐시로 보존한다. 선수 기록·순위는 매번 시즌 누적으로 새로 계산.

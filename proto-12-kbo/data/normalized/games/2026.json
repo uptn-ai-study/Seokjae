@@ -1,7 +1,7 @@
 {
  "season": 2026,
  "source": "kbo_official",
- "generatedAt": "2026-07-09T02:12:28.163Z",
+ "generatedAt": "2026-07-09T06:48:46.495Z",
  "games": [
   {
    "gameId": "20260312KTLT0",
@@ -26,7 +26,7 @@
    "winPitcher": "홍민기",
    "losePitcher": "김민수",
    "savePitcher": "윤성빈",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260312LGNC0",
@@ -51,7 +51,7 @@
    "winPitcher": "치리노스",
    "losePitcher": "테일러",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260312SKHT0",
@@ -76,7 +76,7 @@
    "winPitcher": "양현종",
    "losePitcher": "베니지아노",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260312SSHH0",
@@ -101,7 +101,7 @@
    "winPitcher": "양창섭",
    "losePitcher": "왕옌청",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260312WOOB0",
@@ -126,7 +126,7 @@
    "winPitcher": "이교훈",
    "losePitcher": "박준현",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260313KTLT0",
@@ -151,7 +151,7 @@
    "winPitcher": null,
    "losePitcher": null,
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260313LGNC0",
@@ -176,7 +176,7 @@
    "winPitcher": null,
    "losePitcher": null,
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260313SKHT0",
@@ -201,7 +201,7 @@
    "winPitcher": "타케다",
    "losePitcher": "김태형",
    "savePitcher": "이로운",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260313SSHH0",
@@ -226,7 +226,7 @@
    "winPitcher": "권민규",
    "losePitcher": "이승현",
    "savePitcher": "김서현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260313WOOB0",
@@ -251,7 +251,7 @@
    "winPitcher": "최원준",
    "losePitcher": "배동현",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260314KTHT0",
@@ -276,7 +276,7 @@
    "winPitcher": null,
    "losePitcher": null,
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260314LGLT0",
@@ -301,7 +301,7 @@
    "winPitcher": "박준우",
    "losePitcher": "장현식",
    "savePitcher": "박정민",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260314SKHH0",
@@ -326,7 +326,7 @@
    "winPitcher": "박시후",
    "losePitcher": "주현상",
    "savePitcher": "정동윤",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260314SSOB0",
@@ -351,7 +351,7 @@
    "winPitcher": "장찬희",
    "losePitcher": "이영하",
    "savePitcher": "육선엽",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260314WONC0",
@@ -376,7 +376,7 @@
    "winPitcher": "김녹원",
    "losePitcher": "박지성",
    "savePitcher": "배재환",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260315KTHT0",
@@ -401,7 +401,7 @@
    "winPitcher": "이의리",
    "losePitcher": "사우어",
    "savePitcher": "전상현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260315LGLT0",
@@ -426,7 +426,7 @@
    "winPitcher": "김태균",
    "losePitcher": "이정용",
    "savePitcher": "윤성빈",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260315SKHH0",
@@ -451,7 +451,7 @@
    "winPitcher": "문동주",
    "losePitcher": "김건우",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260315SSOB0",
@@ -476,7 +476,7 @@
    "winPitcher": "최승용",
    "losePitcher": "임기영",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260315WONC0",
@@ -501,7 +501,7 @@
    "winPitcher": "알칸타라",
    "losePitcher": "라일리",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260316HTNC0",
@@ -526,7 +526,7 @@
    "winPitcher": "구창모",
    "losePitcher": "황동하",
    "savePitcher": "류진욱",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260316LGKT0",
@@ -551,7 +551,7 @@
    "winPitcher": "웰스",
    "losePitcher": "임준형",
    "savePitcher": "장현식",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260316OBHH0",
@@ -576,7 +576,7 @@
    "winPitcher": "박신지",
    "losePitcher": "박상원",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260316SSSK0",
@@ -601,7 +601,7 @@
    "winPitcher": "최원태",
    "losePitcher": "전영준",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260316WOLT0",
@@ -626,7 +626,7 @@
    "winPitcher": "나균안",
    "losePitcher": "와일스",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260317HTNC0",
@@ -651,7 +651,7 @@
    "winPitcher": "원종해",
    "losePitcher": "올러",
    "savePitcher": "임지민",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260317LGKT0",
@@ -676,7 +676,7 @@
    "winPitcher": "오원석",
    "losePitcher": "김진수",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260317OBHH0",
@@ -701,7 +701,7 @@
    "winPitcher": "박치국",
    "losePitcher": "박준영",
    "savePitcher": "김명신",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260317SSSK0",
@@ -726,7 +726,7 @@
    "winPitcher": "베니지아노",
    "losePitcher": "이승민",
    "savePitcher": "김민",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260317WOLT0",
@@ -751,7 +751,7 @@
    "winPitcher": null,
    "losePitcher": null,
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260319HTHH0",
@@ -776,7 +776,7 @@
    "winPitcher": "정우주",
    "losePitcher": "전상현",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260319LGSK0",
@@ -801,7 +801,7 @@
    "winPitcher": "김영우",
    "losePitcher": "이기순",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260319OBLT0",
@@ -826,7 +826,7 @@
    "winPitcher": "김진욱",
    "losePitcher": "잭로그",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260319SSNC0",
@@ -851,7 +851,7 @@
    "winPitcher": "이승현",
    "losePitcher": "이준혁",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260319WOKT0",
@@ -876,7 +876,7 @@
    "winPitcher": "유토",
    "losePitcher": "박지훈",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260320HTHH0",
@@ -901,7 +901,7 @@
    "winPitcher": "문동주",
    "losePitcher": "김태형",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260320LGSK0",
@@ -926,7 +926,7 @@
    "winPitcher": "백승현",
    "losePitcher": "김현재",
    "savePitcher": "우강훈",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260320OBLT0",
@@ -951,7 +951,7 @@
    "winPitcher": "이영하",
    "losePitcher": "김태균",
    "savePitcher": "김택연",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260320SSNC0",
@@ -976,7 +976,7 @@
    "winPitcher": "배재환",
    "losePitcher": "김태훈",
    "savePitcher": "류진욱",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260320WOKT0",
@@ -1001,7 +1001,7 @@
    "winPitcher": "고영표",
    "losePitcher": "정현우",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260321HHLT0",
@@ -1026,7 +1026,7 @@
    "winPitcher": "로드리게스",
    "losePitcher": "엄상백",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260321HTOB0",
@@ -1051,7 +1051,7 @@
    "winPitcher": "네일",
    "losePitcher": "최승용",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260321LGSS0",
@@ -1076,7 +1076,7 @@
    "winPitcher": "후라도",
    "losePitcher": "이우찬",
    "savePitcher": "김재윤",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260321NCKT0",
@@ -1101,7 +1101,7 @@
    "winPitcher": "소형준",
    "losePitcher": "라일리",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260321WOSK0",
@@ -1126,7 +1126,7 @@
    "winPitcher": "알칸타라",
    "losePitcher": "화이트",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260322HHLT0",
@@ -1151,7 +1151,7 @@
    "winPitcher": "비슬리",
    "losePitcher": "에르난데스",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260322HTOB0",
@@ -1176,7 +1176,7 @@
    "winPitcher": null,
    "losePitcher": null,
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260322LGSS0",
@@ -1201,7 +1201,7 @@
    "winPitcher": "임찬규",
    "losePitcher": "최원태",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260322NCKT0",
@@ -1226,7 +1226,7 @@
    "winPitcher": "사우어",
    "losePitcher": "원종해",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260322WOSK0",
@@ -1251,7 +1251,7 @@
    "winPitcher": "김건우",
    "losePitcher": "박진형",
    "savePitcher": "박시후",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260323HTSS0",
@@ -1276,7 +1276,7 @@
    "winPitcher": "양창섭",
    "losePitcher": "양현종",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260323LTSK0",
@@ -1301,7 +1301,7 @@
    "winPitcher": "나균안",
    "losePitcher": "최민준",
    "savePitcher": "정철원",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260323NCHH0",
@@ -1326,7 +1326,7 @@
    "winPitcher": "류현진",
    "losePitcher": "김태경",
    "savePitcher": "왕옌청",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260323OBKT0",
@@ -1351,7 +1351,7 @@
    "winPitcher": "곽빈",
    "losePitcher": "문용익",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260323WOLG0",
@@ -1376,7 +1376,7 @@
    "winPitcher": "하영민",
    "losePitcher": "웰스",
    "savePitcher": "조영건",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260324HTSS0",
@@ -1401,7 +1401,7 @@
    "winPitcher": "올러",
    "losePitcher": "오러클린",
    "savePitcher": "정해영",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260324LTSK0",
@@ -1426,7 +1426,7 @@
    "winPitcher": "베니지아노",
    "losePitcher": "박세웅",
    "savePitcher": "조병현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260324NCHH0",
@@ -1451,7 +1451,7 @@
    "winPitcher": "김서현",
    "losePitcher": "류진욱",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260324OBKT0",
@@ -1476,7 +1476,7 @@
    "winPitcher": "보쉴리",
    "losePitcher": "잭로그",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260324WOLG0",
@@ -1501,7 +1501,7 @@
    "winPitcher": "와일스",
    "losePitcher": "손주영",
    "savePitcher": "박정훈",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260328HTSK0",
@@ -1526,7 +1526,7 @@
    "winPitcher": "김민",
    "losePitcher": "조상우",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260328KTLG0",
@@ -1551,7 +1551,7 @@
    "winPitcher": "사우어",
    "losePitcher": "치리노스",
    "savePitcher": "박영현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260328LTSS0",
@@ -1576,7 +1576,7 @@
    "winPitcher": "로드리게스",
    "losePitcher": "후라도",
    "savePitcher": "박정민",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260328OBNC0",
@@ -1601,7 +1601,7 @@
    "winPitcher": "구창모",
    "losePitcher": "플렉센",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260328WOHH0",
@@ -1626,7 +1626,7 @@
    "winPitcher": "원종혁",
    "losePitcher": "유토",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260329HTSK0",
@@ -1651,7 +1651,7 @@
    "winPitcher": "김건우",
    "losePitcher": "이의리",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260329KTLG0",
@@ -1676,7 +1676,7 @@
    "winPitcher": "전용주",
    "losePitcher": "유영찬",
    "savePitcher": "박영현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260329LTSS0",
@@ -1701,7 +1701,7 @@
    "winPitcher": "비슬리",
    "losePitcher": "최원태",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260329OBNC0",
@@ -1726,7 +1726,7 @@
    "winPitcher": "타무라",
    "losePitcher": "김진호",
    "savePitcher": "김택연",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260329WOHH0",
@@ -1751,7 +1751,7 @@
    "winPitcher": "왕옌청",
    "losePitcher": "하영민",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260331HTLG0",
@@ -1776,7 +1776,7 @@
    "winPitcher": "올러",
    "losePitcher": "톨허스트",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260331KTHH0",
@@ -1801,7 +1801,7 @@
    "winPitcher": "보쉴리",
    "losePitcher": "화이트",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260331LTNC0",
@@ -1826,7 +1826,7 @@
    "winPitcher": "토다",
    "losePitcher": "박세웅",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260331OBSS0",
@@ -1851,7 +1851,7 @@
    "winPitcher": null,
    "losePitcher": null,
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260331WOSK0",
@@ -1876,7 +1876,7 @@
    "winPitcher": "이로운",
    "losePitcher": "와일스",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260401HTLG0",
@@ -1901,7 +1901,7 @@
    "winPitcher": "김진성",
    "losePitcher": "양현종",
    "savePitcher": "유영찬",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260401KTHH0",
@@ -1926,7 +1926,7 @@
    "winPitcher": "박영현",
    "losePitcher": "김도빈",
    "savePitcher": "김민수",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260401LTNC0",
@@ -1951,7 +1951,7 @@
    "winPitcher": "류진욱",
    "losePitcher": "김원중",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260401OBSS0",
@@ -1976,7 +1976,7 @@
    "winPitcher": "양창섭",
    "losePitcher": "최승용",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260401WOSK0",
@@ -2001,7 +2001,7 @@
    "winPitcher": "배동현",
    "losePitcher": "타케다",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260402HTLG0",
@@ -2026,7 +2026,7 @@
    "winPitcher": "웰스",
    "losePitcher": "김태형",
    "savePitcher": "유영찬",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260402KTHH0",
@@ -2051,7 +2051,7 @@
    "winPitcher": "오원석",
    "losePitcher": "문동주",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260402LTNC0",
@@ -2076,7 +2076,7 @@
    "winPitcher": "신영우",
    "losePitcher": "쿄야마",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260402OBSS0",
@@ -2101,7 +2101,7 @@
    "winPitcher": "최지광",
    "losePitcher": "타무라",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260402WOSK0",
@@ -2126,7 +2126,7 @@
    "winPitcher": "최민준",
    "losePitcher": "정현우",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260403HHOB0",
@@ -2151,7 +2151,7 @@
    "winPitcher": "에르난데스",
    "losePitcher": "플렉센",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260403LGWO0",
@@ -2176,7 +2176,7 @@
    "winPitcher": "알칸타라",
    "losePitcher": "치리노스",
    "savePitcher": "김재웅",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260403NCHT0",
@@ -2201,7 +2201,7 @@
    "winPitcher": "구창모",
    "losePitcher": "네일",
    "savePitcher": "임지민",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260403SKLT0",
@@ -2226,7 +2226,7 @@
    "winPitcher": "화이트",
    "losePitcher": "로드리게스",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260403SSKT0",
@@ -2251,7 +2251,7 @@
    "winPitcher": "후라도",
    "losePitcher": "사우어",
    "savePitcher": "김재윤",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260404HHOB0",
@@ -2276,7 +2276,7 @@
    "winPitcher": "왕옌청",
    "losePitcher": "곽빈",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260404LGWO0",
@@ -2301,7 +2301,7 @@
    "winPitcher": "배재준",
    "losePitcher": "박윤성",
    "savePitcher": "유영찬",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260404NCHT0",
@@ -2326,7 +2326,7 @@
    "winPitcher": "테일러",
    "losePitcher": "이의리",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260404SKLT0",
@@ -2351,7 +2351,7 @@
    "winPitcher": "노경은",
    "losePitcher": "정철원",
    "savePitcher": "조병현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260404SSKT0",
@@ -2376,7 +2376,7 @@
    "winPitcher": "이승현",
    "losePitcher": "전용주",
    "savePitcher": "최지광",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260405HHOB0",
@@ -2401,7 +2401,7 @@
    "winPitcher": "잭로그",
    "losePitcher": "황준서",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260405LGWO0",
@@ -2426,7 +2426,7 @@
    "winPitcher": "톨허스트",
    "losePitcher": "와일스",
    "savePitcher": "유영찬",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260405NCHT0",
@@ -2451,7 +2451,7 @@
    "winPitcher": "올러",
    "losePitcher": "토다",
    "savePitcher": "정해영",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260405SKLT0",
@@ -2476,7 +2476,7 @@
    "winPitcher": "김민",
    "losePitcher": "최준용",
    "savePitcher": "조병현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260405SSKT0",
@@ -2501,7 +2501,7 @@
    "winPitcher": "보쉴리",
    "losePitcher": "오러클린",
    "savePitcher": "박영현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260407HHSK0",
@@ -2526,7 +2526,7 @@
    "winPitcher": "류현진",
    "losePitcher": "타케다",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260407KTLT0",
@@ -2551,7 +2551,7 @@
    "winPitcher": "고영표",
    "losePitcher": "나균안",
    "savePitcher": "박영현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260407LGNC0",
@@ -2576,7 +2576,7 @@
    "winPitcher": "송승기",
    "losePitcher": "신영우",
    "savePitcher": "유영찬",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260407SSHT0",
@@ -2601,7 +2601,7 @@
    "winPitcher": "배찬승",
    "losePitcher": "전상현",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260407WOOB0",
@@ -2626,7 +2626,7 @@
    "winPitcher": "배동현",
    "losePitcher": "양재훈",
    "savePitcher": "김재웅",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260408HHSK0",
@@ -2651,7 +2651,7 @@
    "winPitcher": "문동주",
    "losePitcher": "최민준",
    "savePitcher": "김서현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260408KTLT0",
@@ -2676,7 +2676,7 @@
    "winPitcher": "김진욱",
    "losePitcher": "오원석",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260408LGNC0",
@@ -2701,7 +2701,7 @@
    "winPitcher": "김진성",
    "losePitcher": "류진욱",
    "savePitcher": "유영찬",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260408SSHT0",
@@ -2726,7 +2726,7 @@
    "winPitcher": "조상우",
    "losePitcher": "이승현",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260408WOOB0",
@@ -2751,7 +2751,7 @@
    "winPitcher": "최민석",
    "losePitcher": "정세영",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260409HHSK0",
@@ -2901,7 +2901,7 @@
    "winPitcher": "네일",
    "losePitcher": "에르난데스",
    "savePitcher": "김범수",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260410LTWO0",
@@ -2926,7 +2926,7 @@
    "winPitcher": "로드리게스",
    "losePitcher": "알칸타라",
    "savePitcher": "최준용",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260410NCSS0",
@@ -2951,7 +2951,7 @@
    "winPitcher": "이승현",
    "losePitcher": "전사민",
    "savePitcher": "김재윤",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260410OBKT0",
@@ -2976,7 +2976,7 @@
    "winPitcher": "이용찬",
    "losePitcher": "김민수",
    "savePitcher": "윤태호",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260410SKLG0",
@@ -3001,7 +3001,7 @@
    "winPitcher": "치리노스",
    "losePitcher": "화이트",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260411HTHH0",
@@ -3026,7 +3026,7 @@
    "winPitcher": "황동하",
    "losePitcher": "박상원",
    "savePitcher": "성영탁",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260411LTWO0",
@@ -3051,7 +3051,7 @@
    "winPitcher": "박정민",
    "losePitcher": "김성진",
    "savePitcher": "최준용",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260411NCSS0",
@@ -3076,7 +3076,7 @@
    "winPitcher": "백정현",
    "losePitcher": "테일러",
    "savePitcher": "김재윤",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260411OBKT0",
@@ -3101,7 +3101,7 @@
    "winPitcher": "소형준",
    "losePitcher": "잭로그",
    "savePitcher": "박영현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260411SKLG0",
@@ -3126,7 +3126,7 @@
    "winPitcher": "장현식",
    "losePitcher": "노경은",
    "savePitcher": "유영찬",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260412HTHH0",
@@ -3151,7 +3151,7 @@
    "winPitcher": "올러",
    "losePitcher": "쿠싱",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260412LTWO0",
@@ -3176,7 +3176,7 @@
    "winPitcher": "배동현",
    "losePitcher": "박세웅",
    "savePitcher": "김재웅",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260412NCSS0",
@@ -3201,7 +3201,7 @@
    "winPitcher": "장찬희",
    "losePitcher": "토다",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260412OBKT0",
@@ -3226,7 +3226,7 @@
    "winPitcher": "보쉴리",
    "losePitcher": "최승용",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260412SKLG0",
@@ -3251,7 +3251,7 @@
    "winPitcher": "톨허스트",
    "losePitcher": "베니지아노",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260414KTNC0",
@@ -3276,7 +3276,7 @@
    "winPitcher": "버하겐",
    "losePitcher": "고영표",
    "savePitcher": "류진욱",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260414LTLG0",
@@ -3301,7 +3301,7 @@
    "winPitcher": "김진성",
    "losePitcher": "박정민",
    "savePitcher": "유영찬",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260414OBSK0",
@@ -3326,7 +3326,7 @@
    "winPitcher": "최민석",
    "losePitcher": "타케다",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260414SSHH0",
@@ -3351,7 +3351,7 @@
    "winPitcher": "이승현",
    "losePitcher": "김서현",
    "savePitcher": "김재윤",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260414WOHT0",
@@ -3376,7 +3376,7 @@
    "winPitcher": "양현종",
    "losePitcher": "하영민",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260415KTNC0",
@@ -3401,7 +3401,7 @@
    "winPitcher": "오원석",
    "losePitcher": "신민혁",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260415LTLG0",
@@ -3426,7 +3426,7 @@
    "winPitcher": "김진욱",
    "losePitcher": "웰스",
    "savePitcher": "최준용",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260415OBSK0",
@@ -3451,7 +3451,7 @@
    "winPitcher": "이로운",
    "losePitcher": "이영하",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260415SSHH0",
@@ -3476,7 +3476,7 @@
    "winPitcher": "장찬희",
    "losePitcher": "에르난데스",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260415WOHT0",
@@ -3501,7 +3501,7 @@
    "winPitcher": "이태양",
    "losePitcher": "정세영",
    "savePitcher": "성영탁",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260416KTNC0",
@@ -3526,7 +3526,7 @@
    "winPitcher": "한승혁",
    "losePitcher": "류진욱",
    "savePitcher": "박영현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260416LTLG0",
@@ -3551,7 +3551,7 @@
    "winPitcher": "장현식",
    "losePitcher": "최이준",
    "savePitcher": "유영찬",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260416OBSK0",
@@ -3576,7 +3576,7 @@
    "winPitcher": "김민",
    "losePitcher": "곽빈",
    "savePitcher": "조병현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260416SSHH0",
@@ -3601,7 +3601,7 @@
    "winPitcher": "후라도",
    "losePitcher": "왕옌청",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260416WOHT0",
@@ -3626,7 +3626,7 @@
    "winPitcher": "홍민규",
    "losePitcher": "알칸타라",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260417HHLT0",
@@ -3676,7 +3676,7 @@
    "winPitcher": "이의리",
    "losePitcher": "잭로그",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260417LGSS0",
@@ -3751,7 +3751,7 @@
    "winPitcher": "소형준",
    "losePitcher": "와일스",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260418HHLT0",
@@ -3776,7 +3776,7 @@
    "winPitcher": "류현진",
    "losePitcher": "비슬리",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260418HTOB0",
@@ -3801,7 +3801,7 @@
    "winPitcher": "윤태호",
    "losePitcher": "홍민규",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260418LGSS0",
@@ -3826,7 +3826,7 @@
    "winPitcher": "이승민",
    "losePitcher": "임찬규",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260418SKNC0",
@@ -3851,7 +3851,7 @@
    "winPitcher": "김건우",
    "losePitcher": "테일러",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260418WOKT0",
@@ -3876,7 +3876,7 @@
    "winPitcher": "보쉴리",
    "losePitcher": "안우진",
    "savePitcher": "박영현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260419HHLT0",
@@ -3901,7 +3901,7 @@
    "winPitcher": "에르난데스",
    "losePitcher": "박세웅",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260419HTOB0",
@@ -3926,7 +3926,7 @@
    "winPitcher": "최민석",
    "losePitcher": "양현종",
    "savePitcher": "김택연",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260419LGSS0",
@@ -3951,7 +3951,7 @@
    "winPitcher": "톨허스트",
    "losePitcher": "원태인",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260419SKNC0",
@@ -3976,7 +3976,7 @@
    "winPitcher": "배재환",
    "losePitcher": "이기순",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260419WOKT0",
@@ -4001,7 +4001,7 @@
    "winPitcher": "하영민",
    "losePitcher": "고영표",
    "savePitcher": "김재웅",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260421HHLG0",
@@ -4026,7 +4026,7 @@
    "winPitcher": "장현식",
    "losePitcher": "조동욱",
    "savePitcher": "유영찬",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260421HTKT0",
@@ -4051,7 +4051,7 @@
    "winPitcher": "전용주",
    "losePitcher": "홍민규",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260421NCWO0",
@@ -4076,7 +4076,7 @@
    "winPitcher": "박정훈",
    "losePitcher": "김영규",
    "savePitcher": "유토",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260421OBLT0",
@@ -4101,7 +4101,7 @@
    "winPitcher": "이영하",
    "losePitcher": "나균안",
    "savePitcher": "김택연",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260421SKSS0",
@@ -4126,7 +4126,7 @@
    "winPitcher": "조병현",
    "losePitcher": "미야지",
    "savePitcher": "전영준",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260422HHLG0",
@@ -4151,7 +4151,7 @@
    "winPitcher": "웰스",
    "losePitcher": "왕옌청",
    "savePitcher": "유영찬",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260422HTKT0",
@@ -4176,7 +4176,7 @@
    "winPitcher": "손동현",
    "losePitcher": "김범수",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260422NCWO0",
@@ -4201,7 +4201,7 @@
    "winPitcher": "알칸타라",
    "losePitcher": "신민혁",
    "savePitcher": "유토",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260422OBLT0",
@@ -4226,7 +4226,7 @@
    "winPitcher": "곽빈",
    "losePitcher": "김진욱",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260422SKSS0",
@@ -4251,7 +4251,7 @@
    "winPitcher": "이로운",
    "losePitcher": "김재윤",
    "savePitcher": "김민",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260423HHLG0",
@@ -4276,7 +4276,7 @@
    "winPitcher": "김서현",
    "losePitcher": "함덕주",
    "savePitcher": "쿠싱",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260423HTKT0",
@@ -4301,7 +4301,7 @@
    "winPitcher": "소형준",
    "losePitcher": "이의리",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260423NCWO0",
@@ -4326,7 +4326,7 @@
    "winPitcher": "구창모",
    "losePitcher": "김연주",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260423OBLT0",
@@ -4351,7 +4351,7 @@
    "winPitcher": "로드리게스",
    "losePitcher": "잭로그",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260423SKSS0",
@@ -4376,7 +4376,7 @@
    "winPitcher": "이기순",
    "losePitcher": "이승현",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260424KTSK0",
@@ -4401,7 +4401,7 @@
    "winPitcher": "김건우",
    "losePitcher": "보쉴리",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260424LGOB0",
@@ -4426,7 +4426,7 @@
    "winPitcher": "임찬규",
    "losePitcher": "최승용",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260424LTHT0",
@@ -4451,7 +4451,7 @@
    "winPitcher": "올러",
    "losePitcher": "비슬리",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260424NCHH0",
@@ -4476,7 +4476,7 @@
    "winPitcher": "전사민",
    "losePitcher": "류현진",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260424SSWO0",
@@ -4501,7 +4501,7 @@
    "winPitcher": "배동현",
    "losePitcher": "이승현",
    "savePitcher": "유토",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260425KTSK0",
@@ -4526,7 +4526,7 @@
    "winPitcher": "타케다",
    "losePitcher": "고영표",
    "savePitcher": "조병현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260425LGOB0",
@@ -4551,7 +4551,7 @@
    "winPitcher": "김진수",
    "losePitcher": "이병헌",
    "savePitcher": "장현식",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260425LTHT0",
@@ -4576,7 +4576,7 @@
    "winPitcher": "양현종",
    "losePitcher": "박세웅",
    "savePitcher": "성영탁",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260425NCHH0",
@@ -4601,7 +4601,7 @@
    "winPitcher": "에르난데스",
    "losePitcher": "토다",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260425SSWO0",
@@ -4626,7 +4626,7 @@
    "winPitcher": "하영민",
    "losePitcher": "원태인",
    "savePitcher": "김재웅",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260426KTSK0",
@@ -4651,7 +4651,7 @@
    "winPitcher": "오원석",
    "losePitcher": "베니지아노",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260426LGOB0",
@@ -4676,7 +4676,7 @@
    "winPitcher": "이영하",
    "losePitcher": "박시원",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260426LTHT0",
@@ -4701,7 +4701,7 @@
    "winPitcher": null,
    "losePitcher": null,
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260426NCHH0",
@@ -4726,7 +4726,7 @@
    "winPitcher": "배재환",
    "losePitcher": "김서현",
    "savePitcher": "류진욱",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260426SSWO0",
@@ -4751,7 +4751,7 @@
    "winPitcher": "박준현",
    "losePitcher": "장찬희",
    "savePitcher": "유토",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260428HTNC0",
@@ -4776,7 +4776,7 @@
    "winPitcher": "임지민",
    "losePitcher": "네일",
    "savePitcher": "류진욱",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260428LGKT0",
@@ -4801,7 +4801,7 @@
    "winPitcher": "김민수",
    "losePitcher": "김진수",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260428SKHH0",
@@ -4826,7 +4826,7 @@
    "winPitcher": "쿠싱",
    "losePitcher": "박시후",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260428SSOB0",
@@ -4851,7 +4851,7 @@
    "winPitcher": "김재윤",
    "losePitcher": "김정우",
    "savePitcher": "이승현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260428WOLT0",
@@ -4876,7 +4876,7 @@
    "winPitcher": "현도훈",
    "losePitcher": "알칸타라",
    "savePitcher": "김원중",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260429HTNC0",
@@ -4901,7 +4901,7 @@
    "winPitcher": "정해영",
    "losePitcher": "류진욱",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260429LGKT0",
@@ -4926,7 +4926,7 @@
    "winPitcher": "주권",
    "losePitcher": "장현식",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260429SKHH0",
@@ -4951,7 +4951,7 @@
    "winPitcher": "문승원",
    "losePitcher": "황준서",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260429SSOB0",
@@ -4976,7 +4976,7 @@
    "winPitcher": "잭로그",
    "losePitcher": "오러클린",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260429WOLT0",
@@ -5001,7 +5001,7 @@
    "winPitcher": "박진형",
    "losePitcher": "김원중",
    "savePitcher": "유토",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260430HTNC0",
@@ -5026,7 +5026,7 @@
    "winPitcher": "테일러",
    "losePitcher": "올러",
    "savePitcher": "전사민",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260430LGKT0",
@@ -5051,7 +5051,7 @@
    "winPitcher": "김진수",
    "losePitcher": "한승혁",
    "savePitcher": "함덕주",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260430SKHH0",
@@ -5076,7 +5076,7 @@
    "winPitcher": "김건우",
    "losePitcher": "류현진",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260430SSOB0",
@@ -5101,7 +5101,7 @@
    "winPitcher": "최준호",
    "losePitcher": "김태훈",
    "savePitcher": "이영하",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260430WOLT0",
@@ -5126,7 +5126,7 @@
    "winPitcher": "비슬리",
    "losePitcher": "이준우",
    "savePitcher": "최준용",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260501HHSS0",
@@ -5151,7 +5151,7 @@
    "winPitcher": "백정현",
    "losePitcher": "김종수",
    "savePitcher": "김재윤",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260501KTHT0",
@@ -5176,7 +5176,7 @@
    "winPitcher": "김민수",
    "losePitcher": "김범수",
    "savePitcher": "박영현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260501LTSK0",
@@ -5201,7 +5201,7 @@
    "winPitcher": "최준용",
    "losePitcher": "김민",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260501NCLG0",
@@ -5226,7 +5226,7 @@
    "winPitcher": "톨허스트",
    "losePitcher": "토다",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260501OBWO0",
@@ -5251,7 +5251,7 @@
    "winPitcher": "김명신",
    "losePitcher": "김재웅",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260502HHSS0",
@@ -5276,7 +5276,7 @@
    "winPitcher": "권민규",
    "losePitcher": "장찬희",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260502KTHT0",
@@ -5301,7 +5301,7 @@
    "winPitcher": "황동하",
    "losePitcher": "오원석",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260502LTSK0",
@@ -5326,7 +5326,7 @@
    "winPitcher": "나균안",
    "losePitcher": "노경은",
    "savePitcher": "김원중",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260502NCLG0",
@@ -5351,7 +5351,7 @@
    "winPitcher": "송승기",
    "losePitcher": "버하겐",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260502OBWO0",
@@ -5376,7 +5376,7 @@
    "winPitcher": "안우진",
    "losePitcher": "벤자민",
    "savePitcher": "유토",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260503HHSS0",
@@ -5401,7 +5401,7 @@
    "winPitcher": "김재윤",
    "losePitcher": "쿠싱",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260503KTHT0",
@@ -5426,7 +5426,7 @@
    "winPitcher": "사우어",
    "losePitcher": "네일",
    "savePitcher": "박영현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260503LTSK0",
@@ -5451,7 +5451,7 @@
    "winPitcher": "현도훈",
    "losePitcher": "김민",
    "savePitcher": "최준용",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260503NCLG0",
@@ -5476,7 +5476,7 @@
    "winPitcher": "김영규",
    "losePitcher": "이상영",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260503OBWO0",
@@ -5501,7 +5501,7 @@
    "winPitcher": "곽빈",
    "losePitcher": "박준현",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260505HHHT0",
@@ -5526,7 +5526,7 @@
    "winPitcher": "한재승",
    "losePitcher": "박상원",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260505LTKT0",
@@ -5551,7 +5551,7 @@
    "winPitcher": "박영현",
    "losePitcher": "정철원",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260505NCSK0",
@@ -5576,7 +5576,7 @@
    "winPitcher": null,
    "losePitcher": null,
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260505OBLG0",
@@ -5601,7 +5601,7 @@
    "winPitcher": "함덕주",
    "losePitcher": "김정우",
    "savePitcher": "장현식",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260505WOSS0",
@@ -5626,7 +5626,7 @@
    "winPitcher": "오러클린",
    "losePitcher": "오석주",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260506HHHT0",
@@ -5651,7 +5651,7 @@
    "winPitcher": "류현진",
    "losePitcher": "올러",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260506LTKT0",
@@ -5676,7 +5676,7 @@
    "winPitcher": "비슬리",
    "losePitcher": "보쉴리",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260506NCSK0",
@@ -5701,7 +5701,7 @@
    "winPitcher": "김민",
    "losePitcher": "임지민",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260506OBLG0",
@@ -5726,7 +5726,7 @@
    "winPitcher": "임찬규",
    "losePitcher": "최승용",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260506WOSS0",
@@ -5751,7 +5751,7 @@
    "winPitcher": "최원태",
    "losePitcher": "배동현",
    "savePitcher": "김재윤",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260507HHHT0",
@@ -5776,7 +5776,7 @@
    "winPitcher": "윤산흠",
    "losePitcher": "양현종",
    "savePitcher": "쿠싱",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260507LTKT0",
@@ -5826,7 +5826,7 @@
    "winPitcher": "테일러",
    "losePitcher": "타케다",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260507OBLG0",
@@ -5851,7 +5851,7 @@
    "winPitcher": "이병헌",
    "losePitcher": "톨허스트",
    "savePitcher": "이영하",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260507WOSS0",
@@ -5876,7 +5876,7 @@
    "winPitcher": "원태인",
    "losePitcher": "박정훈",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260508HTLT0",
@@ -5901,7 +5901,7 @@
    "winPitcher": "황동하",
    "losePitcher": "나균안",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260508KTWO0",
@@ -5926,7 +5926,7 @@
    "winPitcher": "오원석",
    "losePitcher": "박진형",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260508LGHH0",
@@ -5951,7 +5951,7 @@
    "winPitcher": "김영우",
    "losePitcher": "이민우",
    "savePitcher": "김진수",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260508SKOB0",
@@ -5976,7 +5976,7 @@
    "winPitcher": "베니지아노",
    "losePitcher": "벤자민",
    "savePitcher": "조병현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260508SSNC0",
@@ -6001,7 +6001,7 @@
    "winPitcher": "장찬희",
    "losePitcher": "목지훈",
    "savePitcher": "김재윤",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260509HTLT0",
@@ -6026,7 +6026,7 @@
    "winPitcher": "정해영",
    "losePitcher": "김진욱",
    "savePitcher": "성영탁",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260509KTWO0",
@@ -6051,7 +6051,7 @@
    "winPitcher": null,
    "losePitcher": null,
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260509LGHH0",
@@ -6076,7 +6076,7 @@
    "winPitcher": "왕옌청",
    "losePitcher": "치리노스",
    "savePitcher": "쿠싱",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260509SKOB0",
@@ -6101,7 +6101,7 @@
    "winPitcher": "곽빈",
    "losePitcher": "긴지로",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260509SSNC0",
@@ -6126,7 +6126,7 @@
    "winPitcher": "김태훈",
    "losePitcher": "김진호",
    "savePitcher": "김재윤",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260510HTLT0",
@@ -6151,7 +6151,7 @@
    "winPitcher": "박세웅",
    "losePitcher": "이의리",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260510KTWO0",
@@ -6176,7 +6176,7 @@
    "winPitcher": "유토",
    "losePitcher": "김민수",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260510LGHH0",
@@ -6201,7 +6201,7 @@
    "winPitcher": "박준영",
    "losePitcher": "웰스",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260510SKOB0",
@@ -6226,7 +6226,7 @@
    "winPitcher": "잭로그",
    "losePitcher": "최민준",
    "savePitcher": "이영하",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260510SSNC0",
@@ -6251,7 +6251,7 @@
    "winPitcher": "오러클린",
    "losePitcher": "구창모",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260512HHWO0",
@@ -6276,7 +6276,7 @@
    "winPitcher": "류현진",
    "losePitcher": "배동현",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260512NCLT0",
@@ -6301,7 +6301,7 @@
    "winPitcher": "라일리",
    "losePitcher": "로드리게스",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260512OBHT0",
@@ -6326,7 +6326,7 @@
    "winPitcher": "최승용",
    "losePitcher": "올러",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260512SKKT0",
@@ -6351,7 +6351,7 @@
    "winPitcher": "김건우",
    "losePitcher": "사우어",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260512SSLG0",
@@ -6376,7 +6376,7 @@
    "winPitcher": "배찬승",
    "losePitcher": "장현식",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260513HHWO0",
@@ -6401,7 +6401,7 @@
    "winPitcher": "박정훈",
    "losePitcher": "에르난데스",
    "savePitcher": "유토",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260513NCLT0",
@@ -6426,7 +6426,7 @@
    "winPitcher": "비슬리",
    "losePitcher": "테일러",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260513OBHT0",
@@ -6451,7 +6451,7 @@
    "winPitcher": "양현종",
    "losePitcher": "최준호",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260513SKKT0",
@@ -6476,7 +6476,7 @@
    "winPitcher": "보쉴리",
    "losePitcher": "타케다",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260513SSLG0",
@@ -6501,7 +6501,7 @@
    "winPitcher": "톨허스트",
    "losePitcher": "원태인",
    "savePitcher": "손주영",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260514HHWO0",
@@ -6526,7 +6526,7 @@
    "winPitcher": "박준영",
    "losePitcher": "안우진",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260514NCLT0",
@@ -6551,7 +6551,7 @@
    "winPitcher": "토다",
    "losePitcher": "나균안",
    "savePitcher": "전사민",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260514OBHT0",
@@ -6576,7 +6576,7 @@
    "winPitcher": "황동하",
    "losePitcher": "벤자민",
    "savePitcher": "성영탁",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260514SKKT0",
@@ -6601,7 +6601,7 @@
    "winPitcher": "문승원",
    "losePitcher": "스기모토",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260514SSLG0",
@@ -6626,7 +6626,7 @@
    "winPitcher": "양창섭",
    "losePitcher": "송승기",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260515HHKT0",
@@ -6651,7 +6651,7 @@
    "winPitcher": "왕옌청",
    "losePitcher": "고영표",
    "savePitcher": "쿠싱",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260515HTSS0",
@@ -6676,7 +6676,7 @@
    "winPitcher": "성영탁",
    "losePitcher": "김재윤",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260515LGSK0",
@@ -6701,7 +6701,7 @@
    "winPitcher": "장현식",
    "losePitcher": "조병현",
    "savePitcher": "손주영",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260515LTOB0",
@@ -6726,7 +6726,7 @@
    "winPitcher": "박정민",
    "losePitcher": "양재훈",
    "savePitcher": "최준용",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260515WONC0",
@@ -6751,7 +6751,7 @@
    "winPitcher": "알칸타라",
    "losePitcher": "신민혁",
    "savePitcher": "유토",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260516HHKT0",
@@ -6776,7 +6776,7 @@
    "winPitcher": "화이트",
    "losePitcher": "배제성",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260516HTSS0",
@@ -6801,7 +6801,7 @@
    "winPitcher": "오러클린",
    "losePitcher": "이의리",
    "savePitcher": "김재윤",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260516LGSK0",
@@ -6826,7 +6826,7 @@
    "winPitcher": "이로운",
    "losePitcher": "배재준",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260516LTOB0",
@@ -6851,7 +6851,7 @@
    "winPitcher": "양재훈",
    "losePitcher": "현도훈",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260516WONC0",
@@ -6876,7 +6876,7 @@
    "winPitcher": "구창모",
    "losePitcher": "하영민",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260517HHKT0",
@@ -6901,7 +6901,7 @@
    "winPitcher": "박영현",
    "losePitcher": "이민우",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260517HTSS0",
@@ -6926,7 +6926,7 @@
    "winPitcher": "조상우",
    "losePitcher": "최원태",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260517LGSK0",
@@ -6951,7 +6951,7 @@
    "winPitcher": "임찬규",
    "losePitcher": "김건우",
    "savePitcher": "손주영",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260517LTOB0",
@@ -6976,7 +6976,7 @@
    "winPitcher": "최준호",
    "losePitcher": "로드리게스",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260517WONC0",
@@ -7001,7 +7001,7 @@
    "winPitcher": "김성진",
    "losePitcher": "김영규",
    "savePitcher": "유토",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260519KTSS0",
@@ -7026,7 +7026,7 @@
    "winPitcher": "원태인",
    "losePitcher": "보쉴리",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260519LGHT0",
@@ -7051,7 +7051,7 @@
    "winPitcher": "올러",
    "losePitcher": "톨허스트",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260519LTHH0",
@@ -7076,7 +7076,7 @@
    "winPitcher": "박정민",
    "losePitcher": "윤산흠",
    "savePitcher": "최준용",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260519NCOB0",
@@ -7101,7 +7101,7 @@
    "winPitcher": "최민석",
    "losePitcher": "테일러",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260519SKWO0",
@@ -7126,7 +7126,7 @@
    "winPitcher": "유토",
    "losePitcher": "조병현",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260520KTSS0",
@@ -7251,7 +7251,7 @@
    "winPitcher": "유토",
    "losePitcher": "조병현",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260521KTSS0",
@@ -7276,7 +7276,7 @@
    "winPitcher": "배찬승",
    "losePitcher": "전용주",
    "savePitcher": "김재윤",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260521LGHT0",
@@ -7301,7 +7301,7 @@
    "winPitcher": "치리노스",
    "losePitcher": "네일",
    "savePitcher": "손주영",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260521LTHH0",
@@ -7326,7 +7326,7 @@
    "winPitcher": "나균안",
    "losePitcher": "정우주",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260521NCOB0",
@@ -7351,7 +7351,7 @@
    "winPitcher": "벤자민",
    "losePitcher": "토다",
    "savePitcher": "이영하",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260521SKWO0",
@@ -7376,7 +7376,7 @@
    "winPitcher": "알칸타라",
    "losePitcher": "긴지로",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260522NCKT0",
@@ -7401,7 +7401,7 @@
    "winPitcher": "손동현",
    "losePitcher": "류진욱",
    "savePitcher": "박영현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260522OBHH0",
@@ -7426,7 +7426,7 @@
    "winPitcher": "왕옌청",
    "losePitcher": "곽빈",
    "savePitcher": "이민우",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260522SKHT0",
@@ -7451,7 +7451,7 @@
    "winPitcher": "김범수",
    "losePitcher": "최민준",
    "savePitcher": "성영탁",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260522SSLT0",
@@ -7476,7 +7476,7 @@
    "winPitcher": "오러클린",
    "losePitcher": "김진욱",
    "savePitcher": "김재윤",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260522WOLG0",
@@ -7501,7 +7501,7 @@
    "winPitcher": "박진형",
    "losePitcher": "이정용",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260523NCKT0",
@@ -7526,7 +7526,7 @@
    "winPitcher": "사우어",
    "losePitcher": "구창모",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260523OBHH0",
@@ -7551,7 +7551,7 @@
    "winPitcher": "조동욱",
    "losePitcher": "박치국",
    "savePitcher": "이민우",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260523SKHT0",
@@ -7576,7 +7576,7 @@
    "winPitcher": "조상우",
    "losePitcher": "노경은",
    "savePitcher": "성영탁",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260523SSLT0",
@@ -7601,7 +7601,7 @@
    "winPitcher": "최준용",
    "losePitcher": "임기영",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260523WOLG0",
@@ -7626,7 +7626,7 @@
    "winPitcher": "임찬규",
    "losePitcher": "배동현",
    "savePitcher": "손주영",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260524NCKT0",
@@ -7651,7 +7651,7 @@
    "winPitcher": "라일리",
    "losePitcher": "배제성",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260524OBHH0",
@@ -7676,7 +7676,7 @@
    "winPitcher": "류현진",
    "losePitcher": "최승용",
    "savePitcher": "박상원",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260524SKHT0",
@@ -7701,7 +7701,7 @@
    "winPitcher": "올러",
    "losePitcher": "타케다",
    "savePitcher": "정해영",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260524SSLT0",
@@ -7726,7 +7726,7 @@
    "winPitcher": "양창섭",
    "losePitcher": "로드리게스",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260524WOLG0",
@@ -7751,7 +7751,7 @@
    "winPitcher": "손주영",
    "losePitcher": "유토",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260526HHNC0",
@@ -7801,7 +7801,7 @@
    "winPitcher": "김태형",
    "losePitcher": "김성진",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260526KTOB0",
@@ -7826,7 +7826,7 @@
    "winPitcher": "보쉴리",
    "losePitcher": "최민석",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260526LGLT0",
@@ -7851,7 +7851,7 @@
    "winPitcher": "톨허스트",
    "losePitcher": "현도훈",
    "savePitcher": "김진성",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260526SSSK0",
@@ -7901,7 +7901,7 @@
    "winPitcher": "김진호",
    "losePitcher": "정우주",
    "savePitcher": "전사민",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260527HTWO0",
@@ -7926,7 +7926,7 @@
    "winPitcher": "네일",
    "losePitcher": "알칸타라",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260527KTOB0",
@@ -7951,7 +7951,7 @@
    "winPitcher": "벤자민",
    "losePitcher": "오원석",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260527LGLT0",
@@ -7976,7 +7976,7 @@
    "winPitcher": "함덕주",
    "losePitcher": "나균안",
    "savePitcher": "손주영",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260527SSSK0",
@@ -8001,7 +8001,7 @@
    "winPitcher": "후라도",
    "losePitcher": "베니지아노",
    "savePitcher": "김재윤",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260528HHNC0",
@@ -8026,7 +8026,7 @@
    "winPitcher": "황준서",
    "losePitcher": "임지민",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260528HTWO0",
@@ -8051,7 +8051,7 @@
    "winPitcher": "황동하",
    "losePitcher": "로젠버그",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260528KTOB0",
@@ -8076,7 +8076,7 @@
    "winPitcher": "고영표",
    "losePitcher": "양재훈",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260528LGLT0",
@@ -8101,7 +8101,7 @@
    "winPitcher": "정철원",
    "losePitcher": "우강훈",
    "savePitcher": "최준용",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260528SSSK0",
@@ -8126,7 +8126,7 @@
    "winPitcher": "최원태",
    "losePitcher": "긴지로",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260529HTLG0",
@@ -8151,7 +8151,7 @@
    "winPitcher": "웰스",
    "losePitcher": "이의리",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260529KTWO0",
@@ -8176,7 +8176,7 @@
    "winPitcher": "사우어",
    "losePitcher": "유토",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260529LTNC0",
@@ -8201,7 +8201,7 @@
    "winPitcher": "최준용",
    "losePitcher": "전사민",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260529OBSS0",
@@ -8226,7 +8226,7 @@
    "winPitcher": "이용찬",
    "losePitcher": "배찬승",
    "savePitcher": "이영하",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260529SKHH0",
@@ -8251,7 +8251,7 @@
    "winPitcher": "화이트",
    "losePitcher": "최민준",
    "savePitcher": "이민우",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260530HTLG0",
@@ -8276,7 +8276,7 @@
    "winPitcher": "송승기",
    "losePitcher": "올러",
    "savePitcher": "손주영",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260530KTWO0",
@@ -8301,7 +8301,7 @@
    "winPitcher": "손동현",
    "losePitcher": "원종현",
    "savePitcher": "박영현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260530LTNC0",
@@ -8326,7 +8326,7 @@
    "winPitcher": "배재환",
    "losePitcher": "홍민기",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260530OBSS0",
@@ -8351,7 +8351,7 @@
    "winPitcher": "양재훈",
    "losePitcher": "백정현",
    "savePitcher": "이영하",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260530SKHH0",
@@ -8376,7 +8376,7 @@
    "winPitcher": "류현진",
    "losePitcher": "김건우",
    "savePitcher": "이민우",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260531HTLG0",
@@ -8401,7 +8401,7 @@
    "winPitcher": "톨허스트",
    "losePitcher": "양현종",
    "savePitcher": "손주영",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260531KTWO0",
@@ -8426,7 +8426,7 @@
    "winPitcher": "보쉴리",
    "losePitcher": "박준현",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260531LTNC0",
@@ -8451,7 +8451,7 @@
    "winPitcher": "테일러",
    "losePitcher": "비슬리",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260531OBSS0",
@@ -8476,7 +8476,7 @@
    "winPitcher": "양창섭",
    "losePitcher": "최민석",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260531SKHH0",
@@ -8501,7 +8501,7 @@
    "winPitcher": "이상규",
    "losePitcher": "김민",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260602HHOB0",
@@ -8526,7 +8526,7 @@
    "winPitcher": "벤자민",
    "losePitcher": "박준영",
    "savePitcher": "이영하",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260602LGKT0",
@@ -8551,7 +8551,7 @@
    "winPitcher": "임찬규",
    "losePitcher": "한차현",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260602LTHT0",
@@ -8576,7 +8576,7 @@
    "winPitcher": "성영탁",
    "losePitcher": "최준용",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260602NCSS0",
@@ -8601,7 +8601,7 @@
    "winPitcher": "장찬희",
    "losePitcher": "임지민",
    "savePitcher": "김재윤",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260602WOSK0",
@@ -8626,7 +8626,7 @@
    "winPitcher": "알칸타라",
    "losePitcher": "베니지아노",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260603HHOB0",
@@ -8651,7 +8651,7 @@
    "winPitcher": null,
    "losePitcher": null,
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260603LGKT0",
@@ -8676,7 +8676,7 @@
    "winPitcher": "고영표",
    "losePitcher": "이정용",
    "savePitcher": "박영현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260603LTHT0",
@@ -8701,7 +8701,7 @@
    "winPitcher": "김진욱",
    "losePitcher": "황동하",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260603NCSS0",
@@ -8726,7 +8726,7 @@
    "winPitcher": "전사민",
    "losePitcher": "김재윤",
    "savePitcher": "김진호",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260603WOSK0",
@@ -8751,7 +8751,7 @@
    "winPitcher": "조병현",
    "losePitcher": "조영건",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260604HHOB0",
@@ -8776,7 +8776,7 @@
    "winPitcher": "최준호",
    "losePitcher": "화이트",
    "savePitcher": "이용찬",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260604LGKT0",
@@ -8801,7 +8801,7 @@
    "winPitcher": "김진수",
    "losePitcher": "사우어",
    "savePitcher": "손주영",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260604LTHT0",
@@ -8826,7 +8826,7 @@
    "winPitcher": "시라카와",
    "losePitcher": "박세웅",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260604NCSS0",
@@ -8851,7 +8851,7 @@
    "winPitcher": "구창모",
    "losePitcher": "원태인",
    "savePitcher": "전사민",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260604WOSK0",
@@ -8876,7 +8876,7 @@
    "winPitcher": "전영준",
    "losePitcher": "배동현",
    "savePitcher": "조병현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260605HHLT0",
@@ -8901,7 +8901,7 @@
    "winPitcher": "류현진",
    "losePitcher": "로드리게스",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260605KTSK0",
@@ -8926,7 +8926,7 @@
    "winPitcher": "김건우",
    "losePitcher": "문용익",
    "savePitcher": "조병현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260605LGNC0",
@@ -8951,7 +8951,7 @@
    "winPitcher": "김진성",
    "losePitcher": "배재환",
    "savePitcher": "손주영",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260605SSHT0",
@@ -8976,7 +8976,7 @@
    "winPitcher": "올러",
    "losePitcher": "오러클린",
    "savePitcher": "성영탁",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260605WOOB0",
@@ -9001,7 +9001,7 @@
    "winPitcher": "이영하",
    "losePitcher": "원종현",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260606HHLT0",
@@ -9026,7 +9026,7 @@
    "winPitcher": "정우주",
    "losePitcher": "박정민",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260606KTSK0",
@@ -9051,7 +9051,7 @@
    "winPitcher": "한승혁",
    "losePitcher": "한두솔",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260606LGNC0",
@@ -9076,7 +9076,7 @@
    "winPitcher": "김진호",
    "losePitcher": "김진수",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260606SSHT0",
@@ -9101,7 +9101,7 @@
    "winPitcher": "김재윤",
    "losePitcher": "성영탁",
    "savePitcher": "이재희",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260606WOOB0",
@@ -9126,7 +9126,7 @@
    "winPitcher": "최민석",
    "losePitcher": "안우진",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260607HHLT0",
@@ -9151,7 +9151,7 @@
    "winPitcher": "박준영",
    "losePitcher": "최준용",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260607KTSK0",
@@ -9176,7 +9176,7 @@
    "winPitcher": "베니지아노",
    "losePitcher": "오원석",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260607LGNC0",
@@ -9201,7 +9201,7 @@
    "winPitcher": "류진욱",
    "losePitcher": "김진수",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260607SSHT0",
@@ -9226,7 +9226,7 @@
    "winPitcher": "조상우",
    "losePitcher": "배찬승",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260607WOOB0",
@@ -9251,7 +9251,7 @@
    "winPitcher": "알칸타라",
    "losePitcher": "벤자민",
    "savePitcher": "원종현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260609HTHH0",
@@ -9276,7 +9276,7 @@
    "winPitcher": "황동하",
    "losePitcher": "왕옌청",
    "savePitcher": "성영탁",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260609NCWO0",
@@ -9301,7 +9301,7 @@
    "winPitcher": "유토",
    "losePitcher": "류진욱",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260609OBLT0",
@@ -9326,7 +9326,7 @@
    "winPitcher": "곽빈",
    "losePitcher": "나균안",
    "savePitcher": "이영하",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260609SKLG0",
@@ -9351,7 +9351,7 @@
    "winPitcher": "임찬규",
    "losePitcher": "김민준",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260609SSKT0",
@@ -9376,7 +9376,7 @@
    "winPitcher": "고영표",
    "losePitcher": "최원태",
    "savePitcher": "박영현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260610HTHH0",
@@ -9401,7 +9401,7 @@
    "winPitcher": "화이트",
    "losePitcher": "시라카와",
    "savePitcher": "조동욱",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260610NCWO0",
@@ -9426,7 +9426,7 @@
    "winPitcher": "구창모",
    "losePitcher": "하영민",
    "savePitcher": "배재환",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260610OBLT0",
@@ -9451,7 +9451,7 @@
    "winPitcher": "이진하",
    "losePitcher": "잭로그",
    "savePitcher": "최준용",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260610SKLG0",
@@ -9476,7 +9476,7 @@
    "winPitcher": "김영우",
    "losePitcher": "이로운",
    "savePitcher": "손주영",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260610SSKT0",
@@ -9501,7 +9501,7 @@
    "winPitcher": "사우어",
    "losePitcher": "원태인",
    "savePitcher": "박영현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260611HTHH0",
@@ -9526,7 +9526,7 @@
    "winPitcher": "류현진",
    "losePitcher": "올러",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260611NCWO0",
@@ -9551,7 +9551,7 @@
    "winPitcher": "최성영",
    "losePitcher": "유토",
    "savePitcher": "전사민",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260611OBLT0",
@@ -9576,7 +9576,7 @@
    "winPitcher": "최준호",
    "losePitcher": "현도훈",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260611SKLG0",
@@ -9601,7 +9601,7 @@
    "winPitcher": "장현식",
    "losePitcher": "김건우",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260611SSKT0",
@@ -9626,7 +9626,7 @@
    "winPitcher": "오러클린",
    "losePitcher": "스기모토",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260612HHWO0",
@@ -9651,7 +9651,7 @@
    "winPitcher": "조영건",
    "losePitcher": "이민우",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260612LTLG0",
@@ -9676,7 +9676,7 @@
    "winPitcher": "로드리게스",
    "losePitcher": "톨허스트",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260612NCKT0",
@@ -9701,7 +9701,7 @@
    "winPitcher": "박영현",
    "losePitcher": "김진호",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260612OBHT0",
@@ -9726,7 +9726,7 @@
    "winPitcher": "최민석",
    "losePitcher": "양현종",
    "savePitcher": "이영하",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260612SKSS0",
@@ -9751,7 +9751,7 @@
    "winPitcher": "이로운",
    "losePitcher": "장찬희",
    "savePitcher": "조병현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260613HHWO0",
@@ -9776,7 +9776,7 @@
    "winPitcher": "알칸타라",
    "losePitcher": "박준영",
    "savePitcher": "유토",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260613LTLG0",
@@ -9801,7 +9801,7 @@
    "winPitcher": "김진성",
    "losePitcher": "이민석",
    "savePitcher": "손주영",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260613NCKT0",
@@ -9826,7 +9826,7 @@
    "winPitcher": "한승혁",
    "losePitcher": "이용준",
    "savePitcher": "박영현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260613OBHT0",
@@ -9851,7 +9851,7 @@
    "winPitcher": "네일",
    "losePitcher": "벤자민",
    "savePitcher": "성영탁",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260613SKSS0",
@@ -9876,7 +9876,7 @@
    "winPitcher": "최지광",
    "losePitcher": "김민",
    "savePitcher": "김재윤",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260614HHWO0",
@@ -9901,7 +9901,7 @@
    "winPitcher": "원종현",
    "losePitcher": "이상규",
    "savePitcher": "유토",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260614LTLG0",
@@ -9926,7 +9926,7 @@
    "winPitcher": "임찬규",
    "losePitcher": "비슬리",
    "savePitcher": "손주영",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260614NCKT0",
@@ -9976,7 +9976,7 @@
    "winPitcher": "곽빈",
    "losePitcher": "김태형",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260614SKSS0",
@@ -10001,7 +10001,7 @@
    "winPitcher": "이승민",
    "losePitcher": "이로운",
    "savePitcher": "김재윤",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260616HHNC0",
@@ -10026,7 +10026,7 @@
    "winPitcher": "구창모",
    "losePitcher": "화이트",
    "savePitcher": "전사민",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260616KTOB0",
@@ -10051,7 +10051,7 @@
    "winPitcher": "고영표",
    "losePitcher": "최승용",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260616LGHT0",
@@ -10076,7 +10076,7 @@
    "winPitcher": "웰스",
    "losePitcher": "시라카와",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260616LTSK0",
@@ -10101,7 +10101,7 @@
    "winPitcher": "김진욱",
    "losePitcher": "이로운",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260616WOSS0",
@@ -10126,7 +10126,7 @@
    "winPitcher": "원태인",
    "losePitcher": "하영민",
    "savePitcher": "김재윤",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260617HHNC0",
@@ -10151,7 +10151,7 @@
    "winPitcher": "임지민",
    "losePitcher": "박상원",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260617KTOB0",
@@ -10176,7 +10176,7 @@
    "winPitcher": "사우어",
    "losePitcher": "타카다",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260617LGHT0",
@@ -10201,7 +10201,7 @@
    "winPitcher": "곽도규",
    "losePitcher": "리오스",
    "savePitcher": "성영탁",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260617LTSK0",
@@ -10226,7 +10226,7 @@
    "winPitcher": "박세웅",
    "losePitcher": "김건우",
    "savePitcher": "최준용",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260617WOSS0",
@@ -10251,7 +10251,7 @@
    "winPitcher": "김재윤",
    "losePitcher": "박지성",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260618HHNC0",
@@ -10276,7 +10276,7 @@
    "winPitcher": "테일러",
    "losePitcher": "에르난데스",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260618KTOB0",
@@ -10301,7 +10301,7 @@
    "winPitcher": "이용찬",
    "losePitcher": "김민수",
    "savePitcher": "이영하",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260618LGHT0",
@@ -10326,7 +10326,7 @@
    "winPitcher": "양현종",
    "losePitcher": "톨허스트",
    "savePitcher": "성영탁",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260618LTSK0",
@@ -10351,7 +10351,7 @@
    "winPitcher": null,
    "losePitcher": null,
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260618WOSS0",
@@ -10376,7 +10376,7 @@
    "winPitcher": "최지광",
    "losePitcher": "박진형",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260619HTKT0",
@@ -10401,7 +10401,7 @@
    "winPitcher": "네일",
    "losePitcher": "오원석",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260619LTWO0",
@@ -10426,7 +10426,7 @@
    "winPitcher": "이민석",
    "losePitcher": "알칸타라",
    "savePitcher": "최준용",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260619OBLG0",
@@ -10451,7 +10451,7 @@
    "winPitcher": "이정용",
    "losePitcher": "벤자민",
    "savePitcher": "손주영",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260619SKNC0",
@@ -10476,7 +10476,7 @@
    "winPitcher": "토다",
    "losePitcher": "베니지아노",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260619SSHH0",
@@ -10501,7 +10501,7 @@
    "winPitcher": null,
    "losePitcher": null,
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260620HTKT0",
@@ -10526,7 +10526,7 @@
    "winPitcher": "주권",
    "losePitcher": "김범수",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260620LTWO0",
@@ -10551,7 +10551,7 @@
    "winPitcher": "나균안",
    "losePitcher": "로젠버그",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260620OBLG0",
@@ -10576,7 +10576,7 @@
    "winPitcher": "김영우",
    "losePitcher": "김택연",
    "savePitcher": "손주영",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260620SKNC0",
@@ -10601,7 +10601,7 @@
    "winPitcher": "해치",
    "losePitcher": "김준원",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260620SSHH0",
@@ -10626,7 +10626,7 @@
    "winPitcher": "장유호",
    "losePitcher": "장찬희",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260621HTKT0",
@@ -10651,7 +10651,7 @@
    "winPitcher": "시라카와",
    "losePitcher": "손동현",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260621LTWO0",
@@ -10676,7 +10676,7 @@
    "winPitcher": "박정민",
    "losePitcher": "배동현",
    "savePitcher": "최준용",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260621OBLG0",
@@ -10701,7 +10701,7 @@
    "winPitcher": "웰스",
    "losePitcher": "잭로그",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260621SKNC0",
@@ -10726,7 +10726,7 @@
    "winPitcher": "노경은",
    "losePitcher": "류진욱",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260621SSHH0",
@@ -10751,7 +10751,7 @@
    "winPitcher": "양창섭",
    "losePitcher": "화이트",
    "savePitcher": "김재윤",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260623HTWO0",
@@ -10776,7 +10776,7 @@
    "winPitcher": "올러",
    "losePitcher": "박준현",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260623NCLT0",
@@ -10801,7 +10801,7 @@
    "winPitcher": "최준용",
    "losePitcher": "임지민",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260623OBHH0",
@@ -10826,7 +10826,7 @@
    "winPitcher": "이민우",
    "losePitcher": "이영하",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260623SKKT0",
@@ -10851,7 +10851,7 @@
    "winPitcher": "고영표",
    "losePitcher": "김건우",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260623SSLG0",
@@ -10876,7 +10876,7 @@
    "winPitcher": "장현식",
    "losePitcher": "최원태",
    "savePitcher": "손주영",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260624HTWO0",
@@ -10901,7 +10901,7 @@
    "winPitcher": "양현종",
    "losePitcher": "안우진",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260624NCLT0",
@@ -10926,7 +10926,7 @@
    "winPitcher": "박정민",
    "losePitcher": "전사민",
    "savePitcher": "김원중",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260624OBHH0",
@@ -10951,7 +10951,7 @@
    "winPitcher": "최민석",
    "losePitcher": "에르난데스",
    "savePitcher": null,
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260624SKKT0",
@@ -10976,7 +10976,7 @@
    "winPitcher": "김민준",
    "losePitcher": "사우어",
    "savePitcher": "조병현",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260624SSLG0",
@@ -11001,7 +11001,7 @@
    "winPitcher": "톨허스트",
    "losePitcher": "오러클린",
    "savePitcher": "리오스",
-   "hasBoxscore": false
+   "hasBoxscore": true
   },
   {
    "gameId": "20260625HTWO0",

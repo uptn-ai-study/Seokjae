@@ -1,0 +1,57 @@
+# proto-12-kbo(KBO 데이터 뷰어) 매일 데이터 증분 갱신 → 정규화 JSON 커밋 (T-21)
+#
+# 스케줄: 매일 새벽 3시(KST). GitHub Actions 는 UTC 기준이므로 18:00 UTC = 03:00 KST(익일).
+# KBO 정규경기는 보통 밤 늦게 끝나므로, 새벽 3시면 전날 경기 결과가 확정된 뒤다.
+#
+# 모노레포이므로 이 파일은 반드시 저장소 루트의 .github/workflows/ 에 있어야 실행된다.
+# 실제 프로젝트는 proto-12-kbo/ 하위에 있으므로 working-directory 로 지정한다.
+name: update-kbo-data
+
+on:
+  schedule:
+    - cron: '0 18 * * *' # 03:00 KST (18:00 UTC 전일)
+  workflow_dispatch: # 수동 실행 허용
+
+permissions:
+  contents: write
+
+# 동시 실행 방지(스케줄과 수동 실행이 겹칠 때)
+concurrency:
+  group: update-kbo-data
+  cancel-in-progress: false
+
+defaults:
+  run:
+    working-directory: proto-12-kbo
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: proto-12-kbo/package-lock.json
+
+      - run: npm ci
+
+      - name: 증분 갱신 (최근 3일 경기·박스스코어 + 선수 기록 전체)
+        run: npm run data:update
+
+      - name: 스키마 검증
+        run: npm run data:validate
+
+      - name: 변경분 커밋 & 푸시
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/normalized public/data
+          if git diff --cached --quiet; then
+            echo "변경 사항 없음 - 커밋 생략"
+          else
+            git commit -m "chore(data): KBO 일일 증분 갱신 $(date -u -d '+9 hours' +%Y-%m-%d)"
+            git push
+          fi
