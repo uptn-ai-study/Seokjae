@@ -122,12 +122,13 @@ function LineScore({
 
 /**
  * 수집기가 분리 저장한 타자 표(선수/이닝별/합계)를 한 표로 병합.
- * lineup=[타순,포지션,선수명], totals=[타수,득점,안타,타점,타율]
+ * lineup=[타순,포지션,선수명], totals=[타수,안타,득점,타점,타율]
+ * (KBO 원본 합계 컬럼 순서: 타수→안타→득점→타점→타율. 타율=안타/타수로 교차검증됨)
  */
 function mergeHitterTables(h: { lineup: Matrix; byInning: Matrix; totals: Matrix }): Matrix {
   const inningHeader = h.byInning.headers[0] ?? [];
   return {
-    headers: [['타순', '포지션', '선수명', ...inningHeader, '타수', '득점', '안타', '타점', '타율']],
+    headers: [['타순', '포지션', '선수명', ...inningHeader, '타수', '안타', '득점', '타점', '타율']],
     rows: h.lineup.rows.map((row, i) => [
       ...row,
       ...(h.byInning.rows[i] ?? []),
