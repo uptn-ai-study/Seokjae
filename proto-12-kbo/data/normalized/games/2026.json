@@ -1,7 +1,7 @@
 {
  "season": 2026,
  "source": "kbo_official",
- "generatedAt": "2026-07-10T19:36:32.811Z",
+ "generatedAt": "2026-07-11T19:12:47.704Z",
  "games": [
   {
    "gameId": "20260312KTLT0",
@@ -12627,6 +12627,31 @@
    "losePitcher": null,
    "savePitcher": null,
    "hasBoxscore": false
+  },
+  {
+   "gameId": "20260711WEEA0",
+   "date": "20260711",
+   "time": "18:00",
+   "season": 2026,
+   "seriesId": 9,
+   "seriesName": "올스타",
+   "stadium": "잠실",
+   "status": "finished",
+   "cancelReason": "",
+   "away": {
+    "teamId": "WE",
+    "teamName": "나눔",
+    "score": 10
+   },
+   "home": {
+    "teamId": "EA",
+    "teamName": "드림",
+    "score": 2
+   },
+   "winPitcher": "안우진",
+   "losePitcher": "현도훈",
+   "savePitcher": null,
+   "hasBoxscore": true
   }
  ]
 }
