@@ -17,6 +17,7 @@ export class Input {
     this._throttleTouch = 0;
     this._brakeTouch = 0;
 
+    this._blockBrowserGestures();
     this._bindKeyboard();
     this._bindTouch(root);
     this._applyMode();
@@ -32,6 +33,40 @@ export class Input {
       },
       { passive: true, once: true }
     );
+  }
+
+  /**
+   * 모바일에서 게임 조작을 방해하는 브라우저 기본 동작을 차단한다.
+   * CSS(touch-action / user-select)로 대부분 막히지만, iOS Safari 는
+   * user-scalable=no 를 무시하므로 제스처 이벤트를 직접 막아야 한다.
+   */
+  _blockBrowserGestures() {
+    const stop = (e) => e.preventDefault();
+    const opt = { passive: false };
+
+    // 롱프레스 컨텍스트 메뉴 / 드래그 선택
+    document.addEventListener('contextmenu', stop);
+    document.addEventListener('selectstart', stop);
+    document.addEventListener('dragstart', stop);
+
+    // iOS Safari 핀치 줌 (gesture* 는 iOS 전용 이벤트)
+    document.addEventListener('gesturestart', stop, opt);
+    document.addEventListener('gesturechange', stop, opt);
+    document.addEventListener('gestureend', stop, opt);
+
+    // 두 손가락 이상은 곧 핀치 — 확대/축소 방지
+    document.addEventListener('touchmove', (e) => {
+      if (e.touches.length > 1) e.preventDefault();
+    }, opt);
+
+    // 더블탭 줌. touch-action 으로 대부분 막히지만 구형 iOS 대비 안전망.
+    // 조작 버튼 위에서는 preventDefault 가 합성 click 을 없애버리므로 제외한다.
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', (e) => {
+      const now = Date.now();
+      if (now - lastTouchEnd < 320 && !e.target.closest('button, .ctrl')) e.preventDefault();
+      lastTouchEnd = now;
+    }, opt);
   }
 
   _applyMode() {
@@ -68,18 +103,23 @@ export class Input {
   }
 
   _bindTouch(root) {
+    const releases = [];
     const hold = (el, on, off) => {
       if (!el) return;
-      const start = (e) => {
-        e.preventDefault();
-        on();
-        el.classList.add('pressed');
-      };
       const end = () => {
         off();
         el.classList.remove('pressed');
       };
-      el.addEventListener('pointerdown', start);
+      releases.push(end);
+      el.addEventListener('pointerdown', (e) => {
+        e.preventDefault();
+        // 손가락이 버튼 밖으로 미끄러져도 pointerup 을 이 요소에서 받도록
+        try {
+          el.setPointerCapture(e.pointerId);
+        } catch {}
+        on();
+        el.classList.add('pressed');
+      });
       el.addEventListener('pointerup', end);
       el.addEventListener('pointercancel', end);
       el.addEventListener('pointerleave', end);
@@ -88,6 +128,16 @@ export class Input {
     hold(root.querySelector('#ctrl-right'), () => (this._steerTouch = 1), () => (this._steerTouch = 0));
     hold(root.querySelector('#ctrl-gas'), () => (this._throttleTouch = 1), () => (this._throttleTouch = 0));
     hold(root.querySelector('#ctrl-brake'), () => (this._brakeTouch = 1), () => (this._brakeTouch = 0));
+
+    // 안전망 — 어떤 이유로든 버튼이 눌린 채 남으면(가속 고착) 치명적이므로
+    // 포인터가 어디서 떨어지든, 창을 벗어나든 전부 해제한다.
+    const releaseAll = () => releases.forEach((r) => r());
+    addEventListener('pointerup', releaseAll);
+    addEventListener('pointercancel', releaseAll);
+    addEventListener('blur', releaseAll);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) releaseAll();
+    });
   }
 
   /** 매 업데이트 시작 시 호출 — 입력을 부드럽게 정리한다 */
