@@ -1,0 +1,11 @@
+// 서울 도심(시청·종로·을지로 일대) 주행 가능 도로 추출
+// https://overpass-turbo.eu 에 붙여넣거나, scripts/fetch-osm.js 가 그대로 사용합니다.
+// 중심: 37.5665, 126.9780 (서울시청) / 반경: 2000m
+
+[out:json][timeout:180];
+(
+  way["highway"~"^(motorway|trunk|primary|secondary|tertiary|residential|unclassified|living_street|motorway_link|trunk_link|primary_link|secondary_link|tertiary_link)$"]
+     ["area"!~"yes"]
+     (around:2000,37.5665,126.9780);
+);
+out body geom;

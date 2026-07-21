@@ -1,0 +1,15 @@
+// 서울 도심 면(面) 피처 — 건물 / 공원 / 물 / 광장
+// scripts/fetch-areas.js 가 그대로 사용합니다.
+// 중심: 37.5665, 126.9780 (서울시청) / 반경: 2000m
+
+[out:json][timeout:240];
+(
+  way["building"](around:2000,37.5665,126.9780);
+  way["leisure"~"^(park|garden|stadium)$"](around:2000,37.5665,126.9780);
+  way["landuse"~"^(grass|forest|cemetery|recreation_ground)$"](around:2000,37.5665,126.9780);
+  way["natural"="water"](around:2000,37.5665,126.9780);
+  way["waterway"="riverbank"](around:2000,37.5665,126.9780);
+  way["place"="square"](around:2000,37.5665,126.9780);
+  way["historic"="city_gate"](around:2000,37.5665,126.9780);
+);
+out body geom;
