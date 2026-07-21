@@ -13,4 +13,4 @@
 | proto-10-okcashbag-map | 지도와 함께하는 OK캐쉬백 | - | 🔄 진행중 |
 | proto-11-batting-practice | Batting Practice(MLB 배팅 연습) | - | 🔄 진행중 |
 | proto-12-kbo | KBO 데이터 뷰어(경기·순위·선수 기록) | - | 🔄 진행중 |
-| proto-13-drive | 서울 드라이브(OSM 오픈월드 주행 시뮬레이터) | - | 🔄 진행중 |
+| proto-13-drive | 서울 드라이브(OSM 오픈월드 주행 시뮬레이터) | https://seoul-drive-theta.vercel.app/ | 🔄 진행중 |
