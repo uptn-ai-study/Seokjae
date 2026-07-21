@@ -25,7 +25,7 @@ const canvas = document.getElementById('game');
   const ui = new UI(app);
   let g;
   try {
-    g = await loadGraph('./public/graph.json');
+    g = await loadGraph('./assets/graph.json');
   } catch (e) {
     document.getElementById('loading').innerHTML =
       `<div class="load-err">graph.json 을 불러오지 못했습니다.<br><span>${e.message}</span><br>
@@ -40,7 +40,7 @@ const canvas = document.getElementById('game');
   const cam = new Camera();
   cam.snapTo(player);
   const input = new Input(app);
-  const areas = await loadAreas('./public/areas.json');
+  const areas = await loadAreas('./assets/areas.json');
   const renderer = new Renderer(canvas, g, areas);
   const traffic = new Traffic(g, { count: matchMedia('(pointer: coarse)').matches ? 110 : 190 });
   traffic.spawnAll(player);

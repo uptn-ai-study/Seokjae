@@ -202,7 +202,7 @@ export class RoadGraph {
   }
 }
 
-export async function loadGraph(url = './public/graph.json') {
+export async function loadGraph(url = './assets/graph.json') {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`graph.json 로드 실패 (HTTP ${res.status})`);
   return new RoadGraph(await res.json());

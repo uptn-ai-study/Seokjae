@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * data/seoul-areas.geojson → public/areas.json
+ * data/seoul-areas.geojson → assets/areas.json
  *
  *   node scripts/build-areas.js
  *
@@ -144,9 +144,9 @@ for (const f of gj.features) {
 // 큰 것부터 그리도록 정렬(작은 건물이 큰 면적에 묻히지 않게)
 out.sort((a, b) => (b.a || 0) - (a.a || 0));
 
-const outPath = path.join(ROOT, 'public', 'areas.json');
+const outPath = path.join(ROOT, 'assets', 'areas.json');
 fs.mkdirSync(path.dirname(outPath), { recursive: true });
 fs.writeFileSync(outPath, JSON.stringify({ meta: { center: CENTER, generated: new Date().toISOString().slice(0, 10) }, areas: out }));
 
 const kb = (fs.statSync(outPath).size / 1024).toFixed(0);
-console.log(`[done] 건물 ${stat[0]} · 주요건물 ${stat[1]} · 녹지 ${stat[2]} · 물 ${stat[3]} · 광장 ${stat[4]} → public/areas.json (${kb} KB)`);
+console.log(`[done] 건물 ${stat[0]} · 주요건물 ${stat[1]} · 녹지 ${stat[2]} · 물 ${stat[3]} · 광장 ${stat[4]} → assets/areas.json (${kb} KB)`);

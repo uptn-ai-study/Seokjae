@@ -12,7 +12,7 @@ Vanilla JS + Canvas 2D · 빌드 도구 없음 · **완전 오프라인 구동**
 ```bash
 cd proto-13-drive
 
-# (선택) 도로 데이터 다시 받기 — public/graph.json 은 이미 포함되어 있음
+# (선택) 도로 데이터 다시 받기 — assets/graph.json 은 이미 포함되어 있음
 npm run data          # = fetch-osm.js → build-graph.js
 
 # 로컬 서버로 실행 (ES 모듈 + fetch 때문에 file:// 로는 열리지 않음)
@@ -43,8 +43,8 @@ npm run dev           # → http://localhost:5173
 ## 데이터 파이프라인
 
 ```
-Overpass ──▶ data/seoul-roads.geojson ──▶ public/graph.json  (노드 8.4k / 엣지 3.3k, 450KB)
-         └─▶ data/seoul-areas.geojson ──▶ public/areas.json  (폴리곤 3.5k, 403KB)
+Overpass ──▶ data/seoul-roads.geojson ──▶ assets/graph.json  (노드 8.4k / 엣지 3.3k, 450KB)
+         └─▶ data/seoul-areas.geojson ──▶ assets/areas.json  (폴리곤 3.5k, 403KB)
 ```
 
 `npm run data` 하나로 네 스크립트가 순서대로 실행됩니다. 결과물은 레포에 포함되어 있어
@@ -75,7 +75,7 @@ out body geom;
 - `oneway=yes/-1`, `junction=roundabout` 방향 반영
 - 4m 미만 자투리 제거 + **최대 연결요소만** 남겨 고립 구간 제거
 
-출력 `public/graph.json`
+출력 `assets/graph.json`
 
 ```jsonc
 {
@@ -98,7 +98,7 @@ out body geom;
 
 결과: 건물 2,533 · 주요건물 505 · 녹지 466 · 물 6 · 광장 20
 
-> `public/areas.json` 이 없어도 게임은 정상 동작합니다(건물 없이 렌더).
+> `assets/areas.json` 이 없어도 게임은 정상 동작합니다(건물 없이 렌더).
 
 ---
 
@@ -111,8 +111,8 @@ scripts/fetch-osm.js           Overpass → 도로 GeoJSON
 scripts/build-graph.js         GeoJSON → graph.json
 scripts/fetch-areas.js         Overpass → 면 피처 GeoJSON
 scripts/build-areas.js         GeoJSON → areas.json (단순화·분류)
-public/graph.json              게임이 로드하는 도로 그래프
-public/areas.json              건물/공원/물/광장 폴리곤
+assets/graph.json              게임이 로드하는 도로 그래프
+assets/areas.json              건물/공원/물/광장 폴리곤
 src/
   main.js         부트스트랩 · 고정 타임스텝(1/60) 게임 루프 · 루트 상태 관리
   geo.js          투영/각도/선분 기하 유틸
@@ -156,6 +156,11 @@ index.html        레이아웃 + CSS (UI-COMMON.md 토큰)
 - UI: `team-rules/UI-COMMON.md` — Primary `#5F46FF`, 카드 radius 16 + Level1 그림자,
   바텀시트 radius 24 슬라이드업, hover 미사용(`:active`만), SUIT Variable 폰트
 - 배포: Vercel — Root Directory `proto-13-drive`, **Framework Preset: Other**, 빌드 명령 없음(정적)
+
+> ⚠️ 데이터 폴더 이름이 `public` 이 아니라 `assets` 인 이유
+> Vercel은 빌드 없는 프로젝트에서 `public/` 이 있으면 **그 폴더를 사이트 루트로** 서빙합니다.
+> 그러면 `index.html` 과 `src/` 가 배포에서 빠져 루트가 404가 됩니다.
+> 폴더명을 `assets` 로 두면 프로젝트 루트가 그대로 서빙되어 정상 동작합니다.
 
 ## 데이터 출처
 

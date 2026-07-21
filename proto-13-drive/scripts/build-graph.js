@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * data/seoul-roads.geojson → public/graph.json
+ * data/seoul-roads.geojson → assets/graph.json
  *
  *   node scripts/build-graph.js
  *
@@ -269,12 +269,12 @@ const graph = {
   edges: outEdges,
 };
 
-const outPath = path.join(ROOT, 'public', 'graph.json');
+const outPath = path.join(ROOT, 'assets', 'graph.json');
 fs.mkdirSync(path.dirname(outPath), { recursive: true });
 fs.writeFileSync(outPath, JSON.stringify(graph));
 
 const kb = (fs.statSync(outPath).size / 1024).toFixed(0);
-console.log(`[done] 노드 ${graph.nodes.length} · 엣지 ${graph.edges.length} → public/graph.json (${kb} KB)`);
+console.log(`[done] 노드 ${graph.nodes.length} · 엣지 ${graph.edges.length} → assets/graph.json (${kb} KB)`);
 console.log(
   `       영역 ${Math.round(maxX - minX)}m x ${Math.round(maxY - minY)}m · 일방통행 ${outEdges.filter((e) => e.ow).length}개`
 );
