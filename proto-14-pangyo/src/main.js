@@ -37,7 +37,7 @@ class Game {
     this.cash = 0;
     this.hint = '';
     this.effects = [];
-    this.time = DAY_LENGTH * 0.25;
+    this.time = DAY_LENGTH * 0.5; // 한낮에서 시작 (0 / DAY_LENGTH 지점이 한밤)
     this.paused = false;
     this.mapOpen = false;
     this.playerVehicle = null;
