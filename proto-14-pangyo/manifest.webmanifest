@@ -1,0 +1,15 @@
+{
+  "name": "Pangyo Drift",
+  "short_name": "Pangyo Drift",
+  "description": "판교역 반경 5km를 모티프로 한 탑뷰 오픈월드 아케이드 액션",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#12141a",
+  "theme_color": "#12141a",
+  "icons": [
+    { "src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

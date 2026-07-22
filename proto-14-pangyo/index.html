@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+<title>Pangyo Drift — 탑뷰 오픈월드</title>
+<meta name="description" content="판교역 반경 5km를 모티프로 한 탑뷰 오픈월드 아케이드 액션. PC 키보드 / 모바일 터치 지원." />
+<meta name="theme-color" content="#12141a" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23ffd23f'/><rect x='11' y='6' width='10' height='20' rx='3' fill='%2312141a'/></svg>" />
+<style>
+  :root {
+    --bg: #12141a;
+    --panel: rgba(18, 20, 27, 0.82);
+    --line: rgba(255, 255, 255, 0.12);
+    --text: #eef1f6;
+    --dim: #98a0ad;
+    --accent: #ffd23f;
+    --good: #3ddc84;
+    --bad: #ff5a48;
+    --safe-t: env(safe-area-inset-top, 0px);
+    --safe-b: env(safe-area-inset-bottom, 0px);
+    --safe-l: env(safe-area-inset-left, 0px);
+    --safe-r: env(safe-area-inset-right, 0px);
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body {
+    margin: 0; height: 100%; overflow: hidden; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', system-ui, sans-serif;
+    touch-action: none; user-select: none; -webkit-user-select: none; overscroll-behavior: none;
+  }
+  #game { display: block; position: fixed; inset: 0; }
+
+  /* ── HUD ───────────────────────────────────────────── */
+  #hud { position: fixed; inset: 0; pointer-events: none; }
+  .panel {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  }
+  #hud-top {
+    position: absolute; top: calc(10px + var(--safe-t)); left: calc(10px + var(--safe-l));
+    display: flex; flex-direction: column; gap: 6px; align-items: flex-start;
+  }
+  #hud-stats { display: flex; gap: 14px; padding: 8px 14px; align-items: baseline; }
+  #hud-score { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; }
+  #hud-score::before { content: 'SCORE '; font-size: 10px; color: var(--dim); font-weight: 700; letter-spacing: 0.08em; }
+  #hud-cash { font-size: 14px; font-weight: 700; color: var(--good); }
+  #hud-stars { display: flex; gap: 2px; font-size: 18px; padding: 4px 10px; line-height: 1; opacity: 0.9; }
+  #hud-stars span { color: rgba(255, 255, 255, 0.18); transition: color 0.2s; }
+  #hud-stars span.on { color: var(--bad); text-shadow: 0 0 10px rgba(255, 90, 72, 0.8); }
+  #hud-stars.active { animation: pulse 1s infinite; }
+  @keyframes pulse { 50% { transform: scale(1.04); } }
+
+  #minimap-wrap {
+    position: absolute; top: calc(10px + var(--safe-t)); right: calc(10px + var(--safe-r));
+    display: flex; flex-direction: column; align-items: flex-end; gap: 8px;
+  }
+  #minimap { width: 132px; height: 132px; border-radius: 50%; display: block; }
+  #hud-fps { font-size: 10px; color: var(--dim); padding: 2px 8px; }
+  .icon-btn {
+    pointer-events: auto; width: 42px; height: 42px; border-radius: 12px; border: 1px solid var(--line);
+    background: var(--panel); color: var(--text); font-size: 17px; cursor: pointer; display: grid; place-items: center;
+  }
+  .icon-btn:active { transform: scale(0.94); }
+  #top-btns { display: flex; gap: 8px; }
+
+  #hud-bottom {
+    position: absolute; left: calc(10px + var(--safe-l)); bottom: calc(10px + var(--safe-b));
+    display: flex; flex-direction: column; gap: 6px; align-items: flex-start;
+  }
+  #hud-gauges { display: flex; gap: 12px; align-items: center; padding: 8px 14px; }
+  .gauge { width: 88px; }
+  .gauge-label { font-size: 9px; color: var(--dim); letter-spacing: 0.1em; font-weight: 700; }
+  .bar { height: 6px; border-radius: 3px; background: rgba(255, 255, 255, 0.14); overflow: hidden; margin-top: 3px; }
+  .bar i { display: block; height: 100%; border-radius: 3px; transition: width 0.15s; }
+  #hud-hp-fill { background: linear-gradient(90deg, #ff5a48, #ffd23f); width: 100%; }
+  #hud-dur-fill { background: linear-gradient(90deg, #4fc3f7, #3ddc84); width: 0%; }
+  #hud-speedbox { display: flex; align-items: baseline; gap: 3px; }
+  #hud-speed { font-size: 26px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  #hud-speed-unit { font-size: 10px; color: var(--dim); font-weight: 700; }
+
+  #hud-objective {
+    position: absolute; top: calc(10px + var(--safe-t)); left: 50%; transform: translate(-50%, -140%);
+    padding: 9px 16px; display: flex; gap: 12px; align-items: center; transition: transform 0.3s; max-width: 62vw;
+  }
+  #hud-objective.show { transform: translate(-50%, 0); }
+  #hud-objective-text { font-size: 13px; font-weight: 700; }
+  #hud-objective-timer { font-size: 13px; font-weight: 800; color: var(--good); font-variant-numeric: tabular-nums; }
+  #hud-objective-timer.urgent { color: var(--bad); }
+
+  #hud-district {
+    position: absolute; top: 32%; left: 50%; transform: translateX(-50%);
+    font-size: clamp(22px, 6vw, 40px); font-weight: 900; letter-spacing: -0.02em; opacity: 0;
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.7);
+  }
+  #hud-district.show { animation: banner 3s ease forwards; }
+  @keyframes banner {
+    0% { opacity: 0; transform: translateX(-50%) translateY(14px); }
+    18% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    72% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  #toast {
+    position: absolute; bottom: calc(96px + var(--safe-b)); left: 50%; transform: translate(-50%, 16px);
+    padding: 10px 18px; border-radius: 12px; background: rgba(18, 20, 27, 0.92); border: 1px solid var(--line);
+    font-size: 13px; font-weight: 700; opacity: 0; transition: all 0.25s; white-space: nowrap; max-width: 90vw;
+  }
+  #toast.show { opacity: 1; transform: translate(-50%, 0); }
+  #toast.good { border-color: rgba(61, 220, 132, 0.6); color: var(--good); }
+  #toast.bad { border-color: rgba(255, 90, 72, 0.6); color: var(--bad); }
+
+  #hud-hint {
+    position: absolute; bottom: calc(150px + var(--safe-b)); left: 50%; transform: translateX(-50%);
+    padding: 7px 14px; border-radius: 10px; background: rgba(255, 210, 63, 0.92); color: #1a1500;
+    font-size: 12px; font-weight: 800; opacity: 0; transition: opacity 0.15s;
+  }
+  #hud-hint.show { opacity: 1; }
+
+  /* ── 터치 컨트롤 ───────────────────────────────────── */
+  #touch { position: absolute; inset: 0; display: none; }
+  body.touch #touch { display: block; }
+  #pad {
+    pointer-events: auto; position: absolute; left: calc(20px + var(--safe-l)); bottom: calc(24px + var(--safe-b));
+    width: 132px; height: 132px; border-radius: 50%;
+    background: rgba(255, 255, 255, 0.07); border: 2px solid rgba(255, 255, 255, 0.16);
+    display: grid; place-items: center; touch-action: none;
+  }
+  #pad-knob {
+    width: 56px; height: 56px; border-radius: 50%; background: rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.45); pointer-events: none;
+  }
+  #actions {
+    position: absolute; right: calc(20px + var(--safe-r)); bottom: calc(24px + var(--safe-b));
+    display: grid; grid-template-columns: repeat(2, auto); gap: 12px; align-items: end;
+  }
+  .ctrl {
+    pointer-events: auto; width: 72px; height: 72px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1); color: #fff; font-size: 12px; font-weight: 800; touch-action: none;
+    display: grid; place-items: center; line-height: 1.2; text-align: center;
+  }
+  .ctrl.pressed { background: rgba(255, 210, 63, 0.4); transform: scale(0.94); }
+  #ctrl-a { width: 84px; height: 84px; background: rgba(255, 210, 63, 0.22); border-color: rgba(255, 210, 63, 0.5); }
+  #ctrl-b { background: rgba(79, 195, 247, 0.18); }
+  #ctrl-boost { background: rgba(61, 220, 132, 0.18); }
+  body.portrait #pad { width: 116px; height: 116px; }
+  /* 터치 모드에서는 조이스틱·버튼과 겹치지 않도록 게이지와 힌트를 위로 올린다 */
+  body.touch #hud-bottom { bottom: calc(176px + var(--safe-b)); }
+  body.touch #toast { bottom: calc(230px + var(--safe-b)); }
+  body.touch #hud-hint { bottom: calc(276px + var(--safe-b)); }
+
+  /* ── 오버레이 ──────────────────────────────────────── */
+  .overlay {
+    position: fixed; inset: 0; background: rgba(9, 10, 14, 0.88); display: none;
+    place-items: center; z-index: 20; padding: 20px;
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  }
+  .overlay.show { display: grid; }
+  .card {
+    background: #171a22; border: 1px solid var(--line); border-radius: 20px; padding: 22px;
+    width: min(520px, 92vw); max-height: 88vh; overflow: auto;
+  }
+  .card h2 { margin: 0 0 4px; font-size: 20px; }
+  .card p { margin: 0 0 16px; color: var(--dim); font-size: 13px; line-height: 1.6; }
+  #fullmap { width: 100%; aspect-ratio: 1; border-radius: 14px; background: #0d0f14; display: block; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+  .btn {
+    flex: 1; min-width: 110px; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.06); color: var(--text); font-size: 13px; font-weight: 700; cursor: pointer;
+  }
+  .btn.primary { background: var(--accent); color: #1a1500; border-color: transparent; }
+  .btn.on { background: rgba(61, 220, 132, 0.2); border-color: rgba(61, 220, 132, 0.5); color: var(--good); }
+  .btn:active { transform: scale(0.97); }
+  kbd {
+    background: rgba(255, 255, 255, 0.1); border: 1px solid var(--line); border-bottom-width: 2px;
+    border-radius: 6px; padding: 1px 6px; font-size: 11px; font-family: inherit; font-weight: 700;
+  }
+  .keys { display: grid; gap: 6px; font-size: 12px; color: var(--dim); }
+
+  /* ── 부팅 화면 ─────────────────────────────────────── */
+  #boot {
+    position: fixed; inset: 0; z-index: 30; background: radial-gradient(120% 90% at 50% 0%, #1d2230, #0b0d12);
+    display: grid; place-items: center; text-align: center; padding: 24px; transition: opacity 0.4s;
+  }
+  #boot.hidden { opacity: 0; pointer-events: none; }
+  #boot h1 { font-size: clamp(34px, 10vw, 60px); margin: 0; font-weight: 900; letter-spacing: -0.03em; }
+  #boot h1 span { color: var(--accent); }
+  #boot .sub { color: var(--dim); font-size: 13px; margin: 8px 0 26px; line-height: 1.7; }
+  #load-track { width: min(300px, 70vw); height: 6px; border-radius: 3px; background: rgba(255, 255, 255, 0.12); overflow: hidden; margin: 0 auto; }
+  #load-bar { height: 100%; width: 0; background: linear-gradient(90deg, var(--accent), var(--good)); transition: width 0.3s; }
+  #load-label { font-size: 11px; color: var(--dim); margin-top: 10px; height: 14px; }
+  #btn-start { display: none; margin: 22px auto 0; padding: 15px 40px; font-size: 15px; }
+  #btn-start.show { display: block; animation: rise 0.4s ease; }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } }
+  .legal { position: fixed; bottom: 10px; left: 0; right: 0; text-align: center; font-size: 10px; color: #5c6470; padding: 0 20px; }
+</style>
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<div id="hud">
+  <div id="hud-top">
+    <div id="hud-stats" class="panel"><div id="hud-score">0</div><div id="hud-cash">₩0</div></div>
+    <div id="hud-stars" class="panel"></div>
+  </div>
+
+  <div id="minimap-wrap">
+    <canvas id="minimap"></canvas>
+    <div id="top-btns">
+      <button class="icon-btn" id="btn-map" title="지도 (M)">🗺</button>
+      <button class="icon-btn" id="btn-pause" title="일시정지 (Esc)">⏸</button>
+    </div>
+    <div id="hud-fps" class="panel"></div>
+  </div>
+
+  <div id="hud-objective" class="panel">
+    <div id="hud-objective-text"></div><div id="hud-objective-timer"></div>
+  </div>
+  <div id="hud-district"></div>
+
+  <div id="hud-bottom">
+    <div id="hud-gauges" class="panel">
+      <div id="hud-speedbox"><div id="hud-speed">—</div><div id="hud-speed-unit">km/h</div></div>
+      <div class="gauge">
+        <div class="gauge-label">HP</div>
+        <div class="bar"><i id="hud-hp-fill"></i></div>
+      </div>
+      <div class="gauge" id="hud-dur">
+        <div class="gauge-label">VEHICLE</div>
+        <div class="bar"><i id="hud-dur-fill"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="hud-hint"></div>
+  <div id="toast"></div>
+
+  <div id="touch">
+    <div id="pad"><div id="pad-knob"></div></div>
+    <div id="actions">
+      <button class="ctrl" id="ctrl-boost">부스트</button>
+      <button class="ctrl" id="ctrl-a">탑승<br />하차</button>
+      <button class="ctrl" id="ctrl-b">드리프트</button>
+      <div></div>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="map-overlay">
+  <div class="card">
+    <h2>Pangyo — 도시 지도</h2>
+    <p>노란 점은 미션, 파란 점은 Wash Point(수배 해제), 빨간 점은 경찰입니다.</p>
+    <canvas id="fullmap"></canvas>
+    <div class="row"><button class="btn primary" onclick="document.querySelector('#btn-map').click()">닫기</button></div>
+  </div>
+</div>
+
+<div class="overlay" id="pause-overlay">
+  <div class="card">
+    <h2>일시정지</h2>
+    <p>진행도와 설정은 자동으로 저장됩니다.</p>
+    <div class="keys">
+      <div><kbd>W A S D</kbd> / <kbd>←↑↓→</kbd> 이동·운전</div>
+      <div><kbd>Space</kbd> 탑승 / 하차 &nbsp;·&nbsp; <kbd>Shift</kbd> 달리기 · 부스트</div>
+      <div><kbd>F</kbd> 드리프트(핸드브레이크) · 경적 &nbsp;·&nbsp; <kbd>M</kbd> 지도 &nbsp;·&nbsp; <kbd>Esc</kbd> 일시정지</div>
+    </div>
+    <div class="row">
+      <button class="btn" data-setting="audio">🔊 사운드</button>
+      <button class="btn" data-setting="music">🎵 BGM</button>
+      <button class="btn" data-setting="vibrate">📳 진동</button>
+    </div>
+    <div class="row">
+      <button class="btn primary" id="btn-resume">계속하기</button>
+      <button class="btn" id="btn-reset">진행도 초기화</button>
+    </div>
+  </div>
+</div>
+
+<div id="boot">
+  <div>
+    <h1>PANGYO <span>DRIFT</span></h1>
+    <div class="sub">
+      판교역 반경 5km 모티프 · 탑뷰 오픈월드 아케이드<br />
+      PC는 키보드, 모바일은 터치 — 가로 모드를 권장합니다.
+    </div>
+    <div id="load-track"><div id="load-bar"></div></div>
+    <div id="load-label">준비 중…</div>
+    <button class="btn primary" id="btn-start">게임 시작</button>
+  </div>
+  <div class="legal">실제 상표·기업명·저작물을 사용하지 않은 가상 도시입니다. 모든 명칭은 패러디성 가상 명칭입니다.</div>
+</div>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

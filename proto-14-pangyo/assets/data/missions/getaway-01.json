@@ -1,0 +1,14 @@
+{
+  "id": "getaway-01",
+  "name": "야간 탈주극",
+  "desc": "수배를 뒤집어쓴 채 버티다가 Wash Point 로 숨어든다.",
+  "trigger": { "type": "location", "pos": [288, 232], "radius": 3 },
+  "objectives": [
+    { "type": "getInVehicle", "text": "탈주 차량 확보" },
+    { "type": "survive", "text": "수배 2성 유지하며 35초 버티기", "duration": 35, "minStars": 2, "grantStars": 2 },
+    { "type": "reach", "text": "Wash Point 로 도주", "pos": [256, 300], "radius": 5 },
+    { "type": "evade", "text": "수배 완전 해제", "untilStars": 0 }
+  ],
+  "reward": { "score": 1200, "cash": 5000 },
+  "fail": { "onVehicleDestroyed": true, "onBusted": true }
+}

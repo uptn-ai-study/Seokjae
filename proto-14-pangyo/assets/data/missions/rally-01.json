@@ -1,0 +1,14 @@
+{
+  "id": "rally-01",
+  "name": "Tancheon 리버사이드 랠리",
+  "desc": "강변을 따라 체크포인트 4개를 시간 안에 통과한다.",
+  "trigger": { "type": "location", "pos": [300, 268], "radius": 3 },
+  "objectives": [
+    { "type": "getInVehicle", "text": "아무 차량이나 탑승" },
+    { "type": "collect", "text": "체크포인트 4곳 통과 (170초)", "radius": 4, "timeLimit": 170, "pointScore": 120,
+      "points": [[288, 312], [264, 372], [312, 420], [360, 348]] },
+    { "type": "reach", "text": "결승선 — Unjung Hills", "pos": [372, 300], "radius": 5, "timeLimit": 70 }
+  ],
+  "reward": { "score": 900, "cash": 3500 },
+  "fail": { "onTimeout": true, "onVehicleDestroyed": true }
+}

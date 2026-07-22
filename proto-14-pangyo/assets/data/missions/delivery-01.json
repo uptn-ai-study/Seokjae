@@ -1,0 +1,13 @@
+{
+  "id": "delivery-01",
+  "name": "Techno Valley 심야 배달",
+  "desc": "스쿠터나 오토바이를 잡아타고 시간 안에 배달을 끝낸다.",
+  "trigger": { "type": "location", "pos": [216, 220], "radius": 3 },
+  "objectives": [
+    { "type": "getInVehicle", "text": "스쿠터 또는 오토바이 탑승", "vehicleTypes": ["scooter", "moto"] },
+    { "type": "reach", "text": "Techno Valley 로 배달 (100초)", "pos": [144, 144], "radius": 4, "timeLimit": 100, "inVehicle": true },
+    { "type": "reach", "text": "본사로 복귀 (90초)", "pos": [216, 208], "radius": 4, "timeLimit": 90 }
+  ],
+  "reward": { "score": 500, "cash": 1000 },
+  "fail": { "onTimeout": true, "onVehicleDestroyed": true }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "tour-01",
+  "name": "판교 한 바퀴",
+  "desc": "도시를 익히는 워밍업. 세 곳을 찍고 돌아오면 된다.",
+  "trigger": { "type": "location", "pos": [252, 246], "radius": 3 },
+  "objectives": [
+    { "type": "collect", "text": "체크포인트 3곳 통과", "radius": 4, "pointScore": 80,
+      "points": [[300, 236], [256, 300], [216, 216]] },
+    { "type": "reach", "text": "Station Core 로 복귀", "pos": [252, 246], "radius": 4 }
+  ],
+  "reward": { "score": 400, "cash": 2000 },
+  "fail": {}
+}

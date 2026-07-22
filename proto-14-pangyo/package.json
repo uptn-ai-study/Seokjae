@@ -1,0 +1,11 @@
+{
+  "name": "proto-14-pangyo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Pangyo Drift — 판교역 반경 5km 모티프 탑뷰 오픈월드 아케이드 (Vanilla JS + Canvas 2D, 빌드 없음)",
+  "scripts": {
+    "gen": "node tools/gen-city.js",
+    "dev": "npx --yes serve -l 5174 ."
+  }
+}

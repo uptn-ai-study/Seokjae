@@ -1,0 +1,65 @@
+{
+  "sedan": {
+    "name": "Sedan",
+    "w": 22, "h": 42,
+    "accel": 460, "maxSpeed": 430, "reverse": 150,
+    "grip": 6.2, "steer": 3.0, "mass": 1.0, "hp": 100,
+    "color": "#e05a4a", "roof": "#f2f2f2"
+  },
+  "sports": {
+    "name": "Sportster",
+    "w": 22, "h": 42,
+    "accel": 720, "maxSpeed": 620, "reverse": 160,
+    "grip": 5.4, "steer": 3.2, "mass": 0.9, "hp": 80,
+    "color": "#ffd23f", "roof": "#2b2b33"
+  },
+  "suv": {
+    "name": "Ridge SUV",
+    "w": 26, "h": 48,
+    "accel": 420, "maxSpeed": 400, "reverse": 150,
+    "grip": 6.8, "steer": 2.6, "mass": 1.35, "hp": 140,
+    "color": "#3f7d5a", "roof": "#dcdcdc"
+  },
+  "bus": {
+    "name": "City Bus",
+    "w": 32, "h": 80,
+    "accel": 250, "maxSpeed": 300, "reverse": 110,
+    "grip": 7.5, "steer": 1.7, "mass": 2.6, "hp": 240,
+    "color": "#2f6fb5", "roof": "#eaeef2"
+  },
+  "truck": {
+    "name": "Hauler",
+    "w": 30, "h": 72,
+    "accel": 280, "maxSpeed": 330, "reverse": 120,
+    "grip": 7.2, "steer": 1.9, "mass": 2.2, "hp": 200,
+    "color": "#8a5a3c", "roof": "#c9c2b8"
+  },
+  "moto": {
+    "name": "Streetbike",
+    "w": 12, "h": 30,
+    "accel": 820, "maxSpeed": 590, "reverse": 130,
+    "grip": 4.6, "steer": 4.0, "mass": 0.45, "hp": 45,
+    "color": "#d94ea8", "roof": "#1b1b22", "bike": true
+  },
+  "scooter": {
+    "name": "Delivery Scooter",
+    "w": 12, "h": 26,
+    "accel": 560, "maxSpeed": 360, "reverse": 130,
+    "grip": 5.0, "steer": 4.4, "mass": 0.4, "hp": 40,
+    "color": "#4fc3f7", "roof": "#1b1b22", "bike": true
+  },
+  "police": {
+    "name": "Patrol",
+    "w": 24, "h": 44,
+    "accel": 620, "maxSpeed": 520, "reverse": 160,
+    "grip": 6.6, "steer": 3.1, "mass": 1.15, "hp": 130,
+    "color": "#20304a", "roof": "#f4f4f4", "siren": true
+  },
+  "riot": {
+    "name": "Riot Van",
+    "w": 30, "h": 66,
+    "accel": 420, "maxSpeed": 440, "reverse": 140,
+    "grip": 7.0, "steer": 2.1, "mass": 2.4, "hp": 320,
+    "color": "#1b2536", "roof": "#39506e", "siren": true
+  }
+}
