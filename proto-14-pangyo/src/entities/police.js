@@ -4,7 +4,7 @@
  * (총격전 없이 차량 액션 중심 — 아케이드 톤 유지)
  */
 import { Vehicle } from './vehicle.js';
-import { angDiff } from './traffic.js';
+import { angDiff, escapeManeuver } from './traffic.js';
 
 export class PoliceForce {
   constructor(map, graph, specs, audio) {
@@ -107,6 +107,10 @@ export class PoliceForce {
         else { tx = px; ty = py; break; }
       }
     }
+
+    // 건물이나 차에 끼었을 때 — 후진 회피 / 앞차 밀어내기 (traffic 과 같은 기동)
+    const jammed = v.ctrl.throttle > 0.1 && v.speed < 26;
+    if (escapeManeuver(u, v, dt, this.map, game.vehicleList(), jammed)) return;
 
     const want = Math.atan2(ty - v.y, tx - v.x);
     const diff = angDiff(want, v.angle);
