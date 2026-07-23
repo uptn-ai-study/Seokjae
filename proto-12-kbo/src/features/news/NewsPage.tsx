@@ -40,7 +40,13 @@ function SentimentBar({ pos, neg, max }: { pos: number; neg: number; max: number
 function ArticleRow({ a }: { a: NewsArticle }) {
   return (
     <li className={styles.article}>
-      <span className={`${styles.tag} ${styles[`tag_${a.label}`]}`}>{LABEL_TEXT[a.label]}</span>
+      {a.multiTeam ? (
+        <span className={`${styles.tag} ${styles.tag_multi}`} title="여러 팀이 함께 언급되어 점수에서 제외(참고)">
+          여러 팀
+        </span>
+      ) : (
+        <span className={`${styles.tag} ${styles[`tag_${a.label}`]}`}>{LABEL_TEXT[a.label]}</span>
+      )}
       <a href={a.url} target="_blank" rel="noopener noreferrer" className={styles.articleTitle}>
         {a.title}
       </a>
@@ -70,6 +76,10 @@ function TeamCard({ team, rank, maxScore }: { team: TeamNews; rank: number; maxS
         <span className={styles.posText}>긍정 {team.posArticles}</span>
         <span className={styles.neuText}>중립 {team.neuArticles}</span>
         <span className={styles.negText}>부정 {team.negArticles}</span>
+      </div>
+      <div className={styles.basis}>
+        단일 팀 기사 {team.singleTeamArticles}건 집계
+        {team.multiTeamArticles > 0 ? ` · 여러 팀 ${team.multiTeamArticles}건 참고(제외)` : ''}
       </div>
       <p className={styles.summary}>{team.summary}</p>
       {team.articles.length > 0 && (
@@ -126,9 +136,10 @@ export function NewsPage() {
         {ymdDash(d.window.from)}~{ymdDash(d.window.to)}) 국내 주요 언론 {d.outletCount}개사 기사 기준
       </p>
       <div className={styles.disclaimer} role="note">
-        ⚠ 사전(키워드) 기반 감성 분석입니다. 문맥·반어를 반영하지 못하고, 같은 경기 기사가 양 팀에
-        잡혀 승자 키워드가 패자 쪽에도 반영될 수 있습니다. <strong>재미로 보는 실험적 지표이며 실제
-        승부 예측이 아닙니다.</strong>
+        ⚠ <strong>단일 팀만 언급된 기사</strong>만 사전(키워드) 감성으로 집계합니다. 여러 팀이 함께
+        나온 경기 기사는 어느 팀의 호재/악재인지 사전만으로 가릴 수 없어 <strong>중립(참고)</strong>으로
+        빼둡니다(승패는 순위·최근 폼이 반영). 문맥·반어는 여전히 못 잡으니 <strong>재미로 보는 실험적
+        지표이며 실제 승부 예측이 아닙니다.</strong>
       </div>
 
       <h2 className="section-title">뉴스로 본 순위 (긍정−부정)</h2>

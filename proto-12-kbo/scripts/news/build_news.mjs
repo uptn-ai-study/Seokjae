@@ -27,6 +27,34 @@ function queryFor(teamId) {
   return `${TEAMS[teamId].fullName} 야구`;
 }
 
+/**
+ * 팀 언급 감지용 별칭. 여러 팀이 함께 언급된 기사는 사전만으로 어느 팀의 호재/악재인지
+ * 판별할 수 없으므로 중립(참고)으로 분류하고 점수 집계에서 제외한다.
+ * 감지가 과도하면 중립으로 빠질 뿐(안전한 방향)이라, 별칭은 넉넉히 둔다.
+ */
+const TEAM_ALIASES = {
+  LG: ['LG', '엘지', '트윈스'],
+  OB: ['두산', '베어스'],
+  SK: ['SSG', '랜더스', '에스에스지'],
+  WO: ['키움', '히어로즈'],
+  SS: ['삼성', '라이온즈'],
+  HT: ['KIA', '기아', '타이거즈'],
+  LT: ['롯데', '자이언츠'],
+  NC: ['NC', '엔씨', '다이노스'],
+  KT: ['KT', '케이티', '위즈'],
+  HH: ['한화', '이글스'],
+};
+
+/** 텍스트에 등장하는 KBO 팀 id 집합 */
+function detectTeams(text) {
+  const lower = text.toLowerCase();
+  const found = new Set();
+  for (const [teamId, aliases] of Object.entries(TEAM_ALIASES)) {
+    if (aliases.some((a) => lower.includes(a.toLowerCase()))) found.add(teamId);
+  }
+  return found;
+}
+
 function iso(pubDate) {
   const t = Date.parse(pubDate);
   return Number.isFinite(t) ? new Date(t).toISOString() : null;
@@ -34,21 +62,24 @@ function iso(pubDate) {
 
 async function buildTeam(teamId, window) {
   const raw = await fetchTeamNews(queryFor(teamId), window);
-  // 주요 언론사만
   const articles = [];
   for (const it of raw) {
     const outlet = matchOutlet(it.source);
-    if (!outlet) continue;
-    const s = scoreText(`${it.title} ${it.description}`);
+    if (!outlet) continue; // 주요 언론사만
+    const text = `${it.title} ${it.description}`;
+    const teams = detectTeams(text);
+    const multiTeam = teams.size >= 2; // 여러 팀 언급 → 중립(참고), 점수 제외
+    const s = scoreText(text);
     articles.push({
       title: it.title,
       outlet,
       url: it.link,
       publishedAt: iso(it.pubDate),
-      score: s.score,
-      label: s.label,
-      posTerms: s.posTerms,
-      negTerms: s.negTerms,
+      multiTeam,
+      score: multiTeam ? 0 : s.score,
+      label: multiTeam ? 'neu' : s.label,
+      posTerms: multiTeam ? [] : s.posTerms,
+      negTerms: multiTeam ? [] : s.negTerms,
     });
   }
   // 중복 제목 제거(같은 기사 복수 송고)
@@ -60,17 +91,24 @@ async function buildTeam(teamId, window) {
     return true;
   });
 
-  const positiveScore = deduped.reduce((s, a) => s + Math.max(0, a.score), 0);
-  const negativeScore = deduped.reduce((s, a) => s + Math.max(0, -a.score), 0);
-  const posArticles = deduped.filter((a) => a.label === 'pos').length;
-  const negArticles = deduped.filter((a) => a.label === 'neg').length;
-  const neuArticles = deduped.filter((a) => a.label === 'neu').length;
-  const topPos = topKeywords(deduped.map((a) => a.posTerms));
-  const topNeg = topKeywords(deduped.map((a) => a.negTerms));
+  // 감성 집계는 단일 팀 기사만 사용
+  const scored = deduped.filter((a) => !a.multiTeam);
+  const multiTeamArticles = deduped.length - scored.length;
+  const positiveScore = scored.reduce((s, a) => s + Math.max(0, a.score), 0);
+  const negativeScore = scored.reduce((s, a) => s + Math.max(0, -a.score), 0);
+  const posArticles = scored.filter((a) => a.label === 'pos').length;
+  const negArticles = scored.filter((a) => a.label === 'neg').length;
+  const neuArticles = scored.filter((a) => a.label === 'neu').length;
+  const topPos = topKeywords(scored.map((a) => a.posTerms));
+  const topNeg = topKeywords(scored.map((a) => a.negTerms));
 
-  // 표시용 대표 기사: |점수| 큰 순 → 최신 순
+  // 표시: 단일 팀 기사(신호)를 |점수|·최신 순 우선, 여러 팀 기사(참고)는 뒤로
   const display = [...deduped]
-    .sort((a, b) => Math.abs(b.score) - Math.abs(a.score) || (b.publishedAt || '').localeCompare(a.publishedAt || ''))
+    .sort((a, b) => {
+      const sa = a.multiTeam ? -1 : Math.abs(a.score);
+      const sb = b.multiTeam ? -1 : Math.abs(b.score);
+      return sb - sa || (b.publishedAt || '').localeCompare(a.publishedAt || '');
+    })
     .slice(0, MAX_ARTICLES_PER_TEAM)
     .map(({ posTerms, negTerms, ...rest }) => rest);
 
@@ -78,6 +116,8 @@ async function buildTeam(teamId, window) {
     teamId,
     teamName: TEAMS[teamId].name,
     articleCount: deduped.length,
+    singleTeamArticles: scored.length,
+    multiTeamArticles,
     posArticles,
     negArticles,
     neuArticles,
@@ -86,14 +126,19 @@ async function buildTeam(teamId, window) {
     netScore: positiveScore - negativeScore,
     topPositiveKeywords: topPos,
     topNegativeKeywords: topNeg,
-    summary: summarize({ count: deduped.length, posArticles, negArticles, topPos, topNeg }),
+    summary: summarize({ scored: scored.length, multi: multiTeamArticles, posArticles, negArticles, topPos, topNeg }),
     articles: display,
   };
 }
 
-function summarize({ count, posArticles, negArticles, topPos, topNeg }) {
-  if (count === 0) return '최근 3일간 주요 언론 기사가 없습니다.';
-  const parts = [`주요 언론 기사 ${count}건 (긍정 ${posArticles} · 부정 ${negArticles})`];
+function summarize({ scored, multi, posArticles, negArticles, topPos, topNeg }) {
+  if (scored === 0) {
+    return multi > 0
+      ? `단일 팀 기사가 없어 집계 대상이 없습니다(여러 팀 언급 ${multi}건은 참고).`
+      : '최근 3일간 주요 언론 기사가 없습니다.';
+  }
+  const parts = [`단일 팀 기사 ${scored}건 기준 (긍정 ${posArticles} · 부정 ${negArticles})`];
+  if (multi > 0) parts.push(`여러 팀 언급 ${multi}건은 중립(참고)`);
   if (topPos.length) parts.push(`긍정 키워드: ${topPos.join(', ')}`);
   if (topNeg.length) parts.push(`부정 키워드: ${topNeg.join(', ')}`);
   return parts.join('. ') + '.';
@@ -159,9 +204,9 @@ export async function buildNews({ season = 2026, windowDays = 3 } = {}) {
     generatedAt: new Date().toISOString(),
     asOf,
     window,
-    method: 'lexicon',
+    method: 'lexicon-singleteam',
     disclaimer:
-      '사전 기반 키워드 감성 분석으로, 문맥·반어를 반영하지 못하는 실험적 지표입니다. 실제 경기 결과 예측이 아닙니다.',
+      '단일 팀만 언급된 기사만 사전(키워드) 감성으로 집계하고, 여러 팀이 함께 언급된 기사는 어느 팀의 호재/악재인지 판별할 수 없어 중립(참고)으로 제외합니다. 문맥·반어는 여전히 반영하지 못하는 실험적 지표이며 실제 경기 결과 예측이 아닙니다.',
     outlets: outletsByCategory(),
     outletCount: OUTLETS.length,
     teams,

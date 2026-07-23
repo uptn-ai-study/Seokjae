@@ -152,12 +152,16 @@ export interface NewsArticle {
   publishedAt: string | null;
   score: number;
   label: 'pos' | 'neg' | 'neu';
+  /** 여러 팀이 함께 언급된 기사(중립·참고, 점수 제외) */
+  multiTeam?: boolean;
 }
 
 export interface TeamNews {
   teamId: string;
   teamName: string;
   articleCount: number;
+  singleTeamArticles: number;
+  multiTeamArticles: number;
   posArticles: number;
   negArticles: number;
   neuArticles: number;

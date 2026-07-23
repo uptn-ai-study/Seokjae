@@ -4,7 +4,8 @@ import type { StandingRow, TeamNews, UpcomingGame } from '../types/kbo';
 
 function team(teamId: string, netScore: number): TeamNews {
   return {
-    teamId, teamName: teamId, articleCount: 0, posArticles: 0, negArticles: 0, neuArticles: 0,
+    teamId, teamName: teamId, articleCount: 0, singleTeamArticles: 0, multiTeamArticles: 0,
+    posArticles: 0, negArticles: 0, neuArticles: 0,
     positiveScore: Math.max(0, netScore), negativeScore: Math.max(0, -netScore), netScore,
     topPositiveKeywords: [], topNegativeKeywords: [], summary: '', articles: [],
   };
