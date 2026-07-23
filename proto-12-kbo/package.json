@@ -10,6 +10,7 @@
     "test": "vitest run",
     "data:build": "node scripts/build_dataset.mjs",
     "data:update": "node scripts/update_incremental.mjs",
+    "data:news": "node scripts/update_news.mjs",
     "data:validate": "node scripts/validate.mjs"
   },
   "dependencies": {

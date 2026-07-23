@@ -44,6 +44,8 @@ export async function runPipeline({
   forceDays = 2,
   boxscoreDays = 14,
   skipPlayers = false,
+  skipNews = false,
+  newsWindowDays = 3,
 } = {}) {
   const source = getSource(sourceName);
   console.log(`[1/4] 경기 목록 수집 (source=${sourceName}, season=${season})`);
@@ -103,11 +105,27 @@ export async function runPipeline({
     console.log('[4/4] 선수 기록 수집 생략(--skip-players)');
   }
 
+  if (!skipNews) {
+    console.log('[5/5] 뉴스 심리 수집(구글뉴스 RSS + 사전 기반 감성)');
+    try {
+      const { buildNews } = await import('./news/build_news.mjs');
+      const news = await buildNews({ season, windowDays: newsWindowDays });
+      if (news) {
+        publish(`news/${season}.json`, news);
+        console.log(`  news: ${news.teams.length}팀, as-of ${news.asOf}`);
+      }
+    } catch (err) {
+      console.warn(`  뉴스 수집 실패(다른 데이터는 정상): ${err.message}`);
+    }
+  } else {
+    console.log('[5/5] 뉴스 심리 수집 생략(--skip-news)');
+  }
+
   publish('manifest.json', {
     season,
     source: sourceName,
     generatedAt: new Date().toISOString(),
-    datasets: ['games', 'standings', 'hitters', 'pitchers'],
+    datasets: ['games', 'standings', 'hitters', 'pitchers', 'news'],
   });
   console.log('완료: data/normalized/* 및 public/data/* 갱신됨');
 }
@@ -142,6 +160,8 @@ export function parseArgs(argv) {
     else if (a === '--force-days') opts.forceDays = Number(argv[++i]);
     else if (a === '--boxscore-days') opts.boxscoreDays = Number(argv[++i]);
     else if (a === '--skip-players') opts.skipPlayers = true;
+    else if (a === '--skip-news') opts.skipNews = true;
+    else if (a === '--news-window') opts.newsWindowDays = Number(argv[++i]);
   }
   return opts;
 }

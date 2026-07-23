@@ -1,0 +1,361 @@
+.window {
+  font-size: var(--text-sm);
+  color: var(--color-text-sub);
+  margin: 0 0 var(--space-3);
+}
+
+.disclaimer {
+  background: #fff8e6;
+  border: 1px solid #f0dca0;
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: #6b5a1e;
+  margin-bottom: var(--space-4);
+}
+
+.expTag,
+.disclaimer strong {
+  font-weight: 700;
+}
+
+.expTag {
+  font-size: var(--text-sm);
+  color: #fff;
+  background: var(--color-neu);
+  border-radius: 999px;
+  padding: 2px 10px;
+  vertical-align: middle;
+}
+
+/* ---------- 뉴스 순위 카드 ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--space-3) var(--space-4);
+}
+
+.accent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.rank {
+  font-weight: 700;
+  color: var(--color-primary);
+  min-width: 20px;
+  text-align: center;
+}
+
+.net {
+  margin-left: auto;
+  font-size: var(--text-lg);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.sentBar {
+  display: flex;
+  align-items: center;
+  margin: var(--space-3) 0 var(--space-2);
+  height: 12px;
+}
+
+.sentHalf {
+  flex: 1;
+  height: 100%;
+  display: flex;
+}
+
+.sentHalf:first-child {
+  justify-content: flex-end;
+}
+
+.sentNeg,
+.sentPos {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+  min-width: 2px;
+}
+
+.sentNeg {
+  background: var(--color-neg);
+}
+
+.sentPos {
+  background: var(--color-pos);
+}
+
+.sentAxis {
+  width: 2px;
+  height: 16px;
+  background: var(--color-text-faint);
+}
+
+.counts {
+  display: flex;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.posText {
+  color: var(--color-pos);
+}
+
+.negText {
+  color: var(--color-neg);
+  margin-left: auto;
+}
+
+.neuText {
+  color: var(--color-neu);
+}
+
+.summary {
+  font-size: var(--text-sm);
+  color: var(--color-text-sub);
+  line-height: 1.6;
+  margin: var(--space-2) 0;
+}
+
+.toggle {
+  border: none;
+  background: none;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  padding: 4px 0;
+  min-height: 32px;
+}
+
+.articles {
+  list-style: none;
+  margin: var(--space-1) 0 0;
+  padding: 0;
+  border-top: 1px dashed var(--color-border);
+}
+
+.article {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.article:last-child {
+  border-bottom: none;
+}
+
+.tag {
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 4px;
+  padding: 1px 6px;
+  flex: none;
+}
+
+.tag_pos {
+  color: var(--color-pos);
+  background: var(--color-pos-bg);
+}
+
+.tag_neg {
+  color: var(--color-neg);
+  background: var(--color-neg-bg);
+}
+
+.tag_neu {
+  color: var(--color-neu);
+  background: var(--color-bg);
+}
+
+.articleTitle {
+  flex: 1;
+  min-width: 60%;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.articleTitle:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.articleMeta {
+  font-size: var(--text-sm);
+  color: var(--color-text-faint);
+  white-space: nowrap;
+}
+
+/* ---------- 다음 경기 예측 ---------- */
+.predGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+.pred {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--space-3) var(--space-4);
+}
+
+.predSide {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.predSide:last-child {
+  justify-content: flex-end;
+}
+
+.predSide.fav {
+  font-weight: 700;
+}
+
+.predPct {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: var(--color-text-sub);
+}
+
+.fav .predPct {
+  color: var(--color-primary);
+}
+
+.predVs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 84px;
+}
+
+.predAt {
+  font-size: 11px;
+  color: var(--color-text-faint);
+}
+
+.momMini {
+  display: flex;
+  align-items: center;
+  width: 80px;
+  height: 8px;
+}
+
+.momLeft,
+.momRight {
+  flex: 1;
+  height: 100%;
+  display: flex;
+}
+
+.momLeft {
+  justify-content: flex-end;
+}
+
+.momLeft span,
+.momRight span {
+  display: block;
+  height: 100%;
+  border-radius: 2px;
+}
+
+.momMid {
+  width: 2px;
+  height: 12px;
+  background: var(--color-text-faint);
+}
+
+/* ---------- 참고 언론사 ---------- */
+.outlets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--space-4);
+}
+
+.outletCat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.outletCatName {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-text-sub);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  font-size: var(--text-sm);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 3px 10px;
+  color: var(--color-text-sub);
+}
+
+.note {
+  font-size: var(--text-sm);
+  color: var(--color-text-faint);
+  line-height: 1.6;
+  margin-top: var(--space-3);
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .predGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -337,6 +337,19 @@
       "verified": true,
       "notes": "docs/BACKLOG.md 작성: 스플릿 수집 방법(기록실 셀렉트 포스트백), 비규정 선수, 과거 CSV, 세이버메트릭스, 선수/팀 상세, 라이브 폴링, API 서버 전환 경계.",
       "updatedAt": "2026-07-09"
+    },
+    {
+      "id": "T-25",
+      "milestone": "M4",
+      "title": "뉴스 심리 분석 & 다음 경기 예측",
+      "priority": "P2",
+      "status": "done",
+      "depends_on": ["T-09", "T-12"],
+      "detail": "as-of 기준 최근 3일 KBO 기사를 팀별 수집(구글뉴스 RSS, 주요 언론 한정), 사전 기반 긍정/부정 스코어링 → 뉴스 순위 + 최근 폼 결합 모멘텀으로 다음 경기 예측(실험적). 참고 언론사 목록 정리.",
+      "acceptance": "뉴스심리 화면에 팀별 긍정/부정·요약·대표기사, 뉴스순위, 다음경기 예측, 참고 언론사 노출.",
+      "verified": true,
+      "notes": "2026-07-23 추가. 사용자 선택: 소스=구글뉴스 RSS(무키), 감성=사전 기반(무료). scripts/news/{outlets,google_news,sentiment,build_news}.mjs + update_news.mjs, 파이프라인 5단계로 통합(일일 갱신 포함). 프론트 features/news + lib/momentum(테스트 포함). 주요 언론 48개사 allowlist(docs/NEWS_SOURCES.md), 블로그/아그리게이터 제외. 한계(문맥·반어·양팀 공유기사) 화면·문서에 명시, 실험적 지표로 표기. 스키마 검증·단위테스트 통과, 브라우저 실검증 완료.",
+      "updatedAt": "2026-07-23"
     }
   ]
 }

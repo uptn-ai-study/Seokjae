@@ -17,6 +17,11 @@
   --color-good: #c9372c;
   --color-good-bg: #fff1ef;
   --color-focus: #2f7dd1;
+  --color-pos: #1a7f5a;
+  --color-pos-bg: #e6f4ee;
+  --color-neg: #d3453c;
+  --color-neg-bg: #fdeceb;
+  --color-neu: #8a93a0;
 
   /* 간격 */
   --space-1: 4px;

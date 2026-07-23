@@ -5,6 +5,7 @@ const NAV = [
   { to: '/schedule', label: '경기' },
   { to: '/standings', label: '순위' },
   { to: '/players', label: '선수' },
+  { to: '/news', label: '뉴스심리' },
 ];
 
 export function App() {

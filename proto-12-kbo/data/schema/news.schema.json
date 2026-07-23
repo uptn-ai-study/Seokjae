@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "KBO news sentiment",
+  "type": "object",
+  "required": ["season", "generatedAt", "asOf", "window", "teams", "outlets"],
+  "properties": {
+    "season": { "type": "integer" },
+    "generatedAt": { "type": "string" },
+    "asOf": { "type": "string", "pattern": "^[0-9]{8}$" },
+    "method": { "type": "string" },
+    "disclaimer": { "type": "string" },
+    "outletCount": { "type": "integer" },
+    "window": {
+      "type": "object",
+      "required": ["days", "from", "to"],
+      "properties": {
+        "days": { "type": "integer" },
+        "from": { "type": "string", "pattern": "^[0-9]{8}$" },
+        "to": { "type": "string", "pattern": "^[0-9]{8}$" }
+      }
+    },
+    "outlets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["category", "names"],
+        "properties": {
+          "category": { "type": "string" },
+          "names": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "teams": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["teamId", "teamName", "articleCount", "positiveScore", "negativeScore", "netScore", "articles"],
+        "properties": {
+          "teamId": { "type": "string" },
+          "teamName": { "type": "string" },
+          "articleCount": { "type": "integer" },
+          "posArticles": { "type": "integer" },
+          "negArticles": { "type": "integer" },
+          "neuArticles": { "type": "integer" },
+          "positiveScore": { "type": "integer" },
+          "negativeScore": { "type": "integer" },
+          "netScore": { "type": "integer" },
+          "topPositiveKeywords": { "type": "array", "items": { "type": "string" } },
+          "topNegativeKeywords": { "type": "array", "items": { "type": "string" } },
+          "summary": { "type": "string" },
+          "articles": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["title", "outlet", "url", "label"],
+              "properties": {
+                "title": { "type": "string" },
+                "outlet": { "type": "string" },
+                "url": { "type": "string" },
+                "publishedAt": { "type": ["string", "null"] },
+                "score": { "type": "integer" },
+                "label": { "enum": ["pos", "neg", "neu"] }
+              }
+            }
+          }
+        }
+      }
+    },
+    "upcomingGames": {
+      "type": "object",
+      "properties": {
+        "date": { "type": ["string", "null"] },
+        "games": { "type": "array" }
+      }
+    }
+  }
+}

@@ -28,7 +28,8 @@ npm test             # lib/stats 단위 테스트
 
 ```bash
 npm run data:build     # 시즌 전체 수집 (지난 날짜는 data/raw 캐시 재사용)
-npm run data:update    # 증분 갱신: 최근 3일 + 선수 기록만 재요청
+npm run data:update    # 증분 갱신: 최근 3일 경기·박스스코어 + 선수 기록 + 뉴스 심리
+npm run data:news      # 뉴스 심리만 갱신 (구글뉴스 RSS + 사전 기반 감성)
 npm run data:validate  # data/schema/*.json 스키마 + 순위 합계 검증
 ```
 
@@ -47,6 +48,17 @@ npm run data:validate  # data/schema/*.json 스키마 + 순위 합계 검증
 | 박스스코어 | `/ws/Schedule.asmx/GetBoxScoreScroll` | POST form (gameId 단위) |
 | 타자/투수 시즌 기록 | `/Record/Player/{Hitter,Pitcher}Basic/Basic{1,2}.aspx` | GET + `__VIEWSTATE` 포스트백 페이지네이션 |
 | 팀 순위 | (크롤링 안 함) 정규시즌 경기 결과에서 직접 산출 | 합계 검증 포함 |
+| 뉴스 심리 | 구글 뉴스 RSS (`news.google.com/rss/search`) | 팀별·as-of 3일창, 주요 언론 필터 + 사전 감성 |
+
+## 뉴스 심리 · 다음 경기 예측 (실험적)
+
+경기 데이터의 최신 경기일(as-of) 기준 **최근 3일** KBO 기사를 팀별로 모아 긍정/부정을
+점수화하고, "뉴스로 본 순위"와 "다음 경기 예측"을 보여준다.
+
+- 수집: 구글 뉴스 RSS. 국내 **주요 언론 48개사**만 남기고 블로그·아그리게이터 제외.
+- 감성: **사전(lexicon) 기반**(무료·무키). 문맥·반어 미반영 → **재미로 보는 실험적 지표**.
+- 예측: 최근 10경기 폼 + 뉴스 심리 결합 모멘텀 + 소폭 홈 이점 → 로지스틱 승률.
+- 참고 언론사 목록·방법·한계: [`docs/NEWS_SOURCES.md`](docs/NEWS_SOURCES.md).
 
 ## 디렉터리 구조
 
@@ -55,24 +67,26 @@ kbo-viewer/
 ├─ tasks/                # 작업 체크리스트 (tasks.json 이 진행 추적의 단일 원천)
 ├─ scripts/              # 데이터 수집·정규화 (Node ESM)
 │  ├─ sources/           # DataSource 어댑터 (base / kbo_official / csv_archive)
+│  ├─ news/              # 뉴스 심리: outlets(언론사) / google_news(RSS) / sentiment(사전) / build_news
 │  ├─ lib/http.mjs       # rate limit·재시도·raw 캐시·쿠키
 │  ├─ normalize.mjs      # 원본 → 정규화 스키마 + 순위 산출
-│  ├─ pipeline.mjs       # 공통 파이프라인
+│  ├─ pipeline.mjs       # 공통 파이프라인(경기·선수·뉴스)
 │  ├─ build_dataset.mjs  # 전량 빌드 엔트리포인트
-│  ├─ update_incremental.mjs
+│  ├─ update_incremental.mjs / update_news.mjs
 │  └─ validate.mjs       # 스키마 검증
 ├─ data/
 │  ├─ raw/               # 원본 캐시 (gitignore)
-│  ├─ normalized/        # 정규화 JSON (games/standings/hitters/pitchers/boxscores)
+│  ├─ normalized/        # 정규화 JSON (games/standings/hitters/pitchers/boxscores/news)
 │  └─ schema/            # JSON Schema
 ├─ public/data/          # 서빙용 복사본 (프론트가 fetch)
+├─ docs/                 # BACKLOG, NEWS_SOURCES(참고 언론사)
 └─ src/
    ├─ api/               # dataClient(fetch+캐시), useData 훅
    ├─ types/kbo.ts       # 공용 타입
-   ├─ lib/               # stats(파생지표+테스트), format, teams
+   ├─ lib/               # stats·momentum(예측)+테스트, format, teams
    ├─ content/glossary.ts # 초심자용 지표 용어 사전 (단일 원천)
    ├─ components/        # common(DataTable/Tooltip/TeamBadge/states), glossary, charts
-   └─ features/          # home / schedule / standings / players / game-detail
+   └─ features/          # home / schedule / standings / players / game-detail / news
 ```
 
 ## 초심자 친화 기능

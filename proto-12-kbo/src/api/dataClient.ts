@@ -8,6 +8,7 @@ import type {
   HittersFile,
   PitchersFile,
   Boxscore,
+  NewsFile,
 } from '../types/kbo';
 
 const BASE = import.meta.env.BASE_URL + 'data';
@@ -37,4 +38,5 @@ export const dataClient = {
   hitters: (season = SEASON) => fetchJson<HittersFile>(`hitters/${season}.json`),
   pitchers: (season = SEASON) => fetchJson<PitchersFile>(`pitchers/${season}.json`),
   boxscore: (gameId: string) => fetchJson<Boxscore>(`boxscores/${gameId}.json`),
+  news: (season = SEASON) => fetchJson<NewsFile>(`news/${season}.json`),
 };

@@ -19,6 +19,7 @@ const targets = [
   ['standings.schema.json', `standings/${season}.json`],
   ['hitters.schema.json', `hitters/${season}.json`],
   ['pitchers.schema.json', `pitchers/${season}.json`],
+  ['news.schema.json', `news/${season}.json`],
 ];
 
 let failed = false;

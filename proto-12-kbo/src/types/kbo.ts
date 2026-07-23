@@ -143,3 +143,51 @@ export interface Boxscore {
   pitchers: Matrix[];
   etc: Matrix;
 }
+
+/** 뉴스 심리 데이터 (news/<season>.json) */
+export interface NewsArticle {
+  title: string;
+  outlet: string;
+  url: string;
+  publishedAt: string | null;
+  score: number;
+  label: 'pos' | 'neg' | 'neu';
+}
+
+export interface TeamNews {
+  teamId: string;
+  teamName: string;
+  articleCount: number;
+  posArticles: number;
+  negArticles: number;
+  neuArticles: number;
+  positiveScore: number;
+  negativeScore: number;
+  netScore: number;
+  topPositiveKeywords: string[];
+  topNegativeKeywords: string[];
+  summary: string;
+  articles: NewsArticle[];
+}
+
+export interface UpcomingGame {
+  gameId: string;
+  awayTeamId: string;
+  homeTeamId: string;
+  awayTeamName: string;
+  homeTeamName: string;
+  status: GameStatus;
+}
+
+export interface NewsFile {
+  season: number;
+  generatedAt: string;
+  asOf: string; // YYYYMMDD
+  window: { days: number; from: string; to: string };
+  method: string;
+  disclaimer: string;
+  outlets: { category: string; names: string[] }[];
+  outletCount: number;
+  teams: TeamNews[];
+  upcomingGames: { date: string | null; games: UpcomingGame[] };
+}
