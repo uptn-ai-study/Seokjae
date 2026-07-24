@@ -3,14 +3,39 @@
   "version": "0.1.0",
   "updatedAt": "2026-07-09",
   "legend": {
-    "status": ["todo", "in_progress", "blocked", "done"],
-    "priority": ["P0", "P1", "P2"]
+    "status": [
+      "todo",
+      "in_progress",
+      "blocked",
+      "done"
+    ],
+    "priority": [
+      "P0",
+      "P1",
+      "P2"
+    ]
   },
   "milestones": [
-    { "id": "M1", "title": "데이터 파이프라인 확보", "taskRange": "T-00 ~ T-08" },
-    { "id": "M2", "title": "핵심 화면(경기/순위/선수)", "taskRange": "T-09 ~ T-15" },
-    { "id": "M3", "title": "초심자 UX & 반응형 마감", "taskRange": "T-16 ~ T-20" },
-    { "id": "M4", "title": "갱신 자동화 & 배포", "taskRange": "T-21 ~ T-24" }
+    {
+      "id": "M1",
+      "title": "데이터 파이프라인 확보",
+      "taskRange": "T-00 ~ T-08"
+    },
+    {
+      "id": "M2",
+      "title": "핵심 화면(경기/순위/선수)",
+      "taskRange": "T-09 ~ T-15"
+    },
+    {
+      "id": "M3",
+      "title": "초심자 UX & 반응형 마감",
+      "taskRange": "T-16 ~ T-20"
+    },
+    {
+      "id": "M4",
+      "title": "갱신 자동화 & 배포",
+      "taskRange": "T-21 ~ T-24"
+    }
   ],
   "tasks": [
     {
@@ -32,7 +57,9 @@
       "title": "정규화 데이터 스키마 정의",
       "priority": "P0",
       "status": "done",
-      "depends_on": ["T-00"],
+      "depends_on": [
+        "T-00"
+      ],
       "detail": "games / standings / hitters / pitchers JSON Schema 작성. 팀·선수 ID 체계, 시즌·시리즈 구분(정규/시범/포스트) 필드 포함.",
       "acceptance": "data/schema/*.json 존재, 예시 레코드가 스키마 검증 통과.",
       "verified": true,
@@ -45,7 +72,9 @@
       "title": "DataSource 추상 인터페이스",
       "priority": "P0",
       "status": "done",
-      "depends_on": ["T-01"],
+      "depends_on": [
+        "T-01"
+      ],
       "detail": "scripts/sources/base.mjs 에 어댑터 인터페이스 정의(fetchGames, fetchPlayers, fetchGameDetail). 교체 가능 구조.",
       "acceptance": "인터페이스와 더미 구현으로 파이프라인이 end-to-end 통과.",
       "verified": true,
@@ -58,7 +87,9 @@
       "title": "공식 홈페이지 스코어보드/박스스코어 크롤러",
       "priority": "P0",
       "status": "done",
-      "depends_on": ["T-02"],
+      "depends_on": [
+        "T-02"
+      ],
       "detail": "GetKboGameList / GetScoreBoardScroll / GetBoxScoreScroll POST 호출, 응답 파싱. rate limit·재시도·User-Agent·robots 준수·저작권 주석 포함.",
       "acceptance": "특정 날짜의 경기 결과를 정규화 JSON으로 저장 성공.",
       "verified": true,
@@ -71,7 +102,9 @@
       "title": "기록실 타자/투수 크롤러",
       "priority": "P0",
       "status": "done",
-      "depends_on": ["T-02"],
+      "depends_on": [
+        "T-02"
+      ],
       "detail": "record/player 페이지 ASP.NET POST(__VIEWSTATE 등) 처리로 시즌 타자·투수 기록 수집.",
       "acceptance": "2026 시즌 타자/투수 기록이 normalized JSON으로 생성.",
       "verified": true,
@@ -84,7 +117,9 @@
       "title": "팀 순위 수집",
       "priority": "P1",
       "status": "done",
-      "depends_on": ["T-03"],
+      "depends_on": [
+        "T-03"
+      ],
       "detail": "경기 결과에서 순위 산출 또는 순위 페이지 크롤링. 승/패/무·승률·게임차·최근10경기.",
       "acceptance": "standings/2026.json 생성, 합계 검증 통과.",
       "verified": true,
@@ -97,7 +132,9 @@
       "title": "과거 CSV 아카이브 로더",
       "priority": "P2",
       "status": "in_progress",
-      "depends_on": ["T-02"],
+      "depends_on": [
+        "T-02"
+      ],
       "detail": "choosunsick/KBO_data 등 과거 CSV를 정규화 스키마로 변환하는 어댑터. 과거 시즌 보강용.",
       "acceptance": "과거 1개 시즌 이상을 동일 스키마로 로드.",
       "verified": false,
@@ -110,7 +147,11 @@
       "title": "normalize + build_dataset 파이프라인",
       "priority": "P0",
       "status": "done",
-      "depends_on": ["T-03", "T-04", "T-05"],
+      "depends_on": [
+        "T-03",
+        "T-04",
+        "T-05"
+      ],
       "detail": "원본→정규화→서빙 JSON 빌드 엔트리포인트. raw 캐시, 증분 upsert.",
       "acceptance": "단일 명령으로 data/normalized/* 전량 재생성.",
       "verified": true,
@@ -123,7 +164,9 @@
       "title": "증분 갱신 스크립트",
       "priority": "P1",
       "status": "done",
-      "depends_on": ["T-07"],
+      "depends_on": [
+        "T-07"
+      ],
       "detail": "update_incremental.mjs: 최근 경기만 갱신하고 기존 데이터 upsert.",
       "acceptance": "하루치만 갱신 실행 시 나머지 데이터 보존 확인.",
       "verified": true,
@@ -136,7 +179,9 @@
       "title": "dataClient + 공용 타입",
       "priority": "P0",
       "status": "done",
-      "depends_on": ["T-07"],
+      "depends_on": [
+        "T-07"
+      ],
       "detail": "src/api/dataClient.ts (fetch+메모리 캐시), src/types/kbo.ts 타입 정의.",
       "acceptance": "타입 안전하게 normalized JSON 로드.",
       "verified": true,
@@ -149,7 +194,9 @@
       "title": "디자인 토큰 & 공통 컴포넌트",
       "priority": "P0",
       "status": "done",
-      "depends_on": ["T-00"],
+      "depends_on": [
+        "T-00"
+      ],
       "detail": "styles/tokens.css, 공통 DataTable/Tooltip/TeamBadge/states. 반응형 표(가로스크롤+sticky 열).",
       "acceptance": "320px에서 표가 깨지지 않고 스크롤됨.",
       "verified": true,
@@ -162,7 +209,10 @@
       "title": "경기 일정·결과 화면",
       "priority": "P0",
       "status": "done",
-      "depends_on": ["T-09", "T-10"],
+      "depends_on": [
+        "T-09",
+        "T-10"
+      ],
       "detail": "features/schedule: 날짜 네비게이션, 경기 카드(팀·점수·승패).",
       "acceptance": "날짜 이동으로 해당일 경기 결과 표시.",
       "verified": true,
@@ -175,7 +225,10 @@
       "title": "팀 순위 화면",
       "priority": "P0",
       "status": "done",
-      "depends_on": ["T-09", "T-10"],
+      "depends_on": [
+        "T-09",
+        "T-10"
+      ],
       "detail": "features/standings: 순위표, 승률·게임차, 정렬.",
       "acceptance": "정렬 동작 및 최신 순위 표시.",
       "verified": true,
@@ -188,7 +241,10 @@
       "title": "선수 기록 화면 (타자/투수)",
       "priority": "P0",
       "status": "done",
-      "depends_on": ["T-09", "T-10"],
+      "depends_on": [
+        "T-09",
+        "T-10"
+      ],
       "detail": "features/players: 정렬·검색·팀 필터, 지표 컬럼.",
       "acceptance": "지표별 정렬 및 팀 필터 동작.",
       "verified": true,
@@ -201,7 +257,9 @@
       "title": "박스스코어 상세",
       "priority": "P1",
       "status": "done",
-      "depends_on": ["T-11"],
+      "depends_on": [
+        "T-11"
+      ],
       "detail": "features/game-detail: 이닝별 득점, 선수 성적 상세.",
       "acceptance": "경기 클릭 시 박스스코어 표시.",
       "verified": true,
@@ -214,7 +272,10 @@
       "title": "라우팅 & 홈 요약 대시보드",
       "priority": "P1",
       "status": "done",
-      "depends_on": ["T-11", "T-12"],
+      "depends_on": [
+        "T-11",
+        "T-12"
+      ],
       "detail": "router.tsx, 홈에 최근 경기+순위 요약.",
       "acceptance": "네비게이션과 홈 요약 정상 동작.",
       "verified": true,
@@ -227,7 +288,9 @@
       "title": "지표 용어 사전 & 툴팁",
       "priority": "P0",
       "status": "done",
-      "depends_on": ["T-13"],
+      "depends_on": [
+        "T-13"
+      ],
       "detail": "content/glossary.ts + glossary 컴포넌트. 각 지표에 쉬운 설명·해석 방향.",
       "acceptance": "주요 지표에 물음표 툴팁 노출.",
       "verified": true,
@@ -240,7 +303,9 @@
       "title": "파생 지표 계산 라이브러리",
       "priority": "P1",
       "status": "done",
-      "depends_on": ["T-09"],
+      "depends_on": [
+        "T-09"
+      ],
       "detail": "lib/stats.ts: OPS, WHIP 등 파생 지표. 단위 테스트 포함.",
       "acceptance": "테스트 통과, 화면에서 계산값 사용.",
       "verified": true,
@@ -253,7 +318,10 @@
       "title": "차트 시각화",
       "priority": "P2",
       "status": "done",
-      "depends_on": ["T-13", "T-17"],
+      "depends_on": [
+        "T-13",
+        "T-17"
+      ],
       "detail": "components/charts: 팀 득실 추이, 선수 지표 비교 등.",
       "acceptance": "최소 2종 차트가 데이터로 렌더.",
       "verified": true,
@@ -266,7 +334,11 @@
       "title": "반응형 QA (320px~데스크톱)",
       "priority": "P0",
       "status": "done",
-      "depends_on": ["T-11", "T-12", "T-13"],
+      "depends_on": [
+        "T-11",
+        "T-12",
+        "T-13"
+      ],
       "detail": "브레이크포인트별 점검, 표 카드전환/스크롤, 터치 타겟.",
       "acceptance": "320/768/1024px에서 레이아웃 이상 없음.",
       "verified": true,
@@ -279,7 +351,9 @@
       "title": "접근성 & 로딩/에러 상태",
       "priority": "P1",
       "status": "done",
-      "depends_on": ["T-15"],
+      "depends_on": [
+        "T-15"
+      ],
       "detail": "aria 라벨, 키보드 정렬, 스켈레톤·에러·빈상태 처리.",
       "acceptance": "주요 화면에 로딩/에러/빈 상태 존재.",
       "verified": true,
@@ -292,7 +366,9 @@
       "title": "데이터 갱신 자동화",
       "priority": "P1",
       "status": "done",
-      "depends_on": ["T-08"],
+      "depends_on": [
+        "T-08"
+      ],
       "detail": "GitHub Actions cron으로 update_incremental 실행 후 JSON 커밋/배포.",
       "acceptance": "스케줄 실행이 최신 JSON을 반영.",
       "verified": false,
@@ -305,7 +381,9 @@
       "title": "정적 배포",
       "priority": "P1",
       "status": "done",
-      "depends_on": ["T-15"],
+      "depends_on": [
+        "T-15"
+      ],
       "detail": "빌드 산출물 + normalized JSON 정적 호스팅(예: GitHub Pages/Netlify).",
       "acceptance": "공개 URL에서 앱 동작.",
       "verified": true,
@@ -318,7 +396,9 @@
       "title": "문서화 (README/데이터 출처/라이선스)",
       "priority": "P1",
       "status": "done",
-      "depends_on": ["T-22"],
+      "depends_on": [
+        "T-22"
+      ],
       "detail": "실행법, 데이터 출처·저작권(KBO), 비상업적 용도 고지, 아키텍처 개요.",
       "acceptance": "README로 신규 사용자가 셋업 가능.",
       "verified": true,
@@ -331,7 +411,9 @@
       "title": "확장 포인트 정리",
       "priority": "P2",
       "status": "done",
-      "depends_on": ["T-23"],
+      "depends_on": [
+        "T-23"
+      ],
       "detail": "스플릿(월별/구장별), 세이버메트릭스, 상용 API 어댑터 등 다음 단계 백로그 기록.",
       "acceptance": "백로그 문서/이슈 생성.",
       "verified": true,
@@ -344,12 +426,31 @@
       "title": "뉴스 심리 분석 & 다음 경기 예측",
       "priority": "P2",
       "status": "done",
-      "depends_on": ["T-09", "T-12"],
+      "depends_on": [
+        "T-09",
+        "T-12"
+      ],
       "detail": "as-of 기준 최근 3일 KBO 기사를 팀별 수집(구글뉴스 RSS, 주요 언론 한정), 사전 기반 긍정/부정 스코어링 → 뉴스 순위 + 최근 폼 결합 모멘텀으로 다음 경기 예측(실험적). 참고 언론사 목록 정리.",
       "acceptance": "뉴스심리 화면에 팀별 긍정/부정·요약·대표기사, 뉴스순위, 다음경기 예측, 참고 언론사 노출.",
       "verified": true,
       "notes": "2026-07-23 추가. 소스=구글뉴스 RSS(무키). 감성=교체식 provider(scripts/news/providers.mjs): NVIDIA_API_KEY 있으면 NVIDIA NIM(OpenAI 호환)의 google/gemma-4-31b-it 로 기사별 팀 맥락 호재/악재 판정(여러 팀 기사도 팀별 집계), 없거나 실패 시 사전(키워드) 방식 자동 폴백. 무료 엔드포인트 실측: Qwen 3.5는 404 미서빙, Gemma 4가 한국어·속도·안정성 최적(NVIDIA_MODEL로 교체 가능). 팀 감지 공용화(teams_detect.mjs), 전역 중복제거 후 배치(8건)+1.5s 지연+429재시도로 40 RPM 무료한도 준수. .env(.env.example, gitignore)로 로컬 키, GitHub Actions는 secrets.NVIDIA_API_KEY로 전달. 프론트 method 인지형(disclaimer/근거 표시). 주요 언론 48개사 allowlist. 참고용 실험 지표로 표기.",
       "updatedAt": "2026-07-23"
+    },
+    {
+      "id": "T-26",
+      "milestone": "M4",
+      "title": "백로그 반영: 팀 상세·순위 변동·다크 모드",
+      "priority": "P2",
+      "status": "done",
+      "depends_on": [
+        "T-12",
+        "T-22"
+      ],
+      "detail": "백로그(docs/BACKLOG.md) 중 추가 크롤링 없이 기존 games 데이터만으로 가능한 항목 구현: 팀 상세 페이지(상대 전적/월별·홈원정 스플릿/최근10경기/팀 로스터/뉴스 연동), 순위 변동 그래프, 다크 모드.",
+      "acceptance": "/teams/:teamId 에서 상대전적·스플릿·로스터 표시, 순위 페이지에 순위 변동 차트, OS 다크 모드 반영.",
+      "verified": true,
+      "notes": "2026-07-24. src/lib/teamStats.ts(headToHead/monthlySplits/homeAwaySplits/recentGames/rankHistory) + 단위테스트 7종(총 17 통과). features/team-detail 신규, 순위표 팀명→상세 링크, LineChart invertY로 순위 추이(상위5팀). 다크 모드는 tokens.css prefers-color-scheme 로 토큰만 전환하고 하드코딩 색을 토큰화(header/tooltip/warn/skeleton). 브라우저 실검증: 팀 상세 6섹션·표5·최근10경기, 순위변동 5라인, 다크/라이트 토큰 전환, 320px 가로overflow 없음. 신규 크롤링 없음 → 파이프라인·비용 영향 0. 선수 상세는 크롤링 필요해 보류.",
+      "updatedAt": "2026-07-24"
     }
   ]
 }

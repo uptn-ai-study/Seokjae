@@ -1,0 +1,133 @@
+.back {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch-target);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.hero {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-top: 4px solid var(--color-primary);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--space-4);
+  margin-bottom: var(--space-2);
+}
+
+.heroTop {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.fullName {
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+
+.heroStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-sub);
+}
+
+.heroStats b {
+  color: var(--color-text);
+  font-size: var(--text-base);
+}
+
+.newsLine {
+  margin: var(--space-3) 0 0;
+  padding-top: var(--space-3);
+  border-top: 1px dashed var(--color-border);
+  font-size: var(--text-sm);
+  color: var(--color-text-sub);
+}
+
+.newsLink,
+.boxLink {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.teamLink {
+  display: inline-flex;
+}
+
+.teamLink:hover {
+  text-decoration: underline;
+}
+
+/* 최근 경기 */
+.games {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.gameLine {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--touch-target);
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+  flex-wrap: wrap;
+}
+
+.gameLine:last-child {
+  border-bottom: none;
+}
+
+.gameDate {
+  color: var(--color-text-faint);
+  min-width: 92px;
+}
+
+.gameVs {
+  color: var(--color-text-faint);
+  width: 20px;
+}
+
+.gameScore {
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.gameResult {
+  width: 22px;
+  text-align: center;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.resW {
+  color: var(--color-win);
+}
+
+.resL {
+  color: var(--color-lose);
+}
+
+.resT {
+  color: var(--color-tie);
+}
+
+.note {
+  font-size: var(--text-sm);
+  color: var(--color-text-faint);
+  margin-top: var(--space-3);
+}

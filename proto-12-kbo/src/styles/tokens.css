@@ -22,6 +22,16 @@
   --color-neg: #d3453c;
   --color-neg-bg: #fdeceb;
   --color-neu: #8a93a0;
+  /* 경고/스켈레톤 (다크 모드에서 함께 뒤집히도록 토큰화) */
+  --color-warn-bg: #fff8e6;
+  --color-warn-border: #f0dca0;
+  --color-warn-text: #6b5a1e;
+  --color-skeleton-a: #eef0f3;
+  --color-skeleton-b: #f7f8fa;
+  --color-error-border: #f3c1bd;
+  --color-header-bg: #0f4c81;
+  --color-tooltip-bg: #1c1f24;
+  --color-tooltip-text: #ffffff;
 
   /* 간격 */
   --space-1: 4px;
@@ -45,4 +55,41 @@
   --radius-sm: 6px;
   --shadow: 0 1px 3px rgba(20, 30, 50, 0.08);
   --touch-target: 44px;
+}
+
+/* 다크 모드 — OS 설정을 따른다. 토큰만 뒤집으면 전 화면에 반영된다. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #12151a;
+    --color-surface: #1a1f26;
+    --color-border: #2c333d;
+    --color-text: #e8ebef;
+    --color-text-sub: #a8b1bd;
+    --color-text-faint: #7c8694;
+    --color-primary: #6aa6e0;
+    --color-primary-soft: #1e2c3b;
+    --color-accent: #f2695f;
+    --color-accent-soft: #3a221f;
+    --color-win: #f2695f;
+    --color-lose: #6f9cf0;
+    --color-tie: #7c8694;
+    --color-good: #f2695f;
+    --color-good-bg: #33201d;
+    --color-focus: #6aa6e0;
+    --color-pos: #4cc38a;
+    --color-pos-bg: #172d24;
+    --color-neg: #f2695f;
+    --color-neg-bg: #33201d;
+    --color-neu: #7c8694;
+    --color-warn-bg: #2b2413;
+    --color-warn-border: #4d4222;
+    --color-warn-text: #e0cf95;
+    --color-skeleton-a: #222831;
+    --color-skeleton-b: #2b323c;
+    --color-error-border: #5a2f2b;
+    --color-header-bg: #16202c;
+    --color-tooltip-bg: #2c333d;
+    --color-tooltip-text: #e8ebef;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  }
 }

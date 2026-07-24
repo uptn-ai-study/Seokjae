@@ -45,8 +45,8 @@
   transform: translateX(-50%);
   width: max-content;
   max-width: min(260px, 78vw);
-  background: var(--color-text);
-  color: #fff;
+  background: var(--color-tooltip-bg);
+  color: var(--color-tooltip-text);
   font-size: var(--text-sm);
   font-weight: 400;
   line-height: 1.5;

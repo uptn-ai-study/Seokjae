@@ -20,10 +20,16 @@
 
 ## 화면
 
+- ✅ **팀 상세 페이지** (2026-07-24 완료) — `/teams/:teamId`. 상대 전적표 · 월별 스플릿 ·
+  홈/원정 · 최근 10경기 · 팀 로스터(타자/투수) · 뉴스 심리 연동.
+  `src/lib/teamStats.ts` 에서 **기존 games 데이터만으로** 산출(추가 크롤링 없음).
+- ✅ **순위 변동 그래프** (2026-07-24 완료) — 순위 페이지에 상위 5팀 일자별 순위 추이
+  (`rankHistory()`, LineChart `invertY`).
+- ✅ **다크 모드** (2026-07-24 완료) — `tokens.css` 의 `prefers-color-scheme: dark` 로 토큰만
+  뒤집어 전 화면 반영. 하드코딩 색은 토큰화(`--color-warn-*`, `--color-tooltip-*`,
+  `--color-header-bg`, `--color-skeleton-*`).
 - 선수 상세 페이지 (playerId 기반, 기록실 HitterDetail/PitcherDetail 크롤링)
-- 팀 상세 페이지 (로스터, 팀 스플릿, 상대 전적표)
-- 순위 변동 그래프 (일자별 순위 히스토리 — games 데이터에서 산출 가능)
-- 다크 모드 (tokens.css 에 다크 팔레트 추가)
+  — **신규 크롤링 필요**. 현재 파이프라인 리스크를 고려해 보류 중.
 
 ## 인프라
 

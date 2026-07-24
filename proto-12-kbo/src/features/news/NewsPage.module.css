@@ -5,13 +5,13 @@
 }
 
 .disclaimer {
-  background: #fff8e6;
-  border: 1px solid #f0dca0;
+  background: var(--color-warn-bg);
+  border: 1px solid var(--color-warn-border);
   border-radius: var(--radius);
   padding: var(--space-3) var(--space-4);
   font-size: var(--text-sm);
   line-height: 1.6;
-  color: #6b5a1e;
+  color: var(--color-warn-text);
   margin-bottom: var(--space-4);
 }
 
