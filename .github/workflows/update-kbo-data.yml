@@ -38,7 +38,11 @@ jobs:
 
       - run: npm ci
 
-      - name: 증분 갱신 (최근 3일 경기·박스스코어 + 선수 기록 전체)
+      - name: 증분 갱신 (최근 3일 경기·박스스코어 + 선수 기록 + 뉴스 심리)
+        # NVIDIA_API_KEY 시크릿이 등록돼 있으면 뉴스 감성을 Gemma 4(NVIDIA NIM)로 분석,
+        # 없으면 자동으로 사전(키워드) 방식으로 폴백한다.
+        env:
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
         run: npm run data:update
 
       - name: 스키마 검증

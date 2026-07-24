@@ -223,6 +223,14 @@
   white-space: nowrap;
 }
 
+.reason {
+  flex-basis: 100%;
+  font-size: var(--text-sm);
+  color: var(--color-text-sub);
+  line-height: 1.5;
+  padding-left: 2px;
+}
+
 /* ---------- 다음 경기 예측 ---------- */
 .predGrid {
   display: grid;

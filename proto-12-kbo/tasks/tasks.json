@@ -348,7 +348,7 @@
       "detail": "as-of 기준 최근 3일 KBO 기사를 팀별 수집(구글뉴스 RSS, 주요 언론 한정), 사전 기반 긍정/부정 스코어링 → 뉴스 순위 + 최근 폼 결합 모멘텀으로 다음 경기 예측(실험적). 참고 언론사 목록 정리.",
       "acceptance": "뉴스심리 화면에 팀별 긍정/부정·요약·대표기사, 뉴스순위, 다음경기 예측, 참고 언론사 노출.",
       "verified": true,
-      "notes": "2026-07-23 추가. 사용자 선택: 소스=구글뉴스 RSS(무키), 감성=사전 기반(무료). scripts/news/{outlets,google_news,sentiment,build_news}.mjs + update_news.mjs, 파이프라인 5단계로 통합(일일 갱신 포함). 프론트 features/news + lib/momentum(테스트 포함). 주요 언론 48개사 allowlist(docs/NEWS_SOURCES.md), 블로그/아그리게이터 제외. 한계(문맥·반어·양팀 공유기사) 화면·문서에 명시, 실험적 지표로 표기. 스키마 검증·단위테스트 통과, 브라우저 실검증 완료.",
+      "notes": "2026-07-23 추가. 소스=구글뉴스 RSS(무키). 감성=교체식 provider(scripts/news/providers.mjs): NVIDIA_API_KEY 있으면 NVIDIA NIM(OpenAI 호환)의 google/gemma-4-31b-it 로 기사별 팀 맥락 호재/악재 판정(여러 팀 기사도 팀별 집계), 없거나 실패 시 사전(키워드) 방식 자동 폴백. 무료 엔드포인트 실측: Qwen 3.5는 404 미서빙, Gemma 4가 한국어·속도·안정성 최적(NVIDIA_MODEL로 교체 가능). 팀 감지 공용화(teams_detect.mjs), 전역 중복제거 후 배치(8건)+1.5s 지연+429재시도로 40 RPM 무료한도 준수. .env(.env.example, gitignore)로 로컬 키, GitHub Actions는 secrets.NVIDIA_API_KEY로 전달. 프론트 method 인지형(disclaimer/근거 표시). 주요 언론 48개사 allowlist. 참고용 실험 지표로 표기.",
       "updatedAt": "2026-07-23"
     }
   ]

@@ -41,8 +41,8 @@ function ArticleRow({ a }: { a: NewsArticle }) {
   return (
     <li className={styles.article}>
       {a.multiTeam ? (
-        <span className={`${styles.tag} ${styles.tag_multi}`} title="여러 팀이 함께 언급되어 점수에서 제외(참고)">
-          여러 팀
+        <span className={`${styles.tag} ${styles.tag_multi}`} title="집계에서 제외된 참고 기사">
+          참고
         </span>
       ) : (
         <span className={`${styles.tag} ${styles[`tag_${a.label}`]}`}>{LABEL_TEXT[a.label]}</span>
@@ -54,11 +54,12 @@ function ArticleRow({ a }: { a: NewsArticle }) {
         {a.outlet}
         {a.publishedAt ? ` · ${articleDate(a.publishedAt)}` : ''}
       </span>
+      {a.reason && <span className={styles.reason}>“{a.reason}”</span>}
     </li>
   );
 }
 
-function TeamCard({ team, rank, maxScore }: { team: TeamNews; rank: number; maxScore: number }) {
+function TeamCard({ team, rank, maxScore, isLLM }: { team: TeamNews; rank: number; maxScore: number; isLLM: boolean }) {
   const [open, setOpen] = useState(false);
   const t = teamInfo(team.teamId, team.teamName);
   return (
@@ -78,8 +79,9 @@ function TeamCard({ team, rank, maxScore }: { team: TeamNews; rank: number; maxS
         <span className={styles.negText}>부정 {team.negArticles}</span>
       </div>
       <div className={styles.basis}>
-        단일 팀 기사 {team.singleTeamArticles}건 집계
-        {team.multiTeamArticles > 0 ? ` · 여러 팀 ${team.multiTeamArticles}건 참고(제외)` : ''}
+        {isLLM
+          ? `기사 ${team.countedArticles ?? team.articleCount}건 팀 맥락 분석`
+          : `단일 팀 기사 ${team.singleTeamArticles}건 집계${team.multiTeamArticles > 0 ? ` · 여러 팀 ${team.multiTeamArticles}건 참고(제외)` : ''}`}
       </div>
       <p className={styles.summary}>{team.summary}</p>
       {team.articles.length > 0 && (
@@ -128,24 +130,37 @@ export function NewsPage() {
   if (!news.data) return <Empty>뉴스 데이터가 없습니다.</Empty>;
 
   const d = news.data;
+  const isLLM = (d.method ?? '').startsWith('nvidia');
+  const aiLabel = d.modelLabel ?? 'AI';
   return (
     <div>
       <h1 className="page-title">뉴스 심리 · 다음 경기 예측</h1>
       <p className={styles.window}>
         데이터 기준일 <strong>{fmtDateFull(d.asOf)}</strong> · 최근 {d.window.days}일 (
-        {ymdDash(d.window.from)}~{ymdDash(d.window.to)}) 국내 주요 언론 {d.outletCount}개사 기사 기준
+        {ymdDash(d.window.from)}~{ymdDash(d.window.to)}) 국내 주요 언론 {d.outletCount}개사 기사 ·{' '}
+        분석: <strong>{isLLM ? `AI · ${aiLabel}` : '사전(키워드)'}</strong>
       </p>
       <div className={styles.disclaimer} role="note">
-        ⚠ <strong>단일 팀만 언급된 기사</strong>만 사전(키워드) 감성으로 집계합니다. 여러 팀이 함께
-        나온 경기 기사는 어느 팀의 호재/악재인지 사전만으로 가릴 수 없어 <strong>중립(참고)</strong>으로
-        빼둡니다(승패는 순위·최근 폼이 반영). 문맥·반어는 여전히 못 잡으니 <strong>재미로 보는 실험적
-        지표이며 실제 승부 예측이 아닙니다.</strong>
+        {isLLM ? (
+          <>
+            ⚠ <strong>AI({aiLabel})</strong>가 기사별로 각 구단 관점의 호재/악재를 판정합니다. 여러 팀이
+            함께 나온 경기 기사도 <strong>팀마다 다르게</strong> 집계합니다. 자동 분석이라 오차가 있을 수
+            있는 <strong>참고용 지표이며 실제 승부 예측이 아닙니다.</strong>
+          </>
+        ) : (
+          <>
+            ⚠ <strong>단일 팀만 언급된 기사</strong>만 사전(키워드) 감성으로 집계합니다. 여러 팀이 함께
+            나온 경기 기사는 어느 팀의 호재/악재인지 사전만으로 가릴 수 없어 <strong>중립(참고)</strong>으로
+            빼둡니다(승패는 순위·최근 폼이 반영). 문맥·반어는 여전히 못 잡으니 <strong>재미로 보는 실험적
+            지표이며 실제 승부 예측이 아닙니다.</strong>
+          </>
+        )}
       </div>
 
       <h2 className="section-title">뉴스로 본 순위 (긍정−부정)</h2>
       <div className={styles.grid}>
         {ranked.map((team, i) => (
-          <TeamCard key={team.teamId} team={team} rank={i + 1} maxScore={maxScore} />
+          <TeamCard key={team.teamId} team={team} rank={i + 1} maxScore={maxScore} isLLM={isLLM} />
         ))}
       </div>
 
@@ -202,8 +217,9 @@ export function NewsPage() {
         ))}
       </div>
       <p className={styles.note}>
-        기사 저작권은 각 언론사에 있으며, 제목·출처·링크만 인용합니다. 수집: 구글 뉴스 · 감성:
-        사전(lexicon) 기반. 생성 {new Date(d.generatedAt).toLocaleString('ko-KR')}.
+        기사 저작권은 각 언론사에 있으며, 제목·출처·링크만 인용합니다. 수집: 구글 뉴스 · 감성:{' '}
+        {isLLM ? `AI · ${aiLabel} · NVIDIA NIM` : '사전(lexicon) 기반'}. 생성{' '}
+        {new Date(d.generatedAt).toLocaleString('ko-KR')}.
       </p>
     </div>
   );

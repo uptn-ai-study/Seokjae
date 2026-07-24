@@ -152,14 +152,17 @@ export interface NewsArticle {
   publishedAt: string | null;
   score: number;
   label: 'pos' | 'neg' | 'neu';
-  /** 여러 팀이 함께 언급된 기사(중립·참고, 점수 제외) */
+  /** 미집계(참고) 기사 여부 */
   multiTeam?: boolean;
+  /** AI(Qwen) 판정 근거 한 줄 */
+  reason?: string;
 }
 
 export interface TeamNews {
   teamId: string;
   teamName: string;
   articleCount: number;
+  countedArticles?: number;
   singleTeamArticles: number;
   multiTeamArticles: number;
   posArticles: number;
@@ -189,6 +192,7 @@ export interface NewsFile {
   asOf: string; // YYYYMMDD
   window: { days: number; from: string; to: string };
   method: string;
+  modelLabel?: string | null;
   disclaimer: string;
   outlets: { category: string; names: string[] }[];
   outletCount: number;
