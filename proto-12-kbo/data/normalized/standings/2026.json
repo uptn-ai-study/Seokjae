@@ -1,196 +1,196 @@
 {
  "season": 2026,
- "generatedAt": "2026-07-28T19:34:15.151Z",
- "basedOnGames": 475,
+ "generatedAt": "2026-07-29T19:26:34.607Z",
+ "basedOnGames": 480,
  "standings": [
   {
    "teamId": "SS",
    "teamName": "삼성",
-   "games": 95,
+   "games": 96,
    "wins": 58,
-   "losses": 35,
+   "losses": 36,
    "ties": 2,
-   "winPct": 0.624,
+   "winPct": 0.617,
    "gamesBehind": 0,
    "last10": {
-    "wins": 7,
-    "losses": 3,
+    "wins": 6,
+    "losses": 4,
     "ties": 0
    },
-   "streak": "1승",
-   "runsScored": 545,
-   "runsAllowed": 417,
+   "streak": "1패",
+   "runsScored": 549,
+   "runsAllowed": 426,
    "rank": 1
   },
   {
    "teamId": "KT",
    "teamName": "KT",
-   "games": 92,
-   "wins": 54,
+   "games": 93,
+   "wins": 55,
    "losses": 36,
    "ties": 2,
-   "winPct": 0.6,
-   "gamesBehind": 2.5,
+   "winPct": 0.604,
+   "gamesBehind": 1.5,
    "last10": {
     "wins": 8,
     "losses": 1,
     "ties": 1
    },
-   "streak": "1승",
-   "runsScored": 500,
-   "runsAllowed": 448,
+   "streak": "2승",
+   "runsScored": 510,
+   "runsAllowed": 451,
    "rank": 2
   },
   {
    "teamId": "LG",
    "teamName": "LG",
-   "games": 95,
+   "games": 96,
    "wins": 54,
-   "losses": 41,
+   "losses": 42,
    "ties": 0,
-   "winPct": 0.568,
+   "winPct": 0.563,
    "gamesBehind": 5,
    "last10": {
     "wins": 2,
     "losses": 8,
     "ties": 0
    },
-   "streak": "1승",
-   "runsScored": 480,
-   "runsAllowed": 471,
+   "streak": "1패",
+   "runsScored": 491,
+   "runsAllowed": 489,
    "rank": 3
-  },
-  {
-   "teamId": "OB",
-   "teamName": "두산",
-   "games": 96,
-   "wins": 49,
-   "losses": 44,
-   "ties": 3,
-   "winPct": 0.527,
-   "gamesBehind": 9,
-   "last10": {
-    "wins": 6,
-    "losses": 3,
-    "ties": 1
-   },
-   "streak": "2승",
-   "runsScored": 446,
-   "runsAllowed": 420,
-   "rank": 4
   },
   {
    "teamId": "HT",
    "teamName": "KIA",
-   "games": 97,
-   "wins": 50,
+   "games": 98,
+   "wins": 51,
    "losses": 45,
    "ties": 2,
-   "winPct": 0.526,
-   "gamesBehind": 9,
+   "winPct": 0.531,
+   "gamesBehind": 8,
    "last10": {
     "wins": 5,
     "losses": 5,
     "ties": 0
    },
-   "streak": "2패",
-   "runsScored": 512,
-   "runsAllowed": 470,
-   "rank": 5
+   "streak": "1승",
+   "runsScored": 521,
+   "runsAllowed": 474,
+   "rank": 4
   },
   {
-   "teamId": "HH",
-   "teamName": "한화",
-   "games": 93,
-   "wins": 44,
-   "losses": 46,
-   "ties": 3,
-   "winPct": 0.489,
-   "gamesBehind": 12.5,
-   "last10": {
-    "wins": 4,
-    "losses": 5,
-    "ties": 1
-   },
-   "streak": "1패",
-   "runsScored": 558,
-   "runsAllowed": 493,
-   "rank": 6
-  },
-  {
-   "teamId": "NC",
-   "teamName": "NC",
-   "games": 92,
-   "wins": 42,
-   "losses": 48,
-   "ties": 2,
-   "winPct": 0.467,
-   "gamesBehind": 14.5,
-   "last10": {
-    "wins": 3,
-    "losses": 6,
-    "ties": 1
-   },
-   "streak": "1패",
-   "runsScored": 474,
-   "runsAllowed": 487,
-   "rank": 7
-  },
-  {
-   "teamId": "LT",
-   "teamName": "롯데",
-   "games": 95,
-   "wins": 42,
-   "losses": 51,
-   "ties": 2,
-   "winPct": 0.452,
-   "gamesBehind": 16,
-   "last10": {
-    "wins": 4,
-    "losses": 6,
-    "ties": 0
-   },
-   "streak": "2승",
-   "runsScored": 427,
-   "runsAllowed": 464,
-   "rank": 8
-  },
-  {
-   "teamId": "SK",
-   "teamName": "SSG",
+   "teamId": "OB",
+   "teamName": "두산",
    "games": 97,
-   "wins": 36,
-   "losses": 57,
-   "ties": 4,
-   "winPct": 0.387,
-   "gamesBehind": 22,
-   "last10": {
-    "wins": 4,
-    "losses": 5,
-    "ties": 1
-   },
-   "streak": "1패",
-   "runsScored": 476,
-   "runsAllowed": 592,
-   "rank": 9
-  },
-  {
-   "teamId": "WO",
-   "teamName": "키움",
-   "games": 98,
-   "wins": 35,
-   "losses": 61,
-   "ties": 2,
-   "winPct": 0.365,
-   "gamesBehind": 24.5,
+   "wins": 49,
+   "losses": 45,
+   "ties": 3,
+   "winPct": 0.521,
+   "gamesBehind": 9,
    "last10": {
     "wins": 5,
     "losses": 4,
     "ties": 1
    },
    "streak": "1패",
-   "runsScored": 363,
-   "runsAllowed": 519,
+   "runsScored": 448,
+   "runsAllowed": 426,
+   "rank": 5
+  },
+  {
+   "teamId": "HH",
+   "teamName": "한화",
+   "games": 94,
+   "wins": 45,
+   "losses": 46,
+   "ties": 3,
+   "winPct": 0.495,
+   "gamesBehind": 11.5,
+   "last10": {
+    "wins": 5,
+    "losses": 4,
+    "ties": 1
+   },
+   "streak": "1승",
+   "runsScored": 563,
+   "runsAllowed": 496,
+   "rank": 6
+  },
+  {
+   "teamId": "NC",
+   "teamName": "NC",
+   "games": 93,
+   "wins": 42,
+   "losses": 49,
+   "ties": 2,
+   "winPct": 0.462,
+   "gamesBehind": 14.5,
+   "last10": {
+    "wins": 2,
+    "losses": 7,
+    "ties": 1
+   },
+   "streak": "2패",
+   "runsScored": 477,
+   "runsAllowed": 497,
+   "rank": 7
+  },
+  {
+   "teamId": "LT",
+   "teamName": "롯데",
+   "games": 96,
+   "wins": 42,
+   "losses": 52,
+   "ties": 2,
+   "winPct": 0.447,
+   "gamesBehind": 16,
+   "last10": {
+    "wins": 4,
+    "losses": 6,
+    "ties": 0
+   },
+   "streak": "1패",
+   "runsScored": 430,
+   "runsAllowed": 469,
+   "rank": 8
+  },
+  {
+   "teamId": "SK",
+   "teamName": "SSG",
+   "games": 98,
+   "wins": 37,
+   "losses": 57,
+   "ties": 4,
+   "winPct": 0.394,
+   "gamesBehind": 21,
+   "last10": {
+    "wins": 5,
+    "losses": 4,
+    "ties": 1
+   },
+   "streak": "1승",
+   "runsScored": 482,
+   "runsAllowed": 594,
+   "rank": 9
+  },
+  {
+   "teamId": "WO",
+   "teamName": "키움",
+   "games": 99,
+   "wins": 36,
+   "losses": 61,
+   "ties": 2,
+   "winPct": 0.371,
+   "gamesBehind": 23.5,
+   "last10": {
+    "wins": 5,
+    "losses": 4,
+    "ties": 1
+   },
+   "streak": "1승",
+   "runsScored": 381,
+   "runsAllowed": 530,
    "rank": 10
   }
  ]
