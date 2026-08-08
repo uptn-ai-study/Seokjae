@@ -1,7 +1,7 @@
 {
  "season": 2026,
  "source": "kbo_official",
- "generatedAt": "2026-08-07T19:07:24.918Z",
+ "generatedAt": "2026-08-08T18:47:47.284Z",
  "games": [
   {
    "gameId": "20260312KTLT0",
@@ -15132,6 +15132,131 @@
    "gameId": "20260807WOHH0",
    "date": "20260807",
    "time": "18:30",
+   "season": 2026,
+   "seriesId": 0,
+   "seriesName": "정규경기",
+   "stadium": "대전",
+   "status": "canceled",
+   "cancelReason": "폭염취소",
+   "away": {
+    "teamId": "WO",
+    "teamName": "키움",
+    "score": 0
+   },
+   "home": {
+    "teamId": "HH",
+    "teamName": "한화",
+    "score": 0
+   },
+   "winPitcher": null,
+   "losePitcher": null,
+   "savePitcher": null,
+   "hasBoxscore": false
+  },
+  {
+   "gameId": "20260808HTLG0",
+   "date": "20260808",
+   "time": "18:00",
+   "season": 2026,
+   "seriesId": 0,
+   "seriesName": "정규경기",
+   "stadium": "잠실",
+   "status": "canceled",
+   "cancelReason": "폭염취소",
+   "away": {
+    "teamId": "HT",
+    "teamName": "KIA",
+    "score": 0
+   },
+   "home": {
+    "teamId": "LG",
+    "teamName": "LG",
+    "score": 0
+   },
+   "winPitcher": null,
+   "losePitcher": null,
+   "savePitcher": null,
+   "hasBoxscore": false
+  },
+  {
+   "gameId": "20260808LTKT0",
+   "date": "20260808",
+   "time": "18:00",
+   "season": 2026,
+   "seriesId": 0,
+   "seriesName": "정규경기",
+   "stadium": "수원",
+   "status": "canceled",
+   "cancelReason": "폭염취소",
+   "away": {
+    "teamId": "LT",
+    "teamName": "롯데",
+    "score": 0
+   },
+   "home": {
+    "teamId": "KT",
+    "teamName": "KT",
+    "score": 0
+   },
+   "winPitcher": null,
+   "losePitcher": null,
+   "savePitcher": null,
+   "hasBoxscore": false
+  },
+  {
+   "gameId": "20260808OBSS0",
+   "date": "20260808",
+   "time": "18:00",
+   "season": 2026,
+   "seriesId": 0,
+   "seriesName": "정규경기",
+   "stadium": "대구",
+   "status": "canceled",
+   "cancelReason": "폭염취소",
+   "away": {
+    "teamId": "OB",
+    "teamName": "두산",
+    "score": 0
+   },
+   "home": {
+    "teamId": "SS",
+    "teamName": "삼성",
+    "score": 0
+   },
+   "winPitcher": null,
+   "losePitcher": null,
+   "savePitcher": null,
+   "hasBoxscore": false
+  },
+  {
+   "gameId": "20260808SKNC0",
+   "date": "20260808",
+   "time": "18:00",
+   "season": 2026,
+   "seriesId": 0,
+   "seriesName": "정규경기",
+   "stadium": "창원",
+   "status": "canceled",
+   "cancelReason": "폭염취소",
+   "away": {
+    "teamId": "SK",
+    "teamName": "SSG",
+    "score": 0
+   },
+   "home": {
+    "teamId": "NC",
+    "teamName": "NC",
+    "score": 0
+   },
+   "winPitcher": null,
+   "losePitcher": null,
+   "savePitcher": null,
+   "hasBoxscore": false
+  },
+  {
+   "gameId": "20260808WOHH0",
+   "date": "20260808",
+   "time": "18:00",
    "season": 2026,
    "seriesId": 0,
    "seriesName": "정규경기",
