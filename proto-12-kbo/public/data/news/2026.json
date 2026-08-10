@@ -1,15 +1,15 @@
 {
  "season": 2026,
- "generatedAt": "2026-08-09T19:04:27.807Z",
+ "generatedAt": "2026-08-10T19:12:36.881Z",
  "asOf": "20260804",
  "window": {
   "days": 3,
   "from": "20260802",
   "to": "20260804"
  },
- "method": "nvidia",
- "modelLabel": "Gemma 4",
- "disclaimer": "AI(Gemma 4)가 기사별로 각 구단 관점의 호재/악재를 판정합니다. 여러 팀이 함께 나온 경기 기사도 팀마다 다르게 집계합니다. 자동 분석이므로 오차가 있을 수 있는 참고용 지표이며 실제 승부 예측이 아닙니다.",
+ "method": "lexicon-singleteam",
+ "modelLabel": null,
+ "disclaimer": "단일 팀만 언급된 기사만 사전(키워드) 감성으로 집계하고, 여러 팀이 함께 언급된 기사는 어느 팀의 호재/악재인지 판별할 수 없어 중립(참고)으로 제외합니다. 문맥·반어는 반영하지 못하는 실험적 지표이며 실제 경기 결과 예측이 아닙니다.",
  "outlets": [
   {
    "category": "통신사",
@@ -95,58 +95,28 @@
   {
    "teamId": "LG",
    "teamName": "LG",
-   "articleCount": 11,
-   "countedArticles": 10,
-   "singleTeamArticles": 7,
+   "articleCount": 8,
+   "countedArticles": 4,
+   "singleTeamArticles": 4,
    "multiTeamArticles": 4,
-   "posArticles": 2,
-   "negArticles": 4,
+   "posArticles": 0,
+   "negArticles": 0,
    "neuArticles": 4,
-   "positiveScore": 3,
-   "negativeScore": 6,
-   "netScore": -3,
+   "positiveScore": 0,
+   "negativeScore": 0,
+   "netScore": 0,
    "topPositiveKeywords": [],
    "topNegativeKeywords": [],
-   "summary": "주요 언론 기사 11건 중 10건 팀 맥락 분석 (긍정 2 · 부정 4).",
+   "summary": "단일 팀 기사 4건 기준 (긍정 0 · 부정 0). 여러 팀 언급 4건은 중립(참고).",
    "articles": [
     {
-     "title": "'김원중 세이브' 롯데, 키움 3-2 격파…SSG는 LG 3연패 몰아넣고 진땀승(종합)",
+     "title": "LG 웰스, 3회 도중 타구에 맞아 교체…\"오른 종아리 타박상\"",
      "outlet": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1QR0k3cm1IMXV4akZqTEIwaDh4MmFNS1ZzSU0tRTZ5TV96QU1sd1pscUdqNnY3dEVjUWtmTVdJTnBZZlBYcWk5Sk5Vb1poVFhMcVRydTZkWlJDZklvc1NkZtIBeEFVX3lxTE50aExMVHVjLTVablVidUgta3dDeHFzTUNON0QtalVreWJvVjBxWWN0cE9icHNqcGNpOUV1U29uMVg0VW9iY09SdmlNMDgwRVdNd2ZNMHE2TjVTcjJTZzJ2NEYwSkYyelNYWW1RX29SZUJ6Q1d4TzVkNA?oc=5",
-     "publishedAt": "2026-08-04T13:38:57.000Z",
-     "label": "neg",
-     "score": -2,
-     "reason": "SSG전 패배 및 3연패 기록",
-     "multiTeam": false
-    },
-    {
-     "title": "'와' 김재환 스리런+4타점 대폭발, 19세 신인 3G 연속 QS 미쳤다…웰스 강습타구 맞고 아웃, LG 3연패 빠지다 [MD인천]",
-     "outlet": "이데일리",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9HbXZBbU1LUHpaVFJqOWY2NlVuNjNzaG92UEU3alBBLXJHYjFwckk2M3RCM3ktSjNJQk9Ndk5GbUs5NHFHanRlMEdEODltbElHenJSZlFjQWd1S3JlcGEwSw?oc=5",
-     "publishedAt": "2026-08-04T13:21:00.000Z",
-     "label": "neg",
-     "score": -2,
-     "reason": "경기 패배 및 3연패 기록",
-     "multiTeam": false
-    },
-    {
-     "title": "MLB 112승 투수의 완벽 데뷔…LG 카라스코, 선발진 가뭄 속 '단비'",
-     "outlet": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5KUkdjOGxKWUkxeTR0M3RvVE0teWZfQ2tRRHVMWERGSVZnWThxNnYwa2d3c3Y2M25xbERKbzlhdkJJVFp1SGlyd1ZkVGFUVmZGZVk3TUZsdTB0RV9odkVKMNIBeEFVX3lxTE81TXRMMExRYkZfT0lBWjJFbFJQdWxWQkZwYWJHbjhaOENUcnk1YjMwM0o3TU1hbVF1Z1EwdWFqSUdOcUlIYVA1ckFyZlJoZjZ4U3FIRk1mSVpEa2JPTS1BbGVMclZKMkwyNWRkRDZlTkJJTGdZV0FqZQ?oc=5",
-     "publishedAt": "2026-08-03T05:48:31.000Z",
-     "label": "pos",
-     "score": 2,
-     "reason": "신규 투수 카라스코의 성공적인 데뷔와 선발진 보강",
-     "multiTeam": false
-    },
-    {
-     "title": "LG 아시아 쿼터 웰스, 경기 도중 종아리에 타구 맞고 조기강판 불운",
-     "outlet": "일간스포츠",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9SbGpFeWlCTHRkOFowQjJBYWpqVWdWVDBoblI0czIzMlMzZzVnZ2JBZUpRNklKdDVEU2ZDQkpDQnBjUWI5eS03Qk0tbHV2MXlqSk5ieVZhRU84RDQ?oc=5",
-     "publishedAt": "2026-08-04T11:16:00.000Z",
-     "label": "neg",
-     "score": -1,
-     "reason": "투수 웰스의 부상 및 타구 맞음으로 인한 조기 강판",
+     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE14T0szQXZhVU5XT0ttd2JpUEpDVlJjek05YWxVeFlKb1RhV09vam81S25CU082bzl5emR0Z1BPekwydXVyQlN2ejFQcFczNjdCNWtJYlpzVVB4bk5vb3VSR2pWWUdsaWttUDdwaHFNMnp5dmlnc25zctIBeEFVX3lxTE14T0szQXZhVU5XT0ttd2JpUEpDVlJjek05YWxVeFlKb1RhV09vam81S25CU082bzl5emR0Z1BPekwydXVyQlN2ejFQcFczNjdCNWtJYlpzVVB4bk5vb3VSR2pWWUdsaWttUDdwaHFNMnp5dmlnc25zcg?oc=5",
+     "publishedAt": "2026-08-04T10:43:37.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
      "multiTeam": false
     },
     {
@@ -154,850 +124,29 @@
      "outlet": "뉴스1",
      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9SUTkwZWtNaHFNUDg5RDF2QXFFa2hEZE91ZFotYi1BTVJKdzQ2TUh5RUg5UVJ2NjR4cEZQOEozWVU1bjk0N0RXU1Vhd0xWaUxTNnZjdnJSTQ?oc=5",
      "publishedAt": "2026-08-04T01:23:19.000Z",
-     "label": "neg",
-     "score": -1,
-     "reason": "구단 직원의 가족상으로 인한 비보",
-     "multiTeam": false
-    },
-    {
-     "title": "염경엽 LG 감독 \"카라스코, 모든 구종 커맨드 완벽한 게 장점\"",
-     "outlet": "연합뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9teDhYTWo1VXhQUjdmY0xFRm9WYjdTS0dnUklmWVBIdlJoaG82VU81X0hNVC1SdzlnSUFBS3hhNHFoLTI2MGM2VV9lMndoUExYZHM3dDV0QnFUR2_SAWBBVV95cUxNRlBmRkxuN19Ld2JaUjdNOTMyUDZGbVFqeDNrX0M1NFZ4ZUFTTlQ3bXNGUWNjN2MzU2pXUC1lUkYteFIzd3ljNHpsRW1fb1VkOFY4Z1p2MnY1SzV6UHRaU3Y?oc=5",
-     "publishedAt": "2026-08-02T08:27:26.000Z",
-     "label": "pos",
-     "score": 1,
-     "reason": "투수 카라스코의 구위와 커맨드에 대한 감독의 긍정적 평가",
-     "multiTeam": false
-    },
-    {
-     "title": "프로야구 경기서 온열질환 의심 25건 발생…2명은 쓰러져 이송(종합)",
-     "outlet": "연합뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9nZVRmZGhOX0FEX0UzczQwR2VTODZ2NC1HaFJxUV9DenZFMENjdU5MenEtVzdJNDFoQWQtX0ExVHNfRkliUGFMS041S1hCeGQ4X2M3MHRsVTRkV2fSAWBBVV95cUxPejBvcktRTmtOQURkOHY1Y0RfM1U1aEJTc1JHQmhiWWRRVUxDUExGcHdVQjE2TWRRQ00zVEdtWUE2TGRCRFJVZHRWOVFfNDd4WWJsYzhCN0xtV1hnZTNkay0?oc=5",
-     "publishedAt": "2026-08-04T14:17:39.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "폭염으로 인한 관중 온열질환 발생으로 구단 성적과 직접적 연관 없음",
-     "multiTeam": false
-    },
-    {
-     "title": "'모두가 걱정' 역대급 폭염에 야구보다가 응급 환자 발생, 인천 경기 9분간 중단되다…\"의식이 없었다, 심폐소생술 진행되는 위급한 상황\" [MD인천]",
-     "outlet": "이데일리",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9COWtDT1ZuR2RGRC1ieFM1SmNRdV9QQ1pQbHlUY1VzWTNLbW10Z0UxamFLVGtqa0hpM1FsWHFWbmo1SXNLM2hEZnQ0Wll5Q1o3aHpZNUU5RFpySlpEQXlOSw?oc=5",
-     "publishedAt": "2026-08-04T13:41:00.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "경기 중 응급 환자 발생으로 인한 경기 일시 중단은 팀 성적과 무관함",
-     "multiTeam": false
-    }
-   ]
-  },
-  {
-   "teamId": "OB",
-   "teamName": "두산",
-   "articleCount": 11,
-   "countedArticles": 11,
-   "singleTeamArticles": 8,
-   "multiTeamArticles": 3,
-   "posArticles": 4,
-   "negArticles": 2,
-   "neuArticles": 5,
-   "positiveScore": 5,
-   "negativeScore": 2,
-   "netScore": 3,
-   "topPositiveKeywords": [],
-   "topNegativeKeywords": [],
-   "summary": "주요 언론 기사 11건 중 11건 팀 맥락 분석 (긍정 4 · 부정 2).",
-   "articles": [
-    {
-     "title": "'2타점 결승타' 두산 박찬호 \"야구는 나쁜 놈…정말 쉽지 않다\"",
-     "outlet": "연합뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5vYndPLXYybVFKbmNHTXl2aTY3MTBqZjlORjJtRmdXd243OWE5U195WnQ1M0lzcW44MlBwazd4RzgyZUdDWlh2WEZ2LVdqYzlEazlyOFgxOWg5MzDSAWBBVV95cUxOaWgtckVzUUFnX3ZfUnNPZE5zdjJOeFhRVGNkOGthbURQVGdQN0pLQzdRYXZ6Qnlkd0JkSHN6c1lNc242ZlA2TnVEUFNyeDE1eXdVTk5wQUx6aGU5QjZvRzE?oc=5",
-     "publishedAt": "2026-08-02T13:17:29.000Z",
-     "label": "pos",
-     "score": 2,
-     "reason": "박찬호 선수의 결승타 활약 및 경기 승리",
-     "multiTeam": false
-    },
-    {
-     "title": "[부고] 최지강(프로야구 두산 베어스 선수)씨 모친상",
-     "outlet": "연합뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE52ekpFRW9RWHVlWVZkU1pQblZ2dm1MUFVGOEtZbmdzNmtEdFo3Y3hTMDNJdUZ6TFFkbE1ON3R1Z0p4dVQ3VUNRUzJPTzY3c0ZRenZSeVE5WmxSX03SAWBBVV95cUxPdVgtSks2RFhNMnJJMEE5SWpEa3NFRWxyTmNDLS1jZHhOWEplbDhReXJrRGVwUnJZOHJmNHhNOHlGUGFaQlRybnVQaF9fNGQyWnRIWWNkcjFjcXBLaUw4aV8?oc=5",
-     "publishedAt": "2026-08-04T09:12:59.000Z",
-     "label": "neg",
-     "score": -1,
-     "reason": "소속 선수 모친상이라는 비보",
-     "multiTeam": false
-    },
-    {
-     "title": "[부고] 최지강 씨(프로야구 두산 베어스 선수) 모친상",
-     "outlet": "뉴스1",
-     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5aRXcxSUhiYm4tU1JXZ2VmTGRFd2MtREJFTkJ2QnNZM0VtLUM2WnlFcWdPMmhiSzZzQ3I3SVlKMXh4VTdSVUVmcEtkOGEyc1gyZ2F0Wnl2aw?oc=5",
-     "publishedAt": "2026-08-04T09:07:15.000Z",
-     "label": "neg",
-     "score": -1,
-     "reason": "소속 선수 모친상이라는 비보",
-     "multiTeam": false
-    },
-    {
-     "title": "스무살 류현진·김광현 소환하는 최민석…“아시안게임은 빈이 형 믿고 가야죠”",
-     "outlet": "서울신문",
-     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1VdjMyTTI5YjNLYllrc0VPWmxjTU9Cbjk4YzFKR2FzVTZYYkE0LTd1ZkpCNG9jclVYWU1zb3RiMnlndG10eFBXVTZ1Z3lsUHlKUHVQdE1rZUVYbUltVWxKWm1yUDhJQkdUcXQ4YjNNcWdEeC0tYkhPUg?oc=5",
-     "publishedAt": "2026-08-03T15:03:32.000Z",
-     "label": "pos",
-     "score": 1,
-     "reason": "신예 최민석 선수의 잠재력 및 기대감 표출",
-     "multiTeam": false
-    },
-    {
-     "title": "8년... 두산 김대한, 마침내 터지나 [프로야구]",
-     "outlet": "스포츠Q",
-     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE85WEhSd1FOM0ZoaDJiRFNlbDFrbzZacVQ4ZjMwZXk3cnNBZmpUbzI2TS1JM2ZOd3ZrZnhfYjlReFZyYVR1VnJOaHRkRUp4T3hEZnd4WkRvVWIwaTJxU0ROekQ2X2V1WDYwY2RCeA?oc=5",
-     "publishedAt": "2026-08-03T03:43:01.000Z",
-     "label": "pos",
-     "score": 1,
-     "reason": "김대한 선수의 활약 기대감 상승",
-     "multiTeam": false
-    },
-    {
-     "title": "KT, 파죽의 6연승·선두 질주…두산 3연승·롯데 3연패 탈출(종합)",
-     "outlet": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE14NU02cDRPZ0swMmE3dUI0VXhHMGxGMmJnOXJVZHZwc09obXI5dmszQldfdmpQdDZ6WDltU01aS1g0ODhmTTNyeVB5MDltakVrTXVIdTlMUFF6dDBsX1VzTdIBeEFVX3lxTE5vSUJGanBfM0haUGxYUUlUNzlaUldMLXllOC1aVC1UeklCc3NPU0tuWVAzaU9yNGZpWGN3Y0RxdjdNTjQzMldPWFcyclVEcnRfWUJ1ODBlM0N2bXpCZkNlS2paUUFVdzBzb29sYW1nSTlubWpuRk41Uw?oc=5",
-     "publishedAt": "2026-08-02T12:52:29.000Z",
-     "label": "pos",
-     "score": 1,
-     "reason": "3연승 기록 중",
-     "multiTeam": false
-    },
-    {
-     "title": "잠실야구장 잔디 50도 넘어 측정이 안 돼…서울·광주 경기 취소",
-     "outlet": "한겨레",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBuVXVyUnF6OHlnZGV0X3Q4OXJRUWQ0Ni1SWF95ZmtSXzJVRjVWMHBGYXdWMEJVMTRFZDRsajNGT3JfSUlJOW5FSVpvSDNoNEYwRDJJNlBEYXdXS1pYSlh2VjFPZHQzT2VDV0d2MFJhcE5YZw?oc=5",
-     "publishedAt": "2026-08-04T15:49:00.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "폭염으로 인한 경기 취소는 중립적 사안",
-     "multiTeam": false
-    },
-    {
-     "title": "그라운드 온도 '50도' 육박…프로야구 줄줄이 취소 사태",
-     "outlet": "한국경제",
-     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE52aVlmN2h6eXBpTEwzdlRxTXNkY3U4cnl0MFBSVndnVk85bWdPeG96OG1yNGNtb25RV1ZyNjBBY1hjbV9wTW9BaDVuYjJWV0xad1ExbWNCVjdSQQ?oc=5",
-     "publishedAt": "2026-08-04T07:46:21.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "폭염으로 인한 경기 취소 사태는 중립적 사안",
-     "multiTeam": false
-    }
-   ]
-  },
-  {
-   "teamId": "SK",
-   "teamName": "SSG",
-   "articleCount": 12,
-   "countedArticles": 11,
-   "singleTeamArticles": 6,
-   "multiTeamArticles": 6,
-   "posArticles": 2,
-   "negArticles": 7,
-   "neuArticles": 2,
-   "positiveScore": 4,
-   "negativeScore": 9,
-   "netScore": -5,
-   "topPositiveKeywords": [],
-   "topNegativeKeywords": [],
-   "summary": "주요 언론 기사 12건 중 11건 팀 맥락 분석 (긍정 2 · 부정 7).",
-   "articles": [
-    {
-     "title": "'김원중 세이브' 롯데, 키움 3-2 격파…SSG는 LG 3연패 몰아넣고 진땀승(종합)",
-     "outlet": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1QR0k3cm1IMXV4akZqTEIwaDh4MmFNS1ZzSU0tRTZ5TV96QU1sd1pscUdqNnY3dEVjUWtmTVdJTnBZZlBYcWk5Sk5Vb1poVFhMcVRydTZkWlJDZklvc1NkZtIBeEFVX3lxTE50aExMVHVjLTVablVidUgta3dDeHFzTUNON0QtalVreWJvVjBxWWN0cE9icHNqcGNpOUV1U29uMVg0VW9iY09SdmlNMDgwRVdNd2ZNMHE2TjVTcjJTZzJ2NEYwSkYyelNYWW1RX29SZUJ6Q1d4TzVkNA?oc=5",
-     "publishedAt": "2026-08-04T13:38:57.000Z",
-     "label": "pos",
-     "score": 2,
-     "reason": "LG전 승리",
-     "multiTeam": false
-    },
-    {
-     "title": "'와' 김재환 스리런+4타점 대폭발, 19세 신인 3G 연속 QS 미쳤다…웰스 강습타구 맞고 아웃, LG 3연패 빠지다 [MD인천]",
-     "outlet": "이데일리",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9HbXZBbU1LUHpaVFJqOWY2NlVuNjNzaG92UEU3alBBLXJHYjFwckk2M3RCM3ktSjNJQk9Ndk5GbUs5NHFHanRlMEdEODltbElHenJSZlFjQWd1S3JlcGEwSw?oc=5",
-     "publishedAt": "2026-08-04T13:21:00.000Z",
-     "label": "pos",
-     "score": 2,
-     "reason": "김재환의 활약과 신인 투수의 연속 QS로 경기 승리",
-     "multiTeam": false
-    },
-    {
-     "title": "'탈꼴찌 시동' 키움, 9위 SSG 5-3 제압…1.5경기차",
-     "outlet": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9CejdKQndneVNGZTZ5VFRFYVc3MXhlcmpGUGR5UVY1UTRuWUl6aTNBMmNpM0xVVnRJbWgxWWh5NzQ5RnZ5RC1OZUJkR3MtYWVBNVdKQTU5S0x3X1FlX2hWMNIBeEFVX3lxTE4wU0VMc1k4UldLOVI1OTNwdkRNZFlwWUVReVJYX0xfUGZWM0p3TEpsRkpqbEtIeXFFeHJ4cTBFbE1xbzB4SWtOZ0RNNFM1SGw4Zi1INEtUOUUzWFBIdUpJVUlhNjFYeWVXOVduVlZDRjM0d1RWUktoSw?oc=5",
-     "publishedAt": "2026-08-02T08:41:22.000Z",
-     "label": "neg",
-     "score": -2,
-     "reason": "키움에 패배하며 하위권 정체",
-     "multiTeam": false
-    },
-    {
-     "title": "'데이비슨·김웅빈 홈런포' 키움, SSG 5-3 제압…꼴찌 탈출 희망",
-     "outlet": "뉴스1",
-     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5fWVQwSTNiVjd2bHpEMjhDYnRCZEEySTk5UlZIdU82ckFCaW1mMUtLRkxzMW4tUVhuczdZLWdtanJ1WFhMR2RTZW5LcmJpMWpfSUpxTUxJZw?oc=5",
-     "publishedAt": "2026-08-02T08:39:34.000Z",
-     "label": "neg",
-     "score": -2,
-     "reason": "경기 패배",
-     "multiTeam": false
-    },
-    {
-     "title": "'폭염'에도 야구경기 강행, 20대男 관중 '심정지'… KBO 안전 매뉴얼 도마",
-     "outlet": "파이낸셜뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBxMUx5VTVVanNnTlRkZDNtRnVjbHUxMnU0ak9jWS1JX0MtUTZoTmhrYmh1d2JZMlJpdDFrNjJvc3FWUk41cHR4VzZNRHV1cGVYa2RjWXpqRGE1Zw?oc=5",
-     "publishedAt": "2026-08-04T22:35:07.000Z",
-     "label": "neg",
-     "score": -1,
-     "reason": "홈 경기 중 관중 심정지 사고 발생",
-     "multiTeam": false
-    },
-    {
-     "title": "'충격 관중 심정지 사태' KBO, 폭염 취소 매뉴얼 전면 재수정 필요하다...중대 경보만 취소, 심각한 허점 노출",
-     "outlet": "조선일보",
-     "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPbkpHLWpFWmZDVGtJMlRKbThFemdreWxiX1htbS1WVG9KNklpWlFqWlI4RENhTEVzN0VWdkVYaXZwdnFHNHBWbGttRUtvcDkxb2h4ZU5nTDVhODZBck1yTmRsWkVzaTZGWmlBb0pCUlJlRW4tejNQdW5QOWdLS0VxRmxfcw?oc=5",
-     "publishedAt": "2026-08-04T17:17:00.000Z",
-     "label": "neg",
-     "score": -1,
-     "reason": "홈 경기 중 관중 심정지 사고 발생으로 인한 부정적 이슈",
-     "multiTeam": false
-    },
-    {
-     "title": "인천서 프로야구 경기 관중 쓰러져…\"폭염에 어지럼증\"",
-     "outlet": "SBS",
-     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5vdWlFVkpKaE5jZUNva056ZlctaTlYbXA1b2hGMlJWdjAwZXVvTXJHSzhySktheFVpS0lHRUx4RDAyZjlpQ0NtT01yX3ktdWZaRHk3NXBhNXo4QnRmV1MyT3FFeDZvYi10Z0E?oc=5",
-     "publishedAt": "2026-08-04T13:38:00.000Z",
-     "label": "neg",
-     "score": -1,
-     "reason": "홈 경기 중 관중 실신 사고 발생",
-     "multiTeam": false
-    },
-    {
-     "title": "폭염 속 프로야구, 인천 경기 중 관중 한 명 쓰러져 병원 이송",
-     "outlet": "일간스포츠",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1LdHZ3SlBSVEY3aTJIWXlaMVQ2dU1sSkFYNDVIZ3FlOE9LZldleDJUTnlvSVp3ZDE2dFNYZVNxbkk0bjlqdm1nNXRpMkUtUmtqd0tHQ29BTldlVzA?oc=5",
-     "publishedAt": "2026-08-04T13:30:00.000Z",
-     "label": "neg",
-     "score": -1,
-     "reason": "홈 경기 중 관중 안전 사고 발생",
-     "multiTeam": false
-    }
-   ]
-  },
-  {
-   "teamId": "WO",
-   "teamName": "키움",
-   "articleCount": 15,
-   "countedArticles": 15,
-   "singleTeamArticles": 10,
-   "multiTeamArticles": 5,
-   "posArticles": 8,
-   "negArticles": 2,
-   "neuArticles": 5,
-   "positiveScore": 11,
-   "negativeScore": 3,
-   "netScore": 8,
-   "topPositiveKeywords": [],
-   "topNegativeKeywords": [],
-   "summary": "주요 언론 기사 15건 중 15건 팀 맥락 분석 (긍정 8 · 부정 2).",
-   "articles": [
-    {
-     "title": "'김원중 세이브' 롯데, 키움 3-2 격파…SSG는 LG 3연패 몰아넣고 진땀승(종합)",
-     "outlet": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1QR0k3cm1IMXV4akZqTEIwaDh4MmFNS1ZzSU0tRTZ5TV96QU1sd1pscUdqNnY3dEVjUWtmTVdJTnBZZlBYcWk5Sk5Vb1poVFhMcVRydTZkWlJDZklvc1NkZtIBeEFVX3lxTE50aExMVHVjLTVablVidUgta3dDeHFzTUNON0QtalVreWJvVjBxWWN0cE9icHNqcGNpOUV1U29uMVg0VW9iY09SdmlNMDgwRVdNd2ZNMHE2TjVTcjJTZzJ2NEYwSkYyelNYWW1RX29SZUJ6Q1d4TzVkNA?oc=5",
-     "publishedAt": "2026-08-04T13:38:57.000Z",
-     "label": "neg",
-     "score": -2,
-     "reason": "롯데전 패배",
-     "multiTeam": false
-    },
-    {
-     "title": "[IS 포커스] 무려 32.8%…양의지도, 강민호도 아닌 김건희입니다",
-     "outlet": "일간스포츠",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5UeFZ5eWJSelNFWEM2aUJhR1dCMnlCblNqaG1ISG52SE1JaS00Qld2WGZHbVBhMGlkWmxyWmVGaDdHeFl4bXVhb3lsdzJSZlJmc081VEx2dHFMU2M?oc=5",
-     "publishedAt": "2026-08-03T15:01:00.000Z",
-     "label": "pos",
-     "score": 2,
-     "reason": "김건희 선수의 높은 성적 및 활약",
-     "multiTeam": false
-    },
-    {
-     "title": "'탈꼴찌 시동' 키움, 9위 SSG 5-3 제압…1.5경기차",
-     "outlet": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9CejdKQndneVNGZTZ5VFRFYVc3MXhlcmpGUGR5UVY1UTRuWUl6aTNBMmNpM0xVVnRJbWgxWWh5NzQ5RnZ5RC1OZUJkR3MtYWVBNVdKQTU5S0x3X1FlX2hWMNIBeEFVX3lxTE4wU0VMc1k4UldLOVI1OTNwdkRNZFlwWUVReVJYX0xfUGZWM0p3TEpsRkpqbEtIeXFFeHJ4cTBFbE1xbzB4SWtOZ0RNNFM1SGw4Zi1INEtUOUUzWFBIdUpJVUlhNjFYeWVXOVduVlZDRjM0d1RWUktoSw?oc=5",
-     "publishedAt": "2026-08-02T08:41:22.000Z",
-     "label": "pos",
-     "score": 2,
-     "reason": "SSG 상대로 승리하며 순위 상승 발판 마련",
-     "multiTeam": false
-    },
-    {
-     "title": "'데이비슨·김웅빈 홈런포' 키움, SSG 5-3 제압…꼴찌 탈출 희망",
-     "outlet": "뉴스1",
-     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5fWVQwSTNiVjd2bHpEMjhDYnRCZEEySTk5UlZIdU82ckFCaW1mMUtLRkxzMW4tUVhuczdZLWdtanJ1WFhMR2RTZW5LcmJpMWpfSUpxTUxJZw?oc=5",
-     "publishedAt": "2026-08-02T08:39:34.000Z",
-     "label": "pos",
-     "score": 2,
-     "reason": "경기 승리 및 주요 타자들의 홈런 활약",
-     "multiTeam": false
-    },
-    {
-     "title": "맷 데이먼부터 젠슨 황까지…KBO리그, 내한 스타들의 필수 코스 되나",
-     "outlet": "스포츠동아",
-     "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQVnNTS0pZTXFkeFlXcDJjWE5zVTBPek9pbExTQ1pNb1RxbXhEQi1URE95QWk3UFZmQjFydndoRy13R05Oa3lMWGhuaGwzV0o0NWQtNEpJbTFFRTl3NTAxR011dTJhREZmdUZhSlVzZE1qWGpIRGxmOFlnNlZmTC1iZ2VzY2dIcThnMHBVamZzNUZSLVBWcmpSWkhBSVhtT1NWaUphM1JkTEFMRGdrb3dqdGZmazltRXNTZHBCZ1dRRHlnS2VHYXNuMUFSZTk1Tzg?oc=5",
-     "publishedAt": "2026-08-03T22:30:00.000Z",
-     "label": "pos",
-     "score": 1,
-     "reason": "내한 스타들의 방문지로 주목받으며 구단 이미지 제고",
-     "multiTeam": false
-    },
-    {
-     "title": "지독한 폭염, 한미일 프로야구 차질",
-     "outlet": "스포츠Q",
-     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1jYTFKTThaYUdtSzNmX1JhMkw2TVFyQnJZTUhBYndXVk1lMERweEpPQXEzV3FWdTlQWWNxWVZFV1IzQTZVbzBLaHFPWlRhU1JBY1lPSWZOMkYwVThPVmd2alV6WlZ3RkNFNS1tRw?oc=5",
-     "publishedAt": "2026-08-03T03:49:56.000Z",
-     "label": "neg",
-     "score": -1,
-     "reason": "폭염으로 인한 경기 운영 차질 우려",
-     "multiTeam": false
-    },
-    {
-     "title": "'6연승' KT의 선두 질주는 어디까지…키움은 후반기 복병[주간 야구전망대]",
-     "outlet": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE81VjFMczN0cDVJYXNRMXBVSVd6Z0tNVmgyTElNZnM3QUx1Z2k2d3VhTGJ4bzJ6Z1NXemhIT01rb2dGMF8zcUFVRUZiRmdpNGJVaTJhbHQ5TDBVU281d3hlWdIBeEFVX3lxTE5sd1YwQW05MzdwdmF1aFdVNjA3bWFQZlRwZk5vdWJlTWpwTHRZOUlVelRhVVgybWdWQzJLYk52WmFmaFUwZk5jVFNxY3N1SjJtdjFyWEQ1UTAxdmpEWi1MR2tycXVGY1VnYUx6UV9rbDJUdmRYRkswXw?oc=5",
-     "publishedAt": "2026-08-03T02:26:41.000Z",
-     "label": "pos",
-     "score": 1,
-     "reason": "후반기 복병으로 기대되는 긍정적 전망",
-     "multiTeam": false
-    },
-    {
-     "title": "요기요, 키움히어로즈 경기서 파트너데이 진행",
-     "outlet": "서울경제",
-     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1ka3UxN1I5bnVFaE9uckFMWGNNQ3d2T0VLVXdwb2hnU1NQODJOYlh1MWtXbzdjTHkyQVJmamlvbnFjd2lQOHFCZEpSdEQ1VXNBaVBvSWF0VXBkZUU4ckhIY2VKNGk?oc=5",
-     "publishedAt": "2026-08-03T00:41:48.000Z",
-     "label": "pos",
-     "score": 1,
-     "reason": "파트너데이 진행을 통한 마케팅 활성화",
-     "multiTeam": false
-    }
-   ]
-  },
-  {
-   "teamId": "SS",
-   "teamName": "삼성",
-   "articleCount": 17,
-   "countedArticles": 12,
-   "singleTeamArticles": 10,
-   "multiTeamArticles": 7,
-   "posArticles": 6,
-   "negArticles": 4,
-   "neuArticles": 2,
-   "positiveScore": 6,
-   "negativeScore": 6,
-   "netScore": 0,
-   "topPositiveKeywords": [],
-   "topNegativeKeywords": [],
-   "summary": "주요 언론 기사 17건 중 12건 팀 맥락 분석 (긍정 6 · 부정 4).",
-   "articles": [
-    {
-     "title": "‘포수 교체’ 강수에도…스스로 무너진 양창섭",
-     "outlet": "매일신문",
-     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5DRzF4TEpDcVJRano0N241Vi1FQ21CQkUzVUFLckZfbEdsZ1AtV2p3Q1FWWEJKZXN5NXVhM0pJWW5PUlRFNHFoSndZYVNxWUpCT3AyZi1TVTUzSnRLS3pGV01ia0JROEM1Z0FR?oc=5",
-     "publishedAt": "2026-08-04T12:52:00.000Z",
-     "label": "neg",
-     "score": -2,
-     "reason": "투수 양창섭의 부진 및 무너진 경기력",
-     "multiTeam": false
-    },
-    {
-     "title": "페덱·원태인·보스 와르르→삼성 2위 추락…승리 요정 양창섭, 흐름 바꿀까",
-     "outlet": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBQYzFhWWYwaTVSQ1BkT1ZRZTQtdmVvY19mQThkSC0yVDdzRmE0UnFHYTgwcWo1bFlRTnlDOUR0LTQ0dmM2Zy1SUl9UQ2Q0b3NYbS1wczFBNlY0aTBWbzdvRNIBeEFVX3lxTE1aeFJIaklaSDJBNWlvS3lGUTNHMTZabkh5MUl5aU04VVRIM2NCQnN0Y1Z5bXRnTllpZmtIaktienN1U244bUhBRUpLeHBrUnU4MWpHc3dXWTZ5dTNPWlA3THRqc25sRVJabzNqbTVqYlN4eVZuTzUtcA?oc=5",
-     "publishedAt": "2026-08-04T06:23:29.000Z",
-     "label": "neg",
-     "score": -2,
-     "reason": "주요 투수진 부진 및 순위 하락",
-     "multiTeam": false
-    },
-    {
-     "title": "무더위 날릴 야시장 축제…삼성 야구경기 보며 '치맥' 즐긴다",
-     "outlet": "연합뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBNcC10RllqRDJfNmZKUkRaaHBteWxWOF9Ba2QzRkVualA3NDBSdFZqNjNlS28wMVBfWWJJVlM1X0ZXc0N2VDkxSFBXQ2owa3hNMjdibUxaaTdvVWPSAWBBVV95cUxQMnJSNXNxRk5WTXVJTUFfSk9sNEpKLXhIclB0N05xM2s5UkRKVWxucGpOZDQ2WFJNbzNodmw1cWcwWVp2YXpGTExrcHc5cHRta1BrSXpqQkJfTHdXNV9FU2g?oc=5",
-     "publishedAt": "2026-08-04T06:04:17.000Z",
-     "label": "pos",
-     "score": 1,
-     "reason": "야시장 축제 및 치맥 행사로 인한 팬 서비스 강화",
-     "multiTeam": false
-    },
-    {
-     "title": "카카오 라이언, 삼성라이온즈파크 등장한다",
-     "outlet": "한국일보",
-     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1TT2EyRk5NTW9KRE03ZTVYU0pXcEhGY2NNdFc4by1mTXFwbDViZjZKV1pvTUhzRWlCa0luZEVaTTdiS2psakdDUDVVbFZtRTI0SnVpenY5RHZlZzNlSU1KUTZaVDlKQ3Q3SUJkUdIBcEFVX3lxTFBjblpaQXJKQkdjLUY0S0xYNllBQ2J0aVNZTUp2WmlTTVZkOGdVdDVVNmROYzdVeThPR0FkMng1ZVY0UldUcnZkZHBHbTRCQjk3OUR4Y3AwdjNTTmxyaWtHNWwxY3dDVE5hUVNPTktZVmI?oc=5",
-     "publishedAt": "2026-08-03T02:27:56.000Z",
-     "label": "pos",
-     "score": 1,
-     "reason": "카카오 라이언 캐릭터 활용을 통한 구장 활성화",
-     "multiTeam": false
-    },
-    {
-     "title": "“두 사자의 만남”…카카오 라이언, 삼성라이온즈 시구 동행",
-     "outlet": "서울경제",
-     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE54V0dlRFkyTHRsejNSZmJtMllHSzk1RmhSalRRVk1ZY3puY1Z1NGhybktOU3V4R3pLeldBQ0R2YXhnYXNHVzdMWWxSNjdDaHlJa3pVczVKdHlJX3d5cUpQTXVFUlI?oc=5",
-     "publishedAt": "2026-08-03T01:13:15.000Z",
-     "label": "pos",
-     "score": 1,
-     "reason": "카카오 라이언 시구 동행을 통한 홍보 효과",
-     "multiTeam": false
-    },
-    {
-     "title": "무너진 보스, 침묵한 캡틴···2위 삼성라이온즈, 1위 KT와 격차 벌어져",
-     "outlet": "MBC",
-     "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE15UTdPM3EtSVFwTmd2T0NDZ2c1emZXUTFzbjdoX3RITjBqNWZxaVpBVjdLVHZDZXdyMWxIalVSRUNDVFpydVVVZzFhT0s?oc=5",
-     "publishedAt": "2026-08-03T00:55:31.000Z",
-     "label": "neg",
-     "score": -1,
-     "reason": "1위와의 격차가 벌어지며 성적 부진",
-     "multiTeam": false
-    },
-    {
-     "title": "두 '라이언' 만났다…카카오 라이언, 4일 삼성 라이온즈 시구 동행",
-     "outlet": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1jSnpQUXVqNl9VclZDNDFvR01RbFNIenJDSV83NGxzNnpjM0oxV2F0Y2xpN1hKZUl6V09yVUEyWm5ZX1JjT2p5S0lXeUhCekY2VHFyWUFZSTBtMUhuWE1IMtIBeEFVX3lxTE9PZ3R1RktzbVV1VVlhMU1TWnhRdjdqc3A2RTJFZ3ByZmplUGIzX0IzTkFrRklVZmltSklyQUdQaFZBbG1EdUVCVEhKOW1PNFFvYzNfYllBTm5fLXVaaFRUeXdVSVpQRUJWNDNEanhQVllYMFBSYWxJRw?oc=5",
-     "publishedAt": "2026-08-03T00:46:15.000Z",
-     "label": "pos",
-     "score": 1,
-     "reason": "카카오 라이언 시구 동행을 통한 홍보 효과",
-     "multiTeam": false
-    },
-    {
-     "title": "[테크스냅] 카카오, 삼성라이온즈·라이언 협업 인기",
-     "outlet": "연합뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFB5WmJ6Zm9DZTFsbDEyN0ctT0pORXFBS0dkUk53ZFVQaVlsdWs3Y0sxSFFicXZhMHp3N1BHUHdXZE5NN2F2ZkE3bENva0psaWx2aWdOZ3RpRHlwOHPSAWBBVV95cUxNTEQ0NlVEZFQyYW4xZUlnUFB4bkZnREsxdXlHOGxoMFZFam5BZ1pvRk0wZk4wa1hyZjdCQTR4djBJa3ZLNVJJb2RVNUZEaWdUQmZ5VUFsZWJzZjZYMnhMR1o?oc=5",
-     "publishedAt": "2026-08-03T00:39:42.000Z",
-     "label": "pos",
-     "score": 1,
-     "reason": "카카오 라이언 협업 인기로 인한 마케팅 호재",
-     "multiTeam": false
-    }
-   ]
-  },
-  {
-   "teamId": "HT",
-   "teamName": "KIA",
-   "articleCount": 9,
-   "countedArticles": 2,
-   "singleTeamArticles": 6,
-   "multiTeamArticles": 3,
-   "posArticles": 0,
-   "negArticles": 0,
-   "neuArticles": 2,
-   "positiveScore": 0,
-   "negativeScore": 0,
-   "netScore": 0,
-   "topPositiveKeywords": [],
-   "topNegativeKeywords": [],
-   "summary": "주요 언론 기사 9건 중 2건 팀 맥락 분석 (긍정 0 · 부정 0).",
-   "articles": [
-    {
-     "title": "폭염에 프로야구도 멈췄다…잠실·광주 2경기 취소, 올 시즌 5번째 - 머니투데이",
-     "outlet": "머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1TTTYySkxLbEVLRDJrcXMzYW5BbE1FSzB3MHFJYWxWbDcwQWxSX2dwUE5pWFE2Y1RURVd4SlRfWGlfWS1ZTWRKeE9VVE1YQW1LN3l0WmpWSzJPRzFJQVNnWWJURTZxRlBRSWRF0gFwQVVfeXFMUEppU0tYd05TTWFWZE9GczlkQ3ZZeUFkanRIcy1Ib1ZkSlhJOUlRbzBmZUloT1p2WVN0dGd2Vkdabkt6Q2lPQzBPalhFYk1TWkhEa3h3R0paYmhwXzZyZWlYWkhYbWNtNzdVdkVRT2plaQ?oc=5",
-     "publishedAt": "2026-08-04T05:38:26.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "폭염으로 인한 경기 취소는 팀의 전력이나 성적에 직접적인 영향이 없는 중립적 상황임",
-     "multiTeam": false
-    },
-    {
-     "title": "프로야구 4일 잠실·광주 경기, 폭염으로 취소",
-     "outlet": "한겨레",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9Lbnp1ZUhkS0NLZnlJQk5pcmlDemZNZWZINHRHdmVaT0hiWk1SaklQWWRzM2JhWFl3TThKVF9tVFp4cVBEM2NGbEQ0dUdaZlo3aXdBOGV0OUl3alo0bUw4ZWdyWjJhSzhoOEVKRUN5ZF96UQ?oc=5",
-     "publishedAt": "2026-08-04T04:25:00.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "폭염으로 인한 경기 취소는 중립적 사안",
-     "multiTeam": false
-    },
-    {
-     "title": "대형 변수로 떠오른 폭염…아시안게임 앞두고 순위 경쟁 '비상'",
-     "outlet": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBsQjBKZkVGSm8xclRYam1YMllQVjBzMFJ5M1N0M2hMOWtGalRIUzByTm1QaUUxR3ZIM2k1NHJBT0ZLU2ZJa2xyb3NsWFJ5NE45MUdCdmNxYVBVSGtWdFRrNNIBeEFVX3lxTFBDc0ZCaHM1REhRaV9nbTNwUnRPblpRU2VEcUFMS1Vfbm1IWlNKejYxXzJZUHZlS0FoNVdhcGtpNWswd1BQclp6clBOeUJ5RGtjd0JvSGFsR1FQWWN0UFF2WmlBZHM0blBSM1BBaTZ3V0NzSUpCcVA4bQ?oc=5",
-     "publishedAt": "2026-08-04T21:00:00.000Z",
      "label": "neu",
      "score": 0,
      "reason": "",
-     "multiTeam": true
+     "multiTeam": false
     },
     {
-     "title": "‘폭염중대경보’ KIA타이거즈 홈경기 취소",
-     "outlet": "KBS",
-     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE45WkNSeXZhWml5MGhGbXdyelBMLWlLZXBjWU1McTUyN2ZkbE9lakZiMkJxckFFMXJlSzJEY3NUOXU4dUs5czd3OGdDakVwMTJpREI3bVlEWXlURXVOUGRFa29BaE5xZw?oc=5",
-     "publishedAt": "2026-08-04T10:13:00.000Z",
+     "title": "\"야구라는 놈은 진짜 나쁜 놈\"…FA로 느끼는 책임감 \"솔직히 잠드는 것도 힘들 지경\" [잠실 포커스]",
+     "outlet": "스포츠조선",
+     "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1jNzREQWI3VGNxSTc3MWszUUVpTndtcWFmRGFFaDZSZy1rTzVINjZsd3F1dHNMT1N5VjItRzJsN2drc1JydE5IcG1EbFdLY1h0YmxYVC1UT09lbjRRdWUxVjRBM2N0V1NKZnNoOFh3dzVZTkI3R0hSMS1CN2lMdw?oc=5",
+     "publishedAt": "2026-08-03T20:37:00.000Z",
      "label": "neu",
      "score": 0,
      "reason": "",
-     "multiTeam": true
+     "multiTeam": false
     },
     {
-     "title": "'폭염 취소 유불리에 촉각' KIA, 김도영·박재현 AG 나가는데 3G나 못 치렀다! - 머니투데이",
-     "outlet": "머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1RVW9Od3JycGhHME5SOU5HaU0zN2x1bm5kZXdXODE0SHl3Nk40amtrcTMxNUxqRmRYQ3RlbExXSTlxN0tzOF9VLUxGTlo1VzB4ZkF4c1huUHYtY3pVVGU4Z0ZKbWtfcDhpaWfSAW9BVV95cUxOenF5cUVTNjBOWnZOR3pQNURWQ2RHMUhYU3N0NHlSQ0dHaHAxZEN6SEt2WGNQUnllNFREbUdNeHpYdlRRa2duVkJaM3VPcTBvUWVfTm1yQzV5Z0lxMEdGVFlNMjNQb0hkWmpOVndEUU0?oc=5",
-     "publishedAt": "2026-08-04T06:21:00.000Z",
+     "title": "MLB 112승 투수의 완벽 데뷔…LG 카라스코, 선발진 가뭄 속 '단비'",
+     "outlet": "뉴시스",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5KUkdjOGxKWUkxeTR0M3RvVE0teWZfQ2tRRHVMWERGSVZnWThxNnYwa2d3c3Y2M25xbERKbzlhdkJJVFp1SGlyd1ZkVGFUVmZGZVk3TUZsdTB0RV9odkVKMNIBeEFVX3lxTE81TXRMMExRYkZfT0lBWjJFbFJQdWxWQkZwYWJHbjhaOENUcnk1YjMwM0o3TU1hbVF1Z1EwdWFqSUdOcUlIYVA1ckFyZlJoZjZ4U3FIRk1mSVpEa2JPTS1BbGVMclZKMkwyNWRkRDZlTkJJTGdZV0FqZQ?oc=5",
+     "publishedAt": "2026-08-03T05:48:31.000Z",
      "label": "neu",
      "score": 0,
      "reason": "",
-     "multiTeam": true
-    },
-    {
-     "title": "KBO 폭염 대책 발표, '폭염중대경보' 잠실·광주 경기 일찌감치 취소 결정",
-     "outlet": "일간스포츠",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5nSWlxQVZpS3RrcDhNanlZYXVFWTZnZlN0cmVWVl9JQXl6dU05MkRTZ1Fibl80TklReXR1aHJPbzhZTUhxTWtsWkpPaHdXb2RWM1NVZDFuMWdiTW8?oc=5",
-     "publishedAt": "2026-08-04T04:20:00.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "",
-     "multiTeam": true
-    },
-    {
-     "title": "[프로야구전망대] 후반기 압도적 1위 kt, 7연속 위닝시리즈 도전",
-     "outlet": "연합뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFB6Vk14eE5oZXp4N3hCVXNtOGNZckNERkNhQmxMWnhJekJFb3Z5QUZpaTZvV3F4bExzS2I2a2ZIN0ZPOWhfVk56WTZyTjFKZ3RVVVlnWDY3a1NsNXM?oc=5",
-     "publishedAt": "2026-08-03T00:25:20.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "",
-     "multiTeam": true
-    },
-    {
-     "title": "이범호 예언 적중했다, “더 나은 선수 없어”… 미친 타격 기계, KIA 외국인 역사 바꾸나",
-     "outlet": "SPOTV News",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBfUmVLTTVZSGRVdzE1NVN3TDJIQ3BIMlZPQnpXN0NnT3drR3h2ZFZoQm5aeHdUdktEdHh5RUhJRkN2ZTVjcDJsTVlLVDdhSVY0bDV4WTdTZ2k4TUlzQmRMcmVPSnlXQXpSX2duWFUwVdIBc0FVX3lxTFBFRFBMeG9oZ1JWVWZTVVpWSnJJLTFhUVFtb3VXcWMtRGRORWpzVEswbU9DX2tGcEdCVjI3eFlvU3I4WFY0Sy1TNDRiUmF0aGF0WGs0SUxTc0xfNENOSUJaU3FaQ3JFNVdTV0Q5bGl6ei1rWHc?oc=5",
-     "publishedAt": "2026-08-02T21:10:00.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "",
-     "multiTeam": true
-    }
-   ]
-  },
-  {
-   "teamId": "LT",
-   "teamName": "롯데",
-   "articleCount": 17,
-   "countedArticles": 17,
-   "singleTeamArticles": 9,
-   "multiTeamArticles": 8,
-   "posArticles": 6,
-   "negArticles": 4,
-   "neuArticles": 7,
-   "positiveScore": 9,
-   "negativeScore": 5,
-   "netScore": 4,
-   "topPositiveKeywords": [],
-   "topNegativeKeywords": [],
-   "summary": "주요 언론 기사 17건 중 17건 팀 맥락 분석 (긍정 6 · 부정 4).",
-   "articles": [
-    {
-     "title": "[프로야구] 리그 최고 이닝이터로 변신한 롯데 로드리게스...6월 5일 복귀 이후 이닝 1위",
-     "outlet": "뉴스핌",
-     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE0xMU1lZndXTVpsMC1weXM2Y25FNUJDa3lwMVBERnZ0UFYwSUEyZW1qUjBySW54Y2hsTXZWZU42Y29seUZrdlFvQjNld1Rwc3ZzRDdzOUg3VUo2TWx1?oc=5",
-     "publishedAt": "2026-08-04T23:54:00.000Z",
-     "label": "pos",
-     "score": 2,
-     "reason": "외국인 투수 로드리게스의 복귀 후 뛰어난 이닝 소화력 및 활약",
-     "multiTeam": false
-    },
-    {
-     "title": "'김원중 세이브' 롯데, 키움 3-2 격파…SSG는 LG 3연패 몰아넣고 진땀승(종합)",
-     "outlet": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1QR0k3cm1IMXV4akZqTEIwaDh4MmFNS1ZzSU0tRTZ5TV96QU1sd1pscUdqNnY3dEVjUWtmTVdJTnBZZlBYcWk5Sk5Vb1poVFhMcVRydTZkWlJDZklvc1NkZtIBeEFVX3lxTE50aExMVHVjLTVablVidUgta3dDeHFzTUNON0QtalVreWJvVjBxWWN0cE9icHNqcGNpOUV1U29uMVg0VW9iY09SdmlNMDgwRVdNd2ZNMHE2TjVTcjJTZzJ2NEYwSkYyelNYWW1RX29SZUJ6Q1d4TzVkNA?oc=5",
-     "publishedAt": "2026-08-04T13:38:57.000Z",
-     "label": "pos",
-     "score": 2,
-     "reason": "키움전 승리 및 김원중의 세이브 기록",
-     "multiTeam": false
-    },
-    {
-     "title": "돌아온 마무리가 다시 흔들린다…김원중 제구 난조에 롯데 '비상'",
-     "outlet": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE15X3lfSWFMOFZnX1UyWC1xaF9iY2VVbEZxcmFoT1l2MUdidUxtd0ZBTEl2SlV4dzBXclpJNy1fZUFOWUt3R1Aza1JSOHdiUUo0dHozaXhKSmZ4anE1UF9lRNIBeEFVX3lxTFAxUVNmMUVrb3oxNXRWWHV0cTZOSkdDNGRnNmsyU0EzQ2ozUTYxYU5GR1QtSFYwZkV1YXdmbEZWVVYzU2NEWmJGZWtkVjhWYi1QUGw0WXB4UGFkSUxJdEh6V3hTb2F5SnNMUVp2a0pwLXM0b3NKX3VyNQ?oc=5",
-     "publishedAt": "2026-08-03T22:00:00.000Z",
-     "label": "neg",
-     "score": -2,
-     "reason": "마무리 투수 김원중의 제구 난조로 인한 뒷문 불안 및 팀 위기",
-     "multiTeam": false
-    },
-    {
-     "title": "롯데, 무더위 속 13안타 때려내며 3점 차 값진 승리",
-     "outlet": "국제신문",
-     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQRVlXcUdQSEpvVURXTG9kQkFyQnQ0SVl1eGxKdE9rd2RDdW5NWlhzeVo3Ymp3NjlzbDVsOFo1X01maWFoRHhvX0NSdjIxRWNpcEdqX0FxTWJJYlFNZlFQVFhTWHA2dlkyUHREb0hnQ3dDcXNabzl6empsR21kWDNSYzE5djNabEF3SDRkZU5B?oc=5",
-     "publishedAt": "2026-08-02T12:40:00.000Z",
-     "label": "pos",
-     "score": 2,
-     "reason": "타선의 집중력을 바탕으로 한 경기 승리",
-     "multiTeam": false
-    },
-    {
-     "title": "KH한국건강관리협회, 롯데 자이언츠 홈경기서 ‘매치 데이’ 개최",
-     "outlet": "국제신문",
-     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQVTR5eWx6S3pndFY0TTBSU3pIYk10eno4SGR0cFNESEVyXzVyaWVjNHI3STRjczBhamdCOE9Sb2JQeERuQnRUUW9kMkpwd0ZxYWRVcWxqZERyUExJTFVwVm9FdEZqN0NZN1U2Snh1QzhsenE5TkNIRW1CNFpmV1dJT05ObWd6SWJKRjhVVTRR?oc=5",
-     "publishedAt": "2026-08-04T07:47:00.000Z",
-     "label": "pos",
-     "score": 1,
-     "reason": "매치 데이 개최를 통한 마케팅 및 홍보 효과 기대",
-     "multiTeam": false
-    },
-    {
-     "title": "롯데·한국 AG 대표팀 안도...'햄스트링 통증' 김진욱, 크로스 체크 결과 '이상무'",
-     "outlet": "일간스포츠",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9UYXo3bGFGSXNycXpwYkdMZ0s5NklmaDdzeFRHdTMxdHM5VGprR0ZVa3o5Z2ZFSm9ydUliWEZFR3pBNVhmV1BSMHBzX0hXQW1LdzVtMm5yU29oSVE?oc=5",
-     "publishedAt": "2026-08-03T22:44:00.000Z",
-     "label": "pos",
-     "score": 1,
-     "reason": "부상 우려가 있던 김진욱의 정밀 검사 결과 이상 없음 확인",
-     "multiTeam": false
-    },
-    {
-     "title": "프로야구 롯데 투수 김진욱, 열흘간 휴식…1군엔 동행",
-     "outlet": "연합뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFByM1VwOTdLM3k5ZDVNVy1EOF9QNnVHWElfN1h3SkloeDhtbHZPaEpWNmFFUmp4akI5TjNIM2pwS2JsVzkxdjFFWjVDVU5qczhMRFZjQVZHRzQwR2PSAWBBVV95cUxOTXpFRkhQMTZSOC1qOGtHNFZ1djNzZ1Z0eFh6UnBMdVRjajljOFdZS201MXp1QU1vWWYtYUNIOTI0aVZucHNMTEdaRzU2bTNPM3VtY2p4Z0puQUFMLThfTkQ?oc=5",
-     "publishedAt": "2026-08-03T07:51:09.000Z",
-     "label": "neg",
-     "score": -1,
-     "reason": "투수 김진욱의 휴식으로 인한 일시적인 전력 공백 발생",
-     "multiTeam": false
-    },
-    {
-     "title": "KT, 파죽의 6연승·선두 질주…두산 3연승·롯데 3연패 탈출(종합)",
-     "outlet": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE14NU02cDRPZ0swMmE3dUI0VXhHMGxGMmJnOXJVZHZwc09obXI5dmszQldfdmpQdDZ6WDltU01aS1g0ODhmTTNyeVB5MDltakVrTXVIdTlMUFF6dDBsX1VzTdIBeEFVX3lxTE5vSUJGanBfM0haUGxYUUlUNzlaUldMLXllOC1aVC1UeklCc3NPU0tuWVAzaU9yNGZpWGN3Y0RxdjdNTjQzMldPWFcyclVEcnRfWUJ1ODBlM0N2bXpCZkNlS2paUUFVdzBzb29sYW1nSTlubWpuRk41Uw?oc=5",
-     "publishedAt": "2026-08-02T12:52:29.000Z",
-     "label": "pos",
-     "score": 1,
-     "reason": "3연패 탈출 성공",
-     "multiTeam": false
-    }
-   ]
-  },
-  {
-   "teamId": "NC",
-   "teamName": "NC",
-   "articleCount": 6,
-   "countedArticles": 4,
-   "singleTeamArticles": 2,
-   "multiTeamArticles": 4,
-   "posArticles": 2,
-   "negArticles": 0,
-   "neuArticles": 2,
-   "positiveScore": 2,
-   "negativeScore": 0,
-   "netScore": 2,
-   "topPositiveKeywords": [],
-   "topNegativeKeywords": [],
-   "summary": "주요 언론 기사 6건 중 4건 팀 맥락 분석 (긍정 2 · 부정 0).",
-   "articles": [
-    {
-     "title": "NC, 야구단 최초 정보보호 관리체계(ISMS) 인증 획득",
-     "outlet": "일간스포츠",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1xQW16X1lLNmdtQ3JLdFFIMmhKUGNrLWNQZXY1TEhoaGdYUVFSUGxuMm5QZE42VFUwUGV4SHFRMzdpSmhPMW9VaGRITFA1a0ZNM3pNVXJ5TnZBRlE?oc=5",
-     "publishedAt": "2026-08-03T05:27:00.000Z",
-     "label": "pos",
-     "score": 1,
-     "reason": "야구단 최초 정보보호 관리체계 인증 획득",
-     "multiTeam": false
-    },
-    {
-     "title": "NC, 프로야구단 최초로 국가공인정보보호관리체계 인증 획득",
-     "outlet": "연합뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9QNnBpbW1hMTIzZVhWQkdxanYxMjExLVlXdVhBa2pqRkZLTnlIUG1hblNSSEd6X2ExbWtDVzRuQVc1bjUtaGNTeUlOU0dJdmkzYmhaQTRsTGZwTm_SAWBBVV95cUxNRUpnbl9Da3l1Qy05TFRoRjgtQkxmQkVHWkxnaXFFR2d0VDBOdkZhZzl2Y0VrajRic2xXQU01UkpQcFo0ck5NN2pFN2N5czdJUi1SRkFOck5rZGRZTi1nX2U?oc=5",
-     "publishedAt": "2026-08-03T01:23:44.000Z",
-     "label": "pos",
-     "score": 1,
-     "reason": "프로야구단 최초 국가공인정보보호관리체계 인증 획득으로 구단 이미지 제고",
-     "multiTeam": false
-    },
-    {
-     "title": "프로야구 잠실·광주 경기 폭염으로 취소",
-     "outlet": "연합뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE01WWFzUHc0X0RQVk9vMHlDaHA3RFZvUE9VN0FxY2g1U1JZM0xvRUF0ZVNFY3pGa2dQcHBfMXNaSHlENlNwOHJfM0FybEE5NXA5aUwtQ1JzLXFrd0FucnNUTdIBYEFVX3lxTE01WWFzUHc0X0RQVk9vMHlDaHA3RFZvUE9VN0FxY2g1U1JZM0xvRUF0ZVNFY3pGa2dQcHBfMXNaSHlENlNwOHJfM0FybEE5NXA5aUwtQ1JzLXFrd0FucnNUTQ?oc=5",
-     "publishedAt": "2026-08-04T05:27:25.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "폭염으로 인한 경기 취소는 중립적 사안",
-     "multiTeam": false
-    },
-    {
-     "title": "프로야구 4일 잠실·광주 경기, 폭염으로 취소",
-     "outlet": "한겨레",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9Lbnp1ZUhkS0NLZnlJQk5pcmlDemZNZWZINHRHdmVaT0hiWk1SaklQWWRzM2JhWFl3TThKVF9tVFp4cVBEM2NGbEQ0dUdaZlo3aXdBOGV0OUl3alo0bUw4ZWdyWjJhSzhoOEVKRUN5ZF96UQ?oc=5",
-     "publishedAt": "2026-08-04T04:25:00.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "폭염으로 인한 경기 취소는 중립적 사안",
-     "multiTeam": false
-    },
-    {
-     "title": "[프로야구전망대] 후반기 압도적 1위 kt, 7연속 위닝시리즈 도전",
-     "outlet": "연합뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFB6Vk14eE5oZXp4N3hCVXNtOGNZckNERkNhQmxMWnhJekJFb3Z5QUZpaTZvV3F4bExzS2I2a2ZIN0ZPOWhfVk56WTZyTjFKZ3RVVVlnWDY3a1NsNXM?oc=5",
-     "publishedAt": "2026-08-03T00:25:20.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "",
-     "multiTeam": true
-    },
-    {
-     "title": "프로야구도 폭염 여파…창원 NC-KIA전 이틀 연속 취소",
-     "outlet": "한겨레",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5sUFdmTVBoZ1UyX1haalhVVXlRRzFfMmt4OXNGc3BiWjc5WmhkT2FlMXFJMm9VVXFCeDlMOVBsY2Zyc0xQVm16TWduSTl2WFJXZHUyYS1qaEJ0UGtGOWRqaXZoeHUtQU9lbGM3a1Ixdkd1QQ?oc=5",
-     "publishedAt": "2026-08-02T11:13:00.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "",
-     "multiTeam": true
-    }
-   ]
-  },
-  {
-   "teamId": "KT",
-   "teamName": "KT",
-   "articleCount": 14,
-   "countedArticles": 12,
-   "singleTeamArticles": 3,
-   "multiTeamArticles": 11,
-   "posArticles": 7,
-   "negArticles": 0,
-   "neuArticles": 5,
-   "positiveScore": 12,
-   "negativeScore": 0,
-   "netScore": 12,
-   "topPositiveKeywords": [],
-   "topNegativeKeywords": [],
-   "summary": "주요 언론 기사 14건 중 12건 팀 맥락 분석 (긍정 7 · 부정 0).",
-   "articles": [
-    {
-     "title": "20이닝 연속 무실점…KT 선두 이끈 고영표의 '마법투'",
-     "outlet": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE8tM09CU1ZKenA1cnZ4V0xQZ04ycUpjdnl1bjVIMEszd1l2RTlGcEYycDBmNk0wUlRLblRSMDZ4YS12NVE0bmRXb1pQdzhDN0E1QUhmQjJSSzU1MjhnRkE0SdIBeEFVX3lxTE5uSmh4S0ZoeFo2TTFfZHZoS2JYSmVQOFpaWTI5OEVfRHVkTXUydW9JeFhta2hyRE5tazI5eFBralBBWUJjaTlDOHB1VzUzVnZmQ0cyZXhfa1ktQWEtMWgzNUpuMlJZbmJNUy1oYlhHaU0ycFpfcUJocA?oc=5",
-     "publishedAt": "2026-08-03T21:00:00.000Z",
-     "label": "pos",
-     "score": 2,
-     "reason": "고영표의 20이닝 연속 무실점 및 선두 질주",
-     "multiTeam": false
-    },
-    {
-     "title": "'6연승' KT의 선두 질주는 어디까지…키움은 후반기 복병[주간 야구전망대]",
-     "outlet": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE81VjFMczN0cDVJYXNRMXBVSVd6Z0tNVmgyTElNZnM3QUx1Z2k2d3VhTGJ4bzJ6Z1NXemhIT01rb2dGMF8zcUFVRUZiRmdpNGJVaTJhbHQ5TDBVU281d3hlWdIBeEFVX3lxTE5sd1YwQW05MzdwdmF1aFdVNjA3bWFQZlRwZk5vdWJlTWpwTHRZOUlVelRhVVgybWdWQzJLYk52WmFmaFUwZk5jVFNxY3N1SjJtdjFyWEQ1UTAxdmpEWi1MR2tycXVGY1VnYUx6UV9rbDJUdmRYRkswXw?oc=5",
-     "publishedAt": "2026-08-03T02:26:41.000Z",
-     "label": "pos",
-     "score": 2,
-     "reason": "6연승 및 선두 질주 중",
-     "multiTeam": false
-    },
-    {
-     "title": "KT, 파죽의 6연승·선두 질주…두산 3연승·롯데 3연패 탈출(종합)",
-     "outlet": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE14NU02cDRPZ0swMmE3dUI0VXhHMGxGMmJnOXJVZHZwc09obXI5dmszQldfdmpQdDZ6WDltU01aS1g0ODhmTTNyeVB5MDltakVrTXVIdTlMUFF6dDBsX1VzTdIBeEFVX3lxTE5vSUJGanBfM0haUGxYUUlUNzlaUldMLXllOC1aVC1UeklCc3NPU0tuWVAzaU9yNGZpWGN3Y0RxdjdNTjQzMldPWFcyclVEcnRfWUJ1ODBlM0N2bXpCZkNlS2paUUFVdzBzb29sYW1nSTlubWpuRk41Uw?oc=5",
-     "publishedAt": "2026-08-02T12:52:29.000Z",
-     "label": "pos",
-     "score": 2,
-     "reason": "6연승 및 선두 질주",
-     "multiTeam": false
-    },
-    {
-     "title": "선두 KT, 한화 12-1 완파 '파죽의 6연승'…고영표 7이닝 8K 무실점",
-     "outlet": "뉴스1",
-     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9WZ00zWnRPaVc5VVVOMS0wejM4dVRMb2Z2NDVjRFVLV3NXa2p2azFVMXAxQzE2RG9WLTR1aGlZMFBXaWhZT1FrME9OcE1XQ210TmN1cGhlTQ?oc=5",
-     "publishedAt": "2026-08-02T12:13:03.000Z",
-     "label": "pos",
-     "score": 2,
-     "reason": "한화전 대승 및 6연승, 고영표 무실점 호투",
-     "multiTeam": false
-    },
-    {
-     "title": "KT 김현수, 한화전 3점포로 역대 4번째 4000루타 달성",
-     "outlet": "뉴스1",
-     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1hTERsdWJnejZETmJDU0Y4MHpQMVFOU2E3MW9oZ0czSFhIM1FtOHk3cVE4aXR0ejd6dGptWldyOHgxbmpJWGxoTGxONFppVWw2S0liUlFCYw?oc=5",
-     "publishedAt": "2026-08-02T11:21:35.000Z",
-     "label": "pos",
-     "score": 2,
-     "reason": "김현수의 3점 홈런 및 역대 4번째 4000루타 달성",
-     "multiTeam": false
-    },
-    {
-     "title": "소형준·곽빈·구자욱·힐리어드 등 7명, 프로야구 7월 MVP 경쟁",
-     "outlet": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE04ZktITEx4WkI0YTNlVmtjNEFhN0dMRGZOamhtTHItNEdzUUdGYUdnZVNsOG1Rb2pJak1Vb1diRzZpZk8zRVdwcTdRb0pRX2ljWEdxdnd0ajU4cEJRYkktUtIBeEFVX3lxTE5sclI2Mm91YnBCWWVWa0R4NkFtcVZoZlp1UEdJUDg0eFpCUlVRR0I2RThiTXhRdExOSnVYc0R6Z1BQUlRTbXlueFp6RVAzdGlQU25saHl5NnZMSEU3Zk5yYjZvVjM0Rl9acmFocEdFUGg1VllNMC1kTA?oc=5",
-     "publishedAt": "2026-08-04T02:22:16.000Z",
-     "label": "pos",
-     "score": 1,
-     "reason": "소형준의 7월 MVP 후보 선정",
-     "multiTeam": false
-    },
-    {
-     "title": "무너진 보스, 침묵한 캡틴···2위 삼성라이온즈, 1위 KT와 격차 벌어져",
-     "outlet": "MBC",
-     "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE15UTdPM3EtSVFwTmd2T0NDZ2c1emZXUTFzbjdoX3RITjBqNWZxaVpBVjdLVHZDZXdyMWxIalVSRUNDVFpydVVVZzFhT0s?oc=5",
-     "publishedAt": "2026-08-03T00:55:31.000Z",
-     "label": "pos",
-     "score": 1,
-     "reason": "1위 유지 및 격차 확대",
-     "multiTeam": false
-    },
-    {
-     "title": "프로야구 kt, 8일 롯데와 홈경기서 황재균 은퇴식 개최",
-     "outlet": "연합뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE0tSnYzV1JsdVY4Tzl2c3pHRFJoTTBHSG0xY3oxdmdvZFRXNEhqWnVEREhkYmlQZmRESDBhQkZLajNuNDFJSktFMEVXZWRPWXR3Y3RpSFF1LU5rTTjSAWBBVV95cUxPcjlpT1NSdVdMbmFZQlhjRTBqZFo5OVM0dVNqSFc3RGJld1pleXNSSkhXalloMzNzeEsyVEQ4My04TTdOWnYySTF3LW9KWGJQNDZ1T0hPSkRwYVZ6TVhEWXY?oc=5",
-     "publishedAt": "2026-08-04T06:25:52.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "소속 선수의 은퇴식 개최는 전력 변화보다는 상징적 이벤트임",
-     "multiTeam": false
-    }
-   ]
-  },
-  {
-   "teamId": "HH",
-   "teamName": "한화",
-   "articleCount": 9,
-   "countedArticles": 2,
-   "singleTeamArticles": 3,
-   "multiTeamArticles": 6,
-   "posArticles": 0,
-   "negArticles": 2,
-   "neuArticles": 0,
-   "positiveScore": 0,
-   "negativeScore": 3,
-   "netScore": -3,
-   "topPositiveKeywords": [],
-   "topNegativeKeywords": [],
-   "summary": "주요 언론 기사 9건 중 2건 팀 맥락 분석 (긍정 0 · 부정 2).",
-   "articles": [
-    {
-     "title": "선두 KT, 한화 12-1 완파 '파죽의 6연승'…고영표 7이닝 8K 무실점",
-     "outlet": "뉴스1",
-     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9WZ00zWnRPaVc5VVVOMS0wejM4dVRMb2Z2NDVjRFVLV3NXa2p2azFVMXAxQzE2RG9WLTR1aGlZMFBXaWhZT1FrME9OcE1XQ210TmN1cGhlTQ?oc=5",
-     "publishedAt": "2026-08-02T12:13:03.000Z",
-     "label": "neg",
-     "score": -2,
-     "reason": "12-1 대패",
-     "multiTeam": false
-    },
-    {
-     "title": "KT 김현수, 한화전 3점포로 역대 4번째 4000루타 달성",
-     "outlet": "뉴스1",
-     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1hTERsdWJnejZETmJDU0Y4MHpQMVFOU2E3MW9oZ0czSFhIM1FtOHk3cVE4aXR0ejd6dGptWldyOHgxbmpJWGxoTGxONFppVWw2S0liUlFCYw?oc=5",
-     "publishedAt": "2026-08-02T11:21:35.000Z",
-     "label": "neg",
-     "score": -1,
-     "reason": "상대 팀에게 대량 득점 허용",
      "multiTeam": false
     },
     {
@@ -1011,6 +160,858 @@
      "multiTeam": true
     },
     {
+     "title": "'모두가 걱정' 역대급 폭염에 야구보다가 응급 환자 발생, 인천 경기 9분간 중단되다…\"의식이 없었다, 심폐소생술 진행되는 위급한 상황\" [MD인천]",
+     "outlet": "이데일리",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9COWtDT1ZuR2RGRC1ieFM1SmNRdV9QQ1pQbHlUY1VzWTNLbW10Z0UxamFLVGtqa0hpM1FsWHFWbmo1SXNLM2hEZnQ0Wll5Q1o3aHpZNUU5RFpySlpEQXlOSw?oc=5",
+     "publishedAt": "2026-08-04T13:41:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": true
+    },
+    {
+     "title": "'김원중 세이브' 롯데, 키움 3-2 격파…SSG는 LG 3연패 몰아넣고 진땀승(종합)",
+     "outlet": "뉴시스",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1QR0k3cm1IMXV4akZqTEIwaDh4MmFNS1ZzSU0tRTZ5TV96QU1sd1pscUdqNnY3dEVjUWtmTVdJTnBZZlBYcWk5Sk5Vb1poVFhMcVRydTZkWlJDZklvc1NkZtIBeEFVX3lxTE50aExMVHVjLTVablVidUgta3dDeHFzTUNON0QtalVreWJvVjBxWWN0cE9icHNqcGNpOUV1U29uMVg0VW9iY09SdmlNMDgwRVdNd2ZNMHE2TjVTcjJTZzJ2NEYwSkYyelNYWW1RX29SZUJ6Q1d4TzVkNA?oc=5",
+     "publishedAt": "2026-08-04T13:38:57.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": true
+    },
+    {
+     "title": "'와' 김재환 스리런+4타점 대폭발, 19세 신인 3G 연속 QS 미쳤다…웰스 강습타구 맞고 아웃, LG 3연패 빠지다 [MD인천]",
+     "outlet": "이데일리",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9HbXZBbU1LUHpaVFJqOWY2NlVuNjNzaG92UEU3alBBLXJHYjFwckk2M3RCM3ktSjNJQk9Ndk5GbUs5NHFHanRlMEdEODltbElHenJSZlFjQWd1S3JlcGEwSw?oc=5",
+     "publishedAt": "2026-08-04T13:21:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": true
+    }
+   ]
+  },
+  {
+   "teamId": "OB",
+   "teamName": "두산",
+   "articleCount": 9,
+   "countedArticles": 6,
+   "singleTeamArticles": 6,
+   "multiTeamArticles": 3,
+   "posArticles": 1,
+   "negArticles": 0,
+   "neuArticles": 5,
+   "positiveScore": 6,
+   "negativeScore": 0,
+   "netScore": 6,
+   "topPositiveKeywords": [
+    "3연승",
+    "결승타"
+   ],
+   "topNegativeKeywords": [],
+   "summary": "단일 팀 기사 6건 기준 (긍정 1 · 부정 0). 여러 팀 언급 3건은 중립(참고). 긍정 키워드: 3연승, 결승타.",
+   "articles": [
+    {
+     "title": "'결승타'로 두산 3연승 이끈 박찬호 \"아직도 야구가 어렵다\"",
+     "outlet": "SBS",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE85YVpZdXRYd3lnVU1VUVhDT19iSjhfUFlzT1ZkMG5qOXk3dGdMaVdRc1dfNnY2MXZNM1l1ckFVUnY2V0M4cHhOUUN1RGhVUHJWMDRhTXhVX1JWTHZ0YXVuNVo2WFB3NTMwSHc?oc=5",
+     "publishedAt": "2026-08-02T14:27:00.000Z",
+     "label": "pos",
+     "score": 6,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "잠실야구장 잔디 50도 넘어 측정이 안 돼…서울·광주 경기 취소",
+     "outlet": "한겨레",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBuVXVyUnF6OHlnZGV0X3Q4OXJRUWQ0Ni1SWF95ZmtSXzJVRjVWMHBGYXdWMEJVMTRFZDRsajNGT3JfSUlJOW5FSVpvSDNoNEYwRDJJNlBEYXdXS1pYSlh2VjFPZHQzT2VDV0d2MFJhcE5YZw?oc=5",
+     "publishedAt": "2026-08-04T15:49:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "[부고] 최지강 씨(프로야구 두산 베어스 선수) 모친상",
+     "outlet": "뉴스1",
+     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5aRXcxSUhiYm4tU1JXZ2VmTGRFd2MtREJFTkJ2QnNZM0VtLUM2WnlFcWdPMmhiSzZzQ3I3SVlKMXh4VTdSVUVmcEtkOGEyc1gyZ2F0Wnl2aw?oc=5",
+     "publishedAt": "2026-08-04T09:07:15.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "그라운드 온도 '50도' 육박…프로야구 줄줄이 취소 사태",
+     "outlet": "한국경제",
+     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE52aVlmN2h6eXBpTEwzdlRxTXNkY3U4cnl0MFBSVndnVk85bWdPeG96OG1yNGNtb25RV1ZyNjBBY1hjbV9wTW9BaDVuYjJWV0xad1ExbWNCVjdSQQ?oc=5",
+     "publishedAt": "2026-08-04T07:46:21.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "왕조 시절을 떠올려라...김원형표 '화수분 야구 시즌2' 두산이 강해지고 있는 이유",
+     "outlet": "스포츠조선",
+     "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFAta3JqMjZac2paOEpkVXVtcGhuVWNqVUpfUDhPajZIUzZ2Qm5nbmJBNmc1dHllR05INUxmalgxRW1BLXI3ejNpd0FoQ0stTkNpX3B3dXkxZl9qOGIxRmZVaG5NSTNwSG1ZS19sb3R3ZmE3WTItUm9icnFWUUJLZw?oc=5",
+     "publishedAt": "2026-08-04T00:31:54.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "8년... 두산 김대한, 마침내 터지나 [프로야구]",
+     "outlet": "스포츠Q",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE85WEhSd1FOM0ZoaDJiRFNlbDFrbzZacVQ4ZjMwZXk3cnNBZmpUbzI2TS1JM2ZOd3ZrZnhfYjlReFZyYVR1VnJOaHRkRUp4T3hEZnd4WkRvVWIwaTJxU0ROekQ2X2V1WDYwY2RCeA?oc=5",
+     "publishedAt": "2026-08-03T03:43:01.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "프로야구 4일 잠실·광주 경기, 폭염으로 취소",
+     "outlet": "한겨레",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9Lbnp1ZUhkS0NLZnlJQk5pcmlDemZNZWZINHRHdmVaT0hiWk1SaklQWWRzM2JhWFl3TThKVF9tVFp4cVBEM2NGbEQ0dUdaZlo3aXdBOGV0OUl3alo0bUw4ZWdyWjJhSzhoOEVKRUN5ZF96UQ?oc=5",
+     "publishedAt": "2026-08-04T04:25:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": true
+    },
+    {
+     "title": "가수 선미, 4일 프로야구 잠실 두산-NC전 시구",
+     "outlet": "뉴스1",
+     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBsN2JwU0NVQmo3Z0EybDNwSWx3NEZBRHlNUFBZTjBmd2Q1clFEMk50V24zSTUxaEJUOTBIVHVmSjhyMDBhVDNmZVBlX1MyR3Zwc1Z3MzVKbw?oc=5",
+     "publishedAt": "2026-08-02T07:00:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": true
+    }
+   ]
+  },
+  {
+   "teamId": "SK",
+   "teamName": "SSG",
+   "articleCount": 12,
+   "countedArticles": 6,
+   "singleTeamArticles": 6,
+   "multiTeamArticles": 6,
+   "posArticles": 0,
+   "negArticles": 1,
+   "neuArticles": 5,
+   "positiveScore": 0,
+   "negativeScore": 2,
+   "netScore": -2,
+   "topPositiveKeywords": [],
+   "topNegativeKeywords": [
+    "말소"
+   ],
+   "summary": "단일 팀 기사 6건 기준 (긍정 0 · 부정 1). 여러 팀 언급 6건은 중립(참고). 부정 키워드: 말소.",
+   "articles": [
+    {
+     "title": "'8승 1패' SSG 만나는 염경엽 \"야구 몰라요, 정말 어렵다\"... 김윤식 1군 말소, 선발 라인업 공개 [인천 현장] - 머니투데이",
+     "outlet": "머니투데이",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1UTEd1RU5hcTV2ZndGMjE4RU51UHpOSjVkX2VYVGNZQk5mOExFUGtKcEdhcGI3c1BpMUhBczJZb18zbHRQYU9LQlV1R2EteG9xeTNHTVV5RUl3b21LbTNUYTJCbXMyeDhuTlHSAW9BVV95cUxPa3RxSVplTllRN1RsX3NqVlBjblZvNF9hdjBQczc3SlZ0VzVCUlpOcy1peHhRdTAxbTl4ZFJRczlrbTd3dHNXX3FRZlk0YUIwRkxZYmJSOWVDY2FpekZ0VUx5UWpIVEZaM0ZzU1l5alU?oc=5",
+     "publishedAt": "2026-08-04T08:51:51.000Z",
+     "label": "neg",
+     "score": -2,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "'폭염'에도 야구경기 강행, 20대男 관중 '심정지'… KBO 안전 매뉴얼 도마",
+     "outlet": "파이낸셜뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBxMUx5VTVVanNnTlRkZDNtRnVjbHUxMnU0ak9jWS1JX0MtUTZoTmhrYmh1d2JZMlJpdDFrNjJvc3FWUk41cHR4VzZNRHV1cGVYa2RjWXpqRGE1Zw?oc=5",
+     "publishedAt": "2026-08-04T22:35:07.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "“경기 중단시켜!” 심판진 다급한 외침…폭염에 야구팬 쓰러졌다",
+     "outlet": "중앙일보",
+     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE13Q05tTUY0NWl4TEJTTVpvb0J3YU9VM2prRnhYX1phYU1vbzdjNVNoTlZSX0pmeTRXaXo5UC12dU5ENzl0LWFKR2dhNndkNXdjOW8tTWxIazJmdFgxMHBSaXln?oc=5",
+     "publishedAt": "2026-08-04T20:35:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "'충격 관중 심정지 사태' KBO, 폭염 취소 매뉴얼 전면 재수정 필요하다...중대 경보만 취소, 심각한 허점 노출",
+     "outlet": "조선일보",
+     "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPbkpHLWpFWmZDVGtJMlRKbThFemdreWxiX1htbS1WVG9KNklpWlFqWlI4RENhTEVzN0VWdkVYaXZwdnFHNHBWbGttRUtvcDkxb2h4ZU5nTDVhODZBck1yTmRsWkVzaTZGWmlBb0pCUlJlRW4tejNQdW5QOWdLS0VxRmxfcw?oc=5",
+     "publishedAt": "2026-08-04T17:17:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "인천에서 프로야구 보던 관중 1명 온열질환으로 실신",
+     "outlet": "스포츠경향",
+     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5RcUlCYmxPMXJwQnlNZlRqWFRYTFc4eVpleHFjQi1QUm9mNnltbUxxWWR3dVZLYlBlMFJiVENUYUJtdlQzcXNXa0hUMHpvZklhaFZSUFFpVVJzTzFyN2fSAWNBVV95cUxPYXQyY294Y0EwaHhZWTNvanpRVUNLemZTVVgwa3Jua0V4YVg5b0lZNmVJWW5rWVhGN3k5MXE2QzVpaUtuSlRQanducHZjTFRYZkxqX093Um1sbGtzYVJvQVprbmM?oc=5",
+     "publishedAt": "2026-08-04T13:15:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "'36.6도 폭염' 인천은 야구 강행? 사령탑 \"최대한 햇빛 보지 않도록\"→SSG 선수단 자발적 야외 훈련 [인천 현장] - 머니투데이",
+     "outlet": "머니투데이",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1fcy1RQUcwQXEtUlp2NVVQbGRMTklxdkh5aDItRGk4dkNDVzdmUjNmVndzU1VsSUVaRWdjenBRNEVoUXdVNkdjS1dLTGtxTTNzRHpfak9COEhOUWQ0ai1qSW5JeWtDNVhKVFHSAW9BVV95cUxQM3RWSldCaXFjcFJtZW9KTERGckxfdDVLWFdaUy1IU2kyQUJhT0hsVjYzd3R6V0tKeEVOV2lqMzY2SWN6Tm1xZ0s5UTFTWFhvSTkxaUFuUDZydnVQSzl6Y25kajZ6LWVUZXZsWlNxdFk?oc=5",
+     "publishedAt": "2026-08-04T07:34:12.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "한화, 삼성 꺾고 3연패 탈출…SSG는 갈 길 바쁜 LG 제압(종합)",
+     "outlet": "뉴스1",
+     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5IT1lBaDI5cTVIU0J2QXByZnpaUjFSUVA2MHRYRmUwRF9UQ1pqd1Z0Z1VtXzhlUzI5eGw2cm9OWkN3Mlh0SWNSLVhKLXZYaTB5bDU1U2RZWQ?oc=5",
+     "publishedAt": "2026-08-04T13:43:32.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": true
+    },
+    {
+     "title": "'모두가 걱정' 역대급 폭염에 야구보다가 응급 환자 발생, 인천 경기 9분간 중단되다…\"의식이 없었다, 심폐소생술 진행되는 위급한 상황\" [MD인천]",
+     "outlet": "이데일리",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9COWtDT1ZuR2RGRC1ieFM1SmNRdV9QQ1pQbHlUY1VzWTNLbW10Z0UxamFLVGtqa0hpM1FsWHFWbmo1SXNLM2hEZnQ0Wll5Q1o3aHpZNUU5RFpySlpEQXlOSw?oc=5",
+     "publishedAt": "2026-08-04T13:41:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": true
+    }
+   ]
+  },
+  {
+   "teamId": "WO",
+   "teamName": "키움",
+   "articleCount": 14,
+   "countedArticles": 8,
+   "singleTeamArticles": 8,
+   "multiTeamArticles": 6,
+   "posArticles": 0,
+   "negArticles": 0,
+   "neuArticles": 8,
+   "positiveScore": 0,
+   "negativeScore": 0,
+   "netScore": 0,
+   "topPositiveKeywords": [],
+   "topNegativeKeywords": [],
+   "summary": "단일 팀 기사 8건 기준 (긍정 0 · 부정 0). 여러 팀 언급 6건은 중립(참고).",
+   "articles": [
+    {
+     "title": "열대야 기승…프로야구 잠실·광주 경기 폭염으로 취소",
+     "outlet": "동아일보",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5zdmhyYm9ua0FZV0d5TnZYVHZteWJKZ3g5bjNBTG1SZ2V6QVV4a19hb2cwdzRHNXd0VTBhSWJWeF9VRjZLTE1yWVJkZ2lqVG5YQVJvWmhzTFAyUnZSNE1BVXBDVEFvSEVmLWRKdzRfRVpKOEFM0gFmQVVfeXFMUFF3RWk0Qkx4ekN5dUFGY0pWcWtNMWN4dlJBenF1M1lWaU90RUE1X2kyekNGVFQyaEFQZGdNVVV4aDB3MndDcVEwYXFoNGRtNXpVekpKWnQ1X2o3ZXpMSGJKeDMyRFJR?oc=5",
+     "publishedAt": "2026-08-04T03:34:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "맷 데이먼부터 젠슨 황까지…KBO리그, 내한 스타들의 필수 코스 되나",
+     "outlet": "스포츠동아",
+     "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQVnNTS0pZTXFkeFlXcDJjWE5zVTBPek9pbExTQ1pNb1RxbXhEQi1URE95QWk3UFZmQjFydndoRy13R05Oa3lMWGhuaGwzV0o0NWQtNEpJbTFFRTl3NTAxR011dTJhREZmdUZhSlVzZE1qWGpIRGxmOFlnNlZmTC1iZ2VzY2dIcThnMHBVamZzNUZSLVBWcmpSWkhBSVhtT1NWaUphM1JkTEFMRGdrb3dqdGZmazltRXNTZHBCZ1dRRHlnS2VHYXNuMUFSZTk1Tzg?oc=5",
+     "publishedAt": "2026-08-03T22:30:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "지독한 폭염, 한미일 프로야구 차질",
+     "outlet": "스포츠Q",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1jYTFKTThaYUdtSzNmX1JhMkw2TVFyQnJZTUhBYndXVk1lMERweEpPQXEzV3FWdTlQWWNxWVZFV1IzQTZVbzBLaHFPWlRhU1JBY1lPSWZOMkYwVThPVmd2alV6WlZ3RkNFNS1tRw?oc=5",
+     "publishedAt": "2026-08-03T03:49:56.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "'오디세이' 맷 데이먼 \"딸과 함께 한국 야구 관람…응원 문화 가장 신기\"",
+     "outlet": "SBS",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5UbGJSUHhOUWRDRkU2MnUtRE9TVjhTSHdLd3pTYkRBWDNReF9GZ1NYTmxMTW1VV3BCUktaSnBuV24wVXV2UUxQRDlVV1pnVk9MbkN6cGVSMTB5UWVza0ZweVBORXVjYjR1c0E?oc=5",
+     "publishedAt": "2026-08-03T01:58:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "최고 기온 39도 불볕 더위에... 프로야구 창원 경기 이틀 연속 취소",
+     "outlet": "조선일보",
+     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNQWJING03dWpDTTF5QUhqU2lqTVNwcXZFSzZUNWNrUXBzYjA5MHFjUElBelJ4cF9mV2dpLUFMdVU4R2hpWUVqSHhsTERqT0k1MnlfaVZOcndhSW04cjQ0c1BQY3AtRmxWVy1yWTFlOE1tOVBHN3IxYVEzOFB3TURWaVRLM0VXbDNTa1FJ?oc=5",
+     "publishedAt": "2026-08-02T13:04:53.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "‘오딧세이’ 맷 데이먼, 고척돔서 손하트…누가 초대?",
+     "outlet": "한겨레",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1KcTNFR1JHZGZDUGE3MVZFb3Q0dWQyYXVKMkFJbVVYSTlwSEkwOFRUUnZvc1Q4dVZIWmMtYjhoN29MSExNY3lLXzJXbjBSdVdjTktydFNVTnhNRFhHT3lYZGZYMGhxdXNJUFJQSjJDUXY1QQ?oc=5",
+     "publishedAt": "2026-08-02T09:04:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "\"KBO리그에서 단장이 이렇게 자주 바뀌는 팀은 없다\" 키움 레전드 출신 해설위원의 진심 어린 쓴소리",
+     "outlet": "OSEN",
+     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBqbEhPcnNGSkh0Q2pRN05WSHZkV1lHaVRxQXdMS3BPXzRiREZ6VlVEVXRfQ253eUxGRGtyRmJIdTZUQzhNYlkzcklNNVcxMEFTQ1M5MA?oc=5",
+     "publishedAt": "2026-08-02T07:00:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "경기장은 50도, 선수들도 실려 나갔다…프로야구 줄줄이 취소",
+     "outlet": "중앙일보",
+     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBHdXpCUzlPdGt1ZzFIejZ6M3A2aDVCc2R4REpMXzhraVhFRnBDeEJQZDVLVjlRMXNPYnNsSnRzZnR4OXM3ck5pUWZqX281dHNtdWNMdE9CaGE5cDhjYXBIcGRn?oc=5",
+     "publishedAt": "2026-08-02T07:00:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    }
+   ]
+  },
+  {
+   "teamId": "SS",
+   "teamName": "삼성",
+   "articleCount": 14,
+   "countedArticles": 8,
+   "singleTeamArticles": 8,
+   "multiTeamArticles": 6,
+   "posArticles": 1,
+   "negArticles": 2,
+   "neuArticles": 5,
+   "positiveScore": 4,
+   "negativeScore": 4,
+   "netScore": 0,
+   "topPositiveKeywords": [
+    "선두",
+    "MVP",
+    "승리"
+   ],
+   "topNegativeKeywords": [
+    "흔들",
+    "무너",
+    "추락"
+   ],
+   "summary": "단일 팀 기사 8건 기준 (긍정 1 · 부정 2). 여러 팀 언급 6건은 중립(참고). 긍정 키워드: 선두, MVP, 승리. 부정 키워드: 흔들, 무너, 추락.",
+   "articles": [
+    {
+     "title": "삼성 라이온즈의 구자욱과 김지찬, 7월 MVP 후보 선정",
+     "outlet": "매일신문",
+     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9wYzJUU0hVbVpTajlYUkFDbzFOd3N4ZnlhQjRhT2l3UW1mTTJkNnNRMnRrWEJrS3N3dkpGOEZxQXFVODZoNktucDIzV0hzUXpzbEdDc2ZOM004WmVVZU4wVWJB?oc=5",
+     "publishedAt": "2026-08-04T03:51:48.000Z",
+     "label": "pos",
+     "score": 4,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "‘포수 교체’ 강수에도…스스로 무너진 양창섭",
+     "outlet": "매일신문",
+     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5DRzF4TEpDcVJRano0N241Vi1FQ21CQkUzVUFLckZfbEdsZ1AtV2p3Q1FWWEJKZXN5NXVhM0pJWW5PUlRFNHFoSndZYVNxWUpCT3AyZi1TVTUzSnRLS3pGV01ia0JROEM1Z0FR?oc=5",
+     "publishedAt": "2026-08-04T12:52:00.000Z",
+     "label": "neg",
+     "score": -2,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "'흔들렸던 7말 8초' 삼성라이온즈, 상대 전적 앞선 상대 홈 6연전 앞둬···변수는 폭염",
+     "outlet": "MBC",
+     "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1obzhCM25JbmNGR05sdkNZNE9fUlpoNDRvLV9GNDkxaUZ4SUJPTEQ3ZGlMX0pSMEl3cnlpREJPZzY1NHpIaVJicjB0TGc?oc=5",
+     "publishedAt": "2026-08-03T21:43:39.000Z",
+     "label": "neg",
+     "score": -2,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "페덱·원태인·보스 와르르→삼성 2위 추락…승리 요정 양창섭, 흐름 바꿀까",
+     "outlet": "뉴시스",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBQYzFhWWYwaTVSQ1BkT1ZRZTQtdmVvY19mQThkSC0yVDdzRmE0UnFHYTgwcWo1bFlRTnlDOUR0LTQ0dmM2Zy1SUl9UQ2Q0b3NYbS1wczFBNlY0aTBWbzdvRNIBeEFVX3lxTE1aeFJIaklaSDJBNWlvS3lGUTNHMTZabkh5MUl5aU04VVRIM2NCQnN0Y1Z5bXRnTllpZmtIaktienN1U244bUhBRUpLeHBrUnU4MWpHc3dXWTZ5dTNPWlA3THRqc25sRVJabzNqbTVqYlN4eVZuTzUtcA?oc=5",
+     "publishedAt": "2026-08-04T06:23:29.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "[프로야구 전망대] 선발진 흔들린 삼성 라이온즈, 안방 6연전서 선두 탈환할까",
+     "outlet": "매일신문",
+     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE94M0xYTEhQbWhlcHlmMEowOXJ2emNxMF9ZMlZnUEVLSDhFLTh0bWV1aXlISUlIc0FIaFU4TFF0clJsSXhvN1pnZzJoX1htY1lTX2tKOURwZTd3NmhscG9GcGlB?oc=5",
+     "publishedAt": "2026-08-03T05:33:59.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "카카오 라이언, 삼성라이온즈파크 등장한다",
+     "outlet": "한국일보",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1TT2EyRk5NTW9KRE03ZTVYU0pXcEhGY2NNdFc4by1mTXFwbDViZjZKV1pvTUhzRWlCa0luZEVaTTdiS2psakdDUDVVbFZtRTI0SnVpenY5RHZlZzNlSU1KUTZaVDlKQ3Q3SUJkUdIBcEFVX3lxTFBjblpaQXJKQkdjLUY0S0xYNllBQ2J0aVNZTUp2WmlTTVZkOGdVdDVVNmROYzdVeThPR0FkMng1ZVY0UldUcnZkZHBHbTRCQjk3OUR4Y3AwdjNTTmxyaWtHNWwxY3dDVE5hUVNPTktZVmI?oc=5",
+     "publishedAt": "2026-08-03T02:27:56.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "두 '라이언' 만났다…카카오 라이언, 4일 삼성 라이온즈 시구 동행",
+     "outlet": "뉴시스",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1jSnpQUXVqNl9VclZDNDFvR01RbFNIenJDSV83NGxzNnpjM0oxV2F0Y2xpN1hKZUl6V09yVUEyWm5ZX1JjT2p5S0lXeUhCekY2VHFyWUFZSTBtMUhuWE1IMtIBeEFVX3lxTE9PZ3R1RktzbVV1VVlhMU1TWnhRdjdqc3A2RTJFZ3ByZmplUGIzX0IzTkFrRklVZmltSklyQUdQaFZBbG1EdUVCVEhKOW1PNFFvYzNfYllBTm5fLXVaaFRUeXdVSVpQRUJWNDNEanhQVllYMFBSYWxJRw?oc=5",
+     "publishedAt": "2026-08-03T00:46:15.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "'야구장이 워터파크로 변신한다'…삼성, 6일간 '워터 페스티벌' 개최 - 머니투데이",
+     "outlet": "머니투데이",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE13ejhmZFg0WElZbHBaZFpVem5Va1owUmhpVGdJQlhVNE5PSG9DdWs1UU1pVFpTcGJmMDI0ZFdxSEhRUnd3bnJzX0hOcXI2ZmtjbmNtZzlvM0h2Vkk5cjcxcFYwY2hhMFN2OWfSAW9BVV95cUxPcllZakIzRURFTi12cjA4dlQzemVFVm92OG02LWhodV9sRUJ0X3lNVUJlZEp3QUtYZ0dFYUJpNVhiZ1FEM3kwb1o2d2RBbFQtZmRtdk5qSEQ0cTJmRjZlek9YcTNiMGp4UE1ZV0I4eWs?oc=5",
+     "publishedAt": "2026-08-02T19:01:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    }
+   ]
+  },
+  {
+   "teamId": "HT",
+   "teamName": "KIA",
+   "articleCount": 6,
+   "countedArticles": 2,
+   "singleTeamArticles": 2,
+   "multiTeamArticles": 4,
+   "posArticles": 0,
+   "negArticles": 0,
+   "neuArticles": 2,
+   "positiveScore": 0,
+   "negativeScore": 0,
+   "netScore": 0,
+   "topPositiveKeywords": [],
+   "topNegativeKeywords": [],
+   "summary": "단일 팀 기사 2건 기준 (긍정 0 · 부정 0). 여러 팀 언급 4건은 중립(참고).",
+   "articles": [
+    {
+     "title": "대형 변수로 떠오른 폭염…아시안게임 앞두고 순위 경쟁 '비상'",
+     "outlet": "뉴시스",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBsQjBKZkVGSm8xclRYam1YMllQVjBzMFJ5M1N0M2hMOWtGalRIUzByTm1QaUUxR3ZIM2k1NHJBT0ZLU2ZJa2xyb3NsWFJ5NE45MUdCdmNxYVBVSGtWdFRrNNIBeEFVX3lxTFBDc0ZCaHM1REhRaV9nbTNwUnRPblpRU2VEcUFMS1Vfbm1IWlNKejYxXzJZUHZlS0FoNVdhcGtpNWswd1BQclp6clBOeUJ5RGtjd0JvSGFsR1FQWWN0UFF2WmlBZHM0blBSM1BBaTZ3V0NzSUpCcVA4bQ?oc=5",
+     "publishedAt": "2026-08-04T21:00:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "‘폭염중대경보’ KIA타이거즈 홈경기 취소",
+     "outlet": "KBS",
+     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE45WkNSeXZhWml5MGhGbXdyelBMLWlLZXBjWU1McTUyN2ZkbE9lakZiMkJxckFFMXJlSzJEY3NUOXU4dUs5czd3OGdDakVwMTJpREI3bVlEWXlURXVOUGRFa29BaE5xZw?oc=5",
+     "publishedAt": "2026-08-04T10:13:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "프로야구 4일 잠실·광주 경기, 폭염으로 취소",
+     "outlet": "한겨레",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9Lbnp1ZUhkS0NLZnlJQk5pcmlDemZNZWZINHRHdmVaT0hiWk1SaklQWWRzM2JhWFl3TThKVF9tVFp4cVBEM2NGbEQ0dUdaZlo3aXdBOGV0OUl3alo0bUw4ZWdyWjJhSzhoOEVKRUN5ZF96UQ?oc=5",
+     "publishedAt": "2026-08-04T04:25:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": true
+    },
+    {
+     "title": "극한 폭염에 프로야구 창원 NC-기아 경기 이틀 연속 취소",
+     "outlet": "JTBC",
+     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5YV2NEeHBrazZ2STAxaXBwbVpnYnN2LUktQWQ1TXB0Vm5STm5Cb25BcE8yUVhGdHoxY1ZNVW1mMll4VVdydDlFeWFtZ2FRRkMxeEoxSQ?oc=5",
+     "publishedAt": "2026-08-02T07:00:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": true
+    },
+    {
+     "title": "프로야구도 폭염 여파…창원 NC-KIA전 이틀 연속 취소",
+     "outlet": "한겨레",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5sUFdmTVBoZ1UyX1haalhVVXlRRzFfMmt4OXNGc3BiWjc5WmhkT2FlMXFJMm9VVXFCeDlMOVBsY2Zyc0xQVm16TWduSTl2WFJXZHUyYS1qaEJ0UGtGOWRqaXZoeHUtQU9lbGM3a1Ixdkd1QQ?oc=5",
+     "publishedAt": "2026-08-02T07:00:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": true
+    },
+    {
+     "title": "프로야구 창원 KIA-NC전, 연이틀 폭염 취소",
+     "outlet": "한국경제",
+     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE13MnBpVUtQc1RfUkUxbnFBa3FESWFhaFUtRkZSVmUyZUVVYzU4VWxwa21Tcm1IZ0VxakluYmgwVUFDWW0zVUdWSXZENkNjVlFBWUJCQVB6VVRhQQ?oc=5",
+     "publishedAt": "2026-08-02T07:00:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": true
+    }
+   ]
+  },
+  {
+   "teamId": "LT",
+   "teamName": "롯데",
+   "articleCount": 12,
+   "countedArticles": 6,
+   "singleTeamArticles": 6,
+   "multiTeamArticles": 6,
+   "posArticles": 0,
+   "negArticles": 2,
+   "neuArticles": 4,
+   "positiveScore": 0,
+   "negativeScore": 4,
+   "netScore": -4,
+   "topPositiveKeywords": [],
+   "topNegativeKeywords": [
+    "말소"
+   ],
+   "summary": "단일 팀 기사 6건 기준 (긍정 0 · 부정 2). 여러 팀 언급 6건은 중립(참고). 부정 키워드: 말소.",
+   "articles": [
+    {
+     "title": "'햄스트링 이상 없지만' 롯데 김진욱, 휴식 차원 엔트리 말소",
+     "outlet": "뉴스1",
+     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBBNGRyemRJc2I3UHhoa08zejZHWENINjV5dHo4QVo5WDhRLVRmU0oyM2JGeHVwb2xqeWprVXdhMmRSSFEtTENkRFVBci1NYVFDTExkc1ZxQQ?oc=5",
+     "publishedAt": "2026-08-03T08:31:53.000Z",
+     "label": "neg",
+     "score": -2,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "롯데 선발 김진욱, 1군 엔트리 말소…\"로테이션 한 차례 휴식 예정\"",
+     "outlet": "뉴시스",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBpQ0F3SDA3blFWNEZIdGtqYjBaS2NYNk4tTmlJWUo3eTJVUzdNTWh3UExraGw1VGdxN3o3cFVsQ21jUXZfM2NYNVBkUGdwYjRKWVZVcW8xVDRQOFZqSUlhWNIBeEFVX3lxTE1YOWFweFhSbFVBOWRFamdQUmh3c1JVSldXVU9QODE3c29jbVVzemJOZkRudjlqWlE5RVJEaDNUTk9NYzB6eV9pWkplUXRWYnp6aUF6MGEwOVhhcm4zd3hHQTdhQ0REbFdqVVd4RTl5YzZfeGM4TG1INA?oc=5",
+     "publishedAt": "2026-08-03T08:24:56.000Z",
+     "label": "neg",
+     "score": -2,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "KH한국건강관리협회, 롯데 자이언츠 홈경기서 ‘매치 데이’ 개최",
+     "outlet": "국제신문",
+     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQVTR5eWx6S3pndFY0TTBSU3pIYk10eno4SGR0cFNESEVyXzVyaWVjNHI3STRjczBhamdCOE9Sb2JQeERuQnRUUW9kMkpwd0ZxYWRVcWxqZERyUExJTFVwVm9FdEZqN0NZN1U2Snh1QzhsenE5TkNIRW1CNFpmV1dJT05ObWd6SWJKRjhVVTRR?oc=5",
+     "publishedAt": "2026-08-04T07:47:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "롯데 떠난 日쿄야마, 대만행 유력! \"라쿠텐 몽키스와 입단 합의\" - 머니투데이",
+     "outlet": "머니투데이",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFA2aGI1cDViSkFKb19RbHZCd2h3OG0tT193dDFYTG5RRlpxbXNyQmhIblpFNFZkRjJLWVdXSTVobzM3WGRWSXp0cTd6cmRwZHJSNEpieDV6WjFGeE90QU82RGVNekxkTDNmS1HSAW9BVV95cUxNVzNkR29QcDQxN2cyamdKTDk3eklKSFBzX2NyanNIbkhhUGFHdkdodnhjNXhNOXpFUDFlYmdVWHVjam5jOXRKT3ZYZENyOERTcEx6cWNHZE45U3JrYUJfREtuWkFPYW9LOXV3VVB0bnM?oc=5",
+     "publishedAt": "2026-08-04T04:27:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "타들어가는 그라운드…구토·어지럼 호소에 선수 교체도",
+     "outlet": "국제신문",
+     "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNUDBoSDFVZDFUTG5rcUptdnRQbnhjalVlVU1ZbWNRUjVGbnVwN3BhWk5Xa25lbmoxN0NXRHMwbG1rUDkwaFlUWHhmU2czTHVJTE1GMS1nc2I2ay1kLW9QWkdTa050eUZDUy1ZLWVlbHQ0bnJQZm8wd2lLbDFpUFd2X3FxRm5OZk5aS3pqVzBTMnN3eHRnVjZrQmdBRXFVT3VQUTJGbV9yTFZ6SVpfdUE?oc=5",
+     "publishedAt": "2026-08-02T10:31:27.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "용암처럼 들끓는 사직, 현장 요청 묵살하고 경기 강행?...사직 30분 지연 개시, KBO 기준은 무엇인가 [오!쎈 부산]",
+     "outlet": "조선일보",
+     "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQeE5XRlFDNFZyYmdpV1VBeXliSkdVaUVvMzUyZzZIMHptdzlheGQzT1FhUkFUcFVxR2dEU2otR3AyQVN2MGdCTzNJdElvOEFmT3VyVXdRQUtoUEhhcGpoeURhMDloR3AyT2g0TnJiaUlISDVKbWJTc2Mwb0hENFRhME5rMA?oc=5",
+     "publishedAt": "2026-08-02T07:00:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "'김원중 세이브' 롯데, 키움 3-2 격파…SSG는 LG 3연패 몰아넣고 진땀승(종합)",
+     "outlet": "뉴시스",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1QR0k3cm1IMXV4akZqTEIwaDh4MmFNS1ZzSU0tRTZ5TV96QU1sd1pscUdqNnY3dEVjUWtmTVdJTnBZZlBYcWk5Sk5Vb1poVFhMcVRydTZkWlJDZklvc1NkZtIBeEFVX3lxTE50aExMVHVjLTVablVidUgta3dDeHFzTUNON0QtalVreWJvVjBxWWN0cE9icHNqcGNpOUV1U29uMVg0VW9iY09SdmlNMDgwRVdNd2ZNMHE2TjVTcjJTZzJ2NEYwSkYyelNYWW1RX29SZUJ6Q1d4TzVkNA?oc=5",
+     "publishedAt": "2026-08-04T13:38:57.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": true
+    },
+    {
+     "title": "`건강도 관리하세요` 롯데, 6일 키움전 한국건강관리협회 매치데이 행사 마련",
+     "outlet": "이데일리",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBUTnZUWFBkRlVHVFQxQzNXMHQwd19tZDhlOXBkWHZOaDlxSEJlbDlpYUNlRmNvR0hfUUF3Q2tLWlZWT001RTJxSk44SEpRWEJIV3JqLUhLYjFpM2JZVW56MQ?oc=5",
+     "publishedAt": "2026-08-04T01:59:36.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": true
+    }
+   ]
+  },
+  {
+   "teamId": "NC",
+   "teamName": "NC",
+   "articleCount": 7,
+   "countedArticles": 2,
+   "singleTeamArticles": 2,
+   "multiTeamArticles": 5,
+   "posArticles": 0,
+   "negArticles": 0,
+   "neuArticles": 2,
+   "positiveScore": 0,
+   "negativeScore": 0,
+   "netScore": 0,
+   "topPositiveKeywords": [],
+   "topNegativeKeywords": [],
+   "summary": "단일 팀 기사 2건 기준 (긍정 0 · 부정 0). 여러 팀 언급 5건은 중립(참고).",
+   "articles": [
+    {
+     "title": "\"일석이조\" … 창원투어패스 48시간권·NC 야구 관람권 출시",
+     "outlet": "아시아경제",
+     "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPajM3Sm1uUF9qZnNCa3FFXy0xN1BuczNObnlqaUFaOWI1Zzc5dEhkYmlsWWFMLS1ZRmxuX0c3NDRla3ZCUk5BdWlZSWlURjFTV1FGa2dqOG1BV0FhSC1TR2RaaXdNdDZvM2FHbVd3OG0tdDRIQ2ZwZUFwX0x6TXl6Nk93?oc=5",
+     "publishedAt": "2026-08-04T23:59:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "NC 다이노스·㈜웰템, 기록적 폭염 속 팬·현장 구성원 위한 '여름나기' 맞손",
+     "outlet": "세계일보",
+     "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1QZk5HTXpiOFcyeWlPYjM0RWRjVTMwbVNONHNXZUt6YTVCTWxFZTdmemdoc1NOSHYwaURkX0M4MDd4a1hlbC1mOUlMQlJrVkRxaG1OTWNyc3LSAVRBVV95cUxOQVpGS2VVWHFSSmQwLXVrWTUtdVZINHZ4YlV4dmtsYTRDNnFDSGluQWd4TDdMbnA4NW1IYVBXN0ZjOFJfVWg2ZldSTWFyZUJjUWV6ckY?oc=5",
+     "publishedAt": "2026-08-04T01:54:26.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "프로야구 4일 잠실·광주 경기, 폭염으로 취소",
+     "outlet": "한겨레",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9Lbnp1ZUhkS0NLZnlJQk5pcmlDemZNZWZINHRHdmVaT0hiWk1SaklQWWRzM2JhWFl3TThKVF9tVFp4cVBEM2NGbEQ0dUdaZlo3aXdBOGV0OUl3alo0bUw4ZWdyWjJhSzhoOEVKRUN5ZF96UQ?oc=5",
+     "publishedAt": "2026-08-04T04:25:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": true
+    },
+    {
+     "title": "가수 선미, 4일 프로야구 잠실 두산-NC전 시구",
+     "outlet": "뉴스1",
+     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBsN2JwU0NVQmo3Z0EybDNwSWx3NEZBRHlNUFBZTjBmd2Q1clFEMk50V24zSTUxaEJUOTBIVHVmSjhyMDBhVDNmZVBlX1MyR3Zwc1Z3MzVKbw?oc=5",
+     "publishedAt": "2026-08-02T07:00:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": true
+    },
+    {
+     "title": "극한 폭염에 프로야구 창원 NC-기아 경기 이틀 연속 취소",
+     "outlet": "JTBC",
+     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5YV2NEeHBrazZ2STAxaXBwbVpnYnN2LUktQWQ1TXB0Vm5STm5Cb25BcE8yUVhGdHoxY1ZNVW1mMll4VVdydDlFeWFtZ2FRRkMxeEoxSQ?oc=5",
+     "publishedAt": "2026-08-02T07:00:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": true
+    },
+    {
+     "title": "프로야구도 폭염 여파…창원 NC-KIA전 이틀 연속 취소",
+     "outlet": "한겨레",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5sUFdmTVBoZ1UyX1haalhVVXlRRzFfMmt4OXNGc3BiWjc5WmhkT2FlMXFJMm9VVXFCeDlMOVBsY2Zyc0xQVm16TWduSTl2WFJXZHUyYS1qaEJ0UGtGOWRqaXZoeHUtQU9lbGM3a1Ixdkd1QQ?oc=5",
+     "publishedAt": "2026-08-02T07:00:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": true
+    },
+    {
+     "title": "프로야구 창원 KIA-NC전, 연이틀 폭염 취소",
+     "outlet": "한국경제",
+     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE13MnBpVUtQc1RfUkUxbnFBa3FESWFhaFUtRkZSVmUyZUVVYzU4VWxwa21Tcm1IZ0VxakluYmgwVUFDWW0zVUdWSXZENkNjVlFBWUJCQVB6VVRhQQ?oc=5",
+     "publishedAt": "2026-08-02T07:00:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": true
+    }
+   ]
+  },
+  {
+   "teamId": "KT",
+   "teamName": "KT",
+   "articleCount": 13,
+   "countedArticles": 5,
+   "singleTeamArticles": 5,
+   "multiTeamArticles": 8,
+   "posArticles": 1,
+   "negArticles": 0,
+   "neuArticles": 4,
+   "positiveScore": 4,
+   "negativeScore": 0,
+   "netScore": 4,
+   "topPositiveKeywords": [
+    "MVP"
+   ],
+   "topNegativeKeywords": [],
+   "summary": "단일 팀 기사 5건 기준 (긍정 1 · 부정 0). 여러 팀 언급 8건은 중립(참고). 긍정 키워드: MVP.",
+   "articles": [
+    {
+     "title": "소형준·곽빈·구자욱·힐리어드 등 7명, 프로야구 7월 MVP 경쟁",
+     "outlet": "뉴시스",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE04ZktITEx4WkI0YTNlVmtjNEFhN0dMRGZOamhtTHItNEdzUUdGYUdnZVNsOG1Rb2pJak1Vb1diRzZpZk8zRVdwcTdRb0pRX2ljWEdxdnd0ajU4cEJRYkktUtIBeEFVX3lxTE5sclI2Mm91YnBCWWVWa0R4NkFtcVZoZlp1UEdJUDg0eFpCUlVRR0I2RThiTXhRdExOSnVYc0R6Z1BQUlRTbXlueFp6RVAzdGlQU25saHl5NnZMSEU3Zk5yYjZvVjM0Rl9acmFocEdFUGg1VllNMC1kTA?oc=5",
+     "publishedAt": "2026-08-04T02:22:16.000Z",
+     "label": "pos",
+     "score": 4,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "'3점포 쾅' KT 김현수, KBO 통산 4000루타 달성…역대 4번째",
+     "outlet": "뉴시스",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE15TzJjU2dlYU0yRFFWbElYZ2JMUFJfRFU4R2FNbnQ5VFVhTnFYdURZbjBGVkFzNmxHa0wxMklndkI0N0wwWGlVRmJQbGxWRXdRWW15anpSc1g2bi1qSGpQeNIBeEFVX3lxTFBZN3c4cUNodWFLY1g0WWxyekM3NDQtVGxBWkM3MnRKWmlpN3EzaWZPWkF0TEZ3NWtEV2g0eHVrYUtXNGU3cE1SWlhHbE5EazdQSjlpMl9NZTZreTN4aGx5QWlHRDlUWDRzVEpDeFdGdUl6U3V1VkxxaA?oc=5",
+     "publishedAt": "2026-08-02T11:27:05.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "효린-다영-YB-청하, 콘서트 아닌 야구장 라인업이라니…KT 워터페스티벌의 진화, 위즈 라이브까지 즐긴다",
+     "outlet": "조선일보",
+     "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNYzJCQmlmbDNZQjVSQjdneEtwY3lYWGhRMjUxMWxtVWh5dkVoNk90Mk5VSS1ZdG52T0NLZ0NwNnBrT3lLS1huS2xUbkF5a0U5VkxLOXFmbGlLM0Fvd0RkU3c4Y0VuZW1BSThhcldtcG56bWVtRzltMHJ2X1Y2SkxId2lWYw?oc=5",
+     "publishedAt": "2026-08-02T07:00:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "효린-다영-YB-청하, 콘서트 아닌 야구장 라인업이라니…KT 워터페스티벌의 진화, 위즈 라이브까지 즐긴다 - 머니투데이",
+     "outlet": "머니투데이",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBQTFpkT01QODFXZnlSajllU0IyNEZucHRZLTBrTFVOcEFsRVAxdzVFRTd6dG9QeEEtTXFvUmh2dGk2NFV1RUpEMHMzYkJYVW4xRElPZXkzZ3VnOE0wMWxWMGhuQ29pVERKakHSAW9BVV95cUxPYlVnVk5fSGlrNEJVS0ZBQUU0Rl9pWGlYWGpsY3ExdkVkR2dHM01kbjk5MmpRUzF1ZHVOWU81MFo5VlZSQnRQY2x5ZUxRUW55VVEtRXRoRi1YYmozNVF1ZXRBbkROSUM1V3RlcGdXcDA?oc=5",
+     "publishedAt": "2026-08-02T07:00:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "‘후반기 지배자’ KT가 폭염을 이기는 법···체온 식히는 선발야구 ‘나비효과’",
+     "outlet": "스포츠경향",
+     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1mTTBmNDQ3QzVaRHRUSHRrMl9VdHJvQkU5VHVhOUVETVpobWRYU2VXR2RsME9ja0dKMGIxVWpmd29TT3BMbTJRU1kzN2hnQ3YyU2NCOVZqT01ST0s1Z3fSAWNBVV95cUxPY2JoRHR6YjQ2dEpjdF9zS0w2dFFxLW5qbEx6eWFURzJWeDY3YzdPT2pjZ19UVjItcVhyVWFqdUIxbjZxSmw4YUJNaGJOZVAxZVludkJJTHpqcWtRckcwVTkyM3c?oc=5",
+     "publishedAt": "2026-08-02T07:00:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "프로야구 4일 잠실·광주 경기, 폭염으로 취소",
+     "outlet": "한겨레",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9Lbnp1ZUhkS0NLZnlJQk5pcmlDemZNZWZINHRHdmVaT0hiWk1SaklQWWRzM2JhWFl3TThKVF9tVFp4cVBEM2NGbEQ0dUdaZlo3aXdBOGV0OUl3alo0bUw4ZWdyWjJhSzhoOEVKRUN5ZF96UQ?oc=5",
+     "publishedAt": "2026-08-04T04:25:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": true
+    },
+    {
+     "title": "굿바이 황재균…8일 수원 롯데-KT전서 은퇴식",
+     "outlet": "뉴시스",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1MbTVxbXVRUUpsZjVqVVhNNi1jeHNSTG1VYmFhMEl3eEhYZWRhYWN1d1FXYjNGQnhCYVVybzk3QS1vS0t4amtsMUZQY1BGSHBaQkRKS21XYTJ3VUpfbGI3WtIBeEFVX3lxTE40eVA4QmdmMzNDSFNBblhLZlJKcXA3anBZMDhNT3hiRDZxbzVYRW52dkZXR09tNTYxLW9aR3JpWGNENk5iMEpJUU1NYWh2TUptd05GLUNNNjRqMWh4OHZELW5zc1YySEloYXd0Smh4Wl85R191Vjk1bg?oc=5",
+     "publishedAt": "2026-08-04T01:55:05.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": true
+    },
+    {
+     "title": "'KT 창단 첫 우승 주장' 황재균, 8일 수원 롯데전서 은퇴식",
+     "outlet": "뉴스1",
+     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9XcTNzSm1lWVBncUxncmxqV1ZaUkM2TDVVNFc2WjR5d3JsYVZiLUtKb3FmaFlMNS1IWjhCcFFYdDhhb0xHRVhSRU1WRmZzbFk1ZUZuVHV4NA?oc=5",
+     "publishedAt": "2026-08-04T01:49:59.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": true
+    }
+   ]
+  },
+  {
+   "teamId": "HH",
+   "teamName": "한화",
+   "articleCount": 10,
+   "countedArticles": 5,
+   "singleTeamArticles": 5,
+   "multiTeamArticles": 5,
+   "posArticles": 2,
+   "negArticles": 0,
+   "neuArticles": 3,
+   "positiveScore": 6,
+   "negativeScore": 0,
+   "netScore": 6,
+   "topPositiveKeywords": [
+    "무실점",
+    "상승세",
+    "연승"
+   ],
+   "topNegativeKeywords": [],
+   "summary": "단일 팀 기사 5건 기준 (긍정 2 · 부정 0). 여러 팀 언급 5건은 중립(참고). 긍정 키워드: 무실점, 상승세, 연승.",
+   "articles": [
+    {
+     "title": "3연속 위닝 상승세였는데, '패패패' 한화 왜 흐름 끊겼나…김경문 감독 \"연패가 있으면 연승도 있다, 야구는 그런 것\" [MD대구]",
+     "outlet": "이데일리",
+     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5QQjhvSTJ5ZV9sLTN6dDRid3RfMmljNEdjVzJVTmxNemRkNE1zTEdEZ0ZVWWFRaTIwQ2otN0ozbHVJbzhLUHU1ODU1T2FZTXh6SWRLUXk1TEw5V05VdUVKUmtCME95UQ?oc=5",
+     "publishedAt": "2026-08-04T08:36:00.000Z",
+     "label": "pos",
+     "score": 4,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "'무실점→7실점' 극과 극 4이닝…한화의 PS 승부수, '커맨드형 외인'의 딜레마 어떻게 돌파할까",
+     "outlet": "조선일보",
+     "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxONmxXN18zWjV2SXJTNDRSSThFclRmRmlVbjltRUpic3M3REZiNkpGOUdEVkxDSGNvV25EalVtUXpEeGhVVGdwUE1Hem1YLVo3MEw5RXFWYjZYb1U0U2VtMEFRMVBwR1BGeWpnbFU5cGRfZVNfZmo2bFV2ZHpWSHFRa0tHRQ?oc=5",
+     "publishedAt": "2026-08-02T07:00:00.000Z",
+     "label": "pos",
+     "score": 2,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
      "title": "‘대만 특급’ 한화 왕옌청, 아시아쿼터 최초 10승 고지 밟았다",
      "outlet": "조선일보",
      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNLW5rX2RiRWQ2STVld2dIV1p1WUpwSjZzUlk0U29TMGEydkM3N0FfTHBaTXE0RXVETWsxMmtPWW5FQlNYREhwTk00SWF4RDlncW5UNmJXUncyb29qSjg1Rk03ZWZYYktFbGluV2NvNUFBYzR6TUc5OVlmeGdSRGNIS01Xdw?oc=5",
@@ -1018,13 +1019,33 @@
      "label": "neu",
      "score": 0,
      "reason": "",
-     "multiTeam": true
+     "multiTeam": false
     },
     {
-     "title": "한화 왕옌청, 삼성전 6이닝 7탈삼진 무실점으로 10승 달성(종합)",
-     "outlet": "연합뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9NLTVDX3hfOGdvWURfRl9rX1RiQmMxa3cxOXNha0VCODE5Y1I5eHN5ZmJ2OXRkTDFCZTdyMC1WSktlRWxvS2FQTndsWGFQVDl3NGNlSzBDR3RHdzTSAWBBVV95cUxQbXBYanFFTFVSWHVwNnk2RFNCRFcwdFo5SU4tX05DSkYtYkpnSVhHUldBLTR3OVFjMnJmTmdVdFc2alhSODJnMzlvS0d0VFZPWVBzUlNqRmsyb21jV2dGR1Q?oc=5",
-     "publishedAt": "2026-08-04T13:26:56.000Z",
+     "title": "'초대박' 한화, 1.4억으로 14억 효과…그런데 한국야구는 비상→왕옌청 '아시아쿼터 최초 10승' 의미 진하네 [대구 현장]",
+     "outlet": "엑스포츠뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9BTlIxcnZ3RUtXOHNaaTVvbkNQdnlUcGVxUjk4c3FYSmRYRVJPQmVYYkJzX0tPemRCMEdld3RTa3dZSUxoR0NKRFRZeDk3eVM4LVAwNg?oc=5",
+     "publishedAt": "2026-08-04T12:26:32.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "류현진·강백호 리액션 소장 기회…한화, 시즌 한정판 이모티콘 출시",
+     "outlet": "뉴스1",
+     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1ORGMyQVRYZmNXRXQySHQxYno3QzhJN3ZycDRSV3Q2WVlCOVJoR29ob1pKY1AxMG5KNzhLUkRUbUEtSVEyM1liWU04cUhsVENLSUF6cjFndw?oc=5",
+     "publishedAt": "2026-08-03T02:28:11.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "한화, 삼성 꺾고 3연패 탈출…SSG는 갈 길 바쁜 LG 제압(종합)",
+     "outlet": "뉴스1",
+     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5IT1lBaDI5cTVIU0J2QXByZnpaUjFSUVA2MHRYRmUwRF9UQ1pqd1Z0Z1VtXzhlUzI5eGw2cm9OWkN3Mlh0SWNSLVhKLXZYaTB5bDU1U2RZWQ?oc=5",
+     "publishedAt": "2026-08-04T13:43:32.000Z",
      "label": "neu",
      "score": 0,
      "reason": "",
@@ -1041,20 +1062,10 @@
      "multiTeam": true
     },
     {
-     "title": "'초대박' 한화, 1.4억으로 14억 효과…그런데 한국야구는 비상→왕옌청 '아시아쿼터 최초 10승' 의미 진하네 [대구 현장]",
-     "outlet": "엑스포츠뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9BTlIxcnZ3RUtXOHNaaTVvbkNQdnlUcGVxUjk4c3FYSmRYRVJPQmVYYkJzX0tPemRCMEdld3RTa3dZSUxoR0NKRFRZeDk3eVM4LVAwNg?oc=5",
-     "publishedAt": "2026-08-04T12:26:32.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "",
-     "multiTeam": true
-    },
-    {
-     "title": "한화 왕옌청, 삼성전 6이닝 무실점…아시아쿼터 최초 10승 보인다",
-     "outlet": "뉴스1",
-     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE11dFpHS1EzLTByb0M2R2cxdWtJT05KQnNSYm81U0JaT2FrUFNSSTJURzdsZV9PSTFvZnF1eS1ZczZZaG9WaU4yVWtnNlZlVG1BMHZzVjVxMA?oc=5",
-     "publishedAt": "2026-08-04T11:44:14.000Z",
+     "title": "`5회 흔들린 양창섭` 삼성 라이온즈, 한화 이글스에 고배",
+     "outlet": "매일신문",
+     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBNNWw4TDBiemdWZnQwZzl0d3AxSG1GRFlUbi1MMVQyNURBWUFfSlNZVHlQNnJCZXI2MmJaSDR3VEpMNDZLUTNnYUtxU3p5RkJMaGgzcTVONG00Szd5M080bXFR?oc=5",
+     "publishedAt": "2026-08-04T12:32:50.000Z",
      "label": "neu",
      "score": 0,
      "reason": "",
