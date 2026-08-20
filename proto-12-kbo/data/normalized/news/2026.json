@@ -1,11 +1,11 @@
 {
  "season": 2026,
- "generatedAt": "2026-08-19T18:54:14.883Z",
- "asOf": "20260819",
+ "generatedAt": "2026-08-20T18:54:40.757Z",
+ "asOf": "20260820",
  "window": {
   "days": 3,
-  "from": "20260817",
-  "to": "20260819"
+  "from": "20260818",
+  "to": "20260820"
  },
  "method": "lexicon-singleteam",
  "modelLabel": null,
@@ -95,29 +95,29 @@
   {
    "teamId": "LG",
    "teamName": "LG",
-   "articleCount": 27,
-   "countedArticles": 14,
-   "singleTeamArticles": 14,
+   "articleCount": 28,
+   "countedArticles": 15,
+   "singleTeamArticles": 15,
    "multiTeamArticles": 13,
-   "posArticles": 4,
+   "posArticles": 5,
    "negArticles": 4,
    "neuArticles": 6,
-   "positiveScore": 16,
-   "negativeScore": 16,
-   "netScore": 0,
+   "positiveScore": 18,
+   "negativeScore": 14,
+   "netScore": 4,
    "topPositiveKeywords": [
     "승리",
+    "홈런",
     "역투",
-    "완승",
-    "완벽투"
+    "완승"
    ],
    "topNegativeKeywords": [
     "부상",
-    "이탈",
-    "재활",
-    "말소"
+    "위기",
+    "말소",
+    "재활"
    ],
-   "summary": "단일 팀 기사 14건 기준 (긍정 4 · 부정 4). 여러 팀 언급 13건은 중립(참고). 긍정 키워드: 승리, 역투, 완승, 완벽투. 부정 키워드: 부상, 이탈, 재활, 말소.",
+   "summary": "단일 팀 기사 15건 기준 (긍정 5 · 부정 4). 여러 팀 언급 13건은 중립(참고). 긍정 키워드: 승리, 홈런, 역투, 완승. 부정 키워드: 부상, 위기, 말소, 재활.",
    "articles": [
     {
      "title": "LG 1위 경쟁 합류 선언! 미국 호주 연합군 활약 미쳤다, '승장' 염갈량도 감탄 “톨허스트 완벽투, 케네디는 우리 승리조” - 머니투데이",
@@ -160,12 +160,32 @@
      "multiTeam": false
     },
     {
-     "title": "[핌in잠실] LG '햄스트링 부상' 이재원 이탈...새 '亞쿼터' 케네디는 19일 등록",
-     "outlet": "뉴스핌",
-     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1ETWluZUwwcmhHSWE0S25KbUJPQVJQNVNHWnE2TDlhUlFnWW1PcUNiM2l2dTFORm1rc0lsM1luZ0ZOay1JMndfakp3WW1YdnJsaDJUWkRZX0RTQWlV?oc=5",
-     "publishedAt": "2026-08-18T08:56:00.000Z",
+     "title": "LG 문정빈, 20홈런 보인다…염경엽 감독 \"타석 수로 보면 충분\"",
+     "outlet": "연합뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE50akRsNzFsWFJuRVVUZ1EtT3k2MW9RaGlBU2xvcjFCd0t3WW81VHpFd3E5UDRVdEdBeXY1Z0hsb0tHYWZZM01OT2ZsUUlvS2hPZm53Umo4Sk91MEstMTE2WtIBYEFVX3lxTE50akRsNzFsWFJuRVVUZ1EtT3k2MW9RaGlBU2xvcjFCd0t3WW81VHpFd3E5UDRVdEdBeXY1Z0hsb0tHYWZZM01OT2ZsUUlvS2hPZm53Umo4Sk91MEstMTE2Wg?oc=5",
+     "publishedAt": "2026-08-20T09:06:13.000Z",
+     "label": "pos",
+     "score": 2,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "LG 염경엽 감독, '데뷔전' 케네디에 호평…\"까다로운 투수, 승리조로 쓸 것\"",
+     "outlet": "뉴시스",
+     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9QY1ZfWEZQcFlTTUJpX2xRSzZMY0MxZ1RFaGc1dUZDT19KemFrVlJZeDRXdHpSNThneWRQWlRXWjNqN3pTSzZvbkI4Ym1JUmkxdWluVmZ5NWJaellYdC1PaFU2bVhrSnV2Rjh5a2NVT0U5NzZTQ3JvYtIBeEFVX3lxTE9QY1ZfWEZQcFlTTUJpX2xRSzZMY0MxZ1RFaGc1dUZDT19KemFrVlJZeDRXdHpSNThneWRQWlRXWjNqN3pTSzZvbkI4Ym1JUmkxdWluVmZ5NWJaellYdC1PaFU2bVhrSnV2Rjh5a2NVT0U5NzZTQ3JvYg?oc=5",
+     "publishedAt": "2026-08-20T08:22:08.000Z",
+     "label": "pos",
+     "score": 2,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "공 4개로 위기 지운 LG 케네디, 데뷔전서 팬들에게 눈도장",
+     "outlet": "연합뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9LQk8wRDdydWZIY2hSQTBBQU13RlFjVFBKRWlrSTRtelJTUlVEVEYyTWt6NmVVSUJWbEZUc3FlZ24wVUtfazlpNllVRXZTLXlSNFFKaFlvWGxZVzNWSjZvbtIBYEFVX3lxTE9LQk8wRDdydWZIY2hSQTBBQU13RlFjVFBKRWlrSTRtelJTUlVEVEYyTWt6NmVVSUJWbEZUc3FlZ24wVUtfazlpNllVRXZTLXlSNFFKaFlvWGxZVzNWSjZvbg?oc=5",
+     "publishedAt": "2026-08-20T06:04:10.000Z",
      "label": "neg",
-     "score": -4,
+     "score": -2,
      "reason": "",
      "multiTeam": false
     },
@@ -178,72 +198,28 @@
      "score": -2,
      "reason": "",
      "multiTeam": false
-    },
-    {
-     "title": "역투하는 LG 선발 임찬규",
-     "outlet": "연합뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBFLWNweWxZWV9jODVhN0V0TUhBeE5QQ0FZYllFYkpEN2xndENUQ1Q0a0ZrLXVQcmJnMk9zMTliTExtWFQxdHU5cnhQMzdsUGduanNQVWRnZ0lxYW9DaDJzVNIBYEFVX3lxTFBFLWNweWxZWV9jODVhN0V0TUhBeE5QQ0FZYllFYkpEN2xndENUQ1Q0a0ZrLXVQcmJnMk9zMTliTExtWFQxdHU5cnhQMzdsUGduanNQVWRnZ0lxYW9DaDJzVA?oc=5",
-     "publishedAt": "2026-08-18T13:11:03.000Z",
-     "label": "pos",
-     "score": 2,
-     "reason": "",
-     "multiTeam": false
-    },
-    {
-     "title": "공민정, “승리요정으로 거듭날 수 있도록” LG트윈스 시구 도전",
-     "outlet": "스타뉴스",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1tZWgzX0xVelduMF9aYnBfczU3LXl3Rm9VLXFRelI5cW11NV9lOUZ2OVN4T250QnhaSmhCV2pRdmh4OHZ4R05qMWFYN1lIVC1CYU53dTd3WHVDNkJ1d2dVUnNRSl9rVi1wbkFtUzZ1bTU4dw?oc=5",
-     "publishedAt": "2026-08-18T00:38:07.000Z",
-     "label": "pos",
-     "score": 2,
-     "reason": "",
-     "multiTeam": false
     }
    ]
   },
   {
    "teamId": "OB",
    "teamName": "두산",
-   "articleCount": 8,
-   "countedArticles": 6,
-   "singleTeamArticles": 6,
+   "articleCount": 7,
+   "countedArticles": 5,
+   "singleTeamArticles": 5,
    "multiTeamArticles": 2,
-   "posArticles": 2,
-   "negArticles": 1,
-   "neuArticles": 3,
-   "positiveScore": 6,
-   "negativeScore": 2,
-   "netScore": 4,
+   "posArticles": 1,
+   "negArticles": 0,
+   "neuArticles": 4,
+   "positiveScore": 2,
+   "negativeScore": 0,
+   "netScore": 2,
    "topPositiveKeywords": [
-    "승리",
-    "홈런",
-    "폭발"
+    "승리"
    ],
-   "topNegativeKeywords": [
-    "고비"
-   ],
-   "summary": "단일 팀 기사 6건 기준 (긍정 2 · 부정 1). 여러 팀 언급 2건은 중립(참고). 긍정 키워드: 승리, 홈런, 폭발. 부정 키워드: 고비.",
+   "topNegativeKeywords": [],
+   "summary": "단일 팀 기사 5건 기준 (긍정 1 · 부정 0). 여러 팀 언급 2건은 중립(참고). 긍정 키워드: 승리.",
    "articles": [
-    {
-     "title": "'15G 0홈런' 야속했던 외인 타자, 2군 내려가더니 대폭발…이번에는 결승 투런포, 두산 기대감 커진다 - 머니투데이",
-     "outlet": "머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9KMzV5ODIxLVpJT003d2g1VnRIR3NmRWduQkFaRjE0dTBkZkpIbWkxOGJEZlVuRG5iX0NUM1g1QjMwX1pMZ0QtY0xIVUVWc0Y3TmpwOTA1MmkxMVN4RWJXakNkZEsyWkd6R2ZwWEl1a9IBb0FVX3lxTE9KMzV5ODIxLVpJT003d2g1VnRIR3NmRWduQkFaRjE0dTBkZkpIbWkxOGJEZlVuRG5iX0NUM1g1QjMwX1pMZ0QtY0xIVUVWc0Y3TmpwOTA1MmkxMVN4RWJXakNkZEsyWkd6R2ZwWEl1aw?oc=5",
-     "publishedAt": "2026-08-17T15:10:00.000Z",
-     "label": "pos",
-     "score": 4,
-     "reason": "",
-     "multiTeam": false
-    },
-    {
-     "title": "두산, ‘투수 보직 변경’ 2번의 승부수가 통했다…마지막 고비는 AG",
-     "outlet": "스포츠경향",
-     "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE04V2k4VzAwbklEVjZ3V1FpWW1uQm5SZS1ULXlCS2pyaS1OUTVnT1hZaUxwbm9EUzY5cjl1UEdyQjZob0FVb3pZdF9rVm9hUmoySjA2Z0Y0R1dfempBQ1BoeGJ6b9IBY0FVX3lxTE04V2k4VzAwbklEVjZ3V1FpWW1uQm5SZS1ULXlCS2pyaS1OUTVnT1hZaUxwbm9EUzY5cjl1UEdyQjZob0FVb3pZdF9rVm9hUmoySjA2Z0Y0R1dfempBQ1BoeGJ6bw?oc=5",
-     "publishedAt": "2026-08-19T05:14:00.000Z",
-     "label": "neg",
-     "score": -2,
-     "reason": "",
-     "multiTeam": false
-    },
     {
      "title": "두산, 엔믹스 막내 규진 시구자 초청 \"베어스의 승리요정이 되겠다\"",
      "outlet": "SPOTV News",
@@ -255,10 +231,30 @@
      "multiTeam": false
     },
     {
-     "title": "아시아 국가 최초 세계야구선수권 우승 이끈 어우홍 전 감독 별세",
+     "title": "티켓·굿즈 할인에 생활 혜택…'두산베어스 KB체크카드' 출시",
      "outlet": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBCTFRFUmxqOXNjWXpnZDVpcFhQU1ZzR3dUVnJZa24tUm9fWmVRajFsWjk3dEF3RU9QbUdKM2JCaHU2SjNuYnJpekkzNE5oUDh1VDc0OFhXTDdVTHZvSlg5aDFSTDRhN1ZpRVE3VkdGRmI0UC02T25petIBeEFVX3lxTFBCTFRFUmxqOXNjWXpnZDVpcFhQU1ZzR3dUVnJZa24tUm9fWmVRajFsWjk3dEF3RU9QbUdKM2JCaHU2SjNuYnJpekkzNE5oUDh1VDc0OFhXTDdVTHZvSlg5aDFSTDRhN1ZpRVE3VkdGRmI0UC02T25peg?oc=5",
-     "publishedAt": "2026-08-19T11:32:25.000Z",
+     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE83YWJWVmtnTTQ4N3pUWUxoa0lSd045M1k1VTdvMXV0bU5OaUtfdTdhZnZtaWFLWUFLd2tTbWpQY2hvbE5yWDZjNkpWb20xSjFQRUVCQUlwODRqdFgxUTZIVEdPLTBvWUdLd21lZFZ2RDBPc0pCR3NvT9IBeEFVX3lxTE83YWJWVmtnTTQ4N3pUWUxoa0lSd045M1k1VTdvMXV0bU5OaUtfdTdhZnZtaWFLWUFLd2tTbWpQY2hvbE5yWDZjNkpWb20xSjFQRUVCQUlwODRqdFgxUTZIVEdPLTBvWUdLd21lZFZ2RDBPc0pCR3NvTw?oc=5",
+     "publishedAt": "2026-08-20T06:45:22.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "KB국민카드, ‘두산베어스 KB체크카드’ 출시…티켓·굿즈 10% 할인",
+     "outlet": "문화일보",
+     "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE14dUJTRHg3bkxyRVRTY3QzRVhEQXZoc3QxdWpMNFVOUzlUcnpvS3RpUnEzLTB6cGc5elBGT1BXY1drX0VyZ2FSQnUzS0JlLVh4?oc=5",
+     "publishedAt": "2026-08-20T04:51:54.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "82년 세계야구 韓 첫 우승 이끈 어우홍 전 감독 별세",
+     "outlet": "조선일보",
+     "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOYTh4Z2poSnVYakVYbHFtQk1fdUs0YjgweHlZeklRaTlPZUs3RnlLam14dWM1a3k4MVliUUFGRzkxQVZUN3BmMnJjdFpodEQteXQxZEg0dC03UU9zRl9LVXhKRWhzRmpYSXJjcU0tM3NZNWR4YjNXNzBmQjhuTG1PdjdQOA?oc=5",
+     "publishedAt": "2026-08-19T12:01:00.000Z",
      "label": "neu",
      "score": 0,
      "reason": "",
@@ -275,30 +271,20 @@
      "multiTeam": false
     },
     {
-     "title": "‘와 이런 경기가’ 0:3→1:3→2:3→3:3→6:3→6:4…솔로포 밀어내기 볼넷, 152억 포수 친정 제대로 울렸다 - 머니투데이",
-     "outlet": "머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9WcVBGZmxJNWFGbUEwcWVUNFpOQlhVckF4VTZDaC1tbHpxVjBzVl9xTDRST3lLMkZLRWszbEh6bWVKYkVLMXJjSGZfUTNvcjUxakd4dGdKcXE2eklCa3NiRkQ3MWJqUTVBWTBLeUdJONIBb0FVX3lxTE9WcVBGZmxJNWFGbUEwcWVUNFpOQlhVckF4VTZDaC1tbHpxVjBzVl9xTDRST3lLMkZLRWszbEh6bWVKYkVLMXJjSGZfUTNvcjUxakd4dGdKcXE2eklCa3NiRkQ3MWJqUTVBWTBLeUdJOA?oc=5",
-     "publishedAt": "2026-08-18T15:10:00.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "",
-     "multiTeam": false
-    },
-    {
-     "title": "‘가을 기적’ 이끌까…롯데, 키움·두산과 운명의 6연전",
-     "outlet": "국제신문",
-     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOODZjMXd0azRtcE5XQjdkSzhCZk14UzVfLUVoSXY4ZWJhV2tDVzBaVnRSa29IZTBsZVVtOWVSZ3M5NDBtQVlrbkUyVlNLOVhPdHREQThWWnI3TlBOMmpHbnNDR0xodzNEWEdVWG9XUVN3WHJMNm1aWFljSDE4RUZnZUt4RmItT1ItNzFvbnhR?oc=5",
-     "publishedAt": "2026-08-18T10:26:00.000Z",
+     "title": "프로야구 롯데, 키움에 스윕승…NC, 두산에 신승",
+     "outlet": "연합뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9PZHFGd3ZkeXNSd0daT3VxS0YyZDhNc01lSXZFSGxLVjhuY2IxY2hoYTRpdW9Hb0d4TWEwRUhqZGMzRTNqbkNXcnl4MEtjdEE5am9PbFhxcE1KVG1WX2RvWDI2ck5hVWM?oc=5",
+     "publishedAt": "2026-08-20T14:20:00.000Z",
      "label": "neu",
      "score": 0,
      "reason": "",
      "multiTeam": true
     },
     {
-     "title": "롯데 점점 멀어지는 가을야구, 2017년의 기적 가능할까",
-     "outlet": "부산일보",
-     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1mel8yck9NbnkyQTZKQm0wT1o5TW04REVXRlF1MnBRYnFSb0JoZDA2OFViRTVXb2NpOTFqT0diRmxwUk10NjZTTFYtQUFnVEZQVjloWVRBd2dSdVcyU1R1SFBZZTZ6WE93QlZOSUR3WDR0eHlP?oc=5",
-     "publishedAt": "2026-08-17T08:52:28.000Z",
+     "title": "SSG, '21년 원클럽맨' 김성현 플레잉코치 은퇴식 개최…9월5일 두산전",
+     "outlet": "뉴시스",
+     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE05WnNWTXZrSGRLdDRHanRrUlVMNjdhUGFzY0hFYkVUZlE1N0loQURyY01VTGp2Q3BZbjVqQ1g4Zm15d0k3QmhVb0RzRkFPdDVZWWVrWG52NXBVbGxERzZpSWxVSi1MZnByTzFRN213dHYzcDZ1UlZYa9IBeEFVX3lxTE05WnNWTXZrSGRLdDRHanRrUlVMNjdhUGFzY0hFYkVUZlE1N0loQURyY01VTGp2Q3BZbjVqQ1g4Zm15d0k3QmhVb0RzRkFPdDVZWWVrWG52NXBVbGxERzZpSWxVSi1MZnByTzFRN213dHYzcDZ1UlZYaw?oc=5",
+     "publishedAt": "2026-08-20T01:37:53.000Z",
      "label": "neu",
      "score": 0,
      "reason": "",
@@ -310,61 +296,64 @@
    "teamId": "SK",
    "teamName": "SSG",
    "articleCount": 15,
-   "countedArticles": 8,
-   "singleTeamArticles": 8,
-   "multiTeamArticles": 7,
-   "posArticles": 1,
-   "negArticles": 1,
-   "neuArticles": 6,
-   "positiveScore": 2,
-   "negativeScore": 2,
+   "countedArticles": 7,
+   "singleTeamArticles": 7,
+   "multiTeamArticles": 8,
+   "posArticles": 0,
+   "negArticles": 0,
+   "neuArticles": 7,
+   "positiveScore": 0,
+   "negativeScore": 0,
    "netScore": 0,
-   "topPositiveKeywords": [
-    "1위",
-    "맹타",
-    "복귀"
-   ],
-   "topNegativeKeywords": [
-    "부상",
-    "추락"
-   ],
-   "summary": "단일 팀 기사 8건 기준 (긍정 1 · 부정 1). 여러 팀 언급 7건은 중립(참고). 긍정 키워드: 1위, 맹타, 복귀. 부정 키워드: 부상, 추락.",
+   "topPositiveKeywords": [],
+   "topNegativeKeywords": [],
+   "summary": "단일 팀 기사 7건 기준 (긍정 0 · 부정 0). 여러 팀 언급 8건은 중립(참고).",
    "articles": [
     {
-     "title": "[IS 포커스] \"아프다\" VS \"단순 염증\" 1군 제외된 해치의 부상 미스터리",
-     "outlet": "일간스포츠",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE04bnlWOG5ZenVLYWQ5U0NzTDNlX2ZNWXN6SUVGU1lSMm9PLVduaDFMbDg1SGJCZUxMXzA1RThnb0NjUF84R2lxb2dybTZpZkR2TDlGd1l5bURYSTQ?oc=5",
-     "publishedAt": "2026-08-18T15:01:00.000Z",
-     "label": "neg",
-     "score": -2,
-     "reason": "",
-     "multiTeam": false
-    },
-    {
-     "title": "퓨처스리그 `맹타` 에레디아 복귀 준비 OK…해치 부상 우울한 SSG에 희소식",
-     "outlet": "이데일리",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1QTndxZVJUSHQ2ZENHR1U4djQwSzZKbzhWQjBCeUZuWVFfLWRtWGZuaDFvU3kybkZqRE05d3ltcVRiS3JjbGUybDRxU05EYmhvNnc5bGNERHVDLWhhd1Y3NA?oc=5",
-     "publishedAt": "2026-08-17T14:55:37.000Z",
-     "label": "pos",
-     "score": 2,
-     "reason": "",
-     "multiTeam": false
-    },
-    {
-     "title": "20살 신인보다 못 더지면 어쩌나, 日 66승 베테랑의 추락…韓 최다패 1위가 되다니, 3이닝도 버거웠다",
-     "outlet": "이데일리",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE8wdVo4UDlaa2RHOF9fMkY3MUVDNzFVcjZ5WFJ1V2RlUERpNDJySTRFbHlqbGdCRkF2aGRPMldnbS1XX1BQdlM0SjFZeEVIeEY1WjVUNF9VZV85Zjc5bnhJVg?oc=5",
-     "publishedAt": "2026-08-19T16:41:00.000Z",
+     "title": "가장 먼저 10패 채운 SSG 타케다, 결국 2군행…우완 영건 변건우 합류",
+     "outlet": "뉴시스",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE42ZzFOOHdtR0x1UUpnWHJncFp2dmxTUk9BeFJUSnRwZmN1U0V3ZjZBSU45bm44M1M4TEJGZDBXd0ZJSk1abW5aQXI2SVRBRHViMS1QUGUxSmYzUXBMWDVydNIBeEFVX3lxTE9faFRXSGpGWEtBM01VRjJrSktaQW1JTmdHcWw2S3ZNeXkzRWNSMEs5YzZCS3U0dHlWdHNjQ216Q2c5a19EcVhvYUlXWTRBQ3RqQmUyZzZlYVlGQXFfLXM0My0zUnpTUVRWb2x4T0ZmRm93eEpHN3V0Uw?oc=5",
+     "publishedAt": "2026-08-20T09:17:53.000Z",
      "label": "neu",
      "score": 0,
      "reason": "",
      "multiTeam": false
     },
     {
-     "title": "[IS 스타] 우·아·우 조합 강력한데? 셋이 합쳐 무려 12안타 15타점 '괴력'",
-     "outlet": "일간스포츠",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5MQWNFSExWOURYUTZFOEZGTVNkNnV1ZEFxbkpNU2h3aGlHUTN1MXJPUXRPQl9iY3JrclRnWm51bUtjRlU0cXhkSDBUS2QzS3owb05iSWVORlZNbms?oc=5",
-     "publishedAt": "2026-08-19T13:58:00.000Z",
+     "title": "[프로야구] 'SSG 레전드' 로맥, 5년 만에 인천 그라운드 밟는다",
+     "outlet": "뉴스핌",
+     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBpeTUwaHVmYk82dGp5Z3FOV2MtcGJKUjBIaTBuMWpQV1pMM1VqRVdQazQxMWRUM1lGQkpITDlSV3VxNGNUWXV3ZU05dnBKOC1sdU1HZTJWMUtCaTdK?oc=5",
+     "publishedAt": "2026-08-20T05:54:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "[프로야구] SSG '큐티식스' 김성현, 20년간 프로 생활 마침표",
+     "outlet": "뉴스핌",
+     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE50Nk84Ym10bjdENmVOemJGcHRobXJzMHdjbTRWdXpnaHRJOFl1X2RoTjEyVnJweVh5cWJhN1dwNVRGU1h1VjNJQ21zWkRwcUp3UkJlOFVZOUhFbTQ4?oc=5",
+     "publishedAt": "2026-08-20T05:51:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "SSG '레전드 외인' 로맥 한국 온다…27일 인천서 시구 진행",
+     "outlet": "뉴스1",
+     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5FcmhUNzNfVzhqZGc5eFNMNmV2MkVjUW9NT2gtbURqbjN0U0VOdDZGY1B4aVdEWFZTRDYxVlFROHJxVFNCM29tVl8xU2ZMbTE3Z3Z5ejlidXJJN1cw0gFcQVVfeXFMTkVyaFQ3M19XOGpkZzl4U0w2ZXYyRWNRb01PaC1tRGpuM3RTRU50NkZjUHhpV0RYVlNENjFWUVE4cnFUU0Izb21WXzFTZkxtMTdndnl6OWJ1ckk3VzA?oc=5",
+     "publishedAt": "2026-08-20T05:13:34.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "프로야구 SSG, 9월 5일 김성현 플레잉코치 은퇴식 진행",
+     "outlet": "연합뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9RZ2NJV2NRS0xOaFJSYWVTc2F6cmpvckg5S0JzZTd4WGFhbERzbWVVVGpkTWN1bVd0aGZ2LTJNZmhyY3RRNzJlWUNxR2FaYUs0RFZrU1JpT0VTN25UZnhxRdIBYEFVX3lxTE9RZ2NJV2NRS0xOaFJSYWVTc2F6cmpvckg5S0JzZTd4WGFhbERzbWVVVGpkTWN1bVd0aGZ2LTJNZmhyY3RRNzJlWUNxR2FaYUs0RFZrU1JpT0VTN25UZnhxRQ?oc=5",
+     "publishedAt": "2026-08-20T02:26:05.000Z",
      "label": "neu",
      "score": 0,
      "reason": "",
@@ -381,61 +370,47 @@
      "multiTeam": false
     },
     {
-     "title": "[IS 승장] 고졸 신인으로 5G 연속 QS, 이숭용 감독 \"당찬 피칭이 빛난 경기\"",
-     "outlet": "일간스포츠",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9MSXpqRzlfbW5TOFZVZ25YWDFhSTZ2eS1VNXh3bE1CUUJrM0R0bFlfUUEwOGRTRmxrbjNhWVhnaU9hWFlMdU1lLWV6eUVJMWRCdFk4aHVOSGpXT3M?oc=5",
-     "publishedAt": "2026-08-18T19:01:00.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "",
-     "multiTeam": false
-    },
-    {
      "title": "자꾸 아프다는 해치, 달라진 게 없는데…미세 염증 증상? SSG 검사 결과 미국까지 보냈다",
      "outlet": "SPOTV News",
      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5jQTUwSHgyTWhMMnFPV0RkdDJFQkwwU3ozUEI0Y2pZU2ZEaGs1bXRFZnF0TlBPYUdhdi01eVJCTTRyX1B0WXJaeTFxUEpGSC1sbFFoVlhOM21iTkU1WmJxNHJsRjZaOThXc1J0aEFIcWU?oc=5",
-     "publishedAt": "2026-08-18T09:57:00.000Z",
+     "publishedAt": "2026-08-18T09:57:44.000Z",
      "label": "neu",
      "score": 0,
      "reason": "",
      "multiTeam": false
     },
     {
-     "title": "트리플에스 곽연지, 야구 팬들 시선집중 뼈말라 시구 [O!SPORTS 숏폼] - 머니투데이",
-     "outlet": "머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE95X0Fuc3JOZkU5WklSNHkyMDYtTUZkckF2NXdUWWVwTXNPdjA5ZGJfekR4aW1wVzVpZzdmMUhuNS1mVnI5Mmp5a1FwNWlCNW54UHNldnNYMnp5dWZvNElIR2cyclJQTlVRSk5ybTRQNNIBb0FVX3lxTE95X0Fuc3JOZkU5WklSNHkyMDYtTUZkckF2NXdUWWVwTXNPdjA5ZGJfekR4aW1wVzVpZzdmMUhuNS1mVnI5Mmp5a1FwNWlCNW54UHNldnNYMnp5dWZvNElIR2cyclJQTlVRSk5ybTRQNA?oc=5",
-     "publishedAt": "2026-08-17T13:47:00.000Z",
+     "title": "로맥아더 장군 인천 상륙한다!…SSG, 27일 홈 한화전 시구 및 시타자로 로맥 가족 선정",
+     "outlet": "매일경제",
+     "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE1WZmRlcGxIUW1xcFR2NDRyMmtXQ1p0ck00VzlnOWNKMzA3NVJNMkdqRFpkaVBPX2luOHlacVpYanhTNjdwalE?oc=5",
+     "publishedAt": "2026-08-20T05:40:00.000Z",
      "label": "neu",
      "score": 0,
      "reason": "",
-     "multiTeam": false
+     "multiTeam": true
     }
    ]
   },
   {
    "teamId": "WO",
    "teamName": "키움",
-   "articleCount": 28,
-   "countedArticles": 15,
-   "singleTeamArticles": 15,
-   "multiTeamArticles": 13,
-   "posArticles": 2,
-   "negArticles": 3,
-   "neuArticles": 10,
-   "positiveScore": 4,
-   "negativeScore": 10,
+   "articleCount": 18,
+   "countedArticles": 7,
+   "singleTeamArticles": 7,
+   "multiTeamArticles": 11,
+   "posArticles": 0,
+   "negArticles": 1,
+   "neuArticles": 6,
+   "positiveScore": 0,
+   "negativeScore": 6,
    "netScore": -6,
-   "topPositiveKeywords": [
-    "승리",
-    "역전"
-   ],
+   "topPositiveKeywords": [],
    "topNegativeKeywords": [
-    "통증",
     "부진",
     "말소",
-    "위기"
+    "통증"
    ],
-   "summary": "단일 팀 기사 15건 기준 (긍정 2 · 부정 3). 여러 팀 언급 13건은 중립(참고). 긍정 키워드: 승리, 역전. 부정 키워드: 통증, 부진, 말소, 위기.",
+   "summary": "단일 팀 기사 7건 기준 (긍정 0 · 부정 1). 여러 팀 언급 11건은 중립(참고). 부정 키워드: 부진, 말소, 통증.",
    "articles": [
     {
      "title": "[프로야구] 키움, '허리 통증' 히우라와 '부진' 배동현 1군 엔트리 말소...이형종·조영건 등록",
@@ -448,42 +423,22 @@
      "multiTeam": false
     },
     {
-     "title": "'13점' 역대 한 이닝 최다 득점 2위, 대역전 드라마...김태형은 예상했을까 \"8점 차에서도 집중력 잃지 않은 선수들 덕분, 한동희 만루포가 발판\" - 머니투데이",
-     "outlet": "머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9CYWZ4YVNUeEduZmxzSGFzT0Z0SXZtV3V5cEh4V3VfeDlvTjI1ODBYTnNmYVNPZ3dTbV9VRTEzRXZUVWN4T0RXSFBGWUsxZW03bzN0em93MkQ1eDBQRGxLUDVQX2FtUTRxVVNrLWQ5Y9IBb0FVX3lxTE9CYWZ4YVNUeEduZmxzSGFzT0Z0SXZtV3V5cEh4V3VfeDlvTjI1ODBYTnNmYVNPZ3dTbV9VRTEzRXZUVWN4T0RXSFBGWUsxZW03bzN0em93MkQ1eDBQRGxLUDVQX2FtUTRxVVNrLWQ5Yw?oc=5",
-     "publishedAt": "2026-08-18T15:20:00.000Z",
-     "label": "pos",
-     "score": 2,
+     "title": "KBO 프로야구, 20일 경기 결과→현재 팀 순위?",
+     "outlet": "스타뉴스",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5VbE5ZUmU3eEJUbV9MeGRhQjRIMlNndzlRSy1FNFV6NEtPY3dGeWEwMG9HRkNhakFKY1h6V19JMEtPRWNEWDZ6bkFYcHlEOV9odmFOVEtWaUE1R0c1TEhCaF90MUJscmdWdlc3T1Q2ZzM1QQ?oc=5",
+     "publishedAt": "2026-08-20T16:17:03.000Z",
+     "label": "neu",
+     "score": 0,
      "reason": "",
      "multiTeam": false
     },
     {
-     "title": "[사진] 김한결과 손성빈, 짜릿한 승리였어 - 머니투데이",
-     "outlet": "머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9xNVFKX2VxbTNzT3hzVjNLWG9EZUc5M3p5TFQ5MUVDVlpSSkpIWDVPZXQzQmFCdFRfTDhFTk1HRWpKcjZOWWw3bW5OTGhTMnBRY2lpb2U5OS1fazl1dUYxeHllcXA5a0U4ek9JTTMwRdIBb0FVX3lxTE9xNVFKX2VxbTNzT3hzVjNLWG9EZUc5M3p5TFQ5MUVDVlpSSkpIWDVPZXQzQmFCdFRfTDhFTk1HRWpKcjZOWWw3bW5OTGhTMnBRY2lpb2U5OS1fazl1dUYxeHllcXA5a0U4ek9JTTMwRQ?oc=5",
-     "publishedAt": "2026-08-18T13:34:00.000Z",
-     "label": "pos",
-     "score": 2,
-     "reason": "",
-     "multiTeam": false
-    },
-    {
-     "title": "[사진] 주먹 불끈 전준표, 위기는 없다. - 머니투데이",
-     "outlet": "머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE02LXZTOERFRC1oMmFLSGJTQ1c4LThkeW1Ld2lrcVE0a3JGVkxFZHZuTjU3eDJtSkJHbmVoNnZQZ3kxREdSdUkxOVBjUWtCZjgtV0ZlbU1UYUgxa3c3RzFmQXU4MXQ1YTBlb0k1c3JWVdIBb0FVX3lxTE02LXZTOERFRC1oMmFLSGJTQ1c4LThkeW1Ld2lrcVE0a3JGVkxFZHZuTjU3eDJtSkJHbmVoNnZQZ3kxREdSdUkxOVBjUWtCZjgtV0ZlbU1UYUgxa3c3RzFmQXU4MXQ1YTBlb0k1c3JWVQ?oc=5",
-     "publishedAt": "2026-08-18T11:26:00.000Z",
-     "label": "neg",
-     "score": -2,
-     "reason": "",
-     "multiTeam": false
-    },
-    {
-     "title": "한동희 모처럼 3루수 선발 출장...'종아리 통증' 레이예스 DH 이동-장두성 중견수 [오!쎈 부산] - 머니투데이",
-     "outlet": "머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE4xaUhFMTM4dEdxXzUwSklib2FRS3J5SmlMdmc5eDRWTE1jaXZsbkxrWFE1WEhueXBTZEdjVGJueVZsQmYyVU1fZm01blh1NEVWZ1VGTEVxQ181NnhGVlpJdFo4RDlGTWRJQy0wRkJOONIBb0FVX3lxTE4xaUhFMTM4dEdxXzUwSklib2FRS3J5SmlMdmc5eDRWTE1jaXZsbkxrWFE1WEhueXBTZEdjVGJueVZsQmYyVU1fZm01blh1NEVWZ1VGTEVxQ181NnhGVlpJdFo4RDlGTWRJQy0wRkJOOA?oc=5",
-     "publishedAt": "2026-08-18T07:19:00.000Z",
-     "label": "neg",
-     "score": -2,
+     "title": "KBO 프로야구, 20일 경기 중계 일정→선발 투수?",
+     "outlet": "스타뉴스",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1OeEhYWWt5ZWRNbWs1NzQtT1dXVUpLWFlHdzlSN1Q1bC14UU5sVHkzcGxLZXhSMXVhalhRWWpmRFU5Uk5GZ1ZyNHhha3pmNXNNZ0l0eHB2V3Qyb3laQmFsajNYRW5pYW85TEprWGRKamY1dw?oc=5",
+     "publishedAt": "2026-08-19T19:18:12.000Z",
+     "label": "neu",
+     "score": 0,
      "reason": "",
      "multiTeam": false
     },
@@ -498,16 +453,6 @@
      "multiTeam": false
     },
     {
-     "title": "[사진] 추재현, 밀어내기 볼넷 득점 - 머니투데이",
-     "outlet": "머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9STEZzUV9wOVlLOGI5UjFGa2lzaGVVcDgzUWNYUlhKbHd1WjJ4SjhjYklyLVdfNm5VQmZjaHlhUHhtVU1Jb2NCSUxGT1VPOEktdjlzTWptMmFpeW8yZExxREY0OWktcl90a3dhZndwTdIBb0FVX3lxTE9STEZzUV9wOVlLOGI5UjFGa2lzaGVVcDgzUWNYUlhKbHd1WjJ4SjhjYklyLVdfNm5VQmZjaHlhUHhtVU1Jb2NCSUxGT1VPOEktdjlzTWptMmFpeW8yZExxREY0OWktcl90a3dhZndwTQ?oc=5",
-     "publishedAt": "2026-08-19T11:51:00.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "",
-     "multiTeam": false
-    },
-    {
      "title": "'불운의 아이콘' 키움 전준표, 후반기 1점대 ERA에도 무승",
      "outlet": "뉴스1",
      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBQUUxZR1RKR1JSS2wzc041YWp3bzhqb28tNlFUSVpBdlJmWnBxRVRwU2NaS1owU2QycngyOGxCaXoxME4tR3FXZ09fX185Y040akktRy1MUVJZZi1H0gFcQVVfeXFMUFBRTFlHVEpHUlJLbDNzTjVhandvOGpvby02UVRJWkF2UmZacHFFVHBTY1pLWjBTZDJyeDI4bEJpejEwTi1HcVdnT19fXzljTjRqSS1HLUxRUllmLUc?oc=5",
@@ -516,34 +461,75 @@
      "score": 0,
      "reason": "",
      "multiTeam": false
+    },
+    {
+     "title": "KBO 프로야구, 19일 경기 중계 일정→선발 투수?",
+     "outlet": "스타뉴스",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE4tVm1XMm1Jb3c2eUxUSTlhQjlJRnBBdG5Gckl3Z1VHdll5RXJvb0VLeFlYdjgzRGMwRWc0dG5DbE0ycjlxbUpuNm1WNXRRYkZ5UTNYWS1NS1gxQkJHR2dwdVhIZjZnaGNjanJNVmdOZ2FzQQ?oc=5",
+     "publishedAt": "2026-08-18T18:46:16.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "KBO 프로야구, 18일 경기 결과→현재 팀 순위?",
+     "outlet": "스타뉴스",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1vcVhHdlhxZ01hUjgycl8tOEZnVUU3czhJWE45Sy1CUmNRZ01MUDRaUEpVMFdIWVpkakJXcWg0VTNjR21FY25NYnFxcXAxaUJBMlJwdUpnbjNhM2xsVHFvMEtuZmhBS3dYRW1VakFXR1cwQQ?oc=5",
+     "publishedAt": "2026-08-18T15:16:17.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "프로야구 롯데, 키움에 스윕승…NC, 두산에 신승",
+     "outlet": "연합뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9PZHFGd3ZkeXNSd0daT3VxS0YyZDhNc01lSXZFSGxLVjhuY2IxY2hoYTRpdW9Hb0d4TWEwRUhqZGMzRTNqbkNXcnl4MEtjdEE5am9PbFhxcE1KVG1WX2RvWDI2ck5hVWM?oc=5",
+     "publishedAt": "2026-08-20T14:20:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": true
     }
    ]
   },
   {
    "teamId": "SS",
    "teamName": "삼성",
-   "articleCount": 18,
-   "countedArticles": 11,
-   "singleTeamArticles": 11,
-   "multiTeamArticles": 7,
-   "posArticles": 5,
-   "negArticles": 0,
-   "neuArticles": 6,
+   "articleCount": 24,
+   "countedArticles": 16,
+   "singleTeamArticles": 16,
+   "multiTeamArticles": 8,
+   "posArticles": 6,
+   "negArticles": 1,
+   "neuArticles": 9,
    "positiveScore": 14,
-   "negativeScore": 0,
-   "netScore": 14,
+   "negativeScore": 4,
+   "netScore": 10,
    "topPositiveKeywords": [
-    "홈런",
     "승리",
-    "대기록",
-    "4연승"
+    "호투",
+    "홈런",
+    "대기록"
    ],
    "topNegativeKeywords": [
+    "방출",
     "아쉬운",
     "놓쳤다"
    ],
-   "summary": "단일 팀 기사 11건 기준 (긍정 5 · 부정 0). 여러 팀 언급 7건은 중립(참고). 긍정 키워드: 홈런, 승리, 대기록, 4연승. 부정 키워드: 아쉬운, 놓쳤다.",
+   "summary": "단일 팀 기사 16건 기준 (긍정 6 · 부정 1). 여러 팀 언급 8건은 중립(참고). 긍정 키워드: 승리, 호투, 홈런, 대기록. 부정 키워드: 방출, 아쉬운, 놓쳤다.",
    "articles": [
+    {
+     "title": "\"한국에서 문화 충격 받았다\" 삼성 정규직 실패 후 작별, 그런데 또 방출될 수 있다?",
+     "outlet": "조선일보",
+     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNOXF6QnBndFNUMzRSekJaMjk2eUFScUpiN3lkYUliVGdsRUJtZDZDN29Yd1NTZU1CZHZKclg0SW9vRFNkRmJtZl9JV2ZnOG9OajRqaFM2dlg0RjN0VnFUdXdlODFBYmhvY1RsMXQ0Mjd1S3NQTDFYdTEydV9GcG12VVpoQllSc09fN2M0?oc=5",
+     "publishedAt": "2026-08-20T03:12:00.000Z",
+     "label": "neg",
+     "score": -4,
+     "reason": "",
+     "multiTeam": false
+    },
     {
      "title": "대기록 무색, 다잡은 승리 놓친 삼성라이온즈…아쉬운 막판 집중력, 가을 문턱 뒷문 고민",
      "outlet": "MBC",
@@ -555,12 +541,22 @@
      "multiTeam": false
     },
     {
-     "title": "4연승 도전하는 2위 삼성라이온즈…키플레이어 '3승 도전' 페덱",
-     "outlet": "MBC",
-     "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTFBSYUFlaVVjVFpONk8yb0pBUjJpbHZZb3h5cDlQR19nWm1zam5ld2Radm10TWZUODRuU1U5dHdpTldnYktIUzFMVmlmLUo?oc=5",
-     "publishedAt": "2026-08-17T22:40:00.000Z",
+     "title": "연이은 호투…안정감 찾아가는 최원태",
+     "outlet": "매일신문",
+     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBQLWFkdnVpdGxxU2RmbjZXYmM4VDFMN0ttajFQNWV0dlJpLVY1S2FwWmdrQVc0WW9TVEEyOFRobGJ1TE1sc1BENWRYTGZLc3VQQkdZVV91YWdyUDF5OGZHRHBlOVA5LXRrdHNF?oc=5",
+     "publishedAt": "2026-08-20T12:57:00.000Z",
      "label": "pos",
-     "score": 4,
+     "score": 2,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "'20안타 14탈삼진' 압도적 승리 거둔 삼성라이온즈…중심타선 힘입어 승차 없는 2위",
+     "outlet": "MBC",
+     "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1MVDlLYzQ3X082T1VBV0xsbVozWW9oRHlXSGMtU3BRWGVyRG1HN2ZJNWY3eGY3cndKVFdCNXJiNndmTTA3WWFsSjMtOTY?oc=5",
+     "publishedAt": "2026-08-19T14:23:46.000Z",
+     "label": "pos",
+     "score": 2,
      "reason": "",
      "multiTeam": false
     },
@@ -595,30 +591,10 @@
      "multiTeam": false
     },
     {
-     "title": "보스-강민호, 완벽했던 ‘선발 콤비’",
-     "outlet": "매일신문",
-     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE04elh0R2lDY1VCanAtanBKV0ZpTnM3WEY3RWloV1ZQSGl6MnE0M3l1dFNiTDItTzRmdmU4Ny1BRmJfVWNvWmExWHN3WHdybDZqWE84c2ZzaHU1bFBpY0ZYR2xvbnktN1plNDBv?oc=5",
-     "publishedAt": "2026-08-19T12:59:00.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "",
-     "multiTeam": false
-    },
-    {
-     "title": "스포츠토토, 대구 삼성라이온즈파크서 야구팬 대상 현장 프로모션",
-     "outlet": "스포츠경향",
-     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5BczgxdUV6RDdHcl9BaHBYemhxLTY0bDBKUEhtNlo1NkpMR2N4VUU4VE92QlFqc05xdWFEWkZ1R28wbU5TbHdUWXJJTVBYdHluUldndWYzV0NyczdxR1HSAWNBVV95cUxPd0w5RjJ3Y1BKQlpCYnFXMjZfNDlvT1ZBWlk4V3cta1lyYk5zMnJER3dwV1JVRHR2YXM3ZHpkVjUxRXEwdngtQUhMM2Rka182UGdyOWxDQll4UUtMWGdka1pVV2M?oc=5",
-     "publishedAt": "2026-08-18T23:27:00.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "",
-     "multiTeam": false
-    },
-    {
-     "title": "삼성 라이온즈 최형우, KBO리그 최초 2700안타 달성",
-     "outlet": "서울경제",
-     "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE13Q1VoajdCODhReGYyR1dPWTNfbHdLX0I3M1lTeUJVMGh0OVBVWWFaS3ZuelRjOTY1T0JTdXFseFkyOXMzWWl6Nl83UlQtUjlWYmc?oc=5",
-     "publishedAt": "2026-08-18T13:08:22.000Z",
+     "title": "커리어 하이, '늦게 핀 꽃' 삼성 전병우 [프로야구]",
+     "outlet": "스포츠Q",
+     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5EWEQ5QndrVHNFOXh4enFnX3NzcTYxTnc1QVVFNmpIMzJnRGRXUEpDT0VIMVNkR2lEdTRnbEVXdVhFNG1IQWM1clMzSGM0Tkl6U0w0alduUVRKRWFkUUxtVkVzRzVkbkE?oc=5",
+     "publishedAt": "2026-08-20T05:10:29.000Z",
      "label": "neu",
      "score": 0,
      "reason": "",
@@ -629,23 +605,24 @@
   {
    "teamId": "HT",
    "teamName": "KIA",
-   "articleCount": 15,
+   "articleCount": 19,
    "countedArticles": 7,
    "singleTeamArticles": 7,
-   "multiTeamArticles": 8,
-   "posArticles": 2,
+   "multiTeamArticles": 12,
+   "posArticles": 3,
    "negArticles": 0,
-   "neuArticles": 5,
-   "positiveScore": 14,
+   "neuArticles": 4,
+   "positiveScore": 16,
    "negativeScore": 0,
-   "netScore": 14,
+   "netScore": 16,
    "topPositiveKeywords": [
     "홈런",
     "폭발",
-    "선두"
+    "선두",
+    "부활"
    ],
    "topNegativeKeywords": [],
-   "summary": "단일 팀 기사 7건 기준 (긍정 2 · 부정 0). 여러 팀 언급 8건은 중립(참고). 긍정 키워드: 홈런, 폭발, 선두.",
+   "summary": "단일 팀 기사 7건 기준 (긍정 3 · 부정 0). 여러 팀 언급 12건은 중립(참고). 긍정 키워드: 홈런, 폭발, 선두, 부활.",
    "articles": [
     {
      "title": "'홈런 선두' KIA 김도영, 이틀 연속 홈런 폭발…시즌 37호",
@@ -668,10 +645,20 @@
      "multiTeam": false
     },
     {
-     "title": "[사진]이범호 감독 'KIA의 슈퍼스타는 김도영' - 머니투데이",
-     "outlet": "머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5EbmV2cXBsTXlMdmtwTmppZVltbXFKZk5EOU9sdUFmM0c5bFhPaVFoeV9jYTdCc2Q1bXUteWNPUXpVMUJfal9Tcnd5c0ZnVXNpc0RDY092Vk15M3FaUWZvNTJBejVYTnBMWHdEWTFBVdIBb0FVX3lxTE5EbmV2cXBsTXlMdmtwTmppZVltbXFKZk5EOU9sdUFmM0c5bFhPaVFoeV9jYTdCc2Q1bXUteWNPUXpVMUJfal9Tcnd5c0ZnVXNpc0RDY092Vk15M3FaUWZvNTJBejVYTnBMWHdEWTFBVQ?oc=5",
-     "publishedAt": "2026-08-19T14:00:00.000Z",
+     "title": "불펜 변신 후 ERA 1.35…KIA 이의리, 수호신으로 부활",
+     "outlet": "뉴시스",
+     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9YOTlicHRCT3hKWEp1OUVjU3dfQmhnenpSQ2Z3TnA5UDlSZ0ZPYVJVNGRMQmNzVk5lTGlTOVZ6U1o2bTlLVkt4ZUNhY2xySC1IMFg0VDBhanY5eEFHZ1l6cHB1bVFURUc5MHFHVGt3M2w1ZmZZTnMwZtIBeEFVX3lxTE9YOTlicHRCT3hKWEp1OUVjU3dfQmhnenpSQ2Z3TnA5UDlSZ0ZPYVJVNGRMQmNzVk5lTGlTOVZ6U1o2bTlLVkt4ZUNhY2xySC1IMFg0VDBhanY5eEFHZ1l6cHB1bVFURUc5MHFHVGt3M2w1ZmZZTnMwZg?oc=5",
+     "publishedAt": "2026-08-19T22:00:00.000Z",
+     "label": "pos",
+     "score": 2,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "[아시안게임] 메달 기대주 ④야구 김도영",
+     "outlet": "연합뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE95TWJUUExLMDZmM2xLQ0hJcjU0RkZsa0VuLTBLTXdTTGx2ZWl6bzNldnN1aE9mSVREVXNZcl9wN1U0TmpsTVdNSnh1RXlSRkFkQy03RnFxM2hHY0VLbFVXN9IBYEFVX3lxTE95TWJUUExLMDZmM2xLQ0hJcjU0RkZsa0VuLTBLTXdTTGx2ZWl6bzNldnN1aE9mSVREVXNZcl9wN1U0TmpsTVdNSnh1RXlSRkFkQy03RnFxM2hHY0VLbFVXNw?oc=5",
+     "publishedAt": "2026-08-19T22:30:05.000Z",
      "label": "neu",
      "score": 0,
      "reason": "",
@@ -708,20 +695,10 @@
      "multiTeam": false
     },
     {
-     "title": "KIA 불펜 전상현, 역대 9번째 5시즌 연속 10홀드에 '-1'",
-     "outlet": "뉴스1",
-     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5KbVlBSzJOYUpEMGszd2ZsajBWTEw4c1NkeWlxb3JIZHhqbFRtR05QMkw3OEFSRWJXbmJYWjVpTDJZa1hJc1h2NkNZLVFVeEh3YzJ5UE9DZE1WaENt0gFcQVVfeXFMTkptWUFLMk5hSkQwazN3ZmxqMFZMTDhzU2R5aXFvckhkeGpsVG1HTlAyTDc4QVJFYlduYlhaNWlMMllrWElzWHY2Q1ktUVV4SHdjMnlQT0NkTVZoQ20?oc=5",
-     "publishedAt": "2026-08-18T06:24:34.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "",
-     "multiTeam": false
-    },
-    {
-     "title": "KIA 4연승·LG 48일 만에 연승…2위 삼성, 1위 KT와 승차 '0'(종합)",
+     "title": "'김태군 역전 투런포' KIA, 5연승 신바람…'6연패' 한화, 8위로 추락",
      "outlet": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFB2OXlHLVpTRkJxZWFaNVktUng4N3VzUWRlV2VYTlNtX20wRFRtS3hhcGpnd3NtLVBzZjRPWFR0R01SSU1SQUFyalB6LTdsWDRDSW1JZHpZWjd1XzBScWJEeNIBeEFVX3lxTFBVSUlDM0xROTBteXIxczBfZXRtdXFIRHh1dWxyWFYxT0xuRTctb1dEMGlKSGdrMFp4V2RzMUZnQTR4S3JHN2ZmVHg1RDlFSkdlOHhIX0hkWDBqMlRrclhWTjd1ZUdiX0JURF9uaGFLYXItYjAxZVBweA?oc=5",
-     "publishedAt": "2026-08-19T14:18:05.000Z",
+     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1qODJnNEhvREZzSWoyNlMwa0xlclZadWNYSU16Y0taeVpoVmZTVlBxemthSl9DZjlNUHRSODBRajQ4WFlyUzdsbTVUY1ZZUHlNZlVOZVIxR2ItbDk4RG9FMlhmTnAybEpneUlnUHRpYk1EZzFfaTI2ZtIBeEFVX3lxTE1qODJnNEhvREZzSWoyNlMwa0xlclZadWNYSU16Y0taeVpoVmZTVlBxemthSl9DZjlNUHRSODBRajQ4WFlyUzdsbTVUY1ZZUHlNZlVOZVIxR2ItbDk4RG9FMlhmTnAybEpneUlnUHRpYk1EZzFfaTI2Zg?oc=5",
+     "publishedAt": "2026-08-20T13:58:12.000Z",
      "label": "neu",
      "score": 0,
      "reason": "",
@@ -732,24 +709,24 @@
   {
    "teamId": "LT",
    "teamName": "롯데",
-   "articleCount": 23,
-   "countedArticles": 14,
-   "singleTeamArticles": 14,
+   "articleCount": 19,
+   "countedArticles": 10,
+   "singleTeamArticles": 10,
    "multiTeamArticles": 9,
    "posArticles": 6,
    "negArticles": 0,
-   "neuArticles": 8,
+   "neuArticles": 4,
    "positiveScore": 24,
    "negativeScore": 0,
    "netScore": 24,
    "topPositiveKeywords": [
     "승리",
-    "끝내기",
-    "역대급",
-    "역전승"
+    "역전승",
+    "폭발",
+    "결승타"
    ],
    "topNegativeKeywords": [],
-   "summary": "단일 팀 기사 14건 기준 (긍정 6 · 부정 0). 여러 팀 언급 9건은 중립(참고). 긍정 키워드: 승리, 끝내기, 역대급, 역전승.",
+   "summary": "단일 팀 기사 10건 기준 (긍정 6 · 부정 0). 여러 팀 언급 9건은 중립(참고). 긍정 키워드: 승리, 역전승, 폭발, 결승타.",
    "articles": [
     {
      "title": "1이닝 13득점 역사→9회 끝내기 승리…롯데시네마 이틀 연속 미친 결말, \"손성빈 동점포로 흐름 가져와\" [오!쎈 부산] - 머니투데이",
@@ -775,17 +752,17 @@
      "title": "한이닝 13점이라니? '0:8→15:10' 뒤집기 실화냐…'한동희 그랜드슬램, 손성빈 결승타+쐐기포' 잠못드는 부산의 여름밤 [SC포커스]",
      "outlet": "조선일보",
      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQbC1TMW9TM3RVU01uNWtmZm41bEVyWWpmc1FNSTQ0bVdHdjVxNFU1bk4xbnpab0xYcjRZSm84dnVUUWVVUWp6RHZGOVNSX1Nod1pSaHlUWUZlQ1lqYnpyV1I1N0JFNmplc0wwSlpiNFdfYnB1NGQ4aFFqZ19sS3lIdXE5cw?oc=5",
-     "publishedAt": "2026-08-18T17:31:00.000Z",
+     "publishedAt": "2026-08-18T18:07:58.000Z",
      "label": "pos",
      "score": 4,
      "reason": "",
      "multiTeam": false
     },
     {
-     "title": "[사진] 한동희, 추격의 만루홈런 작렬 - 머니투데이",
+     "title": "[사진] 짜릿한 역전 승리 기념촬영하는 롯데 선수들 - 머니투데이",
      "outlet": "머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9kaW1SbW5hNV9oVTN1ZXpSWXowVDhyS0tRR0NHeG1nbGw1eWpEb1RZMDNnRHhmOE5hVHd6aTBlQzlfRkhxblB2V283czVrYndoV2k4eXI1NmtWc0p4Z0t3RTJ1c3JBbGxaanBSVmpCRdIBb0FVX3lxTE9kaW1SbW5hNV9oVTN1ZXpSWXowVDhyS0tRR0NHeG1nbGw1eWpEb1RZMDNnRHhmOE5hVHd6aTBlQzlfRkhxblB2V283czVrYndoV2k4eXI1NmtWc0p4Z0t3RTJ1c3JBbGxaanBSVmpCRQ?oc=5",
-     "publishedAt": "2026-08-18T12:37:00.000Z",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5iNUphUVVhZVdsMjBpRUF4NWZLamFmNTFpN1BMNkg3M3diZFNPNFJpVmRBTTFTRmI4aW9aSlFlcmNuaVJTbWc3UUdpU3BoYnU0VEJvc21oVlIwSEVfMTdzYldSa2ZyQ0x3eEhGY3RyUdIBb0FVX3lxTE5iNUphUVVhZVdsMjBpRUF4NWZLamFmNTFpN1BMNkg3M3diZFNPNFJpVmRBTTFTRmI4aW9aSlFlcmNuaVJTbWc3UUdpU3BoYnU0VEJvc21oVlIwSEVfMTdzYldSa2ZyQ0x3eEhGY3RyUQ?oc=5",
+     "publishedAt": "2026-08-18T13:34:00.000Z",
      "label": "pos",
      "score": 4,
      "reason": "",
@@ -812,20 +789,20 @@
      "multiTeam": false
     },
     {
-     "title": "믿기 힘들었던 7회 13점 폭격, 롯데 역사 새로 썼다",
-     "outlet": "부산일보",
-     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE55aVZIYmVJRWpsbkg2UnBIM0NyU2dsNHhPS1Q3Q2xnWmhTeHUxX0MtWW1lTG1VZWlLR0FEbFhYZVNWVnRmNk5NX29QLXhGM2tJMXlqa0hXWl9CR3duSlhPcFhHa1pJZUdXaVktMEV3a1RZS2ZhOGUwUA?oc=5",
-     "publishedAt": "2026-08-19T05:09:50.000Z",
+     "title": "들쭉날쭉 롯데 타선 속 홀로 빛나는 레이예스",
+     "outlet": "국제신문",
+     "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOU1JlLXBnNzFmUG1nVE1lQ2daTDlUOHM1ampoQ2FPdl9vaWo0b2I5djlaQUMxNmJlcWs2RFJaZDM3aEZ5dUs2cGZGUFU2MlAtTHBBZFNCSGJHeG5KSlpFQko1Z2NScldBWmZ0ZGZ0QmtPR1Nsa01yMi1acEFYUllhZjI2eGx0YUFTY2FiN0V4bElVY3l6b1Z0Z004b3E1QjY1U2c?oc=5",
+     "publishedAt": "2026-08-19T11:01:56.000Z",
      "label": "neu",
      "score": 0,
      "reason": "",
      "multiTeam": false
     },
     {
-     "title": "'1이닝 5타점' 괴력...롯데 자이언츠 가을야구 희망 살린 이대호의 후계자",
-     "outlet": "일간스포츠",
-     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE91WTFoNkxKY3U2bjBwQUQ4a2Z4OTU5MUpTS3NZdTg2Wi1DTDJWeXVXZnQ5Tm1hdjBNU2wzOGZ0RER3bjZJQmp6WE9pM3V0WC1aSV82eFJydmxOYlB3VE5PR0dn?oc=5",
-     "publishedAt": "2026-08-18T21:09:00.000Z",
+     "title": "믿기 힘들었던 7회 13점 폭격, 롯데 역사 새로 썼다",
+     "outlet": "부산일보",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1YT0V0SnNYNFZSQktQTHZxcW5pTHBVTWl3SUNGY2VuLTVFQXNhMkR4Q0NwNlRjZ3lKTHBVN0doTDR1Y1VIV3FmOEdqZ3BtNkc2R09OTXZtcGdXQ0NIQzRFaEVRZnJ4M2gzeTVtNXNaUzRvV3RG?oc=5",
+     "publishedAt": "2026-08-19T05:09:50.000Z",
      "label": "neu",
      "score": 0,
      "reason": "",
@@ -836,29 +813,30 @@
   {
    "teamId": "NC",
    "teamName": "NC",
-   "articleCount": 7,
-   "countedArticles": 4,
-   "singleTeamArticles": 4,
-   "multiTeamArticles": 3,
-   "posArticles": 0,
-   "negArticles": 4,
-   "neuArticles": 0,
-   "positiveScore": 0,
-   "negativeScore": 22,
-   "netScore": -22,
+   "articleCount": 19,
+   "countedArticles": 18,
+   "singleTeamArticles": 18,
+   "multiTeamArticles": 1,
+   "posArticles": 1,
+   "negArticles": 3,
+   "neuArticles": 14,
+   "positiveScore": 2,
+   "negativeScore": 12,
+   "netScore": -10,
    "topPositiveKeywords": [
-    "회복"
+    "홈런"
    ],
    "topNegativeKeywords": [
+    "논란",
     "수술",
     "골절"
    ],
-   "summary": "단일 팀 기사 4건 기준 (긍정 0 · 부정 4). 여러 팀 언급 3건은 중립(참고). 긍정 키워드: 회복. 부정 키워드: 수술, 골절.",
+   "summary": "단일 팀 기사 18건 기준 (긍정 1 · 부정 3). 여러 팀 언급 1건은 중립(참고). 긍정 키워드: 홈런. 부정 키워드: 논란, 수술, 골절.",
    "articles": [
     {
      "title": "강습 타구 맞은 NC 임지민, 턱뼈 골절 수술 완료…21일 퇴원 예정",
      "outlet": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE4teDEweHlaZFE2OWFpdUhsekRXaXNrN292RExGSkJ6SDZzR2ZaZE5fUjJ3TU5XemMyZWpGNjNnb0RIS2U3ZHZEN3J0Zk0zdkxUVmxHakFtZDExRGd3YTJvd2pR?oc=5",
+     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE03SHJiT0s1MmlGNU5XU1A0N0VHWU5VT3VremRiZ1RsLU1kSEticHJ5eGlCazNLcG9PdTN6RUpFbWc5V0gzSUdwZ3gtWWJEVGpibHNNRjlJaG9kRXB2Tkl5STdFS3Nld3ZnZE9odTRYUWoyb0F3Z09sYtIBeEFVX3lxTE03SHJiT0s1MmlGNU5XU1A0N0VHWU5VT3VremRiZ1RsLU1kSEticHJ5eGlCazNLcG9PdTN6RUpFbWc5V0gzSUdwZ3gtWWJEVGpibHNNRjlJaG9kRXB2Tkl5STdFS3Nld3ZnZE9odTRYUWoyb0F3Z09sYg?oc=5",
      "publishedAt": "2026-08-18T07:36:47.000Z",
      "label": "neg",
      "score": -8,
@@ -866,93 +844,102 @@
      "multiTeam": false
     },
     {
-     "title": "'177km 타구 강습→턱뼈 골절' NC 임지민, 수술 완료 → 21일 퇴원 예정 \"회복 최우선\" [공식입장]",
-     "outlet": "조선일보",
-     "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQMUhUeXIwY0p0dFpCWXlBLUFHWUhlSVZRNnpOTDlHZTM5LWhZbDIwempPOTFnbkc3anFvU1R2V2hta0ZwUEc5UzVudVoySm5GRHM4NjFaWnVoSXdwalZOQUhGc1loX0FwRWxiWGN6N1BOaWdZOVZUUlFnaDVlUHpXUHRyOA?oc=5",
-     "publishedAt": "2026-08-18T08:45:12.000Z",
+     "title": "NC 다이노스, 창원에 남는다…연고지 이전 논란 일단락",
+     "outlet": "부산일보",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1DQzhtTWdEa19pV3ZIM25Ka2dVbnBnMmRrVmRDWlZPYmJMVEJ4R2RzTjNTbVZ2bVBKQmJzOUpTZ1ZlcHJvNVVJN0RmUHhZblhsNFVEU0MwWkE1WWs4ZHVlMEQyTlNReEh6VFNib2xLbVh3VHQw?oc=5",
+     "publishedAt": "2026-08-20T08:07:02.000Z",
      "label": "neg",
-     "score": -6,
+     "score": -2,
      "reason": "",
      "multiTeam": false
     },
     {
-     "title": "강습 타구에 얼굴 맞은 NC 임지민, 턱뼈 수술 마쳐…21일 퇴원",
-     "outlet": "국제신문",
-     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQVV9NYjUxSVlrRFRYTU9SczBaaWlMWkllTVdyS2dvVk5MMHo1a1diTmxlSGM3aFc5ZWx2Wmp5bW9RVVZ4d1lOWVp2MjdPUkVwWHU4eFJyY25GVl9qdVFuOWxnWUxiNktvMWVRb2gtbGVfR3dsTnBkd29IUUpFUEJraGotVmswLWhtQ1BZaHNR?oc=5",
-     "publishedAt": "2026-08-18T07:41:00.000Z",
-     "label": "neg",
-     "score": -4,
-     "reason": "",
-     "multiTeam": false
-    },
-    {
-     "title": "타구에 얼굴 맞은 NC 임지민, 아래턱뼈 수술 마쳐…21일 퇴원",
+     "title": "창원시·NC다이노스, '홈런! 하이볼 축제' 연다…지역상생 맞손",
      "outlet": "연합뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFAtM3JjaVU0ci1SczdJMUhPN19MSnR3MjZfRlNTMW9WMkpCbnhNV0IzUXBsRUdqVUlVYjdaeXdTaEdHVElPZVpvYVlSOG9RZTdpMkNYcXVVTlptc2R4bXhJU9IBYEFVX3lxTFAtM3JjaVU0ci1SczdJMUhPN19MSnR3MjZfRlNTMW9WMkpCbnhNV0IzUXBsRUdqVUlVYjdaeXdTaEdHVElPZVpvYVlSOG9RZTdpMkNYcXVVTlptc2R4bXhJUw?oc=5",
-     "publishedAt": "2026-08-18T07:15:19.000Z",
-     "label": "neg",
-     "score": -4,
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9lWnZlNnJVcHFWMUNLWThxal93WnFYYXVlS1p0SHZfYjhoWUVvMU00dGl4Y2hWdEw0VjB5LXFIYXZlZ2pXWnFPUHo0Y291Y0FpMVRiVFJzQ3dtSS1rRndCc9IBYEFVX3lxTE9lWnZlNnJVcHFWMUNLWThxal93WnFYYXVlS1p0SHZfYjhoWUVvMU00dGl4Y2hWdEw0VjB5LXFIYXZlZ2pXWnFPUHo0Y291Y0FpMVRiVFJzQ3dtSS1rRndCcw?oc=5",
+     "publishedAt": "2026-08-20T07:41:16.000Z",
+     "label": "pos",
+     "score": 2,
      "reason": "",
      "multiTeam": false
     },
     {
-     "title": "KBO 프로야구, 19일 경기 중계 일정→선발 투수?",
-     "outlet": "스타뉴스",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE4tVm1XMm1Jb3c2eUxUSTlhQjlJRnBBdG5Gckl3Z1VHdll5RXJvb0VLeFlYdjgzRGMwRWc0dG5DbE0ycjlxbUpuNm1WNXRRYkZ5UTNYWS1NS1gxQkJHR2dwdVhIZjZnaGNjanJNVmdOZ2FzQQ?oc=5",
-     "publishedAt": "2026-08-18T18:46:16.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "",
-     "multiTeam": true
-    },
-    {
-     "title": "키움보다 10경기 적게 치렀다, NC 약일까 독일까",
+     "title": "\"창원의 자랑으로\" NC 다이노스 둥지 수성…기나긴 '연고 이전 논란' 마침내 잠재웠다 [오피셜]",
      "outlet": "일간스포츠",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5iTXZSTTFaX1A3Z2c0NndOWDhINzY3WWRIZWxpNGNiOEl6Zjh2RWxRZTlxNEVqa1ViMm5RNTk4eXhVeERtSk1qQmpZUEdZTWIxMVFVVC1XaGpxeUE?oc=5",
-     "publishedAt": "2026-08-17T09:55:00.000Z",
-     "label": "neu",
-     "score": 0,
+     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBSYkNkSGcweENZSHZjeU9EMU1YZmdIZUFoSTNSMGdjZEc1QzlVckNNV3Y4ZzA1MERSQWJ4Y1A4Y3JQd3lYWFdMd1Z4QVZWeHphc003THl2YUt1UUpWSE10QkhR?oc=5",
+     "publishedAt": "2026-08-20T07:21:00.000Z",
+     "label": "neg",
+     "score": -2,
      "reason": "",
-     "multiTeam": true
+     "multiTeam": false
     },
     {
-     "title": "[공식] 야구 없는 월요일, '무려 10명' 무더기 1군 엔트리 말소... 콜업 예정 투수 일부 확정 공개 - 머니투데이",
-     "outlet": "머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE01dkNlOXVTaHBDM3JES2ljNE1xWkpzVUFWMy1WQXhlRzZPQ3hhSUlDNk5oRmJ3dVFmMEhEX2IyajBaRDNhQTFfVVo1UXpzcGNTeEJoZ3BvSGMyeTlzQWdwSE9FcGJWVWpxa3QtN1Nzd9IBb0FVX3lxTE01dkNlOXVTaHBDM3JES2ljNE1xWkpzVUFWMy1WQXhlRzZPQ3hhSUlDNk5oRmJ3dVFmMEhEX2IyajBaRDNhQTFfVVo1UXpzcGNTeEJoZ3BvSGMyeTlzQWdwSE9FcGJWVWpxa3QtN1Nzdw?oc=5",
-     "publishedAt": "2026-08-17T08:09:49.000Z",
+     "title": "NC 다이노스 성남 이전설 일축… 창원 남기로",
+     "outlet": "중앙일보",
+     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1RUXBQVnJ3eG9wa1FqaVhiOG5YNVBlWE9JNTBnTHpQTU9WNThkWWZwUTZ3X3ctQXFBYVZfM004c2pOSWxBaEhVc0FrQWx2STgwNGYxNEhn?oc=5",
+     "publishedAt": "2026-08-20T12:09:41.000Z",
      "label": "neu",
      "score": 0,
      "reason": "",
-     "multiTeam": true
+     "multiTeam": false
+    },
+    {
+     "title": "NC \"연고지 이전 안 한다\"...창원 잔류 결정",
+     "outlet": "조선일보",
+     "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPRFg5V1BsLVFnSW9rczg4UE5pU3hGUkhoTjFfaUpENHgxTEpFMmpfbExlWHVhQS05WFZ6MDVlOVdkeGVvU25UWFlRdkVpSlZCQUFiX2FMQnhpZzZiVW1tcjFJcGE5VmFTLUhabmtmNHB5bEZvLVh3WWo4bUFyX19BLUh2Yw?oc=5",
+     "publishedAt": "2026-08-20T11:49:34.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "NC 박건우, 11시즌 연속 100안타…역대 13번째 대업",
+     "outlet": "뉴스1",
+     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1QdlJzV3BDZkRVQ20wOVdEUFFwV3hkTHRRNVVYTG4zWWlFbURhWmI0dWpZMXlfY1NZZ0I3azdsaE0zRUM0SHpuRjVQVU9iZV9Hb1dJWHVfemVHdGxq0gFcQVVfeXFMTVB2UnNXcENmRFVDbTA5V0RQUXBXeGRMdFE1VVhMbjNZaUVtRGFaYjR1alkxeV9jU1lnQjdrN2xoTTNFQzRIem5GNVBVT2JlX0dvV0lYdV96ZUd0bGo?oc=5",
+     "publishedAt": "2026-08-20T11:21:54.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
+    },
+    {
+     "title": "강기윤 창원시장 \"NC다이노스, 창원 연고지 잔류 확정 환영\"",
+     "outlet": "뉴스핌",
+     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1MQ2pReUsxQUQ2WWtKUFM1VzJXUzVmdlBOUmNHSDdVTXlMbm1ER1prLW9rc1BpN0xpVmVsNnhZMVU4Nk1rZHo4S0VGNllHNndoNXJNRkZuTVNYaVFi?oc=5",
+     "publishedAt": "2026-08-20T08:54:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": false
     }
    ]
   },
   {
    "teamId": "KT",
    "teamName": "KT",
-   "articleCount": 17,
+   "articleCount": 20,
    "countedArticles": 4,
    "singleTeamArticles": 4,
-   "multiTeamArticles": 13,
-   "posArticles": 3,
+   "multiTeamArticles": 16,
+   "posArticles": 2,
    "negArticles": 0,
-   "neuArticles": 1,
-   "positiveScore": 6,
+   "neuArticles": 2,
+   "positiveScore": 4,
    "negativeScore": 0,
-   "netScore": 6,
+   "netScore": 4,
    "topPositiveKeywords": [
     "홈런",
-    "펄펄",
-    "1위"
+    "펄펄"
    ],
    "topNegativeKeywords": [],
-   "summary": "단일 팀 기사 4건 기준 (긍정 3 · 부정 0). 여러 팀 언급 13건은 중립(참고). 긍정 키워드: 홈런, 펄펄, 1위.",
+   "summary": "단일 팀 기사 4건 기준 (긍정 2 · 부정 0). 여러 팀 언급 16건은 중립(참고). 긍정 키워드: 홈런, 펄펄.",
    "articles": [
     {
      "title": "KT 안현민, 2경기 연속 대포 가동…시즌 8호 홈런",
      "outlet": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9BTzBZMFNFMGY0bEFWSkx5akVSVEs1WjQ5SnUxalJVUnQ2RXM4T3FxSGxoaG1RRUVpOGhzV0ZDamQ0ZVhpZDZzazkzd2UxS3hPaHVTZlNQT3BXTFpsVW9Za9IBeEFVX3lxTE5qZjhMVjdnVkFKQm1Db1FYdENWX0pHU3F2UU5OVTNHcGJiaGNlaHdaN2ozWTZudmVPZXlzOUs0bkQtTmRHbjFHUjhnS0VKTlFjV2tELXVnM2JQSnlwODMzY2RqWE1RSFl3d3pJcmRKNGxpbk5JdzJmMA?oc=5",
-     "publishedAt": "2026-08-18T11:15:30.000Z",
+     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5qZjhMVjdnVkFKQm1Db1FYdENWX0pHU3F2UU5OVTNHcGJiaGNlaHdaN2ozWTZudmVPZXlzOUs0bkQtTmRHbjFHUjhnS0VKTlFjV2tELXVnM2JQSnlwODMzY2RqWE1RSFl3d3pJcmRKNGxpbk5JdzJmMNIBeEFVX3lxTE5qZjhMVjdnVkFKQm1Db1FYdENWX0pHU3F2UU5OVTNHcGJiaGNlaHdaN2ozWTZudmVPZXlzOUs0bkQtTmRHbjFHUjhnS0VKTlFjV2tELXVnM2JQSnlwODMzY2RqWE1RSFl3d3pJcmRKNGxpbk5JdzJmMA?oc=5",
+     "publishedAt": "2026-08-18T11:19:25.000Z",
      "label": "pos",
      "score": 2,
      "reason": "",
@@ -969,12 +956,12 @@
      "multiTeam": false
     },
     {
-     "title": "무더위에도 계속된 '프로야구 직관 열기'…'1위 파워' KT 홈구장 식음료 매출 급증",
-     "outlet": "스포츠조선",
-     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5JaUNCeUpiNUtQaGptMzFWWUIxUE1DSy1nUHE4aDdoUTFJWURUVVJKd3NFUWFiYXV6MUJlelpKOFBqLVhJQnFLb01fTWN5OUZtZnlsd25yWU1pOFJoay1LY1RCM2ZjaWM2MjN3UlJmdl8xdjdac3B2Qw?oc=5",
-     "publishedAt": "2026-08-18T05:11:30.000Z",
-     "label": "pos",
-     "score": 2,
+     "title": "연패 빠진 KT 이강철 감독 \"안 좋다는 투수들, 우리만 만나면 좋아져\"",
+     "outlet": "뉴시스",
+     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE54Y3V5Sm8tekJuVGEtQWlNR0FCQ0NXTUF4ZzVwRHllMUxtc0d5My1MLXJaZVRVcmxoVEE3NEx4cW5NZUZ3bm1sNFZ1RlkyRWtQMHBqMlJVdHNrZGlRODN2cTVSTzM0ZmdQcy1MYVJublM3aDVWMm9iZtIBeEFVX3lxTE54Y3V5Sm8tekJuVGEtQWlNR0FCQ0NXTUF4ZzVwRHllMUxtc0d5My1MLXJaZVRVcmxoVEE3NEx4cW5NZUZ3bm1sNFZ1RlkyRWtQMHBqMlJVdHNrZGlRODN2cTVSTzM0ZmdQcy1MYVJublM3aDVWMm9iZg?oc=5",
+     "publishedAt": "2026-08-20T09:23:44.000Z",
+     "label": "neu",
+     "score": 0,
      "reason": "",
      "multiTeam": false
     },
@@ -982,47 +969,47 @@
      "title": "야구는 취소돼도 먹방은 계속된다. 수원 로컬푸드에 진심인 KT위즈파크 근황｜갓나온 맛도리 EP.186",
      "outlet": "SBS",
      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5UVk44SmdLdEZ5dmVvWUJ5MUVoV2FUX01HTHF5VnE5ZDM0MGVteUV0YWN6bVZBdFZ5d2o5cnFpdFNmWWJkRGhFd2RieGs4WVo0REpKSlBUbnNMSVJHb29HVjZ3SllibTJ5SHfSAWZBVV95cUxObkx2Y2JxNTJQVVhteU5CLTByNjVyRkNsMms0LWF4b3c3XzFiQW4tcERJSW1qN2tmR3FaZVBMY2tLUU9QMzREbEVNRzA0UTYzTnRkWlRHSlZUR2tqUUk3YV8xMjJMTmc?oc=5",
-     "publishedAt": "2026-08-19T09:12:00.000Z",
+     "publishedAt": "2026-08-19T10:47:00.000Z",
      "label": "neu",
      "score": 0,
      "reason": "",
      "multiTeam": false
     },
     {
-     "title": "KIA 4연승·LG 48일 만에 연승…2위 삼성, 1위 KT와 승차 '0'(종합)",
+     "title": "'김민혁 싹쓸이 역전타' KT, LG에 16-4 대역전극…연패 끊고 선두 수성",
      "outlet": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFB2OXlHLVpTRkJxZWFaNVktUng4N3VzUWRlV2VYTlNtX20wRFRtS3hhcGpnd3NtLVBzZjRPWFR0R01SSU1SQUFyalB6LTdsWDRDSW1JZHpZWjd1XzBScWJEeNIBeEFVX3lxTFBVSUlDM0xROTBteXIxczBfZXRtdXFIRHh1dWxyWFYxT0xuRTctb1dEMGlKSGdrMFp4V2RzMUZnQTR4S3JHN2ZmVHg1RDlFSkdlOHhIX0hkWDBqMlRrclhWTjd1ZUdiX0JURF9uaGFLYXItYjAxZVBweA?oc=5",
-     "publishedAt": "2026-08-19T14:18:05.000Z",
+     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBZOEZ2SlF5RnAtRVhOT0Zyckl4NVhNTXJTR0prYmo1eF9OX2RPZ2hpXzNUVXVVeXdremUxdnRUdVBmbVN1d1ZqZlphSVdGSGVibXBTTDlFS1VKcTdNUU1yQmRoUlpwaDByX0tDTTZlQkNYVjg4eWQtNNIBeEFVX3lxTFBZOEZ2SlF5RnAtRVhOT0Zyckl4NVhNTXJTR0prYmo1eF9OX2RPZ2hpXzNUVXVVeXdremUxdnRUdVBmbVN1d1ZqZlphSVdGSGVibXBTTDlFS1VKcTdNUU1yQmRoUlpwaDByX0tDTTZlQkNYVjg4eWQtNA?oc=5",
+     "publishedAt": "2026-08-20T13:42:17.000Z",
      "label": "neu",
      "score": 0,
      "reason": "",
      "multiTeam": true
     },
     {
-     "title": "LG, 이틀 연속 선두 KT 제압…2위 삼성은 KT와 승차 지워(종합)",
-     "outlet": "뉴스1",
-     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFA5OHM2Snppamdxa2VSX1FtdV9xdDZ6SEg2dzlMbXEteXRDRXBIcDEzSGZqME5EcGJDQ0o3d1RnNHpVdW5LNG85TFJHNXlDT0FiejJvZHc0OEJXU2520gFcQVVfeXFMUDk4czZKemlqZ3FrZVJfUW11X3F0NnpISDZ3OUxtcS15dENFcEhwMTNIZmowTkRwYkNDSjd3VGc0elV1bks0bzlMUkc1eUNPQWJ6Mm9kdzQ4QldTbnY?oc=5",
-     "publishedAt": "2026-08-19T14:00:36.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "",
-     "multiTeam": true
-    },
-    {
-     "title": "'송찬의 결승타' LG, KT에 1-0 신승…48일 만에 연승",
-     "outlet": "뉴스1",
-     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1MdWY0QTVwSlZCcTUzVms5TDc5UXJUSno5RXliMENsckJLYTRmZmxKMm5NMHVTR1FNSFdqbmI5Y21helktNUhHMXE2YmZsYVhydWlHTVBCUHpLajJM0gFcQVVfeXFMTUx1ZjRBNXBKVkJxNTNWazlMNzlRclRKejlFeWIwQ2xyQkthNGZmbEoybk0wdVNHUU1IV2puYjljbWF6WS01SEcxcTZiZmxhWHJ1aUdNUEJQektqMkw?oc=5",
-     "publishedAt": "2026-08-19T13:01:05.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "",
-     "multiTeam": true
-    },
-    {
-     "title": "'7이닝 무실점' 톨허스트, 다승 공동 선두…LG, kt전 위닝시리즈",
+     "title": "\"5년 전처럼 또 꼬이나\"…kt·삼성, 타이브레이커 재현 가능성",
      "outlet": "연합뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBHYzREZ2x3bVBIZW9FYnViZ0FsT2Y4anJScW1fTkxrOGJfR3UtWi1LRGJwUmtRVFlBaTR1ZkdTVFYxRkR4X3JIdWtoRlFkbUNwc0xGSWpSOW1IMTVCdzhjSNIBYEFVX3lxTFBHYzREZ2x3bVBIZW9FYnViZ0FsT2Y4anJScW1fTkxrOGJfR3UtWi1LRGJwUmtRVFlBaTR1ZkdTVFYxRkR4X3JIdWtoRlFkbUNwc0xGSWpSOW1IMTVCdzhjSA?oc=5",
-     "publishedAt": "2026-08-19T13:00:45.000Z",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9oVkVONE9kdklLc3RPRmVjZUNTWVNGMDY0M0NLdjQyTWd6eTRMSXRNNzBJMzQ0NktPTzFfQWJlNC12Z2w3aGs2T0dnQllGeEJIV3RPTVhJT0NPbEQ1SWlxZtIBYEFVX3lxTE9oVkVONE9kdklLc3RPRmVjZUNTWVNGMDY0M0NLdjQyTWd6eTRMSXRNNzBJMzQ0NktPTzFfQWJlNC12Z2w3aGs2T0dnQllGeEJIV3RPTVhJT0NPbEQ1SWlxZg?oc=5",
+     "publishedAt": "2026-08-20T09:36:45.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": true
+    },
+    {
+     "title": "'가을야구' 5개 팀 사실상 굳혔다…이제는 확률 경쟁, 최종 순위 싸움",
+     "outlet": "뉴시스",
+     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBUNDZ4OGxKeU03RDdrbnU4YU94cV9zcWI2NkExT0ZNaDJJZDgxeEF0SWNZZnktenVTZXU1VUJEZ2pxWkNxakRYdTNoMVRybDY1eElJQVBzc3VROUFkcVJBa0lvOHhjMnZWOVFiemNkNW9YRVR1R0dPNdIBeEFVX3lxTFBUNDZ4OGxKeU03RDdrbnU4YU94cV9zcWI2NkExT0ZNaDJJZDgxeEF0SWNZZnktenVTZXU1VUJEZ2pxWkNxakRYdTNoMVRybDY1eElJQVBzc3VROUFkcVJBa0lvOHhjMnZWOVFiemNkNW9YRVR1R0dPNQ?oc=5",
+     "publishedAt": "2026-08-20T04:37:20.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": true
+    },
+    {
+     "title": "“가장 잘할 수 있는 투구로 돌아와”…반등 계기 마련한 LG 톨허스트의 미소",
+     "outlet": "매일경제",
+     "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE5KR08zS1VjZ1VYWW44a0VTWkpEaldxcmFYZEZnWk5uVDZhU1V3YTNwWk40Rzkxa1FKRkVSZjl2TXpZM3MxdGc?oc=5",
+     "publishedAt": "2026-08-20T00:40:00.000Z",
      "label": "neu",
      "score": 0,
      "reason": "",
@@ -1033,30 +1020,31 @@
   {
    "teamId": "HH",
    "teamName": "한화",
-   "articleCount": 12,
-   "countedArticles": 6,
-   "singleTeamArticles": 6,
-   "multiTeamArticles": 6,
+   "articleCount": 11,
+   "countedArticles": 4,
+   "singleTeamArticles": 4,
+   "multiTeamArticles": 7,
    "posArticles": 1,
-   "negArticles": 2,
-   "neuArticles": 3,
+   "negArticles": 1,
+   "neuArticles": 2,
    "positiveScore": 2,
-   "negativeScore": 6,
-   "netScore": -4,
+   "negativeScore": 4,
+   "netScore": -2,
    "topPositiveKeywords": [
+    "역전",
     "복귀"
    ],
    "topNegativeKeywords": [
-    "말소",
+    "추락",
     "5연패"
    ],
-   "summary": "단일 팀 기사 6건 기준 (긍정 1 · 부정 2). 여러 팀 언급 6건은 중립(참고). 긍정 키워드: 복귀. 부정 키워드: 말소, 5연패.",
+   "summary": "단일 팀 기사 4건 기준 (긍정 1 · 부정 1). 여러 팀 언급 7건은 중립(참고). 긍정 키워드: 역전, 복귀. 부정 키워드: 추락, 5연패.",
    "articles": [
     {
-     "title": "[사진]5연패에 빠진 한화 - 머니투데이",
-     "outlet": "머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9OY2haQmhxTVZtcS1TbXN1NlRNUVhsNUEtaW8xRG05UDBCNDd2eFVGRmdPMXlwdS05N2pfTWl1ZTJabnRtTGh4b1dzNDV4Zy0wenB1cFp5ZGdPS0V6bXFLM0FiZzdHQ0s1VWItaXFfTdIBb0FVX3lxTE9OY2haQmhxTVZtcS1TbXN1NlRNUVhsNUEtaW8xRG05UDBCNDd2eFVGRmdPMXlwdS05N2pfTWl1ZTJabnRtTGh4b1dzNDV4Zy0wenB1cFp5ZGdPS0V6bXFLM0FiZzdHQ0s1VWItaXFfTQ?oc=5",
-     "publishedAt": "2026-08-19T13:56:00.000Z",
+     "title": "‘가을야구’와 8경기 차로 멀어진 한화, ‘5연패’ 벼랑끝···잠시 주춤한 레전드 투수, 구세주 될까",
+     "outlet": "스포츠경향",
+     "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5XQ1g4YWl5bi1FRS1sZ1hyMVE3ZEFyNFpLUXNxdnR4dThianJZOXJKcmF6ZkhHVXlzUXNnWjctSVdLOFpXZk5QTEFlMWhoa0xTX1U2blVJLWhRa25UWXlicUltWdIBY0FVX3lxTE5XQ1g4YWl5bi1FRS1sZ1hyMVE3ZEFyNFpLUXNxdnR4dThianJZOXJKcmF6ZkhHVXlzUXNnWjctSVdLOFpXZk5QTEFlMWhoa0xTX1U2blVJLWhRa25UWXlicUltWQ?oc=5",
+     "publishedAt": "2026-08-19T23:56:00.000Z",
      "label": "neg",
      "score": -4,
      "reason": "",
@@ -1073,12 +1061,12 @@
      "multiTeam": false
     },
     {
-     "title": "김서현-정우주 콜업 사전 작업인가, 한화 무려 3명 말소…야구 없는 월요일 대거 10명 2군행",
-     "outlet": "이데일리",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1BNFdEVkN4Y1Y2eVRwWlJDVzFOV0s0Q0FyZUJndk12TlhwT2tLaVJ0NHZVeExjVlBFalRZN2hxdXFyMk1QeEk4dEVmdHZVbUFudmhzZ1drMDBYZ3UzQmJUdA?oc=5",
-     "publishedAt": "2026-08-17T08:41:00.000Z",
-     "label": "neg",
-     "score": -2,
+     "title": "정우주+김서현=4실점 역전패 8위 추락…가을야구 더 험난해진 한화",
+     "outlet": "서울신문",
+     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE8xNUdheFBBYlBMN3hwY2ZCQVVOM2J4RXMyb3FwTEF4RlJvTElPT3NjMlpzb25PcW93Yy1OWmVyYkxfTGo0bXVIV0M5aTcyNkFtNzNoRGF1MA?oc=5",
+     "publishedAt": "2026-08-20T15:29:51.000Z",
+     "label": "neu",
+     "score": 0,
      "reason": "",
      "multiTeam": false
     },
@@ -1093,40 +1081,40 @@
      "multiTeam": false
     },
     {
-     "title": "재정비 후 돌아오는 김서현·정우주, 한화 구세주 될 수 있을까",
+     "title": "'김태군 역전 투런포' KIA, 5연승 신바람…'6연패' 한화, 8위로 추락",
      "outlet": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFB2NU1SYUkxWVNwSDFxbmlWNmFTNEU1a3AyS1JHUXR4elV4QnZtLXZKNlN3T2duY2l2b1NMWTRYRzlXUFVsU2lWLV9lWDV4bW1jMTBFc3dUSml5R1Z2b2ZJctIBeEFVX3lxTFBDVjJNLTFFRUVWLWxNNW1QMnNyUWRyakhfdUNFemM4anhYZTkzbm40eFlTR2RXeWFwV2x0cFMyUVl2SGRQZ2s1Wlpta3NicU90Q1l4eVJyXzJucjZseDhqMHBzX0ZIYlVXLVA1Slk0MTdocEQxeVZxWQ?oc=5",
-     "publishedAt": "2026-08-18T01:46:36.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "",
-     "multiTeam": false
-    },
-    {
-     "title": "'김서현·정우주 합류 예고' 한화, 강재민·김종수 1군 제외",
-     "outlet": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFA1VXo0WkNFdEUtZHpWUldiNDh4bDRxYS1rRjh0ckJ1SF81VEUzVi1KLVlNczk2Q0RlTXB0VUtUengyekVid2F6TGpqOEhMMmdFV2d6Nm15TnpCV2hlRmgyXzN5alFMQ1ZEVzUtQk5NU21uVlRTcktfUdIBeEFVX3lxTFA1VXo0WkNFdEUtZHpWUldiNDh4bDRxYS1rRjh0ckJ1SF81VEUzVi1KLVlNczk2Q0RlTXB0VUtUengyekVid2F6TGpqOEhMMmdFV2d6Nm15TnpCV2hlRmgyXzN5alFMQ1ZEVzUtQk5NU21uVlRTcktfUQ?oc=5",
-     "publishedAt": "2026-08-17T08:47:05.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "",
-     "multiTeam": false
-    },
-    {
-     "title": "한화는 진짜 왜 보냈지? 하주석 2루타 2개…트레이드 가치 또 증명했다",
-     "outlet": "서울신문",
-     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1oQlBkSVNjdHZPZE8yQi1jcVBXUWstd3RyOG9raDh1ZXo5TzZIVXNxVHA5elJ5NGljZU92dVg0TzJSQmduMWROM2xhSnpiMXFvbmRTakVmdw?oc=5",
-     "publishedAt": "2026-08-18T19:02:09.000Z",
+     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1qODJnNEhvREZzSWoyNlMwa0xlclZadWNYSU16Y0taeVpoVmZTVlBxemthSl9DZjlNUHRSODBRajQ4WFlyUzdsbTVUY1ZZUHlNZlVOZVIxR2ItbDk4RG9FMlhmTnAybEpneUlnUHRpYk1EZzFfaTI2ZtIBeEFVX3lxTE1qODJnNEhvREZzSWoyNlMwa0xlclZadWNYSU16Y0taeVpoVmZTVlBxemthSl9DZjlNUHRSODBRajQ4WFlyUzdsbTVUY1ZZUHlNZlVOZVIxR2ItbDk4RG9FMlhmTnAybEpneUlnUHRpYk1EZzFfaTI2Zg?oc=5",
+     "publishedAt": "2026-08-20T13:58:12.000Z",
      "label": "neu",
      "score": 0,
      "reason": "",
      "multiTeam": true
     },
     {
-     "title": "'7회 13득점 폭발' 롯데, 키움 상대 대역전승…KIA, 한화 꺾고 4위 수성(종합)",
+     "title": "로맥아더 장군 인천 상륙한다!…SSG, 27일 홈 한화전 시구 및 시타자로 로맥 가족 선정",
+     "outlet": "매일경제",
+     "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE1WZmRlcGxIUW1xcFR2NDRyMmtXQ1p0ck00VzlnOWNKMzA3NVJNMkdqRFpkaVBPX2luOHlacVpYanhTNjdwalE?oc=5",
+     "publishedAt": "2026-08-20T05:40:00.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": true
+    },
+    {
+     "title": "'SSG 레전드 외인' 로맥, 27일 한화전 시구…5년 만에 인천 팬과 만난다",
      "outlet": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE0zVHFpZWF2SE9tNGQxR2VBQzRlNTFFdzR1Z0JoZnJQcTFrcGgtdnlEbGQwbW05SzJtWmdmS01PekFwRFVMUTViLVg2Qjl0MDA4S1NjX1M0UTUwdEpjRFhCS3J3eUdvQkJLSHVGa2psZW1LUU82WEkyT9IBeEFVX3lxTE0zVHFpZWF2SE9tNGQxR2VBQzRlNTFFdzR1Z0JoZnJQcTFrcGgtdnlEbGQwbW05SzJtWmdmS01PekFwRFVMUTViLVg2Qjl0MDA4S1NjX1M0UTUwdEpjRFhCS3J3eUdvQkJLSHVGa2psZW1LUU82WEkyTw?oc=5",
-     "publishedAt": "2026-08-18T13:52:10.000Z",
+     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE4wZFRjdmdkbEluMmxSa2otQmpwUlFCZkhyODdWRlp6TVVxeDJmdU5PTlEtUHRDSUhIcU8wcmY5d2IyWmlGa1VVUTJOU0MyY3R3ZzEwV3pHVnZrVDA5SzhLWjFwWFJWV2w1dUlmYXRITEt6V2FkdVVtU9IBeEFVX3lxTE4wZFRjdmdkbEluMmxSa2otQmpwUlFCZkhyODdWRlp6TVVxeDJmdU5PTlEtUHRDSUhIcU8wcmY5d2IyWmlGa1VVUTJOU0MyY3R3ZzEwV3pHVnZrVDA5SzhLWjFwWFJWV2w1dUlmYXRITEt6V2FkdVVtUw?oc=5",
+     "publishedAt": "2026-08-20T04:52:41.000Z",
+     "label": "neu",
+     "score": 0,
+     "reason": "",
+     "multiTeam": true
+    },
+    {
+     "title": "[사진]이범호 감독 'KIA의 슈퍼스타는 김도영' - 머니투데이",
+     "outlet": "머니투데이",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5EbmV2cXBsTXlMdmtwTmppZVltbXFKZk5EOU9sdUFmM0c5bFhPaVFoeV9jYTdCc2Q1bXUteWNPUXpVMUJfal9Tcnd5c0ZnVXNpc0RDY092Vk15M3FaUWZvNTJBejVYTnBMWHdEWTFBVdIBb0FVX3lxTE5EbmV2cXBsTXlMdmtwTmppZVltbXFKZk5EOU9sdUFmM0c5bFhPaVFoeV9jYTdCc2Q1bXUteWNPUXpVMUJfal9Tcnd5c0ZnVXNpc0RDY092Vk15M3FaUWZvNTJBejVYTnBMWHdEWTFBVQ?oc=5",
+     "publishedAt": "2026-08-19T14:00:00.000Z",
      "label": "neu",
      "score": 0,
      "reason": "",
