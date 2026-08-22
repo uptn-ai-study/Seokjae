@@ -1,7 +1,7 @@
 {
  "season": 2026,
- "generatedAt": "2026-08-21T18:47:27.941Z",
- "basedOnGames": 548,
+ "generatedAt": "2026-08-22T18:42:01.325Z",
+ "basedOnGames": 550,
  "standings": [
   {
    "teamId": "KT",
@@ -25,39 +25,39 @@
   {
    "teamId": "SS",
    "teamName": "삼성",
-   "games": 109,
-   "wins": 63,
+   "games": 110,
+   "wins": 64,
    "losses": 44,
    "ties": 2,
-   "winPct": 0.589,
-   "gamesBehind": 1.5,
+   "winPct": 0.593,
+   "gamesBehind": 1,
    "last10": {
-    "wins": 4,
-    "losses": 6,
+    "wins": 5,
+    "losses": 5,
     "ties": 0
    },
-   "streak": "2패",
-   "runsScored": 628,
-   "runsAllowed": 506,
+   "streak": "1승",
+   "runsScored": 636,
+   "runsAllowed": 512,
    "rank": 2
   },
   {
    "teamId": "HT",
    "teamName": "KIA",
-   "games": 110,
+   "games": 111,
    "wins": 60,
-   "losses": 48,
+   "losses": 49,
    "ties": 2,
-   "winPct": 0.556,
-   "gamesBehind": 5,
+   "winPct": 0.55,
+   "gamesBehind": 5.5,
    "last10": {
-    "wins": 8,
-    "losses": 2,
+    "wins": 7,
+    "losses": 3,
     "ties": 0
    },
-   "streak": "6승",
-   "runsScored": 598,
-   "runsAllowed": 524,
+   "streak": "1패",
+   "runsScored": 599,
+   "runsAllowed": 527,
    "rank": 3
   },
   {
@@ -99,25 +99,6 @@
    "rank": 5
   },
   {
-   "teamId": "NC",
-   "teamName": "NC",
-   "games": 104,
-   "wins": 48,
-   "losses": 54,
-   "ties": 2,
-   "winPct": 0.471,
-   "gamesBehind": 14,
-   "last10": {
-    "wins": 6,
-    "losses": 4,
-    "ties": 0
-   },
-   "streak": "2승",
-   "runsScored": 529,
-   "runsAllowed": 559,
-   "rank": 6
-  },
-  {
    "teamId": "LT",
    "teamName": "롯데",
    "games": 109,
@@ -134,7 +115,7 @@
    "streak": "5승",
    "runsScored": 522,
    "runsAllowed": 540,
-   "rank": 7
+   "rank": 6
   },
   {
    "teamId": "HH",
@@ -153,6 +134,25 @@
    "streak": "1승",
    "runsScored": 629,
    "runsAllowed": 591,
+   "rank": 7
+  },
+  {
+   "teamId": "NC",
+   "teamName": "NC",
+   "games": 105,
+   "wins": 48,
+   "losses": 55,
+   "ties": 2,
+   "winPct": 0.466,
+   "gamesBehind": 14.5,
+   "last10": {
+    "wins": 5,
+    "losses": 5,
+    "ties": 0
+   },
+   "streak": "1패",
+   "runsScored": 535,
+   "runsAllowed": 567,
    "rank": 8
   },
   {
@@ -177,20 +177,20 @@
   {
    "teamId": "WO",
    "teamName": "키움",
-   "games": 114,
-   "wins": 40,
+   "games": 115,
+   "wins": 41,
    "losses": 72,
    "ties": 2,
-   "winPct": 0.357,
-   "gamesBehind": 27,
+   "winPct": 0.363,
+   "gamesBehind": 26.5,
    "last10": {
-    "wins": 2,
-    "losses": 8,
+    "wins": 3,
+    "losses": 7,
     "ties": 0
    },
-   "streak": "5패",
-   "runsScored": 449,
-   "runsAllowed": 639,
+   "streak": "1승",
+   "runsScored": 452,
+   "runsAllowed": 640,
    "rank": 10
   }
  ]
