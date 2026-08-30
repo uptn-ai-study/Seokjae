@@ -1,7 +1,7 @@
 {
  "season": 2026,
- "generatedAt": "2026-08-29T20:41:30.834Z",
- "basedOnGames": 574,
+ "generatedAt": "2026-08-30T20:51:32.595Z",
+ "basedOnGames": 576,
  "standings": [
   {
    "teamId": "SS",
@@ -82,39 +82,39 @@
   {
    "teamId": "OB",
    "teamName": "두산",
-   "games": 116,
-   "wins": 60,
+   "games": 117,
+   "wins": 61,
    "losses": 52,
    "ties": 4,
-   "winPct": 0.536,
-   "gamesBehind": 8,
+   "winPct": 0.54,
+   "gamesBehind": 7.5,
    "last10": {
-    "wins": 5,
-    "losses": 5,
+    "wins": 6,
+    "losses": 4,
     "ties": 0
    },
-   "streak": "1승",
-   "runsScored": 540,
-   "runsAllowed": 497,
+   "streak": "2승",
+   "runsScored": 555,
+   "runsAllowed": 498,
    "rank": 5
   },
   {
    "teamId": "NC",
    "teamName": "NC",
-   "games": 110,
-   "wins": 50,
+   "games": 111,
+   "wins": 51,
    "losses": 58,
    "ties": 2,
-   "winPct": 0.463,
-   "gamesBehind": 16,
+   "winPct": 0.468,
+   "gamesBehind": 15.5,
    "last10": {
-    "wins": 4,
-    "losses": 6,
+    "wins": 5,
+    "losses": 5,
     "ties": 0
    },
-   "streak": "2승",
-   "runsScored": 564,
-   "runsAllowed": 589,
+   "streak": "3승",
+   "runsScored": 574,
+   "runsAllowed": 596,
    "rank": 6
   },
   {
@@ -139,20 +139,20 @@
   {
    "teamId": "HH",
    "teamName": "한화",
-   "games": 113,
+   "games": 114,
    "wins": 49,
-   "losses": 61,
+   "losses": 62,
    "ties": 3,
-   "winPct": 0.445,
-   "gamesBehind": 18,
+   "winPct": 0.441,
+   "gamesBehind": 18.5,
    "last10": {
     "wins": 1,
     "losses": 9,
     "ties": 0
    },
-   "streak": "5패",
-   "runsScored": 644,
-   "runsAllowed": 640,
+   "streak": "6패",
+   "runsScored": 651,
+   "runsAllowed": 650,
    "rank": 8
   },
   {
@@ -177,20 +177,20 @@
   {
    "teamId": "WO",
    "teamName": "키움",
-   "games": 120,
+   "games": 121,
    "wins": 42,
-   "losses": 75,
+   "losses": 76,
    "ties": 3,
-   "winPct": 0.359,
-   "gamesBehind": 28.5,
+   "winPct": 0.356,
+   "gamesBehind": 29,
    "last10": {
     "wins": 2,
     "losses": 7,
     "ties": 1
    },
-   "streak": "3패",
-   "runsScored": 469,
-   "runsAllowed": 684,
+   "streak": "4패",
+   "runsScored": 470,
+   "runsAllowed": 699,
    "rank": 10
   }
  ]
