@@ -1,7 +1,7 @@
 {
  "season": 2026,
  "source": "kbo_official",
- "generatedAt": "2026-09-02T20:48:15.884Z",
+ "generatedAt": "2026-09-03T20:47:43.613Z",
  "games": [
   {
    "gameId": "20260312KTLT0",
@@ -17901,6 +17901,131 @@
    "winPitcher": "이건욱",
    "losePitcher": "유토",
    "savePitcher": "조병현",
+   "hasBoxscore": true
+  },
+  {
+   "gameId": "20260903HHKT0",
+   "date": "20260903",
+   "time": "18:30",
+   "season": 2026,
+   "seriesId": 0,
+   "seriesName": "정규경기",
+   "stadium": "수원",
+   "status": "finished",
+   "cancelReason": "",
+   "away": {
+    "teamId": "HH",
+    "teamName": "한화",
+    "score": 11
+   },
+   "home": {
+    "teamId": "KT",
+    "teamName": "KT",
+    "score": 13
+   },
+   "winPitcher": "오원석",
+   "losePitcher": "김서현",
+   "savePitcher": "박영현",
+   "hasBoxscore": true
+  },
+  {
+   "gameId": "20260903HTNC0",
+   "date": "20260903",
+   "time": "18:30",
+   "season": 2026,
+   "seriesId": 0,
+   "seriesName": "정규경기",
+   "stadium": "창원",
+   "status": "canceled",
+   "cancelReason": "우천취소",
+   "away": {
+    "teamId": "HT",
+    "teamName": "KIA",
+    "score": 0
+   },
+   "home": {
+    "teamId": "NC",
+    "teamName": "NC",
+    "score": 0
+   },
+   "winPitcher": null,
+   "losePitcher": null,
+   "savePitcher": null,
+   "hasBoxscore": false
+  },
+  {
+   "gameId": "20260903LGOB0",
+   "date": "20260903",
+   "time": "18:30",
+   "season": 2026,
+   "seriesId": 0,
+   "seriesName": "정규경기",
+   "stadium": "잠실",
+   "status": "finished",
+   "cancelReason": "",
+   "away": {
+    "teamId": "LG",
+    "teamName": "LG",
+    "score": 1
+   },
+   "home": {
+    "teamId": "OB",
+    "teamName": "두산",
+    "score": 0
+   },
+   "winPitcher": "박시원",
+   "losePitcher": "곽빈",
+   "savePitcher": "손주영",
+   "hasBoxscore": true
+  },
+  {
+   "gameId": "20260903LTSS0",
+   "date": "20260903",
+   "time": "18:30",
+   "season": 2026,
+   "seriesId": 0,
+   "seriesName": "정규경기",
+   "stadium": "대구",
+   "status": "finished",
+   "cancelReason": "",
+   "away": {
+    "teamId": "LT",
+    "teamName": "롯데",
+    "score": 3
+   },
+   "home": {
+    "teamId": "SS",
+    "teamName": "삼성",
+    "score": 2
+   },
+   "winPitcher": "비슬리",
+   "losePitcher": "장찬희",
+   "savePitcher": "이이무라",
+   "hasBoxscore": true
+  },
+  {
+   "gameId": "20260903SKWO0",
+   "date": "20260903",
+   "time": "18:30",
+   "season": 2026,
+   "seriesId": 0,
+   "seriesName": "정규경기",
+   "stadium": "고척",
+   "status": "finished",
+   "cancelReason": "",
+   "away": {
+    "teamId": "SK",
+    "teamName": "SSG",
+    "score": 2
+   },
+   "home": {
+    "teamId": "WO",
+    "teamName": "키움",
+    "score": 3
+   },
+   "winPitcher": "박진형",
+   "losePitcher": "전영준",
+   "savePitcher": null,
    "hasBoxscore": true
   }
  ]
