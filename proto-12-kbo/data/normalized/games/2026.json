@@ -1,7 +1,7 @@
 {
  "season": 2026,
  "source": "kbo_official",
- "generatedAt": "2026-09-12T20:28:22.185Z",
+ "generatedAt": "2026-09-13T20:37:34.784Z",
  "games": [
   {
    "gameId": "20260312KTLT0",
@@ -18926,6 +18926,106 @@
    "winPitcher": "구창모",
    "losePitcher": "김정우",
    "savePitcher": "이용준",
+   "hasBoxscore": true
+  },
+  {
+   "gameId": "20260913HHHT0",
+   "date": "20260913",
+   "time": "17:00",
+   "season": 2026,
+   "seriesId": 0,
+   "seriesName": "정규경기",
+   "stadium": "광주",
+   "status": "finished",
+   "cancelReason": "",
+   "away": {
+    "teamId": "HH",
+    "teamName": "한화",
+    "score": 2
+   },
+   "home": {
+    "teamId": "HT",
+    "teamName": "KIA",
+    "score": 9
+   },
+   "winPitcher": "시라카와",
+   "losePitcher": "화이트",
+   "savePitcher": null,
+   "hasBoxscore": true
+  },
+  {
+   "gameId": "20260913LGSS0",
+   "date": "20260913",
+   "time": "17:00",
+   "season": 2026,
+   "seriesId": 0,
+   "seriesName": "정규경기",
+   "stadium": "대구",
+   "status": "finished",
+   "cancelReason": "",
+   "away": {
+    "teamId": "LG",
+    "teamName": "LG",
+    "score": 13
+   },
+   "home": {
+    "teamId": "SS",
+    "teamName": "삼성",
+    "score": 5
+   },
+   "winPitcher": "임찬규",
+   "losePitcher": "최원태",
+   "savePitcher": null,
+   "hasBoxscore": true
+  },
+  {
+   "gameId": "20260913LTKT0",
+   "date": "20260913",
+   "time": "17:00",
+   "season": 2026,
+   "seriesId": 0,
+   "seriesName": "정규경기",
+   "stadium": "수원",
+   "status": "finished",
+   "cancelReason": "",
+   "away": {
+    "teamId": "LT",
+    "teamName": "롯데",
+    "score": 2
+   },
+   "home": {
+    "teamId": "KT",
+    "teamName": "KT",
+    "score": 5
+   },
+   "winPitcher": "소형준",
+   "losePitcher": "나균안",
+   "savePitcher": "박영현",
+   "hasBoxscore": true
+  },
+  {
+   "gameId": "20260913NCOB0",
+   "date": "20260913",
+   "time": "17:00",
+   "season": 2026,
+   "seriesId": 0,
+   "seriesName": "정규경기",
+   "stadium": "잠실",
+   "status": "finished",
+   "cancelReason": "",
+   "away": {
+    "teamId": "NC",
+    "teamName": "NC",
+    "score": 2
+   },
+   "home": {
+    "teamId": "OB",
+    "teamName": "두산",
+    "score": 9
+   },
+   "winPitcher": "최민석",
+   "losePitcher": "토다",
+   "savePitcher": null,
    "hasBoxscore": true
   }
  ]
