@@ -1,7 +1,7 @@
 {
  "season": 2026,
  "source": "kbo_official",
- "generatedAt": "2026-09-14T21:47:07.622Z",
+ "generatedAt": "2026-09-15T21:08:28.205Z",
  "games": [
   {
    "gameId": "20260312KTLT0",
@@ -19025,6 +19025,106 @@
    },
    "winPitcher": "최민석",
    "losePitcher": "토다",
+   "savePitcher": null,
+   "hasBoxscore": true
+  },
+  {
+   "gameId": "20260915HTSK0",
+   "date": "20260915",
+   "time": "18:30",
+   "season": 2026,
+   "seriesId": 0,
+   "seriesName": "정규경기",
+   "stadium": "문학",
+   "status": "finished",
+   "cancelReason": "",
+   "away": {
+    "teamId": "HT",
+    "teamName": "KIA",
+    "score": 3
+   },
+   "home": {
+    "teamId": "SK",
+    "teamName": "SSG",
+    "score": 6
+   },
+   "winPitcher": "김민준",
+   "losePitcher": "김태형",
+   "savePitcher": "문승원",
+   "hasBoxscore": true
+  },
+  {
+   "gameId": "20260915KTHH0",
+   "date": "20260915",
+   "time": "18:30",
+   "season": 2026,
+   "seriesId": 0,
+   "seriesName": "정규경기",
+   "stadium": "대전",
+   "status": "finished",
+   "cancelReason": "",
+   "away": {
+    "teamId": "KT",
+    "teamName": "KT",
+    "score": 13
+   },
+   "home": {
+    "teamId": "HH",
+    "teamName": "한화",
+    "score": 3
+   },
+   "winPitcher": "고영표",
+   "losePitcher": "왕옌청",
+   "savePitcher": null,
+   "hasBoxscore": true
+  },
+  {
+   "gameId": "20260915LGNC0",
+   "date": "20260915",
+   "time": "18:30",
+   "season": 2026,
+   "seriesId": 0,
+   "seriesName": "정규경기",
+   "stadium": "창원",
+   "status": "finished",
+   "cancelReason": "",
+   "away": {
+    "teamId": "LG",
+    "teamName": "LG",
+    "score": 3
+   },
+   "home": {
+    "teamId": "NC",
+    "teamName": "NC",
+    "score": 2
+   },
+   "winPitcher": "카라스코",
+   "losePitcher": "송명기",
+   "savePitcher": "손주영",
+   "hasBoxscore": true
+  },
+  {
+   "gameId": "20260915LTSS0",
+   "date": "20260915",
+   "time": "18:30",
+   "season": 2026,
+   "seriesId": 0,
+   "seriesName": "정규경기",
+   "stadium": "대구",
+   "status": "finished",
+   "cancelReason": "",
+   "away": {
+    "teamId": "LT",
+    "teamName": "롯데",
+    "score": 3
+   },
+   "home": {
+    "teamId": "SS",
+    "teamName": "삼성",
+    "score": 7
+   },
+   "winPitcher": "사토시",
+   "losePitcher": "박정민",
    "savePitcher": null,
    "hasBoxscore": true
   }
