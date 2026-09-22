@@ -1,7 +1,7 @@
 {
  "season": 2026,
  "source": "kbo_official",
- "generatedAt": "2026-09-21T21:58:17.888Z",
+ "generatedAt": "2026-09-22T21:10:48.186Z",
  "games": [
   {
    "gameId": "20260312KTLT0",
@@ -19601,6 +19601,106 @@
    "winPitcher": "김건우",
    "losePitcher": "하영민",
    "savePitcher": null,
+   "hasBoxscore": true
+  },
+  {
+   "gameId": "20260922KTSK0",
+   "date": "20260922",
+   "time": "18:30",
+   "season": 2026,
+   "seriesId": 0,
+   "seriesName": "정규경기",
+   "stadium": "문학",
+   "status": "finished",
+   "cancelReason": "",
+   "away": {
+    "teamId": "KT",
+    "teamName": "KT",
+    "score": 8
+   },
+   "home": {
+    "teamId": "SK",
+    "teamName": "SSG",
+    "score": 2
+   },
+   "winPitcher": "전용주",
+   "losePitcher": "아빌라",
+   "savePitcher": null,
+   "hasBoxscore": true
+  },
+  {
+   "gameId": "20260922LTHH0",
+   "date": "20260922",
+   "time": "18:30",
+   "season": 2026,
+   "seriesId": 0,
+   "seriesName": "정규경기",
+   "stadium": "대전",
+   "status": "finished",
+   "cancelReason": "",
+   "away": {
+    "teamId": "LT",
+    "teamName": "롯데",
+    "score": 7
+   },
+   "home": {
+    "teamId": "HH",
+    "teamName": "한화",
+    "score": 0
+   },
+   "winPitcher": "비슬리",
+   "losePitcher": "류현진",
+   "savePitcher": null,
+   "hasBoxscore": true
+  },
+  {
+   "gameId": "20260922NCSS0",
+   "date": "20260922",
+   "time": "18:30",
+   "season": 2026,
+   "seriesId": 0,
+   "seriesName": "정규경기",
+   "stadium": "대구",
+   "status": "finished",
+   "cancelReason": "",
+   "away": {
+    "teamId": "NC",
+    "teamName": "NC",
+    "score": 5
+   },
+   "home": {
+    "teamId": "SS",
+    "teamName": "삼성",
+    "score": 8
+   },
+   "winPitcher": "페덱",
+   "losePitcher": "신영우",
+   "savePitcher": "김재윤",
+   "hasBoxscore": true
+  },
+  {
+   "gameId": "20260922OBWO0",
+   "date": "20260922",
+   "time": "18:30",
+   "season": 2026,
+   "seriesId": 0,
+   "seriesName": "정규경기",
+   "stadium": "고척",
+   "status": "finished",
+   "cancelReason": "",
+   "away": {
+    "teamId": "OB",
+    "teamName": "두산",
+    "score": 5
+   },
+   "home": {
+    "teamId": "WO",
+    "teamName": "키움",
+    "score": 3
+   },
+   "winPitcher": "벤자민",
+   "losePitcher": "전준표",
+   "savePitcher": "이영하",
    "hasBoxscore": true
   }
  ]
