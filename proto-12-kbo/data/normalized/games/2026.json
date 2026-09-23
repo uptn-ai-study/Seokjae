@@ -1,7 +1,7 @@
 {
  "season": 2026,
  "source": "kbo_official",
- "generatedAt": "2026-09-22T21:10:48.186Z",
+ "generatedAt": "2026-09-23T21:23:58.283Z",
  "games": [
   {
    "gameId": "20260312KTLT0",
@@ -19701,6 +19701,81 @@
    "winPitcher": "벤자민",
    "losePitcher": "전준표",
    "savePitcher": "이영하",
+   "hasBoxscore": true
+  },
+  {
+   "gameId": "20260923HTOB0",
+   "date": "20260923",
+   "time": "18:30",
+   "season": 2026,
+   "seriesId": 0,
+   "seriesName": "정규경기",
+   "stadium": "잠실",
+   "status": "finished",
+   "cancelReason": "",
+   "away": {
+    "teamId": "HT",
+    "teamName": "KIA",
+    "score": 2
+   },
+   "home": {
+    "teamId": "OB",
+    "teamName": "두산",
+    "score": 3
+   },
+   "winPitcher": "이영하",
+   "losePitcher": "이의리",
+   "savePitcher": null,
+   "hasBoxscore": true
+  },
+  {
+   "gameId": "20260923LTHH0",
+   "date": "20260923",
+   "time": "18:30",
+   "season": 2026,
+   "seriesId": 0,
+   "seriesName": "정규경기",
+   "stadium": "대전",
+   "status": "finished",
+   "cancelReason": "",
+   "away": {
+    "teamId": "LT",
+    "teamName": "롯데",
+    "score": 9
+   },
+   "home": {
+    "teamId": "HH",
+    "teamName": "한화",
+    "score": 5
+   },
+   "winPitcher": "박정민",
+   "losePitcher": "조동욱",
+   "savePitcher": null,
+   "hasBoxscore": true
+  },
+  {
+   "gameId": "20260923NCKT0",
+   "date": "20260923",
+   "time": "18:30",
+   "season": 2026,
+   "seriesId": 0,
+   "seriesName": "정규경기",
+   "stadium": "수원",
+   "status": "finished",
+   "cancelReason": "",
+   "away": {
+    "teamId": "NC",
+    "teamName": "NC",
+    "score": 10
+   },
+   "home": {
+    "teamId": "KT",
+    "teamName": "KT",
+    "score": 3
+   },
+   "winPitcher": "라일리",
+   "losePitcher": "로건",
+   "savePitcher": null,
    "hasBoxscore": true
   }
  ]
