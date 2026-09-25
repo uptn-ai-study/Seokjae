@@ -1,7 +1,7 @@
 {
  "season": 2026,
- "generatedAt": "2026-09-24T21:26:28.229Z",
- "basedOnGames": 663,
+ "generatedAt": "2026-09-25T21:23:56.716Z",
+ "basedOnGames": 664,
  "standings": [
   {
    "teamId": "KT",
@@ -101,20 +101,20 @@
   {
    "teamId": "NC",
    "teamName": "NC",
-   "games": 131,
-   "wins": 60,
+   "games": 132,
+   "wins": 61,
    "losses": 69,
    "ties": 2,
-   "winPct": 0.465,
-   "gamesBehind": 20.5,
+   "winPct": 0.469,
+   "gamesBehind": 20,
    "last10": {
-    "wins": 1,
-    "losses": 9,
+    "wins": 2,
+    "losses": 8,
     "ties": 0
    },
-   "streak": "1패",
-   "runsScored": 660,
-   "runsAllowed": 692,
+   "streak": "1승",
+   "runsScored": 668,
+   "runsAllowed": 699,
    "rank": 6
   },
   {
@@ -158,20 +158,20 @@
   {
    "teamId": "HH",
    "teamName": "한화",
-   "games": 132,
+   "games": 133,
    "wins": 54,
-   "losses": 74,
+   "losses": 75,
    "ties": 4,
-   "winPct": 0.422,
-   "gamesBehind": 26,
+   "winPct": 0.419,
+   "gamesBehind": 26.5,
    "last10": {
     "wins": 0,
     "losses": 9,
     "ties": 1
    },
-   "streak": "5패",
-   "runsScored": 759,
-   "runsAllowed": 765,
+   "streak": "6패",
+   "runsScored": 766,
+   "runsAllowed": 773,
    "rank": 9
   },
   {
