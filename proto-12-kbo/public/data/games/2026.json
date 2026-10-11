@@ -1,7 +1,7 @@
 {
  "season": 2026,
  "source": "kbo_official",
- "generatedAt": "2026-10-10T21:29:02.189Z",
+ "generatedAt": "2026-10-11T21:49:02.131Z",
  "games": [
   {
    "gameId": "20260312KTLT0",
@@ -21226,6 +21226,56 @@
    "winPitcher": "이의리",
    "losePitcher": "최민준",
    "savePitcher": "전상현",
+   "hasBoxscore": true
+  },
+  {
+   "gameId": "20261011KTSS0",
+   "date": "20261011",
+   "time": "14:00",
+   "season": 2026,
+   "seriesId": 0,
+   "seriesName": "정규경기",
+   "stadium": "대구",
+   "status": "finished",
+   "cancelReason": "",
+   "away": {
+    "teamId": "KT",
+    "teamName": "KT",
+    "score": 12
+   },
+   "home": {
+    "teamId": "SS",
+    "teamName": "삼성",
+    "score": 3
+   },
+   "winPitcher": "고영표",
+   "losePitcher": "후라도",
+   "savePitcher": null,
+   "hasBoxscore": true
+  },
+  {
+   "gameId": "20261011LTHT0",
+   "date": "20261011",
+   "time": "14:00",
+   "season": 2026,
+   "seriesId": 0,
+   "seriesName": "정규경기",
+   "stadium": "광주",
+   "status": "finished",
+   "cancelReason": "",
+   "away": {
+    "teamId": "LT",
+    "teamName": "롯데",
+    "score": 4
+   },
+   "home": {
+    "teamId": "HT",
+    "teamName": "KIA",
+    "score": 1
+   },
+   "winPitcher": "김진욱",
+   "losePitcher": "올러",
+   "savePitcher": null,
    "hasBoxscore": true
   }
  ]
