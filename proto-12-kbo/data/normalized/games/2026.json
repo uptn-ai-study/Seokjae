@@ -1,7 +1,7 @@
 {
  "season": 2026,
  "source": "kbo_official",
- "generatedAt": "2026-10-13T22:36:01.338Z",
+ "generatedAt": "2026-10-14T21:34:22.498Z",
  "games": [
   {
    "gameId": "20260312KTLT0",
@@ -21351,6 +21351,31 @@
    "winPitcher": "이영재",
    "losePitcher": "박치국",
    "savePitcher": "이이무라",
+   "hasBoxscore": true
+  },
+  {
+   "gameId": "20261014OBLG0",
+   "date": "20261014",
+   "time": "18:30",
+   "season": 2026,
+   "seriesId": 4,
+   "seriesName": "WC1",
+   "stadium": "잠실",
+   "status": "finished",
+   "cancelReason": "",
+   "away": {
+    "teamId": "OB",
+    "teamName": "두산",
+    "score": 1
+   },
+   "home": {
+    "teamId": "LG",
+    "teamName": "LG",
+    "score": 4
+   },
+   "winPitcher": "카라스코",
+   "losePitcher": "곽빈",
+   "savePitcher": "김강률",
    "hasBoxscore": true
   }
  ]
