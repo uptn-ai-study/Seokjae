@@ -1,7 +1,7 @@
 {
  "season": 2026,
  "source": "kbo_official",
- "generatedAt": "2026-10-17T20:28:15.191Z",
+ "generatedAt": "2026-10-18T20:25:47.249Z",
  "games": [
   {
    "gameId": "20260312KTLT0",
@@ -21400,6 +21400,31 @@
    },
    "winPitcher": "네일",
    "losePitcher": "톨허스트",
+   "savePitcher": "전상현",
+   "hasBoxscore": true
+  },
+  {
+   "gameId": "20261018LGHT0",
+   "date": "20261018",
+   "time": "14:00",
+   "season": 2026,
+   "seriesId": 3,
+   "seriesName": "준PO2",
+   "stadium": "광주",
+   "status": "finished",
+   "cancelReason": "",
+   "away": {
+    "teamId": "LG",
+    "teamName": "LG",
+    "score": 3
+   },
+   "home": {
+    "teamId": "HT",
+    "teamName": "KIA",
+    "score": 6
+   },
+   "winPitcher": "올러",
+   "losePitcher": "임찬규",
    "savePitcher": "전상현",
    "hasBoxscore": true
   }
