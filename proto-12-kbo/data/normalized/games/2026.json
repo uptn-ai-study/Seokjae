@@ -1,7 +1,7 @@
 {
  "season": 2026,
  "source": "kbo_official",
- "generatedAt": "2026-10-28T22:31:08.312Z",
+ "generatedAt": "2026-10-29T22:44:07.468Z",
  "games": [
   {
    "gameId": "20260312KTLT0",
@@ -21526,6 +21526,31 @@
    "winPitcher": "후라도",
    "losePitcher": "올러",
    "savePitcher": null,
+   "hasBoxscore": true
+  },
+  {
+   "gameId": "20261029SSHT0",
+   "date": "20261029",
+   "time": "18:30",
+   "season": 2026,
+   "seriesId": 5,
+   "seriesName": "PO3",
+   "stadium": "광주",
+   "status": "finished",
+   "cancelReason": "",
+   "away": {
+    "teamId": "SS",
+    "teamName": "삼성",
+    "score": 6
+   },
+   "home": {
+    "teamId": "HT",
+    "teamName": "KIA",
+    "score": 4
+   },
+   "winPitcher": "원태인",
+   "losePitcher": "조상우",
+   "savePitcher": "사토시",
    "hasBoxscore": true
   }
  ]
