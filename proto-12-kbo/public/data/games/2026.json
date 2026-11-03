@@ -1,7 +1,7 @@
 {
  "season": 2026,
  "source": "kbo_official",
- "generatedAt": "2026-11-03T00:52:18.623Z",
+ "generatedAt": "2026-11-03T23:12:05.572Z",
  "games": [
   {
    "gameId": "20260312KTLT0",
@@ -21611,22 +21611,22 @@
    "seriesId": 7,
    "seriesName": "KS1",
    "stadium": "수원",
-   "status": "scheduled",
+   "status": "finished",
    "cancelReason": "",
    "away": {
     "teamId": "SS",
     "teamName": "삼성",
-    "score": 0
+    "score": 7
    },
    "home": {
     "teamId": "KT",
     "teamName": "KT",
-    "score": 0
+    "score": 8
    },
-   "winPitcher": null,
-   "losePitcher": null,
-   "savePitcher": null,
-   "hasBoxscore": false
+   "winPitcher": "대니엘",
+   "losePitcher": "최원태",
+   "savePitcher": "박영현",
+   "hasBoxscore": true
   }
  ]
 }
