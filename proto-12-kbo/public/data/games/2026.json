@@ -1,7 +1,7 @@
 {
  "season": 2026,
  "source": "kbo_official",
- "generatedAt": "2026-11-06T23:00:51.922Z",
+ "generatedAt": "2026-11-07T21:44:47.354Z",
  "games": [
   {
    "gameId": "20260312KTLT0",
@@ -21675,6 +21675,31 @@
    },
    "winPitcher": "후라도",
    "losePitcher": "소형준",
+   "savePitcher": null,
+   "hasBoxscore": true
+  },
+  {
+   "gameId": "20261107KTSS0",
+   "date": "20261107",
+   "time": "14:00",
+   "season": 2026,
+   "seriesId": 7,
+   "seriesName": "KS4",
+   "stadium": "대구",
+   "status": "finished",
+   "cancelReason": "",
+   "away": {
+    "teamId": "KT",
+    "teamName": "KT",
+    "score": 5
+   },
+   "home": {
+    "teamId": "SS",
+    "teamName": "삼성",
+    "score": 10
+   },
+   "winPitcher": "이재희",
+   "losePitcher": "로건",
    "savePitcher": null,
    "hasBoxscore": true
   }
