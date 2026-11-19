@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "generatedAt": "2026-11-18T01:05:22.255Z",
+ "generatedAt": "2026-11-19T00:14:46.607Z",
  "asOf": "20261108",
  "window": {
   "days": 3,
@@ -116,7 +116,7 @@
      "publishedAt": "2026-11-06T08:00:00.000Z",
      "label": "pos",
      "score": 2,
-     "reason": "강속구를 던지는 빅리거 투수 영입",
+     "reason": "강속구를 가진 빅리거 투수 영입",
      "multiTeam": false
     },
     {
@@ -146,7 +146,7 @@
      "publishedAt": "2026-11-06T21:00:00.000Z",
      "label": "neu",
      "score": 0,
-     "reason": "과거 우승 기념 선물 관련 회고 기사",
+     "reason": "과거 우승 기념 사례에 대한 회고성 기사",
      "multiTeam": false
     }
    ]
@@ -154,19 +154,19 @@
   {
    "teamId": "OB",
    "teamName": "두산",
-   "articleCount": 6,
-   "countedArticles": 6,
-   "singleTeamArticles": 6,
+   "articleCount": 5,
+   "countedArticles": 5,
+   "singleTeamArticles": 5,
    "multiTeamArticles": 0,
    "posArticles": 1,
-   "negArticles": 3,
+   "negArticles": 2,
    "neuArticles": 2,
    "positiveScore": 1,
-   "negativeScore": 3,
-   "netScore": -2,
+   "negativeScore": 2,
+   "netScore": -1,
    "topPositiveKeywords": [],
    "topNegativeKeywords": [],
-   "summary": "주요 언론 기사 6건 중 6건 팀 맥락 분석 (긍정 1 · 부정 3).",
+   "summary": "주요 언론 기사 5건 중 5건 팀 맥락 분석 (긍정 1 · 부정 2).",
    "articles": [
     {
      "title": "'ERA 1.58' 특급 불펜을 포기한다고?…두산 파격 결단! 어떻게 해서 나왔나 [미야자키 현장]",
@@ -175,7 +175,7 @@
      "publishedAt": "2026-11-07T15:36:36.000Z",
      "label": "neg",
      "score": -1,
-     "reason": "특급 불펜 자원을 포기하는 파격적 결정에 대한 우려",
+     "reason": "특급 불펜 자원을 포기하는 파격 결단에 대한 우려",
      "multiTeam": false
     },
     {
@@ -189,23 +189,13 @@
      "multiTeam": false
     },
     {
-     "title": "안재석에게 무슨 일이? 韓 무조건 이것 조심해야…그래서 허인서가 3년 전에도 도쿄 따라갔구나[MD대전]",
-     "outlet": "이데일리",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9RLVAtRUxRR2RMdHZicnVWaU5nVUdoNk9aSDhNU3hWZ3Y4cUNyelJQM1dLY0lJamU2MVJnQk9RVzIxRHRyNlJudGRnNktsT3NlanFMdjlTcXQ3YnVVdWhFZg?oc=5",
-     "publishedAt": "2026-11-07T08:00:00.000Z",
-     "label": "neg",
-     "score": -1,
-     "reason": "안재석 관련 부정적인 뉘앙스의 보도",
-     "multiTeam": false
-    },
-    {
      "title": "'충격' 이승엽 라팍서 왜 탄식했나, 韓 야구 고질병 KS도 여전했다…\"안타까운 현실, 토종 선수 나가길\" [MD대구]",
      "outlet": "이데일리",
      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5uMlRSWUhhbEpESmREa1J4ZU5OMkN1OWsta0ttNWdqWDhNdERZc3pqb1FLZHRWblZLX3RPbHB4ZzRrQ0ZaeGVYa3NQZjZ2WGh5bkVTRm9xMGxsT0MzVWRJSg?oc=5",
      "publishedAt": "2026-11-07T08:00:00.000Z",
      "label": "neg",
      "score": -1,
-     "reason": "이승엽 감독의 탄식 및 한국 야구의 고질병 언급",
+     "reason": "한국 야구의 고질병과 안타까운 현실에 대한 비판적 내용",
      "multiTeam": false
     },
     {
@@ -219,13 +209,13 @@
      "multiTeam": false
     },
     {
-     "title": "\"감독 2년보다 코치 1년이 더 큰 깨달음이었다\" 日서 돌아온 국민타자 뜻밖 고백, 지도자 복귀 '왜' 서두르지 않았나 - 머니투데이",
-     "outlet": "머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1randrRmwwNkQ2UlhSRTFfWDVFRFN6blh4UWZqS2doOHcxeEdYTWxhZHhnSzZSMWZobWJYd0tKRl9qR0xrU3A3d2ZQMEdzUWlvSlhna2xWUlV3TGtoSnRueGhMdnFPRmRjT3A5RlUzTdIBb0FVX3lxTE1randrRmwwNkQ2UlhSRTFfWDVFRFN6blh4UWZqS2doOHcxeEdYTWxhZHhnSzZSMWZobWJYd0tKRl9qR0xrU3A3d2ZQMEdzUWlvSlhna2xWUlV3TGtoSnRueGhMdnFPRmRjT3A5RlUzTQ?oc=5",
-     "publishedAt": "2026-11-06T20:05:00.000Z",
+     "title": "안재석에게 무슨 일이? 韓 무조건 이것 조심해야…그래서 허인서가 3년 전에도 도쿄 따라갔구나[MD대전]",
+     "outlet": "이데일리",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9RLVAtRUxRR2RMdHZicnVWaU5nVUdoNk9aSDhNU3hWZ3Y4cUNyelJQM1dLY0lJamU2MVJnQk9RVzIxRHRyNlJudGRnNktsT3NlanFMdjlTcXQ3YnVVdWhFZg?oc=5",
+     "publishedAt": "2026-11-07T08:00:00.000Z",
      "label": "neu",
      "score": 0,
-     "reason": "지도자 복귀 관련 개인적 소회",
+     "reason": "선수 관리 및 훈련 환경에 대한 일반적인 언급",
      "multiTeam": false
     }
    ]
@@ -233,28 +223,28 @@
   {
    "teamId": "SK",
    "teamName": "SSG",
-   "articleCount": 5,
-   "countedArticles": 5,
+   "articleCount": 4,
+   "countedArticles": 4,
    "singleTeamArticles": 2,
-   "multiTeamArticles": 3,
+   "multiTeamArticles": 2,
    "posArticles": 1,
-   "negArticles": 2,
+   "negArticles": 1,
    "neuArticles": 2,
-   "positiveScore": 1,
-   "negativeScore": 3,
-   "netScore": -2,
+   "positiveScore": 2,
+   "negativeScore": 1,
+   "netScore": 1,
    "topPositiveKeywords": [],
    "topNegativeKeywords": [],
-   "summary": "주요 언론 기사 5건 중 5건 팀 맥락 분석 (긍정 1 · 부정 2).",
+   "summary": "주요 언론 기사 4건 중 4건 팀 맥락 분석 (긍정 1 · 부정 1).",
    "articles": [
     {
-     "title": "[1보] 프로야구 삼성, 12년 만에 한국시리즈 정상 탈환…통산 9번째 V",
-     "outlet": "연합뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9ITXlsZUJQaWlkQ180SHU1b2JialJhOTJDY0V3MnFoNmwyclZYNWpBUXNWNE5ERnRzbHNKY1RoQ09GM3JHMzRkVHJ2ZFl2NXZDSm1xdWZPQkozbkXSAWBBVV95cUxQSWtzalc2TEJCdE5XN2xBYkZ3d3NIM3lZWl9PTS1YMkMwcEhOTEdsZWJRNVFLX3pmNGplUGdIcTVLc0dzM0o2eDM1cUg3ZXdEWFc1cmVESU1DTWZ4cjlMUnM?oc=5",
-     "publishedAt": "2026-11-08T08:00:00.000Z",
-     "label": "neg",
-     "score": -2,
-     "reason": "한국시리즈 준우승(패배)",
+     "title": "한국야구 첫판부터 '짜릿한 끝내기' 승리! U-23 월드컵서 쿠바 3-2 제압…SSG 이도우 4이닝 비자책",
+     "outlet": "엑스포츠뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5OVFA2V0JNTkxzNnFwSUVHREZxSldvdFNtd0ZRdzV1ajV3RnRYaWhZQi1WMGhJMjktaW9yVm8tUDJrZUZadTBjRmhlM1E0ZEM1WjdqMA?oc=5",
+     "publishedAt": "2026-11-07T08:00:00.000Z",
+     "label": "pos",
+     "score": 2,
+     "reason": "소속 선수 이도우의 U-23 월드컵 활약 및 팀 승리",
      "multiTeam": false
     },
     {
@@ -264,17 +254,7 @@
      "publishedAt": "2026-11-08T08:00:00.000Z",
      "label": "neg",
      "score": -1,
-     "reason": "선수들의 각서 작성이라는 부정적 상황",
-     "multiTeam": false
-    },
-    {
-     "title": "한국야구 첫판부터 '짜릿한 끝내기' 승리! U-23 월드컵서 쿠바 3-2 제압…SSG 이도우 4이닝 비자책",
-     "outlet": "엑스포츠뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5OVFA2V0JNTkxzNnFwSUVHREZxSldvdFNtd0ZRdzV1ajV3RnRYaWhZQi1WMGhJMjktaW9yVm8tUDJrZUZadTBjRmhlM1E0ZEM1WjdqMA?oc=5",
-     "publishedAt": "2026-11-07T08:00:00.000Z",
-     "label": "pos",
-     "score": 1,
-     "reason": "소속 선수 이도우의 U-23 월드컵 활약",
+     "reason": "선수들의 각서 작성이라는 부정적인 내부 상황 암시",
      "multiTeam": false
     },
     {
@@ -284,7 +264,7 @@
      "publishedAt": "2026-11-07T08:00:00.000Z",
      "label": "neu",
      "score": 0,
-     "reason": "우승 징크스에 대한 단순 언급",
+     "reason": "과거 우승 징크스에 대한 단순 언급",
      "multiTeam": false
     },
     {
@@ -294,7 +274,7 @@
      "publishedAt": "2026-11-06T08:00:00.000Z",
      "label": "neu",
      "score": 0,
-     "reason": "단순 언급",
+     "reason": "기사 내용 중 직접적인 영향이나 사건 언급 없음",
      "multiTeam": false
     }
    ]
@@ -309,9 +289,9 @@
    "posArticles": 3,
    "negArticles": 2,
    "neuArticles": 0,
-   "positiveScore": 3,
+   "positiveScore": 4,
    "negativeScore": 2,
-   "netScore": 1,
+   "netScore": 2,
    "topPositiveKeywords": [],
    "topNegativeKeywords": [],
    "summary": "주요 언론 기사 5건 중 5건 팀 맥락 분석 (긍정 3 · 부정 2).",
@@ -322,8 +302,8 @@
      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBVUTdsUVNoM1BJbE51d2c1bWVIQWhLZXJ3cDVJSzRUcnVWRUFncmtCcV9zSS1FSTIyVFhBa0dtVjZNWDdfTmlQa1NqX0Y3MFhGRUlCMmY1UjliNknSAWBBVV95cUxQNGdVSmQ2aFRYUUVwdkJ0eUlqX21NTTVkQVA4SlZ5a25hYzl1ekJGckxnTzl1UWwwS1p6Q2dWdVgzTE12X1VqUUZQQUFrd3N0VWdmZTh4eGRMeERYVXZNSlo?oc=5",
      "publishedAt": "2026-11-08T08:00:00.000Z",
      "label": "pos",
-     "score": 1,
-     "reason": "하현승의 투타겸업 논의 및 안우진의 복귀 의지",
+     "score": 2,
+     "reason": "하현승의 투타겸업 논의 및 안우진의 풀타임 복귀 목표",
      "multiTeam": false
     },
     {
@@ -333,7 +313,7 @@
      "publishedAt": "2026-11-08T08:00:00.000Z",
      "label": "neg",
      "score": -1,
-     "reason": "U23 대표팀 소속 선수의 패배",
+     "reason": "U23 대표팀의 끝내기 역전패로 인한 부정적 결과",
      "multiTeam": false
     },
     {
@@ -343,7 +323,7 @@
      "publishedAt": "2026-11-07T08:00:00.000Z",
      "label": "pos",
      "score": 1,
-     "reason": "유망주 하현승의 성장 의지와 합류",
+     "reason": "하현승 선수의 성장 의지와 국내 잔류 선택",
      "multiTeam": false
     },
     {
@@ -353,7 +333,7 @@
      "publishedAt": "2026-11-06T08:00:00.000Z",
      "label": "neg",
      "score": -1,
-     "reason": "수비 불안 및 꼴찌 가능성에 대한 우려",
+     "reason": "수비 불안 및 5년 연속 꼴찌 가능성에 대한 우려",
      "multiTeam": false
     },
     {
@@ -363,7 +343,7 @@
      "publishedAt": "2026-11-06T08:00:00.000Z",
      "label": "pos",
      "score": 1,
-     "reason": "신인 하현승의 책임감 있는 태도와 기대감",
+     "reason": "신인 하현승 선수의 책임감 있는 태도와 기대감",
      "multiTeam": false
     }
    ]
@@ -371,19 +351,19 @@
   {
    "teamId": "SS",
    "teamName": "삼성",
-   "articleCount": 33,
-   "countedArticles": 33,
+   "articleCount": 32,
+   "countedArticles": 32,
    "singleTeamArticles": 26,
-   "multiTeamArticles": 7,
-   "posArticles": 32,
+   "multiTeamArticles": 6,
+   "posArticles": 30,
    "negArticles": 0,
-   "neuArticles": 1,
-   "positiveScore": 60,
+   "neuArticles": 2,
+   "positiveScore": 57,
    "negativeScore": 0,
-   "netScore": 60,
+   "netScore": 57,
    "topPositiveKeywords": [],
    "topNegativeKeywords": [],
-   "summary": "주요 언론 기사 33건 중 33건 팀 맥락 분석 (긍정 32 · 부정 0).",
+   "summary": "주요 언론 기사 32건 중 32건 팀 맥락 분석 (긍정 30 · 부정 0).",
    "articles": [
     {
      "title": "삼성라이온즈 한국시리즈 우승…2년 전 눈물의 약속 환희의 눈물로 갚다",
@@ -392,17 +372,7 @@
      "publishedAt": "2026-11-08T15:00:00.000Z",
      "label": "pos",
      "score": 2,
-     "reason": "한국시리즈 우승 달성",
-     "multiTeam": false
-    },
-    {
-     "title": "프로야구 삼성, 12년 만에 한국시리즈 정상 탈환…통산 9번째 V",
-     "outlet": "연합뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9RS0VSZXRZQzBnbkJsdGd0TDUtWUx5dDBUUmlvNDFrNlNWYXk1bjM5VVphX3lOal95VzJtQUhqR3dWd3FjNWc3QVNHYWgzcTVVR3NuWnRWYXRubTg?oc=5",
-     "publishedAt": "2026-11-08T14:53:00.000Z",
-     "label": "pos",
-     "score": 2,
-     "reason": "12년 만에 한국시리즈 우승 달성",
+     "reason": "한국시리즈 우승으로 약속 이행 및 환희",
      "multiTeam": false
     },
     {
@@ -422,7 +392,7 @@
      "publishedAt": "2026-11-08T09:00:51.000Z",
      "label": "pos",
      "score": 2,
-     "reason": "KT를 꺾고 12년 만에 한국시리즈 우승 달성",
+     "reason": "KT를 꺾고 한국시리즈 우승 및 왕조 부활",
      "multiTeam": false
     },
     {
@@ -432,17 +402,7 @@
      "publishedAt": "2026-11-08T08:16:41.000Z",
      "label": "pos",
      "score": 2,
-     "reason": "4연승으로 한국시리즈 왕좌 탈환",
-     "multiTeam": false
-    },
-    {
-     "title": "[1보] 프로야구 삼성, 12년 만에 한국시리즈 정상 탈환…통산 9번째 V",
-     "outlet": "연합뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9ITXlsZUJQaWlkQ180SHU1b2JialJhOTJDY0V3MnFoNmwyclZYNWpBUXNWNE5ERnRzbHNKY1RoQ09GM3JHMzRkVHJ2ZFl2NXZDSm1xdWZPQkozbkXSAWBBVV95cUxQSWtzalc2TEJCdE5XN2xBYkZ3d3NIM3lZWl9PTS1YMkMwcEhOTEdsZWJRNVFLX3pmNGplUGdIcTVLc0dzM0o2eDM1cUg3ZXdEWFc1cmVESU1DTWZ4cjlMUnM?oc=5",
-     "publishedAt": "2026-11-08T08:00:00.000Z",
-     "label": "pos",
-     "score": 2,
-     "reason": "한국시리즈 우승 및 정상 탈환",
+     "reason": "한국시리즈 왕좌 탈환 및 4연승",
      "multiTeam": false
     },
     {
@@ -452,7 +412,7 @@
      "publishedAt": "2026-11-08T08:00:00.000Z",
      "label": "pos",
      "score": 2,
-     "reason": "한국시리즈 우승 및 V9 달성",
+     "reason": "12년 만의 한국시리즈 우승 및 V9 달성",
      "multiTeam": false
     },
     {
@@ -462,7 +422,27 @@
      "publishedAt": "2026-11-08T08:00:00.000Z",
      "label": "pos",
      "score": 2,
-     "reason": "한국시리즈 우승 및 왕좌 탈환",
+     "reason": "한국시리즈 우승으로 왕좌 탈환",
+     "multiTeam": false
+    },
+    {
+     "title": "[1보] 프로야구 삼성, 12년 만에 한국시리즈 정상 탈환…통산 9번째 V",
+     "outlet": "연합뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9ITXlsZUJQaWlkQ180SHU1b2JialJhOTJDY0V3MnFoNmwyclZYNWpBUXNWNE5ERnRzbHNKY1RoQ09GM3JHMzRkVHJ2ZFl2NXZDSm1xdWZPQkozbkXSAWBBVV95cUxQSWtzalc2TEJCdE5XN2xBYkZ3d3NIM3lZWl9PTS1YMkMwcEhOTEdsZWJRNVFLX3pmNGplUGdIcTVLc0dzM0o2eDM1cUg3ZXdEWFc1cmVESU1DTWZ4cjlMUnM?oc=5",
+     "publishedAt": "2026-11-08T08:00:00.000Z",
+     "label": "pos",
+     "score": 2,
+     "reason": "한국시리즈 정상 탈환 및 통산 9번째 우승",
+     "multiTeam": false
+    },
+    {
+     "title": "삼성 라이온즈, 한국시리즈 우승…계열사, 대규모 할인 행사 검토(종합)",
+     "outlet": "뉴스1",
+     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBfZks0TmJhekItT3YxS3otNUFlNTl0dzhIQjNRSFk1RHRjODRNMzNDVmpKYVRwY3FKTjJxLWtTZmFUbllfTWNuQ0NnNlp3OWtlMnVCSnM5N3prTUQ4SnRSa3Nya24?oc=5",
+     "publishedAt": "2026-11-08T08:00:00.000Z",
+     "label": "pos",
+     "score": 2,
+     "reason": "한국시리즈 우승 및 그룹 차원의 축하 행사",
      "multiTeam": false
     }
    ]
@@ -491,7 +471,7 @@
      "publishedAt": "2026-11-07T08:00:00.000Z",
      "label": "pos",
      "score": 1,
-     "reason": "박재현 선수가 타 팀의 롤모델로 언급되며 긍정적으로 평가됨",
+     "reason": "박재현 선수가 타 팀 선수의 롤모델로 언급되며 긍정적인 평가를 받음",
      "multiTeam": false
     },
     {
@@ -501,7 +481,7 @@
      "publishedAt": "2026-11-06T08:00:00.000Z",
      "label": "pos",
      "score": 1,
-     "reason": "선수의 진심 어린 소감으로 인한 팬들과의 유대감 강화",
+     "reason": "선수의 진심 어린 작별 인사로 구단 이미지 제고 및 긍정적 분위기 형성",
      "multiTeam": false
     },
     {
@@ -511,7 +491,7 @@
      "publishedAt": "2026-11-06T08:00:00.000Z",
      "label": "neu",
      "score": 0,
-     "reason": "외국인 투수 올러의 재계약 여부에 대한 불확실한 상황",
+     "reason": "선수의 재계약 가능성 및 소회 언급으로 중립적",
      "multiTeam": false
     }
    ]
@@ -519,19 +499,19 @@
   {
    "teamId": "LT",
    "teamName": "롯데",
-   "articleCount": 7,
-   "countedArticles": 7,
-   "singleTeamArticles": 7,
+   "articleCount": 6,
+   "countedArticles": 6,
+   "singleTeamArticles": 6,
    "multiTeamArticles": 0,
-   "posArticles": 4,
+   "posArticles": 3,
    "negArticles": 3,
    "neuArticles": 0,
-   "positiveScore": 5,
+   "positiveScore": 6,
    "negativeScore": 4,
-   "netScore": 1,
+   "netScore": 2,
    "topPositiveKeywords": [],
    "topNegativeKeywords": [],
-   "summary": "주요 언론 기사 7건 중 7건 팀 맥락 분석 (긍정 4 · 부정 3).",
+   "summary": "주요 언론 기사 6건 중 6건 팀 맥락 분석 (긍정 3 · 부정 3).",
    "articles": [
     {
      "title": "롯데 156km 파이어볼러 부활에 이렇게 진심이다, 美 유학→대만 윈터리그도 파견…1R 특급유망주도 함께 한다",
@@ -540,7 +520,27 @@
      "publishedAt": "2026-11-08T08:00:00.000Z",
      "label": "pos",
      "score": 2,
-     "reason": "유망주 및 투수 육성을 위한 적극적인 투자와 부활 기대감",
+     "reason": "유망주 및 주력 투수의 기량 향상을 위한 적극적인 육성 투자",
+     "multiTeam": false
+    },
+    {
+     "title": "롯데가 설렌다, 대표팀 투수보다 구위가 더 좋았다니… 찬바람에도 150㎞, 선물이 찾아오나",
+     "outlet": "SPOTV News",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9KNzZoTmxfT19UZ1Q0QzRIYmpDUWpRelk3NzR0STZwbURJbllXVnQxWXlxUjJiaTY2MGU2Tlhmc0c0bHg0NXJXWmJvT0xHVldSRzYtUEdXR3VQd1lwcmlrUXZiX3E2amg3OGJGbDVRZ0M?oc=5",
+     "publishedAt": "2026-11-07T08:00:00.000Z",
+     "label": "pos",
+     "score": 2,
+     "reason": "투수의 뛰어난 구위 확인 및 전력 보강에 대한 기대감 상승",
+     "multiTeam": false
+    },
+    {
+     "title": "\"한국 야구에 관심 없나?\" 이승엽 한마디에 KBO행 결심! 日 요미우리 출신 사네마츠, 롯데 배터리 코치로 깜짝 합류",
+     "outlet": "스포탈코리아",
+     "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQYTdkNzVaOW9iV1daMUdRX3VNSmtKYTlHbUMwNTMxRVpjVmFaLWxZT1VJYWFZaFN4OEFJakdiSWQ4cWRmUGxKWjdYQkh4UlRDSGdjdUdKMGpoVVVxVng5bmw1TENKcnhhZXREa282VldJcEJDaWlPT18tQk9SVDh4emh3?oc=5",
+     "publishedAt": "2026-11-07T08:00:00.000Z",
+     "label": "pos",
+     "score": 2,
+     "reason": "일본 프로야구 출신 유능한 코치 영입으로 지도력 강화",
      "multiTeam": false
     },
     {
@@ -550,37 +550,7 @@
      "publishedAt": "2026-11-06T08:00:00.000Z",
      "label": "neg",
      "score": -2,
-     "reason": "소속 선수의 가정폭력 및 외도 의혹으로 인한 구단 이미지 실추",
-     "multiTeam": false
-    },
-    {
-     "title": "롯데서 은퇴선언, FA 영입 1순위로 이 선수 지목했다…\"올해는 시행착오, 내년부터 괜찮아질 것\" 기대",
-     "outlet": "SPOTV News",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBkbGRubUZNOUNoeGpITHRyUjZud1RkTEJKRGI4WkpqUUkyQXVGcTJIb0ZkaTdScGlFVEs0SjZiRGE2b3paNkV2LVJLdFlKS3RXcXdxRXZJYmJGT2pvazQ4bEV0bkUyWjNSSmtVTzFSTEU?oc=5",
-     "publishedAt": "2026-11-08T08:00:00.000Z",
-     "label": "pos",
-     "score": 1,
-     "reason": "FA 영입 전략 수립 및 내년 시즌에 대한 긍정적 전망",
-     "multiTeam": false
-    },
-    {
-     "title": "롯데가 설렌다, 대표팀 투수보다 구위가 더 좋았다니… 찬바람에도 150㎞, 선물이 찾아오나",
-     "outlet": "SPOTV News",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9KNzZoTmxfT19UZ1Q0QzRIYmpDUWpRelk3NzR0STZwbURJbllXVnQxWXlxUjJiaTY2MGU2Tlhmc0c0bHg0NXJXWmJvT0xHVldSRzYtUEdXR3VQd1lwcmlrUXZiX3E2amg3OGJGbDVRZ0M?oc=5",
-     "publishedAt": "2026-11-07T08:00:00.000Z",
-     "label": "pos",
-     "score": 1,
-     "reason": "구위 좋은 투수 자원 확보에 대한 기대감",
-     "multiTeam": false
-    },
-    {
-     "title": "\"한국 야구에 관심 없나?\" 이승엽 한마디에 KBO행 결심! 日 요미우리 출신 사네마츠, 롯데 배터리 코치로 깜짝 합류",
-     "outlet": "스포탈코리아",
-     "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQYTdkNzVaOW9iV1daMUdRX3VNSmtKYTlHbUMwNTMxRVpjVmFaLWxZT1VJYWFZaFN4OEFJakdiSWQ4cWRmUGxKWjdYQkh4UlRDSGdjdUdKMGpoVVVxVng5bmw1TENKcnhhZXREa282VldJcEJDaWlPT18tQk9SVDh4emh3?oc=5",
-     "publishedAt": "2026-11-07T08:00:00.000Z",
-     "label": "pos",
-     "score": 1,
-     "reason": "일본 요미우리 출신 전문 코치 영입으로 전력 강화 기대",
+     "reason": "소속 선수의 가정폭력 및 외도 의혹으로 인한 심각한 이미지 훼손",
      "multiTeam": false
     },
     {
@@ -590,7 +560,7 @@
      "publishedAt": "2026-11-07T08:00:00.000Z",
      "label": "neg",
      "score": -1,
-     "reason": "소속 선수의 사생활 논란 및 이혼 절차 장기화",
+     "reason": "소속 선수의 이혼 절차 및 갈등 지속으로 인한 잡음 발생",
      "multiTeam": false
     },
     {
@@ -600,7 +570,7 @@
      "publishedAt": "2026-11-06T08:00:00.000Z",
      "label": "neg",
      "score": -1,
-     "reason": "소속 선수 정철원의 개인적인 사생활 논란 및 구설수",
+     "reason": "소속 선수의 개인적인 사생활 논란 및 구설수 발생",
      "multiTeam": false
     }
    ]
@@ -608,19 +578,19 @@
   {
    "teamId": "NC",
    "teamName": "NC",
-   "articleCount": 5,
-   "countedArticles": 5,
-   "singleTeamArticles": 5,
+   "articleCount": 4,
+   "countedArticles": 4,
+   "singleTeamArticles": 4,
    "multiTeamArticles": 0,
    "posArticles": 2,
    "negArticles": 0,
-   "neuArticles": 3,
+   "neuArticles": 2,
    "positiveScore": 2,
    "negativeScore": 0,
    "netScore": 2,
    "topPositiveKeywords": [],
    "topNegativeKeywords": [],
-   "summary": "주요 언론 기사 5건 중 5건 팀 맥락 분석 (긍정 2 · 부정 0).",
+   "summary": "주요 언론 기사 4건 중 4건 팀 맥락 분석 (긍정 2 · 부정 0).",
    "articles": [
     {
      "title": "U23 야구대표팀, 세계선수권 쿠바와 첫 경기서 끝내기 역전승",
@@ -629,7 +599,7 @@
      "publishedAt": "2026-11-07T08:00:00.000Z",
      "label": "pos",
      "score": 1,
-     "reason": "소속 선수가 포함된 U23 대표팀의 세계선수권 승리",
+     "reason": "소속 선수가 포함된 대표팀의 승리로 인한 긍정적 영향",
      "multiTeam": false
     },
     {
@@ -639,7 +609,7 @@
      "publishedAt": "2026-11-07T08:00:00.000Z",
      "label": "pos",
      "score": 1,
-     "reason": "소속 선수들의 활약으로 U-23 대표팀이 승리",
+     "reason": "소속 선수들이 포함된 U-23 대표팀의 승리",
      "multiTeam": false
     },
     {
@@ -649,7 +619,7 @@
      "publishedAt": "2026-11-08T08:00:00.000Z",
      "label": "neu",
      "score": 0,
-     "reason": "레전드 선수의 은퇴 고민에 대한 조언 및 회고",
+     "reason": "레전드 선수의 은퇴 관련 개인적인 고민과 조언 내용임",
      "multiTeam": false
     },
     {
@@ -659,17 +629,7 @@
      "publishedAt": "2026-11-06T08:00:00.000Z",
      "label": "neu",
      "score": 0,
-     "reason": "소속 선수의 개인적인 포부와 향후 진로에 대한 언급",
-     "multiTeam": false
-    },
-    {
-     "title": "대통령이 시구하면 홈팀 패배? 한국시리즈 대통령 시구사(史)",
-     "outlet": "중앙일보",
-     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5wbERyQXhIZWtKUzBMSUdBNHJfSHQ4ZThYdDdWSVhEM3cwRnA2TGU1bl80LWlNcXhzTkdVT0ZnZF9ZSTNubC1LTDlLQUY5SHBxajRzMHB3?oc=5",
-     "publishedAt": "2026-11-06T08:00:00.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "대통령 시구와 관련된 일반적인 야구 역사 언급",
+     "reason": "선수들의 개인적인 포부와 향후 계획에 대한 인터뷰 내용임",
      "multiTeam": false
     }
    ]
@@ -677,19 +637,19 @@
   {
    "teamId": "KT",
    "teamName": "KT",
-   "articleCount": 17,
-   "countedArticles": 17,
-   "singleTeamArticles": 10,
+   "articleCount": 16,
+   "countedArticles": 16,
+   "singleTeamArticles": 9,
    "multiTeamArticles": 7,
    "posArticles": 2,
    "negArticles": 13,
-   "neuArticles": 2,
+   "neuArticles": 1,
    "positiveScore": 2,
-   "negativeScore": 20,
-   "netScore": -18,
+   "negativeScore": 21,
+   "netScore": -19,
    "topPositiveKeywords": [],
    "topNegativeKeywords": [],
-   "summary": "주요 언론 기사 17건 중 17건 팀 맥락 분석 (긍정 2 · 부정 13).",
+   "summary": "주요 언론 기사 16건 중 16건 팀 맥락 분석 (긍정 2 · 부정 13).",
    "articles": [
     {
      "title": "삼성 라이온즈 '푸른 왕조'의 부활…KT 꺾고 12년 만에 'V9'",
@@ -699,16 +659,6 @@
      "label": "neg",
      "score": -2,
      "reason": "삼성에 패배하며 한국시리즈 준우승",
-     "multiTeam": false
-    },
-    {
-     "title": "'역대 최고 34억' 안겼는데…KT, KS 4연패 참사에 이강철 감독도 머쓱",
-     "outlet": "일간스포츠",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBCOHQ0ZGtzWUpPNjlHeUVtU01UQ0ZROUpDZERLbXJ6RWMzdWRYUWtqQmtVM0Zxejdsc1Y0a1V1RVJVamFsem1lZVJIYWpUa2ViWHVVOXVldGJoVnM?oc=5",
-     "publishedAt": "2026-11-08T08:41:00.000Z",
-     "label": "neg",
-     "score": -2,
-     "reason": "한국시리즈 4연패라는 최악의 결과",
      "multiTeam": false
     },
     {
@@ -732,13 +682,33 @@
      "multiTeam": false
     },
     {
+     "title": "'역대 최고 34억' 안겼는데…KT, KS 4연패 참사에 이강철 감독도 머쓱",
+     "outlet": "일간스포츠",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBCOHQ0ZGtzWUpPNjlHeUVtU01UQ0ZROUpDZERLbXJ6RWMzdWRYUWtqQmtVM0Zxejdsc1Y0a1V1RVJVamFsem1lZVJIYWpUa2ViWHVVOXVldGJoVnM?oc=5",
+     "publishedAt": "2026-11-08T08:00:00.000Z",
+     "label": "neg",
+     "score": -2,
+     "reason": "한국시리즈 4연패 참사",
+     "multiTeam": false
+    },
+    {
+     "title": "[뉴스1 PICK] 삼성, KT 10-5 제압…3승 1패로 우승까지 '1승'",
+     "outlet": "뉴스1",
+     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5EWTlVX01OdEhMNE05UUp4RElYZEtSVU9Scm5SRVRZUzdOemJCekRFZExnZ043S1hGcjZSZVZsOUJlWEg1MjFtcTVDc3J3cmwyV2J4RmhDUQ?oc=5",
+     "publishedAt": "2026-11-07T08:00:00.000Z",
+     "label": "neg",
+     "score": -2,
+     "reason": "경기 패배 및 우승 가능성 희박",
+     "multiTeam": false
+    },
+    {
      "title": "[야구] 삼성 5-1 KT 누르고 2승 1패…우승 확률 88.9% 잡았다",
      "outlet": "매일신문",
      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE00TVB1eXVGQ0FNTFpLbjNLUW1DQ0FmZEVOTWdwd001TEczZi1aSkRwZEVncDBkXzBDZ1IxdFp0Wl93MDJDcy1JUFZDOERvZlVsbHdObFN5TDQtdGp2QkZMY3MzQ0NtQjRwY1lvS1FR0gFyQVVfeXFMTWxSWWdaUjhXMkxHVExVV3RVWHgtdGlCdlhyNm9oS1B3X3VfbGo3RXQ1NHZCU1E4T3VxTno1bHo0cXNzV3AtdHp2S3FtdWRBbVZYakZxN2J0cmhBOVI2WkhxOHRvVThETjlXc3gta2VxUEp3?oc=5",
      "publishedAt": "2026-11-06T12:29:00.000Z",
      "label": "neg",
      "score": -2,
-     "reason": "경기 패배 및 시리즈 열세",
+     "reason": "경기 패배",
      "multiTeam": false
     },
     {
@@ -748,7 +718,7 @@
      "publishedAt": "2026-11-06T08:00:00.000Z",
      "label": "neg",
      "score": -2,
-     "reason": "11연승 종료 및 패배, 팀 밸런스 붕괴에 대한 지적",
+     "reason": "연승 종료 및 투타 밸런스 붕괴에 따른 패배 충격",
      "multiTeam": false
     },
     {
@@ -758,17 +728,7 @@
      "publishedAt": "2026-11-06T08:00:00.000Z",
      "label": "neg",
      "score": -2,
-     "reason": "선발 소형준의 부진과 경기 패배",
-     "multiTeam": false
-    },
-    {
-     "title": "KT 위즈, 90승 1위 팀이 맞습니까 [한국시리즈]",
-     "outlet": "스포츠Q",
-     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9PY1JLdVFRM2lseHRiZHVKYXhDZlRXWW5wTmFGdlg2SUxQTnNYeFZiWGhsb1pOeGdHWG1td0RycEU3LW5YOEFiaGowYUNhM05QcFFfR3JQcmpaeDBBUl9qQlQtaTI4ZEt5b0E?oc=5",
-     "publishedAt": "2026-11-08T08:00:00.000Z",
-     "label": "neg",
-     "score": -1,
-     "reason": "한국시리즈에서의 기대 이하의 경기력 비판",
+     "reason": "경기 패배 및 투수 소형준의 부진",
      "multiTeam": false
     }
    ]
@@ -776,19 +736,19 @@
   {
    "teamId": "HH",
    "teamName": "한화",
-   "articleCount": 6,
-   "countedArticles": 6,
-   "singleTeamArticles": 4,
+   "articleCount": 5,
+   "countedArticles": 5,
+   "singleTeamArticles": 3,
    "multiTeamArticles": 2,
-   "posArticles": 4,
+   "posArticles": 5,
    "negArticles": 0,
-   "neuArticles": 2,
-   "positiveScore": 5,
+   "neuArticles": 0,
+   "positiveScore": 6,
    "negativeScore": 0,
-   "netScore": 5,
+   "netScore": 6,
    "topPositiveKeywords": [],
    "topNegativeKeywords": [],
-   "summary": "주요 언론 기사 6건 중 6건 팀 맥락 분석 (긍정 4 · 부정 0).",
+   "summary": "주요 언론 기사 5건 중 5건 팀 맥락 분석 (긍정 5 · 부정 0).",
    "articles": [
     {
      "title": "'허인서 대박' 한화, 포수 왕국으로 거듭나나…신임 사령탑 미소, \"굉장히 좋은 능력의 선수가 많더라\" [미야자키 현장]",
@@ -797,17 +757,7 @@
      "publishedAt": "2026-11-07T08:00:00.000Z",
      "label": "pos",
      "score": 2,
-     "reason": "허인서 등 포수진의 뛰어난 능력 확인 및 감독의 만족",
-     "multiTeam": false
-    },
-    {
-     "title": "'황성빈 박해민 정수빈' 한화 Ver. 찾는다…\"후보 있더라고요?\"",
-     "outlet": "스포츠조선",
-     "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE14SWx3Y3VnTlFHQzdXcnZPV2NXR3NUU3BWdUR5LUJ1Zk1OTVNIbXFpT1pLcWE4S2xqMDBPYnJvdzM5ZzdrazdLZDA0aWVLeENWZnpyUncxcC1yTWJpaVVXWUxvSjJTNXZZVHIwUzNkUS1YMGQ4THc3ZzlJZUVfQQ?oc=5",
-     "publishedAt": "2026-11-08T08:00:00.000Z",
-     "label": "pos",
-     "score": 1,
-     "reason": "기동력 있는 외야 자원 발굴에 대한 기대감",
+     "reason": "신인 포수 활약 및 포수진 전력 강화",
      "multiTeam": false
     },
     {
@@ -817,7 +767,17 @@
      "publishedAt": "2026-11-07T08:00:00.000Z",
      "label": "pos",
      "score": 1,
-     "reason": "신예 선수의 진지한 태도와 성장 가능성에 대한 기대",
+     "reason": "신예 선수의 성장 가능성과 감독의 기대감이 높게 나타남",
+     "multiTeam": false
+    },
+    {
+     "title": "양키스-필라델피아-피츠버그까지! '한화 307억 포기' 노시환 향한 뜨거운 관심…그런데 진짜 관건은 따로 있다",
+     "outlet": "조선일보",
+     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOWUxMbTQwcm9CaTFkQXhOZmlXSjJOQmpTdjhBTDFWNnFLRE9KY2lCekNPZGdBUG9xaWtqS2gweXhwYlVpY3hidm1fWlprUkFGaXdTRC1FeGZ0NW5ncUpheWhJSkFhWURFU0c1ZDcyd1g0X3h3cGdzVHhiZG1Jcm5ITUc4Zjd6b0JrMFFF?oc=5",
+     "publishedAt": "2026-11-06T08:00:00.000Z",
+     "label": "pos",
+     "score": 1,
+     "reason": "주축 선수 노시환에 대한 메이저리그의 뜨거운 관심",
      "multiTeam": false
     },
     {
@@ -827,17 +787,7 @@
      "publishedAt": "2026-11-06T08:00:00.000Z",
      "label": "pos",
      "score": 1,
-     "reason": "포수 자원의 풍부함과 긍정적인 평가",
-     "multiTeam": false
-    },
-    {
-     "title": "양키스-필라델피아-피츠버그까지! '한화 307억 포기' 노시환 향한 뜨거운 관심…그런데 진짜 관건은 따로 있다",
-     "outlet": "조선일보",
-     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOWUxMbTQwcm9CaTFkQXhOZmlXSjJOQmpTdjhBTDFWNnFLRE9KY2lCekNPZGdBUG9xaWtqS2gweXhwYlVpY3hidm1fWlprUkFGaXdTRC1FeGZ0NW5ncUpheWhJSkFhWURFU0c1ZDcyd1g0X3h3cGdzVHhiZG1Jcm5ITUc4Zjd6b0JrMFFF?oc=5",
-     "publishedAt": "2026-11-06T08:00:00.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "주요 선수 노시환에 대한 해외 관심",
+     "reason": "포수 자원 풍부 및 감독의 긍정적 평가",
      "multiTeam": false
     },
     {
@@ -845,9 +795,9 @@
      "outlet": "이데일리",
      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1wTE5OTDI4OWFZTDBjcGZQeGRxMHgxNlMwdVh2UG13WGRhR3dHaExZWXVBV3pQdHFOOFRnTHU4dGNjVGNNb3dSSGFTSXhFOTdGVTRMT0Y0MGNIV1lhaHpXSg?oc=5",
      "publishedAt": "2026-11-06T08:00:00.000Z",
-     "label": "neu",
-     "score": 0,
-     "reason": "문현빈 선수의 개인적인 각오와 도전",
+     "label": "pos",
+     "score": 1,
+     "reason": "문현빈 선수의 주전 경쟁을 위한 도전과 의지가 긍정적으로 묘사됨",
      "multiTeam": false
     }
    ]
